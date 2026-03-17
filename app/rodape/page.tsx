@@ -185,10 +185,10 @@ export default function FooterPreview() {
           </div>
 
           {/* Sub-footer: Security, Payments & Legal */}
-          <div className="border-t border-gray-200 pt-8 space-y-8">
+          <div className="border-t border-gray-200 pt-4 mt-8">
             
             {/* Policies */}
-            <div className="flex flex-wrap justify-center gap-x-2 gap-y-2 text-sm font-medium items-center pb-6 border-b border-gray-100">
+            <div className="flex flex-wrap justify-center gap-x-2 gap-y-2 text-sm font-medium items-center pb-4 border-b border-gray-100">
               <span className="font-bold text-gray-700 mr-1">Políticas:</span>
               <a href="#" className="hover:text-[#0D0C0D] transition-colors whitespace-nowrap">Envio</a>
               <span className="text-gray-300">|</span>
@@ -208,10 +208,10 @@ export default function FooterPreview() {
             </div>
 
             {/* Badges Row */}
-            <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-4 py-4">
               
               {/* Payments */}
-              <div className="flex flex-col items-center md:items-start gap-3">
+              <div className="flex flex-col items-center md:items-start gap-2">
                 <span className="text-xs font-semibold text-gray-500 uppercase tracking-wider">Pagamento Seguro</span>
                 <div className="flex flex-wrap justify-center md:justify-start gap-2 items-center">
                   <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" className="h-[22px] w-auto grayscale hover:grayscale-0 transition-all duration-300" />
@@ -223,7 +223,7 @@ export default function FooterPreview() {
               </div>
 
               {/* Security Badges */}
-              <div className="flex flex-col items-center md:items-end gap-3 w-full md:w-auto">
+              <div className="flex flex-col items-center md:items-end gap-2 w-full md:w-auto">
                 <div className="flex flex-wrap justify-center md:justify-end gap-1.5 md:gap-2 items-center">
                   <img src="https://cdn.shopify.com/s/images/badges/shopify-secure-badge-white.svg" alt="Shopify Secure" className="h-[24px] sm:h-[28px] md:h-[34px] w-auto border border-gray-200 rounded-md bg-white grayscale hover:grayscale-0 transition-all duration-300" />
                   <img src="https://cdn.shopify.com/s/files/1/0886/3596/5714/files/162134751179189.png?v=1725283377" alt="Site Seguro SSL" className="h-[24px] sm:h-[28px] md:h-[34px] w-auto border border-gray-200 rounded-md bg-white grayscale hover:grayscale-0 transition-all duration-300" />
@@ -235,7 +235,7 @@ export default function FooterPreview() {
             </div>
 
             {/* Legal Text */}
-            <div className="pt-8 mt-8 border-t border-gray-100 text-center text-xs text-gray-500">
+            <div className="pt-4 border-t border-gray-100 text-center text-xs text-gray-500">
               <p>© 2026 Bubbles Pet | CNPJ: 31.900.078/0001-96 | R. Fortunato Zilo, 238 - Vila Antonieta II, Lençóis Paulista - SP | CEP: 18681-200</p>
             </div>
 
