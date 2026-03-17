@@ -19,17 +19,17 @@ export default function FooterPreview() {
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           
           {/* Main Columns */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-x-8 gap-y-12 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-x-8 gap-y-8 mb-8">
             
             {/* Col 1: Produtos */}
-            <div className="space-y-4">
-              <h3 className="font-bold text-lg tracking-tight hidden md:block">Produtos</h3>
+            <div className="space-y-2">
+              <h3 className="font-bold text-base tracking-tight hidden md:block">Produtos</h3>
               <details className="group md:hidden border-b border-gray-100 pb-4">
-                <summary className="font-bold text-lg flex justify-between items-center cursor-pointer list-none">
+                <summary className="font-bold text-base flex justify-between items-center cursor-pointer list-none">
                   Produtos
                   <ChevronDown className="w-5 h-5 transition-transform group-open:rotate-180 text-gray-400" />
                 </summary>
-                <ul className="mt-4 space-y-3 text-gray-600">
+                <ul className="mt-3 space-y-1.5 text-sm text-gray-600">
                   <li><a href="#" className="hover:text-[#F4CDD4] transition-colors font-medium text-[#0D0C0D]">Todos os produtos</a></li>
                   <li><a href="#" className="hover:text-[#F4CDD4] transition-colors">Shampoos</a></li>
                   <li><a href="#" className="hover:text-[#F4CDD4] transition-colors">Máscaras</a></li>
@@ -44,7 +44,7 @@ export default function FooterPreview() {
                   <li><a href="#" className="group hover:text-[#0D0C0D] transition-colors flex items-center gap-2">Promoções <Tag className="w-4 h-4 text-[#F4CDD4] group-hover:text-[#0D0C0D] transition-colors" /></a></li>
                 </ul>
               </details>
-              <ul className="hidden md:block space-y-3 text-gray-600">
+              <ul className="hidden md:block space-y-1.5 text-sm text-gray-600">
                 <li><a href="#" className="hover:text-[#F4CDD4] transition-colors font-medium text-[#0D0C0D]">Todos os produtos</a></li>
                 <li><a href="#" className="hover:text-[#F4CDD4] transition-colors">Shampoos</a></li>
                 <li><a href="#" className="hover:text-[#F4CDD4] transition-colors">Máscaras</a></li>
@@ -61,14 +61,14 @@ export default function FooterPreview() {
             </div>
 
             {/* Col 2: Linhas Bubbles */}
-            <div className="space-y-4">
-              <h3 className="font-bold text-lg tracking-tight hidden md:block">Linhas Bubbles</h3>
+            <div className="space-y-2">
+              <h3 className="font-bold text-base tracking-tight hidden md:block">Linhas Bubbles</h3>
               <details className="group md:hidden border-b border-gray-100 pb-4">
-                <summary className="font-bold text-lg flex justify-between items-center cursor-pointer list-none">
+                <summary className="font-bold text-base flex justify-between items-center cursor-pointer list-none">
                   Linhas Bubbles
                   <ChevronDown className="w-5 h-5 transition-transform group-open:rotate-180 text-gray-400" />
                 </summary>
-                <ul className="mt-4 space-y-3 text-gray-600">
+                <ul className="mt-3 space-y-1.5 text-sm text-gray-600">
                   <li><a href="#" className="hover:text-[#F4CDD4] transition-colors">Ego PRO</a></li>
                   <li><a href="#" className="hover:text-[#F4CDD4] transition-colors">Basiq</a></li>
                   <li><a href="#" className="hover:text-[#F4CDD4] transition-colors">Essential</a></li>
@@ -77,7 +77,7 @@ export default function FooterPreview() {
                   <li><a href="#" className="hover:text-[#F4CDD4] transition-colors">Cappuccino</a></li>
                 </ul>
               </details>
-              <ul className="hidden md:block space-y-3 text-gray-600">
+              <ul className="hidden md:block space-y-1.5 text-sm text-gray-600">
                 <li><a href="#" className="hover:text-[#F4CDD4] transition-colors">Ego PRO</a></li>
                 <li><a href="#" className="hover:text-[#F4CDD4] transition-colors">Basiq</a></li>
                 <li><a href="#" className="hover:text-[#F4CDD4] transition-colors">Essential</a></li>
@@ -88,14 +88,14 @@ export default function FooterPreview() {
             </div>
 
             {/* Col 3: Sobre */}
-            <div className="space-y-4">
-              <h3 className="font-bold text-lg tracking-tight hidden md:block">Sobre</h3>
+            <div className="space-y-2">
+              <h3 className="font-bold text-base tracking-tight hidden md:block">Sobre</h3>
               <details className="group md:hidden border-b border-gray-100 pb-4">
-                <summary className="font-bold text-lg flex justify-between items-center cursor-pointer list-none">
+                <summary className="font-bold text-base flex justify-between items-center cursor-pointer list-none">
                   Sobre
                   <ChevronDown className="w-5 h-5 transition-transform group-open:rotate-180 text-gray-400" />
                 </summary>
-                <ul className="mt-4 space-y-3 text-gray-600">
+                <ul className="mt-3 space-y-1.5 text-sm text-gray-600">
                   <li><a href="https://www.bubbles.com.br/pages/quem-somos?" className="hover:text-[#F4CDD4] transition-colors">Quem somos</a></li>
                   <li><a href="https://www.encontre.bubbles.com.br/" className="hover:text-[#F4CDD4] transition-colors">Onde encontrar</a></li>
                   <li><a href="#" className="hover:text-[#F4CDD4] transition-colors">Blog Bubbles</a></li>
@@ -103,7 +103,7 @@ export default function FooterPreview() {
                   <li><a href="#" className="hover:text-[#F4CDD4] transition-colors">Quero ser distribuidor</a></li>
                 </ul>
               </details>
-              <ul className="hidden md:block space-y-3 text-gray-600">
+              <ul className="hidden md:block space-y-1.5 text-sm text-gray-600">
                 <li><a href="https://www.bubbles.com.br/pages/quem-somos?" className="hover:text-[#F4CDD4] transition-colors">Quem somos</a></li>
                 <li><a href="https://www.encontre.bubbles.com.br/" className="hover:text-[#F4CDD4] transition-colors">Onde encontrar</a></li>
                 <li><a href="#" className="hover:text-[#F4CDD4] transition-colors">Blog Bubbles</a></li>
@@ -111,9 +111,9 @@ export default function FooterPreview() {
                 <li><a href="#" className="hover:text-[#F4CDD4] transition-colors">Quero ser distribuidor</a></li>
               </ul>
 
-              <div className="pt-6">
-                <h3 className="font-bold text-lg tracking-tight mb-2">Minha conta</h3>
-                <div className="space-y-3 text-sm text-gray-600">
+              <div className="pt-4">
+                <h3 className="font-bold text-base tracking-tight mb-2">Minha conta</h3>
+                <div className="space-y-1.5 text-sm text-gray-600">
                   <p><a href="#" className="hover:text-[#F4CDD4] transition-colors font-medium">Entrar ou Cadastrar</a></p>
                   <p><a href="#" className="hover:text-[#F4CDD4] transition-colors font-medium">Meus pedidos</a></p>
                   <p><a href="#" className="hover:text-[#F4CDD4] transition-colors font-medium">Cadastrar na newsletter</a></p>
@@ -122,11 +122,11 @@ export default function FooterPreview() {
             </div>
 
             {/* Col 4: Atendimento */}
-            <div className="space-y-6 bg-gray-50 p-6 rounded-2xl md:bg-transparent md:p-0 md:rounded-none">
+            <div className="space-y-4 bg-gray-50 p-6 rounded-2xl md:bg-transparent md:p-0 md:rounded-none">
               <div>
-                <h3 className="font-bold text-lg tracking-tight mb-2">Contato</h3>
-                <p className="text-sm text-gray-500 mb-4">Entendemos a rotina do seu banho e tosa.</p>
-                <div className="space-y-3 text-sm text-gray-600">
+                <h3 className="font-bold text-base tracking-tight mb-2">Contato</h3>
+                <p className="text-sm text-gray-500 mb-3">Entendemos a rotina do seu banho e tosa.</p>
+                <div className="space-y-1.5 text-sm text-gray-600">
                   <p>
                     <a href="https://www.bubbles.com.br/pages/contact/" className="group hover:text-[#0D0C0D] transition-colors font-medium flex items-center gap-2">
                       <MessageCircle className="w-5 h-5 text-[#F4CDD4] group-hover:text-[#0D0C0D] transition-colors" />
