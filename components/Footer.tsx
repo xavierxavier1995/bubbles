@@ -56,21 +56,17 @@ export default function Footer() {
                 <ChevronDown className="w-5 h-5 transition-transform group-open:rotate-180 text-gray-400" />
               </summary>
               <ul className="mt-3 space-y-1.5 text-sm text-gray-600">
-                <li><a href="#" className="hover:text-[#F4CDD4] transition-colors">Ego PRO</a></li>
-                <li><a href="#" className="hover:text-[#F4CDD4] transition-colors">Basiq</a></li>
+                <li><a href="#" className="hover:text-[#F4CDD4] transition-colors">PRO</a></li>
                 <li><a href="#" className="hover:text-[#F4CDD4] transition-colors">Essential</a></li>
                 <li><a href="#" className="hover:text-[#F4CDD4] transition-colors">Xperience</a></li>
                 <li><a href="#" className="hover:text-[#F4CDD4] transition-colors">Collora</a></li>
-                <li><a href="#" className="hover:text-[#F4CDD4] transition-colors">Cappuccino</a></li>
               </ul>
             </details>
             <ul className="hidden md:block space-y-1.5 text-sm text-gray-600">
-              <li><a href="#" className="hover:text-[#F4CDD4] transition-colors">Ego PRO</a></li>
-              <li><a href="#" className="hover:text-[#F4CDD4] transition-colors">Basiq</a></li>
+              <li><a href="#" className="hover:text-[#F4CDD4] transition-colors">PRO</a></li>
               <li><a href="#" className="hover:text-[#F4CDD4] transition-colors">Essential</a></li>
               <li><a href="#" className="hover:text-[#F4CDD4] transition-colors">Xperience</a></li>
               <li><a href="#" className="hover:text-[#F4CDD4] transition-colors">Collora</a></li>
-              <li><a href="#" className="hover:text-[#F4CDD4] transition-colors">Cappuccino</a></li>
             </ul>
           </div>
 
@@ -112,7 +108,7 @@ export default function Footer() {
           <div className="space-y-4 bg-gray-50 p-6 rounded-2xl md:bg-transparent md:p-0 md:rounded-none">
             <div>
               <h3 className="font-bold text-base tracking-tight mb-2">Contato</h3>
-              <p className="text-sm text-gray-500 mb-3">Entendemos a rotina do seu banho e tosa.</p>
+              <p className="text-sm text-gray-500 mb-3">Entendemos a rotina do seu banho e tosa. Conte com a nossa equipe para te apoiar no que precisar, estamos aqui por você.</p>
               <div className="space-y-1.5 text-sm text-gray-600">
                 <p>
                   <a href="https://www.bubbles.com.br/pages/contact/" className="group hover:text-[#0D0C0D] transition-colors font-medium flex items-center gap-2">

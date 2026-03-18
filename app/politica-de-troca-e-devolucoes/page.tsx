@@ -231,7 +231,7 @@ export default function ReturnPolicy() {
                 <ChevronDown className="w-5 h-5 transition duration-300 group-open:-rotate-180" />
               </summary>
               <div className="px-6 pb-6 text-gray-600 leading-relaxed">
-                Trocas por insatisfação com o resultado técnico devem ser precedidas de uma consultoria com nosso suporte humanizado. Muitas vezes, um simples ajuste na diluição (ex: <strong>1:10 na Linha Ego</strong>) ou no modo de aplicação (como o uso do <strong>Spray Preparo na Linha Collora</strong>) resolve a questão. Não trocamos produtos abertos com mais de 10% de uso.
+                Trocas por insatisfação com o resultado técnico devem ser precedidas de uma consultoria com nosso suporte humanizado. Muitas vezes, um simples ajuste na diluição (ex: <strong>1:10 na Linha Ego / Pro</strong>) ou no modo de aplicação (como o uso do <strong>Spray Preparo na Linha Collora</strong>) resolve a questão. Não trocamos produtos abertos com mais de 10% de uso.
               </div>
             </details>
             <details className="group bg-white border border-gray-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden">

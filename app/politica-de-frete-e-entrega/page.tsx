@@ -174,7 +174,7 @@ export default function ShippingPolicy() {
               </div>
               <h3 className="text-xl font-bold mb-4 text-red-800">Logística de Galões (5L)</h3>
               <p className="text-red-700 mb-6 leading-relaxed flex-grow">
-                Sabemos que galões de 5L pesam cerca de 5,2 kg e exigem cuidado redobrado. Desenvolvemos uma inteligência de cubagem e embalagem para que os produtos das linhas Ego, Basiq, Sensorial e Collora não estourem no transporte:
+                Sabemos que galões de 5L pesam cerca de 5,2 kg e exigem cuidado redobrado. Desenvolvemos uma inteligência de cubagem e embalagem para que os produtos das linhas Ego / Pro, Basiq, Sensorial e Collora não estourem no transporte:
               </p>
               <ul className="space-y-3 text-sm text-red-800">
                 <li className="flex items-start gap-2">

@@ -59,7 +59,7 @@ export default function TermsOfService() {
               </p>
               <div className="bg-gray-50 p-6 rounded-2xl border border-gray-100 mt-4 space-y-4">
                 <p className="text-gray-700 leading-relaxed">
-                  Você declara estar ciente de que os produtos das linhas <strong>Ego, Basiq e Collora</strong> devem seguir rigorosamente o modo de uso técnico indicado nos rótulos e materiais de apoio (ex: <strong>diluição obrigatória de 1:10</strong> e uso do <strong>Spray Preparo</strong>).
+                  Você declara estar ciente de que os produtos das linhas <strong>Ego / Pro, Basiq e Collora</strong> devem seguir rigorosamente o modo de uso técnico indicado nos rótulos e materiais de apoio (ex: <strong>diluição obrigatória de 1:10</strong> e uso do <strong>Spray Preparo</strong>).
                 </p>
                 <div className="bg-white p-4 rounded-xl border-l-4 border-[#0D0C0D] text-sm text-gray-600">
                   <strong>Isenção de Responsabilidade:</strong> A Bubbles isenta-se de qualquer responsabilidade por danos, reações ou resultados insatisfatórios decorrentes do <strong>uso inadequado, falta de diluição correta ou armazenamento impróprio</strong> dos produtos por parte do comprador.
@@ -92,7 +92,7 @@ export default function TermsOfService() {
             <div className="space-y-4">
               <h2 className="text-2xl font-bold">4. Propriedade Intelectual</h2>
               <p className="text-gray-700 leading-relaxed">
-                Todos os ativos da Bubbles — incluindo <strong>logotipos, fotos das linhas, textos descritivos, vídeos e fórmulas</strong> — são de nossa propriedade exclusiva e protegidos por leis de direitos autorais.
+                Todos os ativos da Bubbles, incluindo <strong>logotipos, fotos das linhas, textos descritivos, vídeos e fórmulas</strong>, são de nossa propriedade exclusiva e protegidos por leis de direitos autorais.
               </p>
               <p className="text-gray-700 leading-relaxed">
                 É <strong>proibida a cópia, reprodução ou uso comercial não autorizado</strong> de qualquer material do nosso site ou redes sociais sem consentimento prévio por escrito.

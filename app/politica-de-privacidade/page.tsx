@@ -48,7 +48,7 @@ export default function PrivacyPolicy() {
                 </li>
                 <li className="flex items-start gap-3">
                   <div className="w-1.5 h-1.5 rounded-full bg-[#F4CDD4] mt-2 shrink-0"></div>
-                  <span><strong>Dados dos Pets (Raça e Tipo de Pelo):</strong> Nosso diferencial. Usamos essas informações para enviar <strong>dicas educativas personalizadas</strong> de uso e diluição das linhas <strong>Ego e Basiq</strong>, ajudando você a extrair a máxima performance no banho e tosa.</span>
+                  <span><strong>Dados dos Pets (Raça e Tipo de Pelo):</strong> Nosso diferencial. Usamos essas informações para enviar <strong>dicas educativas personalizadas</strong> de uso e diluição das linhas <strong>Ego / Pro e Basiq</strong>, ajudando você a extrair a máxima performance no banho e tosa.</span>
                 </li>
               </ul>
             </div>

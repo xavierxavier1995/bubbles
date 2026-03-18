@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import DilutionCalculator from '@/components/DilutionCalculator';
+import { DilutionCalculator } from '@/components/DilutionCalculator';
 import { Beaker, Droplets, AlertTriangle, ShieldCheck, CheckCircle2, Package, ArrowRight, MessageCircle, FlaskConical, Sparkles, TrendingUp, Shield, Info } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -23,20 +23,49 @@ export default function DilutionGuide() {
         </div>
       </nav>
 
-      <main className="max-w-6xl mx-auto px-6 md:px-12 py-16 space-y-24">
+      <main className="max-w-6xl mx-auto px-6 md:px-12 py-8 space-y-16">
         
         {/* Hero Section */}
-        <section className="text-center space-y-6 max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#F4CDD4]/30 text-[#0D0C0D] text-sm font-bold mb-4">
-            <FlaskConical className="w-4 h-4" />
-            <span>Guia Profissional</span>
+        <section className="grid md:grid-cols-2 gap-8 items-center max-w-5xl mx-auto">
+          <div className="space-y-4 text-left">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#F4CDD4]/30 text-[#0D0C0D] text-sm font-bold">
+              <FlaskConical className="w-4 h-4" />
+              <span>Guia Profissional</span>
+            </div>
+            <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-[#0D0C0D] leading-tight">
+              Máximo Rendimento com Segurança Total
+            </h1>
+            <p className="text-base md:text-lg text-gray-600 leading-relaxed">
+              A diluição inteligente da Bubbles transforma galões em centenas de banhos lucrativos. Aprenda a preparar seus produtos garantindo a saúde dos pets e o lucro do seu banho e tosa.
+            </p>
           </div>
-          <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight text-[#0D0C0D] leading-tight">
-            Máximo Rendimento com Segurança Total
-          </h1>
-          <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
-            A diluição inteligente da Bubbles transforma galões em centenas de banhos lucrativos. Aprenda a preparar seus produtos garantindo a saúde dos pets e o lucro do seu banho e tosa.
-          </p>
+          
+          <div className="bg-gray-50 rounded-3xl p-6 md:p-8 border border-gray-100 flex items-center justify-between text-center shadow-sm">
+            <div className="flex flex-col items-center gap-3">
+              <div className="w-12 h-16 bg-[#F4CDD4]/30 border border-[#F4CDD4] rounded-b-md rounded-t-sm flex items-end justify-center pb-0.5">
+                <div className="w-full h-1/4 bg-[#F4CDD4]/80 rounded-b-sm"></div>
+              </div>
+              <span className="text-xs font-bold text-gray-500 uppercase tracking-wider">Produto</span>
+            </div>
+            
+            <div className="text-2xl font-black text-gray-300">+</div>
+            
+            <div className="flex flex-col items-center gap-3">
+              <div className="w-12 h-16 bg-blue-50 border border-blue-200 rounded-b-md rounded-t-sm flex items-end justify-center pb-0.5">
+                <div className="w-full h-3/4 bg-blue-300/50 rounded-b-sm"></div>
+              </div>
+              <span className="text-xs font-bold text-gray-500 uppercase tracking-wider">Água</span>
+            </div>
+            
+            <div className="text-2xl font-black text-gray-300">=</div>
+            
+            <div className="flex flex-col items-center gap-3">
+              <div className="w-16 h-20 bg-green-50 border border-green-200 rounded-b-lg rounded-t-sm flex items-end justify-center pb-1">
+                <div className="w-full h-full bg-green-300/50 rounded-b-md"></div>
+              </div>
+              <span className="text-xs font-bold text-gray-500 uppercase tracking-wider">Rendimento</span>
+            </div>
+          </div>
         </section>
 
         {/* SECTION 2: Calculadora de Diluição (Moved Up) */}
