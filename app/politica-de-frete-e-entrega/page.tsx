@@ -29,7 +29,7 @@ export default function ShippingPolicy() {
             Política de Entrega e Frete
           </h1>
           <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
-            Na Bubbles, priorizamos a segurança e a agilidade para que o seu banho e tosa nunca fique desabastecido. Utilizamos inteligência logística para garantir que produtos pesados cheguem intactos.
+            Na Bubbles, priorizamos a segurança e a agilidade para que o seu banho e tosa nunca fique desabastecido. Contamos com uma logística inteligente para que seus produtos cheguem com segurança, no prazo e prontos para uso.
           </p>
         </section>
 
@@ -38,7 +38,7 @@ export default function ShippingPolicy() {
           <div className="space-y-6">
             <h2 className="text-3xl font-bold tracking-tight">Frete Grátis por Região</h2>
             <p className="text-gray-600">
-              Planeje seus pedidos e aproveite nossas condições especiais de frete grátis. Entregamos em todo o Brasil com as melhores transportadoras.
+              Faça seus pedidos e aproveite nossas condições especiais de frete grátis. Entregamos em todo o Brasil com as melhores condições.
             </p>
             
             <div className="bg-white border border-gray-100 rounded-2xl shadow-sm overflow-hidden">
@@ -46,7 +46,7 @@ export default function ShippingPolicy() {
                 <thead>
                   <tr className="bg-[#F4CDD4]/20">
                     <th className="py-4 px-6 font-semibold text-[#0D0C0D]">Região</th>
-                    <th className="py-4 px-6 font-semibold text-[#0D0C0D]">Condição</th>
+                    <th className="py-4 px-6 font-semibold text-[#0D0C0D]">Frete Grátis</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-100">
@@ -74,7 +74,7 @@ export default function ShippingPolicy() {
               </table>
             </div>
             <div className="mt-4 p-4 bg-gray-50 rounded-xl border border-gray-100 text-sm text-gray-600 leading-relaxed">
-              <strong>Importante:</strong> O prazo de <strong>até 3 dias úteis</strong> refere-se ao tempo de faturamento e despacho na nossa fábrica. O prazo total de entrega até o seu banho e tosa varia conforme a transportadora selecionada pela nossa parceira logística (Mandaê) para a sua região específica.
+              <strong>Importante:</strong> O pedido pode levar até 3 dias úteis para ser faturado e despachado. Após essa etapa, o prazo de entrega até o seu banho e tosa varia conforme a transportadora definida pela nossa parceira logística, de acordo com a sua região.
             </div>
           </div>
           
@@ -112,7 +112,7 @@ export default function ShippingPolicy() {
             </div>
             <h3 className="text-2xl font-bold relative z-10">Segurança no Transporte</h3>
             <p className="text-gray-700 leading-relaxed relative z-10">
-              Destaque para o uso de <strong>embalagem reforçada anti-vazamento</strong>, garantindo a integridade total dos nossos galões de 5L até a sua porta.
+              Utilizamos embalagens reforçadas para garantir que seus produtos cheguem intactos e em perfeitas condições até você.
             </p>
             <div className="absolute -bottom-12 -right-12 w-64 h-64 bg-white rounded-full opacity-50 group-hover:scale-110 transition-transform duration-700"></div>
           </div>
@@ -168,25 +168,25 @@ export default function ShippingPolicy() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {/* Logística de Galões (5L) */}
-            <div className="bg-white border border-gray-200 rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col h-full">
-              <div className="w-12 h-12 bg-[#F4CDD4]/20 rounded-2xl flex items-center justify-center mb-6 text-[#0D0C0D]">
+            <div className="bg-red-50 border border-red-200 rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col h-full">
+              <div className="w-12 h-12 bg-red-100 rounded-2xl flex items-center justify-center mb-6 text-red-600">
                 <Package className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-bold mb-4">Logística de Galões (5L)</h3>
-              <p className="text-gray-600 mb-6 leading-relaxed flex-grow">
+              <h3 className="text-xl font-bold mb-4 text-red-800">Logística de Galões (5L)</h3>
+              <p className="text-red-700 mb-6 leading-relaxed flex-grow">
                 Sabemos que galões de 5L pesam cerca de 5,2 kg e exigem cuidado redobrado. Desenvolvemos uma inteligência de cubagem e embalagem para que os produtos das linhas Ego, Basiq, Sensorial e Collora não estourem no transporte:
               </p>
-              <ul className="space-y-3 text-sm text-gray-700">
+              <ul className="space-y-3 text-sm text-red-800">
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-green-600 mt-0.5 shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-red-600 mt-0.5 shrink-0" />
                   <span><strong>Caixas Reforçadas:</strong> Papelão de alta gramatura que suporta empilhamento.</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-green-600 mt-0.5 shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-red-600 mt-0.5 shrink-0" />
                   <span><strong>Travas de Segurança:</strong> Tampas com lacre industrial e fitas de contenção.</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-green-600 mt-0.5 shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-red-600 mt-0.5 shrink-0" />
                   <span><strong>Acomodação Milimétrica:</strong> Evita atrito interno durante o trajeto.</span>
                 </li>
               </ul>
@@ -292,7 +292,7 @@ export default function ShippingPolicy() {
                 <ChevronDown className="w-5 h-5 transition duration-300 group-open:-rotate-180" />
               </summary>
               <div className="px-6 pb-6 text-gray-600 leading-relaxed">
-                Para sua segurança e devido à agilidade do nosso faturamento, não é possível alterar o endereço após a conclusão do pedido.
+                Caso precise alterar o endereço, entre em contato com nosso atendimento pelo WhatsApp. A alteração pode ser realizada desde que o pedido ainda não tenha sido faturado.
               </div>
             </details>
             <details className="group bg-white border border-gray-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden">
@@ -311,15 +311,6 @@ export default function ShippingPolicy() {
               </summary>
               <div className="px-6 pb-6 text-gray-600 leading-relaxed">
                 Verifique primeiro com vizinhos, funcionários ou na portaria. Caso realmente não encontre, contate nosso suporte via WhatsApp imediatamente.
-              </div>
-            </details>
-            <details className="group bg-white border border-gray-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden">
-              <summary className="flex cursor-pointer items-center justify-between gap-1.5 p-6 text-[#0D0C0D] font-bold">
-                Como os galões de 5L são embalados para não vazar?
-                <ChevronDown className="w-5 h-5 transition duration-300 group-open:-rotate-180" />
-              </summary>
-              <div className="px-6 pb-6 text-gray-600 leading-relaxed">
-                Utilizamos caixas de papelão reforçadas e fitas de segurança industriais, além de travas nas tampas, garantindo que o produto chegue intacto ao seu banho e tosa.
               </div>
             </details>
             <details className="group bg-white border border-gray-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden">
@@ -367,7 +358,7 @@ export default function ShippingPolicy() {
 
           <div className="flex-1 flex flex-col items-start md:items-end space-y-6 border-t md:border-t-0 md:border-l border-white/10 pt-8 md:pt-0 md:pl-12 w-full">
             <div className="space-y-4 w-full">
-              <a href="#" className="group flex items-center justify-between w-full p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors border border-white/10">
+              <a href="https://wa.me/5514996312932?text=Olá,%20preciso%20de%20ajuda" target="_blank" rel="noopener noreferrer" className="group flex items-center justify-between w-full p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors border border-white/10">
                 <div className="flex items-center gap-3">
                   <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-[#F4CDD4]"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
                   <span className="font-medium">Precisa de ajuda? Fale no WhatsApp</span>

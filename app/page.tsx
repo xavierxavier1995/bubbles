@@ -35,6 +35,14 @@ export default function ProjectHub() {
       status: 'Concluído',
       statusColor: 'bg-green-100 text-green-700'
     },
+    {
+      title: 'Guia de Diluição',
+      path: '/diluicao',
+      description: 'Calculadora e guia prático para máxima rentabilidade e segurança.',
+      icon: FileText,
+      status: 'Novo',
+      statusColor: 'bg-blue-100 text-blue-700'
+    },
   ];
 
   return (
