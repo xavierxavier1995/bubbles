@@ -54,7 +54,7 @@ export default function DilutionGuide() {
           <div className="text-center max-w-3xl mx-auto space-y-4">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Por que a diluição é fundamental?</h2>
             <p className="text-lg text-gray-600 leading-relaxed">
-              A diluição de cosméticos pet é uma prática essencial para profissionais de banho e tosa que buscam aliar alta rentabilidade à segurança dermatológica dos animais. Os produtos da Bubbles são formulados com <strong>alta concentração de ativos cosméticos</strong>.
+              A diluição de cosméticos pet é uma prática essencial para profissionais de banho e tosa que buscam aliar alta rentabilidade à segurança dermatológica dos animais. Os produtos da Bubbles são formulados com <strong>alta concentração de ativos cosméticos</strong>, o que significa que a água é o veículo que ativa sua verdadeira performance.
             </p>
           </div>
 
@@ -65,7 +65,7 @@ export default function DilutionGuide() {
               </div>
               <h3 className="text-xl font-bold mb-3">Ativação Química</h3>
               <p className="text-gray-600 leading-relaxed">
-                Adicionar água na proporção correta "ativa" o produto, garantindo a espalhabilidade ideal, limpeza profunda sem agressão e a liberação correta da fragrância.
+                Adicionar água na proporção correta &quot;ativa&quot; o produto, garantindo a espalhabilidade ideal, limpeza profunda sem agressão e a liberação correta da fragrância. A água funciona como um condutor para os nutrientes penetrarem na pelagem.
               </p>
             </div>
             <div className="bg-gray-50 rounded-3xl p-8 border border-gray-100 hover:border-[#F4CDD4] transition-colors">
@@ -74,7 +74,7 @@ export default function DilutionGuide() {
               </div>
               <h3 className="text-xl font-bold mb-3">Rentabilidade Extrema</h3>
               <p className="text-gray-600 leading-relaxed">
-                Um galão de 5L da linha Ego (1:10), por exemplo, se transforma em até 55 litros de produto pronto para uso. Isso reduz drasticamente o custo por banho.
+                Um galão de 5L da linha Ego / Pro (1:10), por exemplo, se transforma em até 55 litros de produto pronto para uso. Isso reduz drasticamente o custo por banho, aumentando a margem de lucro do seu negócio sem perder qualidade.
               </p>
             </div>
             <div className="bg-gray-50 rounded-3xl p-8 border border-gray-100 hover:border-[#F4CDD4] transition-colors">
@@ -83,7 +83,7 @@ export default function DilutionGuide() {
               </div>
               <h3 className="text-xl font-bold mb-3">Enxágue Rápido</h3>
               <p className="text-gray-600 leading-relaxed">
-                Produtos diluídos corretamente não deixam resíduos pesados na pelagem. Isso significa um enxágue muito mais rápido, economizando água e tempo de secador.
+                Produtos diluídos corretamente não deixam resíduos pesados na pelagem. Isso significa um enxágue muito mais rápido, economizando água, energia elétrica e tempo de secador, além de evitar alergias por acúmulo de produto.
               </p>
             </div>
           </div>
@@ -95,7 +95,7 @@ export default function DilutionGuide() {
               <div>
                 <strong className="block text-xl text-red-900 mb-2">Diluir MENOS que o indicado:</strong>
                 <p className="text-red-800 leading-relaxed">
-                  Causa desperdício de produto e <strong>pode irritar a pele do pet</strong> (coceiras e vermelhidão) devido ao excesso de concentração de ativos que não foram ativados corretamente pela água.
+                  Causa desperdício de produto e <strong>pode irritar a pele do pet</strong> (coceiras e vermelhidão) devido ao excesso de concentração de ativos que não foram ativados corretamente pela água. O pelo pode ficar pesado e opaco.
                 </p>
               </div>
             </div>
@@ -105,7 +105,7 @@ export default function DilutionGuide() {
               <div>
                 <strong className="block text-xl text-orange-900 mb-2">Diluir MAIS que o indicado:</strong>
                 <p className="text-orange-800 leading-relaxed">
-                  Reduz drasticamente a eficácia da limpeza, o poder de hidratação e a fixação do perfume no pelo do animal, comprometendo a qualidade do seu serviço.
+                  Reduz drasticamente a eficácia da limpeza, o poder de hidratação e a fixação do perfume no pelo do animal, comprometendo a qualidade do seu serviço e a satisfação do cliente.
                 </p>
               </div>
             </div>
