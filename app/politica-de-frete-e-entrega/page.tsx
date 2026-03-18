@@ -386,19 +386,6 @@ export default function ShippingPolicy() {
         </section>
 
       </main>
-
-      {/* Footer */}
-      <footer className="border-t border-gray-100 bg-gray-50 py-12 mt-12">
-        <div className="max-w-5xl mx-auto px-6 md:px-12 flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="flex items-center gap-2 opacity-50 grayscale">
-            <Package className="w-6 h-6" />
-            <span className="font-bold tracking-tight">Enviado via Mandaê</span>
-          </div>
-          <p className="text-sm text-gray-500">
-            © {new Date().getFullYear()} Bubbles Pet Profissional. Todos os direitos reservados.
-          </p>
-        </div>
-      </footer>
     </div>
   );
 }

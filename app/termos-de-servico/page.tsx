@@ -129,19 +129,6 @@ export default function TermsOfService() {
 
         </div>
       </main>
-
-      {/* Footer */}
-      <footer className="border-t border-gray-100 bg-gray-50 py-12 mt-12">
-        <div className="max-w-4xl mx-auto px-6 md:px-12 flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="flex items-center gap-2 text-gray-400">
-            <Heart className="w-5 h-5" />
-            <span className="font-medium text-sm">Feito com cuidado para o mercado Pet</span>
-          </div>
-          <p className="text-sm text-gray-500">
-            © {new Date().getFullYear()} Bubbles Pet Profissional. Todos os direitos reservados.
-          </p>
-        </div>
-      </footer>
     </div>
   );
 }
