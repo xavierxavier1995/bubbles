@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { LayoutTemplate, FileText, ArrowRight, Sparkles, RefreshCcw } from 'lucide-react';
+import { LayoutTemplate, FileText, ArrowRight, Sparkles, RefreshCcw, ShieldCheck, Gavel } from 'lucide-react';
 
 export default function ProjectHub() {
   const pages = [
@@ -19,7 +19,22 @@ export default function ProjectHub() {
       status: 'Concluído',
       statusColor: 'bg-green-100 text-green-700'
     },
-    // Future pages will be added here
+    {
+      title: 'Política de Privacidade',
+      path: '/politica-de-privacidade',
+      description: 'Página de transparência, LGPD e segurança de dados.',
+      icon: ShieldCheck,
+      status: 'Concluído',
+      statusColor: 'bg-green-100 text-green-700'
+    },
+    {
+      title: 'Termos de Serviço e Segurança',
+      path: '/termos-de-servico',
+      description: 'Página de regras de uso, blindagem e proteção B2B.',
+      icon: Gavel,
+      status: 'Concluído',
+      statusColor: 'bg-green-100 text-green-700'
+    },
   ];
 
   return (
