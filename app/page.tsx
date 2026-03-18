@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { LayoutTemplate, FileText, ArrowRight, Sparkles } from 'lucide-react';
+import { LayoutTemplate, FileText, ArrowRight, Sparkles, RefreshCcw } from 'lucide-react';
 
 export default function ProjectHub() {
   const pages = [
@@ -8,6 +8,14 @@ export default function ProjectHub() {
       path: '/politica-de-frete-e-entrega',
       description: 'Página de regras de frete, prazos e rastreamento.',
       icon: TruckIcon,
+      status: 'Concluído',
+      statusColor: 'bg-green-100 text-green-700'
+    },
+    {
+      title: 'Política de Troca e Devoluções',
+      path: '/politica-de-troca-e-devolucoes',
+      description: 'Página de regras de troca, devolução e reembolso.',
+      icon: RefreshCcw,
       status: 'Concluído',
       statusColor: 'bg-green-100 text-green-700'
     },

@@ -73,6 +73,9 @@ export default function ShippingPolicy() {
                 </tbody>
               </table>
             </div>
+            <div className="mt-4 p-4 bg-gray-50 rounded-xl border border-gray-100 text-sm text-gray-600 leading-relaxed">
+              <strong>Importante:</strong> O prazo de <strong>até 3 dias úteis</strong> refere-se ao tempo de faturamento e despacho na nossa fábrica. O prazo total de entrega até o seu banho e tosa varia conforme a transportadora selecionada pela nossa parceira logística (Mandaê) para a sua região específica.
+            </div>
           </div>
           
           <div className="relative h-[400px] rounded-3xl overflow-hidden bg-gray-100">
@@ -156,200 +159,185 @@ export default function ShippingPolicy() {
           </div>
         </section>
 
-        {/* Políticas de Troca e Devolução */}
+        {/* Novas Seções Estratégicas B2B */}
         <section className="space-y-12 pt-12 border-t border-gray-100">
           <div className="text-center max-w-2xl mx-auto space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F4CDD4]/30 text-[#0D0C0D] text-sm font-semibold mb-2">
-              <RefreshCcw className="w-4 h-4" />
-              <span>Trocas e Devoluções</span>
-            </div>
-            <h2 className="text-3xl font-bold tracking-tight">Política de Troca e Devoluções</h2>
-            <p className="text-gray-600">Transparência e segurança para você e seu pet shop.</p>
+            <h2 className="text-3xl font-bold tracking-tight">Compromisso com o seu Banho e Tosa</h2>
+            <p className="text-gray-600">Entendemos que a sua agenda não pode parar. Veja como garantimos a segurança do seu estoque.</p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Direito de Arrependimento */}
-            <div className="bg-gray-50 rounded-3xl p-8 space-y-4">
-              <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-sm">
-                <Calendar className="w-6 h-6 text-[#0D0C0D]" />
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Logística de Galões (5L) */}
+            <div className="bg-white border border-gray-200 rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col h-full">
+              <div className="w-12 h-12 bg-[#F4CDD4]/20 rounded-2xl flex items-center justify-center mb-6 text-[#0D0C0D]">
+                <Package className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-bold">Direito de Arrependimento (7 Dias)</h3>
-              <p className="text-gray-700 leading-relaxed">
-                Conforme o Código de Defesa do Consumidor, o prazo para desistência é de <strong>7 dias corridos</strong> após o recebimento.
+              <h3 className="text-xl font-bold mb-4">Logística de Galões (5L)</h3>
+              <p className="text-gray-600 mb-6 leading-relaxed flex-grow">
+                Sabemos que galões de 5L pesam cerca de 5,2 kg e exigem cuidado redobrado. Desenvolvemos uma inteligência de cubagem e embalagem para que os produtos das linhas Ego, Basiq, Sensorial e Collora não estourem no transporte:
               </p>
-              <div className="bg-white p-4 rounded-xl border border-gray-100 text-sm text-gray-600">
-                <strong className="text-[#0D0C0D]">Condição:</strong> O produto deve estar lacrado, sem uso e em embalagem original. Brindes e amostras de campanhas devem ser devolvidos junto ao pedido.
-              </div>
-            </div>
-
-            {/* Protocolo de Avarias e Vícios */}
-            <div className="bg-gray-50 rounded-3xl p-8 space-y-4">
-              <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-sm">
-                <ShieldAlert className="w-6 h-6 text-[#0D0C0D]" />
-              </div>
-              <h3 className="text-xl font-bold">Protocolo de Avarias e Vícios (Segurança Industrial)</h3>
-              <p className="text-sm text-gray-700 leading-relaxed">
-                <strong className="text-[#0D0C0D]">No Recebimento:</strong> Caso a embalagem apresente danos ou vazamentos visíveis (mesmo com nossa embalagem reforçada), recuse a entrega e anote o motivo no verso da nota fiscal.
-              </p>
-              <p className="text-sm text-gray-700 leading-relaxed">
-                <strong className="text-[#0D0C0D]">Vício Oculto:</strong> Prazo de 30 dias para relatar defeitos de fabricação que não decorram de mau uso profissional.
-              </p>
-            </div>
-
-            {/* Como Solicitar */}
-            <div className="bg-gray-50 rounded-3xl p-8 space-y-4">
-              <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-sm">
-                <Smartphone className="w-6 h-6 text-[#0D0C0D]" />
-              </div>
-              <h3 className="text-xl font-bold">Como Solicitar</h3>
-              <ul className="space-y-3 text-gray-700">
-                <li className="flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-[#F4CDD4]/30 flex items-center justify-center text-sm font-bold shrink-0">1</div>
-                  <span>Acesse "Meus Pedidos" no seu Perfil.</span>
+              <ul className="space-y-3 text-sm text-gray-700">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-green-600 mt-0.5 shrink-0" />
+                  <span><strong>Caixas Reforçadas:</strong> Papelão de alta gramatura que suporta empilhamento.</span>
                 </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-[#F4CDD4]/30 flex items-center justify-center text-sm font-bold shrink-0">2</div>
-                  <span>Clique em "Solicitar Troca/Devolução".</span>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-green-600 mt-0.5 shrink-0" />
+                  <span><strong>Travas de Segurança:</strong> Tampas com lacre industrial e fitas de contenção.</span>
                 </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-[#F4CDD4]/30 flex items-center justify-center text-sm font-bold shrink-0">3</div>
-                  <span>Envie fotos do lote e da avaria para validação técnica via WhatsApp <strong>(14) 99631-2932</strong>.</span>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-green-600 mt-0.5 shrink-0" />
+                  <span><strong>Acomodação Milimétrica:</strong> Evita atrito interno durante o trajeto.</span>
                 </li>
               </ul>
             </div>
 
-            {/* Regras de Reembolso */}
-            <div className="bg-gray-50 rounded-3xl p-8 space-y-4">
-              <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-sm">
-                <CreditCard className="w-6 h-6 text-[#0D0C0D]" />
+            {/* Como Receber seu Pedido */}
+            <div className="bg-white border border-gray-200 rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col h-full">
+              <div className="w-12 h-12 bg-red-50 rounded-2xl flex items-center justify-center mb-6 text-red-600">
+                <ShieldAlert className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-bold">Regras de Reembolso</h3>
-              <div className="space-y-4">
-                <div className="bg-white p-4 rounded-xl border border-gray-100">
-                  <strong className="block text-[#0D0C0D] mb-1">Cartão de Crédito</strong>
-                  <span className="text-sm text-gray-600">Estorno em até duas faturas após conferência.</span>
-                </div>
-                <div className="bg-white p-4 rounded-xl border border-gray-100">
-                  <strong className="block text-[#0D0C0D] mb-1">PIX/Boleto</strong>
-                  <span className="text-sm text-gray-600">Reembolso em conta do titular em até 30 dias úteis após aprovação de qualidade.</span>
-                </div>
+              <h3 className="text-xl font-bold mb-4">Como Receber seu Pedido</h3>
+              <p className="text-gray-600 mb-6 leading-relaxed flex-grow">
+                Para garantir a integridade do seu investimento, siga este rigoroso protocolo de conferência no ato da entrega:
+              </p>
+              <ul className="space-y-3 text-sm text-gray-700">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-red-600 mt-0.5 shrink-0" />
+                  <span><strong>Verifique a caixa:</strong> Está seca e sem amassados profundos?</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-red-600 mt-0.5 shrink-0" />
+                  <span><strong>Confira o lacre:</strong> A fita externa está intacta e sem violação?</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-red-600 mt-0.5 shrink-0" />
+                  <span><strong>Ação Imediata:</strong> Se a caixa estiver <strong>molhada, amassada ou violada, RECUSE O RECEBIMENTO</strong>. Anote o motivo no verso da nota fiscal e avise nosso suporte para agilizarmos o reenvio.</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Transparência no Rastreio */}
+            <div className="bg-white border border-gray-200 rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col h-full">
+              <div className="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center mb-6 text-blue-600">
+                <Smartphone className="w-6 h-6" />
               </div>
+              <h3 className="text-xl font-bold mb-4">Transparência no Rastreio</h3>
+              <p className="text-gray-600 mb-6 leading-relaxed flex-grow">
+                Diminua a ansiedade de esperar por um produto essencial. Em parceria com a <strong>Mandaê</strong>, garantimos previsibilidade total para a sua agenda:
+              </p>
+              <ul className="space-y-3 text-sm text-gray-700">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-blue-600 mt-0.5 shrink-0" />
+                  <span><strong>Notificações Ativas:</strong> Acompanhe cada passo do pedido diretamente pelo WhatsApp.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-blue-600 mt-0.5 shrink-0" />
+                  <span><strong>Link em Tempo Real:</strong> Saiba exatamente quando o pedido saiu para entrega na sua região.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-blue-600 mt-0.5 shrink-0" />
+                  <span><strong>Suporte Parceiro:</strong> Nossa equipe acompanha as rotas para intervir em caso de imprevistos logísticos.</span>
+                </li>
+              </ul>
             </div>
           </div>
         </section>
 
-        {/* FAQ */}
-        <section className="space-y-8">
+        {/* FAQ Frete e Entrega */}
+        <section className="space-y-8 pt-12 border-t border-gray-100">
           <div className="text-center max-w-2xl mx-auto space-y-4">
-            <h2 className="text-3xl font-bold tracking-tight">Dúvidas Frequentes</h2>
+            <h2 className="text-3xl font-bold tracking-tight">Dúvidas Frequentes sobre Frete e Entrega</h2>
           </div>
           <div className="max-w-3xl mx-auto space-y-4">
-            <details className="group bg-white border border-gray-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden">
+            <details open className="group bg-white border border-gray-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden">
               <summary className="flex cursor-pointer items-center justify-between gap-1.5 p-6 text-[#0D0C0D] font-bold">
-                "Comprei em um distribuidor, posso trocar no site?"
+                Qual o prazo de entrega para a minha região?
                 <ChevronDown className="w-5 h-5 transition duration-300 group-open:-rotate-180" />
               </summary>
               <div className="px-6 pb-6 text-gray-600 leading-relaxed">
-                A troca deve ocorrer no local da compra.
+                O prazo varia de acordo com o seu CEP. Você pode simular o prazo exato na calculadora de frete disponível no carrinho de compras ou no final desta página.
               </div>
             </details>
             <details className="group bg-white border border-gray-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden">
               <summary className="flex cursor-pointer items-center justify-between gap-1.5 p-6 text-[#0D0C0D] font-bold">
-                "O produto causou reação no pet?"
+                Como faço para rastrear meu pedido?
                 <ChevronDown className="w-5 h-5 transition duration-300 group-open:-rotate-180" />
               </summary>
               <div className="px-6 pb-6 text-gray-600 leading-relaxed">
-                Direcionar para suporte técnico humanizado via <a href="mailto:ajuda@bubbles.com.br" className="text-[#F4CDD4] hover:underline font-medium">ajuda@bubbles.com.br</a>.
+                Assim que o pedido for despachado, você receberá um link e o código de rastreamento por e-mail e WhatsApp para acompanhar a entrega em tempo real.
               </div>
             </details>
             <details className="group bg-white border border-gray-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden">
               <summary className="flex cursor-pointer items-center justify-between gap-1.5 p-6 text-[#0D0C0D] font-bold">
-                "O galão de 5L chegou com vazamento. O que devo fazer?"
+                A Bubbles oferece frete grátis?
                 <ChevronDown className="w-5 h-5 transition duration-300 group-open:-rotate-180" />
               </summary>
               <div className="px-6 pb-6 text-gray-600 leading-relaxed">
-                Mesmo com nossa embalagem reforçada anti-vazamento, se notar qualquer dano no ato da entrega, recuse o recebimento e anote o motivo no verso da nota fiscal. Se notar após a abertura, entre em contato em até 24h via WhatsApp com fotos do lote.
+                Sim! Oferecemos frete grátis para todo o Brasil com valores mínimos de compra que variam por região. Consulte a tabela &quot;Frete Grátis por Região&quot; acima.
               </div>
             </details>
             <details className="group bg-white border border-gray-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden">
               <summary className="flex cursor-pointer items-center justify-between gap-1.5 p-6 text-[#0D0C0D] font-bold">
-                "Comprei um Kit Profissional e quero devolver apenas um item. É possível?"
+                O que acontece se eu não estiver no pet shop no momento da entrega?
                 <ChevronDown className="w-5 h-5 transition duration-300 group-open:-rotate-180" />
               </summary>
               <div className="px-6 pb-6 text-gray-600 leading-relaxed">
-                Não. Para devolução por arrependimento, o kit deve ser devolvido em sua totalidade, incluindo brindes e acessórios que acompanham a promoção, mantendo a integridade do conjunto industrial.
+                Nossas transportadoras realizam até 3 tentativas de entrega. Caso não haja ninguém para receber, o pedido retornará à nossa fábrica e entraremos em contato.
               </div>
             </details>
             <details className="group bg-white border border-gray-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden">
               <summary className="flex cursor-pointer items-center justify-between gap-1.5 p-6 text-[#0D0C0D] font-bold">
-                "O bico dosador/válvula do meu produto apresentou defeito. Vocês trocam?"
+                Posso alterar o endereço de entrega após fechar o pedido?
                 <ChevronDown className="w-5 h-5 transition duration-300 group-open:-rotate-180" />
               </summary>
               <div className="px-6 pb-6 text-gray-600 leading-relaxed">
-                Sim. Caso acessórios de aplicação apresentem defeitos de fabricação em até 30 dias, enviamos a reposição da peça sem custos, garantindo que sua operação não pare.
+                Para sua segurança e devido à agilidade do nosso faturamento, não é possível alterar o endereço após a conclusão do pedido.
               </div>
             </details>
             <details className="group bg-white border border-gray-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden">
               <summary className="flex cursor-pointer items-center justify-between gap-1.5 p-6 text-[#0D0C0D] font-bold">
-                "Usei o produto e o resultado não foi o esperado. Posso trocar?"
+                A entrega é feita em finais de semana ou feriados?
                 <ChevronDown className="w-5 h-5 transition duration-300 group-open:-rotate-180" />
               </summary>
               <div className="px-6 pb-6 text-gray-600 leading-relaxed">
-                Trocas por insatisfação com o resultado técnico devem ser precedidas de uma consultoria com nosso suporte humanizado para validar a diluição e o modo de uso. Não trocamos produtos abertos com mais de 10% de uso.
+                Não. Nossas transportadoras parceiras operam e realizam entregas apenas em dias úteis, de segunda a sexta-feira, em horário comercial.
               </div>
             </details>
             <details className="group bg-white border border-gray-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden">
               <summary className="flex cursor-pointer items-center justify-between gap-1.5 p-6 text-[#0D0C0D] font-bold">
-                "Comprei o produto em uma feira ou evento (ex: Pet South America). Como troco?"
+                Meu pedido consta como entregue, mas não recebi. O que fazer?
                 <ChevronDown className="w-5 h-5 transition duration-300 group-open:-rotate-180" />
               </summary>
               <div className="px-6 pb-6 text-gray-600 leading-relaxed">
-                Trocas de compras realizadas em eventos devem ser solicitadas diretamente através do nosso e-mail de suporte, apresentando o comprovante de compra emitido no stand oficial.
+                Verifique primeiro com vizinhos, funcionários ou na portaria. Caso realmente não encontre, contate nosso suporte via WhatsApp imediatamente.
               </div>
             </details>
             <details className="group bg-white border border-gray-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden">
               <summary className="flex cursor-pointer items-center justify-between gap-1.5 p-6 text-[#0D0C0D] font-bold">
-                "O cashback utilizado na compra é devolvido em caso de estorno?"
+                Como os galões de 5L são embalados para não vazar?
                 <ChevronDown className="w-5 h-5 transition duration-300 group-open:-rotate-180" />
               </summary>
               <div className="px-6 pb-6 text-gray-600 leading-relaxed">
-                Sim. O valor pago em dinheiro é estornado e o saldo de cashback utilizado retorna para sua carteira digital no site para uma compra futura.
+                Utilizamos caixas de papelão reforçadas e fitas de segurança industriais, além de travas nas tampas, garantindo que o produto chegue intacto ao seu banho e tosa.
               </div>
             </details>
             <details className="group bg-white border border-gray-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden">
               <summary className="flex cursor-pointer items-center justify-between gap-1.5 p-6 text-[#0D0C0D] font-bold">
-                "Posso trocar um produto que está próximo do vencimento?"
+                Posso retirar meu pedido diretamente na fábrica?
                 <ChevronDown className="w-5 h-5 transition duration-300 group-open:-rotate-180" />
               </summary>
               <div className="px-6 pb-6 text-gray-600 leading-relaxed">
-                Garantimos o envio de produtos com validade adequada para uso profissional. Caso receba um item com vencimento inferior a 3 meses, realizaremos a troca imediata sem custos.
+                Atualmente nossa operação logística é 100% focada em envios via transportadora, não possuímos modalidade de retirada presencial na fábrica.
               </div>
             </details>
             <details className="group bg-white border border-gray-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden">
               <summary className="flex cursor-pointer items-center justify-between gap-1.5 p-6 text-[#0D0C0D] font-bold">
-                "Como funciona a troca de brindes exclusivos?"
+                Ocorreu um atraso na minha entrega. Como proceder?
                 <ChevronDown className="w-5 h-5 transition duration-300 group-open:-rotate-180" />
               </summary>
               <div className="px-6 pb-6 text-gray-600 leading-relaxed">
-                Brindes não possuem garantia de troca, exceto em casos de defeito de fabricação comprovado por foto no momento da abertura do pacote.
-              </div>
-            </details>
-            <details className="group bg-white border border-gray-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden">
-              <summary className="flex cursor-pointer items-center justify-between gap-1.5 p-6 text-[#0D0C0D] font-bold">
-                "Já solicitei a troca, em quanto tempo recebo o novo produto?"
-                <ChevronDown className="w-5 h-5 transition duration-300 group-open:-rotate-180" />
-              </summary>
-              <div className="px-6 pb-6 text-gray-600 leading-relaxed">
-                O novo envio é processado em até 5 dias úteis após o recebimento e conferência do item devolvido em nossa fábrica em Lençóis Paulista.
-              </div>
-            </details>
-            <details className="group bg-white border border-gray-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden">
-              <summary className="flex cursor-pointer items-center justify-between gap-1.5 p-6 text-[#0D0C0D] font-bold">
-                "O suporte técnico pode negar uma troca?"
-                <ChevronDown className="w-5 h-5 transition duration-300 group-open:-rotate-180" />
-              </summary>
-              <div className="px-6 pb-6 text-gray-600 leading-relaxed">
-                Sim. Caso a auditoria identifique mau uso, diluição incorreta fora dos padrões industriais ou armazenamento em local inadequado (umidade/sol), a troca será indeferida conforme o CDC.
+                Atrasos são raros, mas podem ocorrer por questões logísticas externas. Entre em contato com nosso suporte via WhatsApp informando o número do pedido para acionarmos a transportadora.
               </div>
             </details>
           </div>
@@ -386,7 +374,7 @@ export default function ShippingPolicy() {
                 </div>
                 <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-white group-hover:translate-x-1 transition-all" />
               </a>
-              <a href="#" className="group flex items-center justify-between w-full p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors border border-white/10">
+              <a href="/politica-de-troca-e-devolucoes" className="group flex items-center justify-between w-full p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors border border-white/10">
                 <div className="flex items-center gap-3">
                   <RefreshCcw className="w-5 h-5 text-[#F4CDD4]" />
                   <span className="font-medium">Confira nossa política de trocas e devoluções</span>
