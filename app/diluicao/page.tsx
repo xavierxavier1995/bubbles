@@ -1,48 +1,14 @@
-'use client';
+import { Metadata } from 'next';
+import DilutionCalculator from '@/components/DilutionCalculator';
+import { Beaker, Droplets, AlertTriangle, ShieldCheck, CheckCircle2, Package, ArrowRight, MessageCircle, FlaskConical, Sparkles, TrendingUp, Shield, Info } from 'lucide-react';
 
-import React, { useState, useEffect } from 'react';
-import { Beaker, Droplets, ShieldAlert, AlertTriangle, CheckCircle2, Info, ArrowRight, MessageCircle, Package, FlaskConical } from 'lucide-react';
+export const metadata: Metadata = {
+  title: 'Guia de Diluição Pet Profissional | Calculadora Bubbles',
+  description: 'Aprenda a diluir shampoos e condicionadores pet corretamente. Use nossa calculadora de diluição online e descubra como os produtos Bubbles garantem máximo rendimento e segurança biológica.',
+  keywords: 'diluição pet, como diluir shampoo pet, calculadora de diluição, banho e tosa, rendimento shampoo pet, Bubbles cosmética pet',
+};
 
 export default function DilutionGuide() {
-  const [proportion, setProportion] = useState('1:10');
-  const [customProduct, setCustomProduct] = useState(1);
-  const [customWater, setCustomWater] = useState(10);
-  const [finalVolume, setFinalVolume] = useState(500);
-
-  const [productMl, setProductMl] = useState(0);
-  const [waterMl, setWaterMl] = useState(0);
-  const [totalParts, setTotalParts] = useState(11);
-  const [productParts, setProductParts] = useState(1);
-  const [waterParts, setWaterParts] = useState(10);
-
-  useEffect(() => {
-    let pParts = 1;
-    let wParts = 10;
-
-    if (proportion === 'custom') {
-      pParts = customProduct;
-      wParts = customWater;
-    } else {
-      const parts = proportion.split(':');
-      pParts = parseInt(parts[0]);
-      wParts = parseInt(parts[1]);
-    }
-
-    const tParts = pParts + wParts;
-    setProductParts(pParts);
-    setWaterParts(wParts);
-    setTotalParts(tParts);
-
-    if (tParts > 0 && finalVolume > 0) {
-      const partVolume = finalVolume / tParts;
-      setProductMl(Math.round(partVolume * pParts));
-      setWaterMl(Math.round(partVolume * wParts));
-    } else {
-      setProductMl(0);
-      setWaterMl(0);
-    }
-  }, [proportion, customProduct, customWater, finalVolume]);
-
   return (
     <div className="min-h-screen bg-white text-[#0D0C0D] font-sans selection:bg-[#F4CDD4] selection:text-[#0D0C0D]">
       {/* Navigation Bar Simulation */}
@@ -57,15 +23,15 @@ export default function DilutionGuide() {
         </div>
       </nav>
 
-      <main className="max-w-5xl mx-auto px-6 md:px-12 py-16 space-y-24">
+      <main className="max-w-6xl mx-auto px-6 md:px-12 py-16 space-y-24">
         
         {/* Hero Section */}
         <section className="text-center space-y-6 max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F4CDD4]/30 text-[#0D0C0D] text-sm font-semibold mb-4">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#F4CDD4]/30 text-[#0D0C0D] text-sm font-bold mb-4">
             <FlaskConical className="w-4 h-4" />
             <span>Guia Profissional</span>
           </div>
-          <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight text-[#0D0C0D]">
+          <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight text-[#0D0C0D] leading-tight">
             Máximo Rendimento com Segurança Total
           </h1>
           <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
@@ -73,277 +39,173 @@ export default function DilutionGuide() {
           </p>
         </section>
 
-        {/* A Ciência da Diluição Correta */}
-        <section className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
-            <h2 className="text-3xl font-bold tracking-tight">A Ciência da Diluição Correta</h2>
-            <p className="text-gray-600 leading-relaxed">
-              Diluir produtos cosméticos não é apenas misturar com água, é uma <strong>ativação química</strong>. Seguir a proporção exata é fundamental para o resultado perfeito.
-            </p>
-            
-            <div className="space-y-4">
-              <div className="bg-red-50 border border-red-100 p-5 rounded-2xl flex gap-4 items-start">
-                <AlertTriangle className="w-6 h-6 text-red-500 shrink-0 mt-0.5" />
-                <div>
-                  <strong className="block text-red-800 mb-1">Diluir MENOS que o indicado:</strong>
-                  <p className="text-sm text-red-700 leading-relaxed">
-                    Causa desperdício de produto e <strong>pode irritar a pele do pet</strong> (coceiras e vermelhidão) devido ao excesso de concentração de ativos que não foram ativados corretamente pela água.
-                  </p>
-                </div>
-              </div>
-              
-              <div className="bg-orange-50 border border-orange-100 p-5 rounded-2xl flex gap-4 items-start">
-                <Info className="w-6 h-6 text-orange-500 shrink-0 mt-0.5" />
-                <div>
-                  <strong className="block text-orange-800 mb-1">Diluir MAIS que o indicado:</strong>
-                  <p className="text-sm text-orange-700 leading-relaxed">
-                    Reduz drasticamente a eficácia da limpeza, o poder de hidratação e a fixação do perfume no pelo do animal.
-                  </p>
-                </div>
-              </div>
-            </div>
+        {/* SECTION 2: Calculadora de Diluição (Moved Up) */}
+        <section className="space-y-10 scroll-mt-24" id="calculadora">
+          <div className="text-center max-w-2xl mx-auto space-y-4">
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Calculadora de Diluição</h2>
+            <p className="text-lg text-gray-600">Descubra exatamente quanto de água e produto você precisa para o volume desejado, sem confusão matemática.</p>
           </div>
           
-          <div className="bg-gray-50 rounded-3xl p-8 md:p-12 h-full flex flex-col justify-center border border-gray-100">
-            <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
-              <CheckCircle2 className="w-6 h-6 text-green-500" />
-              A Regra de Ouro (Passo a Passo)
-            </h3>
-            <div className="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-gray-200 before:to-transparent">
-              <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-                <div className="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white bg-[#F4CDD4] text-[#0D0C0D] font-bold shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
-                  1
-                </div>
-                <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-5 rounded-2xl shadow-sm border border-gray-100">
-                  <h4 className="font-bold text-lg mb-1 flex items-center gap-2">
-                    <Droplets className="w-5 h-5 text-blue-500" />
-                    Água Primeiro
-                  </h4>
-                  <p className="text-sm text-gray-600">Coloque a água (temperatura ambiente) no frasco <strong>antes</strong> do produto. Isso evita a formação de espuma excessiva e garante a medida real.</p>
-                </div>
+          <DilutionCalculator />
+        </section>
+
+        {/* SECTION 3: A Ciência da Diluição e Benefícios (SEO Optimized) */}
+        <section className="space-y-12 pt-12 border-t border-gray-100">
+          <div className="text-center max-w-3xl mx-auto space-y-4">
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Por que a diluição é fundamental?</h2>
+            <p className="text-lg text-gray-600 leading-relaxed">
+              A diluição de cosméticos pet é uma prática essencial para profissionais de banho e tosa que buscam aliar alta rentabilidade à segurança dermatológica dos animais. Os produtos da Bubbles são formulados com <strong>alta concentração de ativos cosméticos</strong>.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-gray-50 rounded-3xl p-8 border border-gray-100 hover:border-[#F4CDD4] transition-colors">
+              <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-sm">
+                <Sparkles className="w-6 h-6 text-[#F4CDD4]" />
               </div>
-              
-              <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-                <div className="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white bg-[#0D0C0D] text-white font-bold shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
-                  2
-                </div>
-                <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-5 rounded-2xl shadow-sm border border-gray-100">
-                  <h4 className="font-bold text-lg mb-1 flex items-center gap-2">
-                    <Beaker className="w-5 h-5 text-[#F4CDD4]" />
-                    Adicione o Produto
-                  </h4>
-                  <p className="text-sm text-gray-600">Use a proporção indicada no rótulo da sua linha (Ego / Pro ou Basiq) e misture suavemente.</p>
-                </div>
+              <h3 className="text-xl font-bold mb-3">Ativação Química</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Adicionar água na proporção correta "ativa" o produto, garantindo a espalhabilidade ideal, limpeza profunda sem agressão e a liberação correta da fragrância.
+              </p>
+            </div>
+            <div className="bg-gray-50 rounded-3xl p-8 border border-gray-100 hover:border-[#F4CDD4] transition-colors">
+              <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-sm">
+                <TrendingUp className="w-6 h-6 text-green-500" />
+              </div>
+              <h3 className="text-xl font-bold mb-3">Rentabilidade Extrema</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Um galão de 5L da linha Ego (1:10), por exemplo, se transforma em até 55 litros de produto pronto para uso. Isso reduz drasticamente o custo por banho.
+              </p>
+            </div>
+            <div className="bg-gray-50 rounded-3xl p-8 border border-gray-100 hover:border-[#F4CDD4] transition-colors">
+              <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-sm">
+                <Shield className="w-6 h-6 text-blue-500" />
+              </div>
+              <h3 className="text-xl font-bold mb-3">Enxágue Rápido</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Produtos diluídos corretamente não deixam resíduos pesados na pelagem. Isso significa um enxágue muito mais rápido, economizando água e tempo de secador.
+              </p>
+            </div>
+          </div>
+
+          {/* Disclaimers de Erro */}
+          <div className="grid md:grid-cols-2 gap-6 mt-8">
+            <div className="bg-red-50 border border-red-100 p-6 md:p-8 rounded-3xl flex gap-5 items-start">
+              <AlertTriangle className="w-8 h-8 text-red-500 shrink-0 mt-1" />
+              <div>
+                <strong className="block text-xl text-red-900 mb-2">Diluir MENOS que o indicado:</strong>
+                <p className="text-red-800 leading-relaxed">
+                  Causa desperdício de produto e <strong>pode irritar a pele do pet</strong> (coceiras e vermelhidão) devido ao excesso de concentração de ativos que não foram ativados corretamente pela água.
+                </p>
+              </div>
+            </div>
+            
+            <div className="bg-orange-50 border border-orange-100 p-6 md:p-8 rounded-3xl flex gap-5 items-start">
+              <Info className="w-8 h-8 text-orange-500 shrink-0 mt-1" />
+              <div>
+                <strong className="block text-xl text-orange-900 mb-2">Diluir MAIS que o indicado:</strong>
+                <p className="text-orange-800 leading-relaxed">
+                  Reduz drasticamente a eficácia da limpeza, o poder de hidratação e a fixação do perfume no pelo do animal, comprometendo a qualidade do seu serviço.
+                </p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Biossegurança */}
-        <section className="bg-[#0D0C0D] text-white rounded-3xl p-8 md:p-12 shadow-xl relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-[#F4CDD4]/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-          
-          <div className="relative z-10 max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/20 text-red-300 text-sm font-semibold mb-6 border border-red-500/30">
-              <ShieldAlert className="w-4 h-4" />
-              <span>Crítico: Protocolo de Higiene e Biossegurança</span>
+        {/* SECTION 4: Passo a Passo (Redesigned) */}
+        <section className="space-y-10 pt-12 border-t border-gray-100">
+          <div className="text-center max-w-2xl mx-auto space-y-4">
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight">A Regra de Ouro do Preparo</h2>
+            <p className="text-lg text-gray-600">Siga estes dois passos simples para garantir a mistura perfeita e evitar desperdícios no seu lavatório.</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {/* Passo 1 */}
+            <div className="bg-white border border-gray-200 p-8 md:p-10 rounded-3xl shadow-sm relative overflow-hidden group hover:border-blue-200 transition-colors">
+              <div className="text-[12rem] font-black text-gray-50 absolute -right-8 -bottom-16 z-0 group-hover:text-blue-50 transition-colors leading-none">1</div>
+              <div className="relative z-10">
+                <div className="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mb-8 border border-blue-100">
+                  <Droplets className="w-8 h-8 text-blue-500" />
+                </div>
+                <h3 className="text-2xl font-bold mb-4">Água Primeiro</h3>
+                <p className="text-gray-600 leading-relaxed text-lg">
+                  Coloque a água (em temperatura ambiente) no frasco misturador <strong>antes</strong> do produto. Isso evita a formação excessiva de espuma durante o preparo e garante que a medição do volume seja exata.
+                </p>
+              </div>
             </div>
-            
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">A Regra das 24 Horas</h2>
-            
-            <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-              É uma boa prática profissional <strong>diluir apenas o que será usado no dia</strong>.
-            </p>
-            
-            <div className="bg-white/5 border border-white/10 p-6 rounded-2xl backdrop-blur-sm">
-              <p className="text-gray-300 leading-relaxed">
-                Após diluído em água, a concentração do sistema conservante do produto é reduzida. O descarte de sobras após 24 horas é <strong>essencial</strong> para evitar a proliferação de bactérias (como a <em>Pseudomonas</em>) e fungos na mistura, que podem causar infecções graves na pele dos pets.
+
+            {/* Passo 2 */}
+            <div className="bg-white border border-gray-200 p-8 md:p-10 rounded-3xl shadow-sm relative overflow-hidden group hover:border-[#F4CDD4] transition-colors">
+              <div className="text-[12rem] font-black text-gray-50 absolute -right-8 -bottom-16 z-0 group-hover:text-[#F4CDD4]/10 transition-colors leading-none">2</div>
+              <div className="relative z-10">
+                <div className="w-16 h-16 bg-[#F4CDD4]/20 rounded-2xl flex items-center justify-center mb-8 border border-[#F4CDD4]/30">
+                  <Beaker className="w-8 h-8 text-[#0D0C0D]" />
+                </div>
+                <h3 className="text-2xl font-bold mb-4">Adicione o Produto</h3>
+                <p className="text-gray-600 leading-relaxed text-lg">
+                  Acrescente a quantidade de shampoo ou condicionador indicada para a proporção da sua linha (ex: 1:10 para Ego / Pro) e misture suavemente até homogeneizar por completo.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* SECTION 5: Regra das 24h (Subtle & Professional) */}
+        <section className="max-w-4xl mx-auto">
+          <div className="bg-amber-50 border border-amber-200 rounded-3xl p-8 md:p-10 flex flex-col md:flex-row gap-8 items-start shadow-sm">
+            <div className="w-16 h-16 bg-amber-100 rounded-2xl flex items-center justify-center shrink-0 border border-amber-200">
+              <ShieldCheck className="w-8 h-8 text-amber-600" />
+            </div>
+            <div className="space-y-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 text-amber-800 text-xs font-bold uppercase tracking-wider">
+                Protocolo de Biossegurança
+              </div>
+              <h3 className="text-2xl font-bold text-amber-900">Atenção à validade da mistura (Regra das 24h)</h3>
+              <p className="text-amber-800 leading-relaxed text-lg">
+                Para garantir a máxima segurança biológica, <strong>dilua apenas a quantidade de produto que será utilizada no dia</strong>. 
+              </p>
+              <p className="text-amber-800/80 leading-relaxed">
+                A adição de água reduz a concentração do sistema conservante original do cosmético. Descartar as sobras após 24 horas é essencial para prevenir a proliferação de bactérias (como a <em>Pseudomonas</em>) e fungos na mistura, protegendo a pele dos pets contra infecções e garantindo a qualidade do seu serviço.
               </p>
             </div>
           </div>
         </section>
 
-        {/* Guia Rápido & Calculadora */}
-        <section className="space-y-12">
-          <div className="text-center max-w-2xl mx-auto space-y-4">
-            <h2 className="text-3xl font-bold tracking-tight">Calculadora de Diluição</h2>
-            <p className="text-gray-600">Descubra exatamente quanto de água e produto você precisa para o volume desejado.</p>
-          </div>
-
-          <div className="grid md:grid-cols-12 gap-8">
-            {/* Guia Rápido */}
-            <div className="md:col-span-4 space-y-4">
-              <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100 h-full">
-                <h3 className="font-bold text-lg mb-4 flex items-center gap-2">
-                  <Info className="w-5 h-5 text-[#F4CDD4]" />
-                  Guia Rápido
-                </h3>
-                <ul className="space-y-4">
-                  <li className="bg-white p-4 rounded-xl border border-gray-100 shadow-sm">
-                    <strong className="block text-[#0D0C0D] text-lg">Ego / Pro</strong>
-                    <span className="text-sm text-gray-500 font-medium">Proporção 1:10</span>
-                    <p className="text-sm text-gray-600 mt-1">1 parte de produto para 10 partes de água.</p>
-                  </li>
-                  <li className="bg-white p-4 rounded-xl border border-gray-100 shadow-sm">
-                    <strong className="block text-[#0D0C0D] text-lg">Basiq e Sensorial</strong>
-                    <span className="text-sm text-gray-500 font-medium">Proporção 1:4</span>
-                    <p className="text-sm text-gray-600 mt-1">1 parte de produto para 4 partes de água.</p>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            {/* Calculadora Interativa */}
-            <div className="md:col-span-8 bg-white border border-gray-200 rounded-3xl p-6 md:p-8 shadow-lg shadow-gray-100/50">
-              <div className="grid sm:grid-cols-2 gap-6 mb-8">
-                <div className="space-y-2">
-                  <label className="block text-sm font-bold text-gray-700">Proporção (Produto : Água)</label>
-                  <select 
-                    value={proportion}
-                    onChange={(e) => setProportion(e.target.value)}
-                    className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-[#0D0C0D] font-medium focus:outline-none focus:ring-2 focus:ring-[#F4CDD4] transition-all"
-                  >
-                    <option value="1:1">1:1 (Uso Direto / Leve Diluição)</option>
-                    <option value="1:4">1:4 (Basiq / Sensorial)</option>
-                    <option value="1:5">1:5</option>
-                    <option value="1:10">1:10 (Ego / Pro)</option>
-                    <option value="custom">Customizado</option>
-                  </select>
-                </div>
-
-                <div className="space-y-2">
-                  <label className="block text-sm font-bold text-gray-700">Volume Final Desejado (ml)</label>
-                  <div className="relative">
-                    <input 
-                      type="number" 
-                      min="10"
-                      step="10"
-                      value={finalVolume}
-                      onChange={(e) => setFinalVolume(parseInt(e.target.value) || 0)}
-                      className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-[#0D0C0D] font-bold focus:outline-none focus:ring-2 focus:ring-[#F4CDD4] transition-all"
-                    />
-                    <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 font-medium">ml</span>
-                  </div>
-                </div>
-              </div>
-
-              {proportion === 'custom' && (
-                <div className="grid grid-cols-2 gap-4 mb-8 p-4 bg-gray-50 rounded-xl border border-gray-100">
-                  <div>
-                    <label className="block text-xs font-bold text-gray-500 mb-1">Partes de Produto</label>
-                    <input 
-                      type="number" min="1" value={customProduct} onChange={(e) => setCustomProduct(parseInt(e.target.value) || 1)}
-                      className="w-full bg-white border border-gray-200 rounded-lg px-3 py-2 text-sm"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-xs font-bold text-gray-500 mb-1">Partes de Água</label>
-                    <input 
-                      type="number" min="1" value={customWater} onChange={(e) => setCustomWater(parseInt(e.target.value) || 1)}
-                      className="w-full bg-white border border-gray-200 rounded-lg px-3 py-2 text-sm"
-                    />
-                  </div>
-                </div>
-              )}
-
-              {/* Resultados */}
-              <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100">
-                <div className="grid grid-cols-2 gap-4 mb-8">
-                  <div className="bg-white p-4 rounded-xl border border-[#F4CDD4]/50 shadow-sm text-center">
-                    <span className="block text-sm font-bold text-gray-500 mb-1">Produto Concentrado</span>
-                    <strong className="text-3xl font-black text-[#0D0C0D]">{productMl} <span className="text-lg text-gray-400 font-medium">ml</span></strong>
-                  </div>
-                  <div className="bg-white p-4 rounded-xl border border-blue-200 shadow-sm text-center">
-                    <span className="block text-sm font-bold text-gray-500 mb-1">Água</span>
-                    <strong className="text-3xl font-black text-blue-600">{waterMl} <span className="text-lg text-blue-300 font-medium">ml</span></strong>
-                  </div>
-                </div>
-
-                {/* Ilustração Visual */}
-                <div className="pt-6 border-t border-gray-200">
-                  <p className="text-center text-sm font-bold text-gray-500 mb-4 uppercase tracking-wider">Entendendo as Partes</p>
-                  <div className="flex flex-wrap items-center justify-center gap-y-4 gap-x-2">
-                    {/* Produto Icons */}
-                    <div className="flex flex-wrap justify-center gap-1">
-                      {Array.from({ length: Math.min(productParts, 20) }).map((_, i) => (
-                        <div key={`p-${i}`} className="w-8 h-10 bg-[#F4CDD4]/30 border-2 border-[#F4CDD4] rounded-b-lg rounded-t-sm flex items-end justify-center pb-1 relative group">
-                          <div className="w-full h-1/2 bg-[#F4CDD4]/50 rounded-b-sm"></div>
-                          {/* Tooltip */}
-                          <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-800 text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 pointer-events-none whitespace-nowrap transition-opacity">
-                            1 parte produto
-                          </div>
-                        </div>
-                      ))}
-                      {productParts > 20 && <span className="text-gray-400 font-bold self-center ml-1">+{productParts - 20}</span>}
-                    </div>
-                    
-                    <span className="text-2xl font-bold text-gray-300 mx-2">+</span>
-                    
-                    {/* Água Icons */}
-                    <div className="flex flex-wrap justify-center gap-1">
-                      {Array.from({ length: Math.min(waterParts, 50) }).map((_, i) => (
-                        <div key={`w-${i}`} className="w-8 h-10 bg-blue-50 border-2 border-blue-200 rounded-b-lg rounded-t-sm flex items-end justify-center pb-1 relative group">
-                          <div className="w-full h-3/4 bg-blue-200/50 rounded-b-sm"></div>
-                          {/* Tooltip */}
-                          <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-800 text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 pointer-events-none whitespace-nowrap transition-opacity">
-                            1 parte água
-                          </div>
-                        </div>
-                      ))}
-                      {waterParts > 50 && <span className="text-gray-400 font-bold self-center ml-1">+{waterParts - 50}</span>}
-                    </div>
-
-                    <span className="text-2xl font-bold text-gray-300 mx-2">=</span>
-
-                    <div className="flex flex-col items-center justify-center bg-white px-4 py-2 rounded-xl border border-gray-200 shadow-sm">
-                      <span className="text-2xl font-black text-[#0D0C0D]">{totalParts}</span>
-                      <span className="text-[10px] font-bold text-gray-500 uppercase">Partes Totais</span>
-                    </div>
-                  </div>
-                  <p className="text-center text-xs text-gray-400 mt-4">
-                    Cada "copinho" representa uma parte igual. O volume final é dividido pelo total de partes.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Seção Comercial e Contato */}
-        <section className="bg-gray-50 rounded-3xl p-8 md:p-12 border border-gray-100">
-          <div className="text-center max-w-2xl mx-auto space-y-4 mb-10">
-            <h2 className="text-3xl font-bold tracking-tight">Estoque Inteligente: Linha Ego / Pro 5L</h2>
-            <p className="text-gray-600">Produtos de alta performance com diluição 1:10 para o máximo rendimento do seu negócio.</p>
+        {/* SECTION 6: Seção Comercial e Contato */}
+        <section className="bg-gray-50 rounded-3xl p-8 md:p-16 border border-gray-100 mt-12">
+          <div className="text-center max-w-2xl mx-auto space-y-4 mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Estoque Inteligente: Linha Ego / Pro 5L</h2>
+            <p className="text-lg text-gray-600">Produtos de alta performance com diluição 1:10 para o máximo rendimento do seu negócio.</p>
           </div>
 
           {/* Placeholder for Shopify Liquid */}
-          <div className="bg-white border-2 border-dashed border-gray-200 rounded-2xl p-12 text-center mb-12">
-            <Package className="w-12 h-12 text-gray-300 mx-auto mb-4" />
-            <p className="text-gray-500 font-mono text-sm">
+          <div className="bg-white border-2 border-dashed border-gray-300 rounded-3xl p-12 md:p-20 text-center mb-12 shadow-sm">
+            <Package className="w-16 h-16 text-gray-300 mx-auto mb-6" />
+            <p className="text-gray-500 font-mono text-base md:text-lg">
               {`{% section 'featured-collection' %}`}
               <br/>
-              <span className="text-xs text-gray-400 mt-2 block">(Espaço reservado para inserção do código Liquid no Shopify exibindo os galões de 5L)</span>
+              <span className="text-sm text-gray-400 mt-4 block font-sans">(Espaço reservado para inserção do código Liquid no Shopify exibindo os galões de 5L)</span>
             </p>
           </div>
 
-          <div className="bg-[#F4CDD4]/20 rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 border border-[#F4CDD4]/30">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm shrink-0">
-                <MessageCircle className="w-6 h-6 text-[#0D0C0D]" />
+          <div className="bg-[#F4CDD4]/20 rounded-3xl p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-8 border border-[#F4CDD4]/30">
+            <div className="flex items-center gap-6">
+              <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-sm shrink-0">
+                <MessageCircle className="w-8 h-8 text-[#0D0C0D]" />
               </div>
               <div>
-                <h4 className="font-bold text-lg">Dúvida na mistura?</h4>
-                <p className="text-gray-600 text-sm">Nossa equipe técnica está pronta para ajudar você.</p>
+                <h4 className="font-bold text-2xl mb-1">Dúvida na mistura?</h4>
+                <p className="text-gray-700 text-lg">Nossa equipe técnica está pronta para ajudar você.</p>
               </div>
             </div>
             <a 
               href="https://wa.me/5514996312932?text=Olá,%20tenho%20uma%20dúvida%20sobre%20diluição" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="w-full md:w-auto bg-[#0D0C0D] text-white font-bold px-8 py-4 rounded-xl hover:bg-gray-800 transition-colors flex items-center justify-center gap-2 whitespace-nowrap"
+              className="w-full md:w-auto bg-[#0D0C0D] text-white font-bold px-10 py-5 rounded-2xl hover:bg-gray-800 transition-colors flex items-center justify-center gap-3 whitespace-nowrap text-lg shadow-lg shadow-black/10"
             >
               Fale com nossa técnica
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-5 h-5" />
             </a>
           </div>
         </section>
