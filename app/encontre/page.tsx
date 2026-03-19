@@ -239,7 +239,7 @@ const MapVariation8 = ({ activeStates, selectedState, onStateClick }: { activeSt
     <div className="relative w-full max-w-md mx-auto aspect-square">
       <svg viewBox={BrazilMap.viewBox} className="w-full h-full drop-shadow-sm" aria-label={BrazilMap.label}>
         <g stroke="#FFFFFF" strokeWidth="2" strokeLinejoin="round">
-          {BrazilMap.locations.map((location: { id: string, name: string, path: string }) => {
+          {BrazilMap.locations.map((location) => {
             const stateId = location.id.toUpperCase();
             const isActive = activeStates.includes(stateId);
             const isSelected = selectedState === stateId;
@@ -273,7 +273,7 @@ const MapVariation9 = ({ activeStates, selectedState, onStateClick }: { activeSt
     <div className="relative w-full max-w-md mx-auto aspect-square">
       <svg viewBox={BrazilMap.viewBox} className="w-full h-full drop-shadow-sm" aria-label={BrazilMap.label}>
         <g stroke="#FFFFFF" strokeWidth="1.5" strokeLinejoin="round">
-          {BrazilMap.locations.map((location: { id: string, name: string, path: string }) => {
+          {BrazilMap.locations.map((location) => {
             const stateId = location.id.toUpperCase();
             const isActive = activeStates.includes(stateId);
             const isSelected = selectedState === stateId;
@@ -308,7 +308,7 @@ const MapVariation9 = ({ activeStates, selectedState, onStateClick }: { activeSt
       {hoveredState && activeStates.includes(hoveredState) && (
         <div className="absolute top-4 right-4 bg-white px-3 py-2 rounded-xl shadow-md border border-gray-100 pointer-events-none z-10">
           <p className="text-xs font-bold text-gray-500">Estado</p>
-          <p className="text-lg font-black text-[#0D0C0D]">{BrazilMap.locations.find((l: { id: string, name: string, path: string }) => l.id.toUpperCase() === hoveredState)?.name}</p>
+          <p className="text-lg font-black text-[#0D0C0D]">{BrazilMap.locations.find((l) => l.id.toUpperCase() === hoveredState)?.name}</p>
           <p className="text-xs text-[#F4CDD4] font-bold mt-1">Clique para ver distribuidores</p>
         </div>
       )}
