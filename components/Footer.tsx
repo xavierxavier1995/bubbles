@@ -1,4 +1,5 @@
-import { Facebook, Instagram, Youtube, MessageCircle, ShieldCheck, CreditCard, Package, ChevronDown, HelpCircle, Mail, Phone, Sparkles, Tag, Clock } from 'lucide-react';
+/* eslint-disable @next/next/no-img-element */
+import { Facebook, Instagram, Youtube, MessageCircle, ChevronDown, HelpCircle, Mail, Phone, Sparkles, Tag, Clock } from 'lucide-react';
 
 export default function Footer() {
   return (

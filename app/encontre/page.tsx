@@ -1,9 +1,8 @@
 'use client';
 
 import { Figtree } from 'next/font/google';
-import { Search, Crosshair, MessageCircle, Instagram, MapPin, Phone, Copy, Check, ChevronDown, ChevronUp, ArrowRight, Store } from 'lucide-react';
+import { Search, Crosshair, MessageCircle, MapPin, Phone, Copy, ArrowRight } from 'lucide-react';
 import { useState, useMemo } from 'react';
-import BrazilMap from '@svg-maps/brazil';
 
 const figtree = Figtree({ subsets: ['latin'] });
 
@@ -89,72 +88,7 @@ const STATE_COORDS_PERCENT: Record<string, { x: number, y: number }> = {
   'SE': { x: 86, y: 40 }, 'SP': { x: 62, y: 68 }, 'TO': { x: 62, y: 38 }
 };
 
-const MapVariation1 = ({ activeStates, selectedState, onStateClick }: { activeStates: string[], selectedState: string | null, onStateClick: (state: string) => void }) => {
-  const [imgSrc, setImgSrc] = useState("https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Brazil_States_Map.svg/800px-Brazil_States_Map.svg.png");
-  return (
-    <div className="relative w-full max-w-md mx-auto aspect-[4/4.5]">
-      <img 
-        src={imgSrc} 
-        alt="Mapa do Brasil" 
-        className="w-full h-full object-contain opacity-30 grayscale" 
-        onError={() => setImgSrc("https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Brazil_blank_map.svg/800px-Brazil_blank_map.svg.png")}
-      />
-      {Object.entries(STATE_COORDS_PERCENT).map(([id, coords]) => {
-        if (!activeStates.includes(id)) return null;
-        const isSelected = selectedState === id;
-        return (
-          <div key={`pin-${id}`} className="absolute transform -translate-x-1/2 -translate-y-1/2 cursor-pointer group" style={{ left: `${coords.x}%`, top: `${coords.y}%` }} onClick={() => onStateClick(id)}>
-            <div className={`relative flex items-center justify-center transition-all duration-300 ${isSelected ? 'scale-125 z-10' : 'hover:scale-110 z-0'}`}>
-              <MapPin className={`w-6 h-6 md:w-8 md:h-8 ${isSelected ? 'text-[#F4CDD4] drop-shadow-md' : 'text-[#0D0C0D]'}`} fill={isSelected ? "#F4CDD4" : "none"} />
-              <div className="absolute -bottom-5 bg-white px-2 py-0.5 rounded text-[10px] font-bold shadow-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-                {id}
-              </div>
-            </div>
-          </div>
-        );
-      })}
-    </div>
-  );
-};
-
-const MapVariation2 = ({ activeStates, selectedState, onStateClick }: { activeStates: string[], selectedState: string | null, onStateClick: (state: string) => void }) => {
-  const [imgSrc, setImgSrc] = useState("https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Brazil_location_map.svg/800px-Brazil_location_map.svg.png");
-  return (
-    <div className="relative w-full max-w-md mx-auto aspect-[4/4.5]">
-      <img 
-        src={imgSrc} 
-        alt="Mapa do Brasil" 
-        className="w-full h-full object-contain opacity-30 grayscale" 
-        onError={() => setImgSrc("https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Brazil_blank_map.svg/800px-Brazil_blank_map.svg.png")}
-      />
-      {Object.entries(STATE_COORDS_PERCENT).map(([id, coords]) => {
-        if (!activeStates.includes(id)) return null;
-        const isSelected = selectedState === id;
-        return (
-          <div key={`bubble-${id}`} className="absolute transform -translate-x-1/2 -translate-y-1/2 cursor-pointer group" style={{ left: `${coords.x}%`, top: `${coords.y}%` }} onClick={() => onStateClick(id)}>
-            <div className={`rounded-full bg-[#F4CDD4] transition-all mix-blend-multiply flex items-center justify-center ${isSelected ? 'w-12 h-12 opacity-90' : 'w-8 h-8 opacity-60 hover:opacity-90'}`}>
-              <span className="text-[10px] font-bold text-[#0D0C0D]">{id}</span>
-            </div>
-          </div>
-        );
-      })}
-    </div>
-  );
-};
-
-const MapVariation3 = ({ activeStates, selectedState, onStateClick }: { activeStates: string[], selectedState: string | null, onStateClick: (state: string) => void }) => {
-  return (
-    <div className="grid grid-cols-3 sm:grid-cols-4 gap-2 w-full max-w-md mx-auto">
-      {activeStates.map(id => (
-        <button key={`grid-${id}`} onClick={() => onStateClick(id)} className={`p-3 rounded-xl border text-center font-bold transition-all ${selectedState === id ? 'bg-[#F4CDD4] border-[#F4CDD4] text-[#0D0C0D] shadow-sm' : 'bg-white border-gray-200 text-gray-600 hover:border-[#F4CDD4]'}`}>
-          {id}
-        </button>
-      ))}
-    </div>
-  );
-};
-
-const MapVariation4 = ({ activeStates, selectedState, onStateClick }: { activeStates: string[], selectedState: string | null, onStateClick: (state: string) => void }) => {
+const MapComponent = ({ activeStates, selectedState, onStateClick }: { activeStates: string[], selectedState: string | null, onStateClick: (state: string) => void }) => {
   return (
     <div className="relative w-full max-w-md mx-auto aspect-square">
       <svg viewBox="0 0 1000 1000" className="w-full h-full drop-shadow-sm">
@@ -174,144 +108,6 @@ const MapVariation4 = ({ activeStates, selectedState, onStateClick }: { activeSt
           );
         })}
       </svg>
-    </div>
-  );
-};
-
-const MapVariation5 = ({ activeStates, selectedState, onStateClick }: { activeStates: string[], selectedState: string | null, onStateClick: (state: string) => void }) => {
-  return (
-    <div className="flex flex-col gap-2 w-full max-w-md mx-auto max-h-[400px] overflow-y-auto pr-2">
-      {activeStates.map(id => (
-        <button key={`list-${id}`} onClick={() => onStateClick(id)} className={`flex items-center justify-between p-4 rounded-xl border transition-all ${selectedState === id ? 'bg-[#F4CDD4] border-[#F4CDD4] text-[#0D0C0D] shadow-sm' : 'bg-white border-gray-100 hover:bg-gray-50'}`}>
-          <span className="font-bold">Estado {id}</span>
-          <ArrowRight className="w-4 h-4 opacity-50" />
-        </button>
-      ))}
-    </div>
-  );
-};
-
-const MapVariation6 = ({ activeStates, selectedState, onStateClick }: { activeStates: string[], selectedState: string | null, onStateClick: (state: string) => void }) => {
-  return (
-    <div className="flex flex-wrap gap-3 justify-center items-center p-6 bg-white rounded-3xl border border-gray-100 w-full max-w-md mx-auto">
-      {activeStates.map((id) => {
-        const isSelected = selectedState === id;
-        return (
-          <span key={`tag-${id}`} onClick={() => onStateClick(id)} className={`transition-all cursor-pointer ${isSelected ? 'text-2xl font-black text-[#0D0C0D] bg-[#F4CDD4] px-4 py-2 rounded-full shadow-sm' : 'text-lg font-bold text-gray-400 hover:text-[#0D0C0D]'}`}>
-            {id}
-          </span>
-        );
-      })}
-    </div>
-  );
-};
-
-const MapVariation7 = ({ activeStates, selectedState, onStateClick }: { activeStates: string[], selectedState: string | null, onStateClick: (state: string) => void }) => {
-  const [imgSrc, setImgSrc] = useState("https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Brazil_political_map_blank.svg/800px-Brazil_political_map_blank.svg.png");
-  return (
-    <div className="relative w-full max-w-md mx-auto aspect-[4/4.5]">
-      <img 
-        src={imgSrc} 
-        alt="Mapa do Brasil" 
-        className="w-full h-full object-contain opacity-40 grayscale" 
-        onError={() => setImgSrc("https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Brazil_blank_map.svg/800px-Brazil_blank_map.svg.png")}
-      />
-      {Object.entries(STATE_COORDS_PERCENT).map(([id, coords]) => {
-        if (!activeStates.includes(id)) return null;
-        const isSelected = selectedState === id;
-        return (
-          <div key={`pin7-${id}`} className="absolute transform -translate-x-1/2 -translate-y-1/2 cursor-pointer group" style={{ left: `${coords.x}%`, top: `${coords.y}%` }} onClick={() => onStateClick(id)}>
-            <div className={`relative flex items-center justify-center transition-all duration-300 ${isSelected ? 'scale-125 z-10' : 'hover:scale-110 z-0'}`}>
-              <div className={`w-3 h-3 rounded-full border-2 border-white shadow-md ${isSelected ? 'bg-[#F4CDD4]' : 'bg-[#0D0C0D]'}`} />
-              <div className="absolute -bottom-5 bg-white px-2 py-0.5 rounded text-[10px] font-bold shadow-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-                {id}
-              </div>
-            </div>
-          </div>
-        );
-      })}
-    </div>
-  );
-};
-
-const MapVariation8 = ({ activeStates, selectedState, onStateClick }: { activeStates: string[], selectedState: string | null, onStateClick: (state: string) => void }) => {
-  return (
-    <div className="relative w-full max-w-md mx-auto aspect-square">
-      <svg viewBox={BrazilMap.viewBox} className="w-full h-full drop-shadow-sm" aria-label={BrazilMap.label}>
-        <g stroke="#FFFFFF" strokeWidth="2" strokeLinejoin="round">
-          {BrazilMap.locations.map((location) => {
-            const stateId = location.id.toUpperCase();
-            const isActive = activeStates.includes(stateId);
-            const isSelected = selectedState === stateId;
-            
-            let fill = '#F3F4F6';
-            if (isSelected) fill = '#0D0C0D';
-            else if (isActive) fill = '#F4CDD4';
-            
-            return (
-              <path
-                key={location.id}
-                id={location.id}
-                name={location.name}
-                d={location.path}
-                fill={fill}
-                className={`transition-colors duration-300 ${isActive ? 'cursor-pointer hover:fill-[#e8b8c2]' : 'opacity-50'}`}
-                onClick={() => isActive && onStateClick(stateId)}
-              />
-            );
-          })}
-        </g>
-      </svg>
-    </div>
-  );
-};
-
-const MapVariation9 = ({ activeStates, selectedState, onStateClick }: { activeStates: string[], selectedState: string | null, onStateClick: (state: string) => void }) => {
-  const [hoveredState, setHoveredState] = useState<string | null>(null);
-
-  return (
-    <div className="relative w-full max-w-md mx-auto aspect-square">
-      <svg viewBox={BrazilMap.viewBox} className="w-full h-full drop-shadow-sm" aria-label={BrazilMap.label}>
-        <g stroke="#FFFFFF" strokeWidth="1.5" strokeLinejoin="round">
-          {BrazilMap.locations.map((location) => {
-            const stateId = location.id.toUpperCase();
-            const isActive = activeStates.includes(stateId);
-            const isSelected = selectedState === stateId;
-            const isHovered = hoveredState === stateId;
-            
-            let fill = '#E5E7EB'; // gray-200
-            if (isSelected) fill = '#0D0C0D';
-            else if (isHovered && isActive) fill = '#0D0C0D';
-            else if (isActive) fill = '#F4CDD4';
-            
-            return (
-              <path
-                key={`var9-${location.id}`}
-                id={`var9-${location.id}`}
-                name={location.name}
-                d={location.path}
-                fill={fill}
-                className={`transition-all duration-300 ${isActive ? 'cursor-pointer' : 'opacity-40'}`}
-                onClick={() => isActive && onStateClick(stateId)}
-                onMouseEnter={() => setHoveredState(stateId)}
-                onMouseLeave={() => setHoveredState(null)}
-                style={{
-                  transformOrigin: 'center',
-                  transformBox: 'fill-box',
-                  transform: isHovered && isActive && !isSelected ? 'scale(1.02)' : 'scale(1)',
-                }}
-              />
-            );
-          })}
-        </g>
-      </svg>
-      {hoveredState && activeStates.includes(hoveredState) && (
-        <div className="absolute top-4 right-4 bg-white px-3 py-2 rounded-xl shadow-md border border-gray-100 pointer-events-none z-10">
-          <p className="text-xs font-bold text-gray-500">Estado</p>
-          <p className="text-lg font-black text-[#0D0C0D]">{BrazilMap.locations.find((l) => l.id.toUpperCase() === hoveredState)?.name}</p>
-          <p className="text-xs text-[#F4CDD4] font-bold mt-1">Clique para ver distribuidores</p>
-        </div>
-      )}
     </div>
   );
 };
@@ -529,7 +325,7 @@ export default function StoreLocator() {
                 </p>
               </div>
               
-              <MapVariation9 
+              <MapComponent 
                 activeStates={activeStates} 
                 selectedState={selectedState} 
                 onStateClick={(state: string) => {
@@ -602,101 +398,6 @@ export default function StoreLocator() {
 
         </div>
       </main>
-
-      {/* Demonstrativo de Variações de Mapa */}
-      <section className="bg-gray-50 py-16 px-6 md:px-12 border-t border-gray-200 mt-12">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-extrabold tracking-tight text-[#0D0C0D] mb-4">Demonstrativo: 8 Opções de Mapas</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Abaixo estão 8 variações diferentes para a exibição dos estados. A Opção 8 (Mapa Interativo SVG) é a que está sendo usada na seção principal acima.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Opção 8 */}
-            <div className="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 flex flex-col">
-              <h3 className="text-lg font-bold mb-2 text-center">Opção 8: Mapa Interativo SVG (Novo)</h3>
-              <p className="text-xs text-gray-500 text-center mb-6">SVG real interativo com hover e tooltips</p>
-              <div className="flex-1 flex items-center justify-center">
-                <MapVariation9 activeStates={activeStates} selectedState={selectedState} onStateClick={setSelectedState} />
-              </div>
-            </div>
-
-            {/* Opção 9 */}
-            <div className="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 flex flex-col">
-              <h3 className="text-lg font-bold mb-2 text-center">Opção 9: Mapa Interativo Simples (Novo)</h3>
-              <p className="text-xs text-gray-500 text-center mb-6">SVG real interativo com cores sólidas</p>
-              <div className="flex-1 flex items-center justify-center">
-                <MapVariation8 activeStates={activeStates} selectedState={selectedState} onStateClick={setSelectedState} />
-              </div>
-            </div>
-
-            {/* Opção 1 */}
-            <div className="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 flex flex-col">
-              <h3 className="text-lg font-bold mb-2 text-center">Opção 1: Imagem 1 + Pins</h3>
-              <p className="text-xs text-gray-500 text-center mb-6">Mapa real (Fonte 1) com pins sobrepostos</p>
-              <div className="flex-1 flex items-center justify-center">
-                <MapVariation1 activeStates={activeStates} selectedState={selectedState} onStateClick={setSelectedState} />
-              </div>
-            </div>
-
-            {/* Opção 2 */}
-            <div className="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 flex flex-col">
-              <h3 className="text-lg font-bold mb-2 text-center">Opção 2: Imagem 2 + Bolhas</h3>
-              <p className="text-xs text-gray-500 text-center mb-6">Mapa real (Fonte 2) com bolhas de densidade</p>
-              <div className="flex-1 flex items-center justify-center">
-                <MapVariation2 activeStates={activeStates} selectedState={selectedState} onStateClick={setSelectedState} />
-              </div>
-            </div>
-
-            {/* Opção 7 */}
-            <div className="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 flex flex-col">
-              <h3 className="text-lg font-bold mb-2 text-center">Opção 3: Imagem 3 + Pontos</h3>
-              <p className="text-xs text-gray-500 text-center mb-6">Mapa real (Fonte 3) com pontos minimalistas</p>
-              <div className="flex-1 flex items-center justify-center">
-                <MapVariation7 activeStates={activeStates} selectedState={selectedState} onStateClick={setSelectedState} />
-              </div>
-            </div>
-
-            {/* Opção 3 */}
-            <div className="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 flex flex-col">
-              <h3 className="text-lg font-bold mb-2 text-center">Opção 4: Grid de Estados</h3>
-              <p className="text-xs text-gray-500 text-center mb-6">Sem mapa, apenas botões em grid (Ótimo para mobile)</p>
-              <div className="flex-1 flex items-center justify-center">
-                <MapVariation3 activeStates={activeStates} selectedState={selectedState} onStateClick={setSelectedState} />
-              </div>
-            </div>
-
-            {/* Opção 4 */}
-            <div className="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 flex flex-col">
-              <h3 className="text-lg font-bold mb-2 text-center">Opção 5: Geométrico (Abstrato)</h3>
-              <p className="text-xs text-gray-500 text-center mb-6">O mapa em blocos da versão anterior</p>
-              <div className="flex-1 flex items-center justify-center">
-                <MapVariation4 activeStates={activeStates} selectedState={selectedState} onStateClick={setSelectedState} />
-              </div>
-            </div>
-
-            {/* Opção 5 */}
-            <div className="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 flex flex-col">
-              <h3 className="text-lg font-bold mb-2 text-center">Opção 6: Lista Minimalista</h3>
-              <p className="text-xs text-gray-500 text-center mb-6">Lista limpa e direta</p>
-              <div className="flex-1 flex items-center justify-center w-full">
-                <MapVariation5 activeStates={activeStates} selectedState={selectedState} onStateClick={setSelectedState} />
-              </div>
-            </div>
-
-            {/* Opção 6 */}
-            <div className="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 flex flex-col">
-              <h3 className="text-lg font-bold mb-2 text-center">Opção 7: Nuvem de Tags</h3>
-              <p className="text-xs text-gray-500 text-center mb-6">Design moderno e desconstruído</p>
-              <div className="flex-1 flex items-center justify-center">
-                <MapVariation6 activeStates={activeStates} selectedState={selectedState} onStateClick={setSelectedState} />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Footer CTA: Quero ser um Distribuidor */}
       <section className="max-w-6xl mx-auto px-6 md:px-12 mt-8 mb-16">
