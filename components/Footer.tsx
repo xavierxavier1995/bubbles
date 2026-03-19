@@ -82,16 +82,18 @@ export default function Footer() {
                 <li><a href="https://www.bubbles.com.br/pages/quem-somos?" className="hover:text-[#F4CDD4] transition-colors">Quem somos</a></li>
                 <li><a href="https://www.encontre.bubbles.com.br/" className="hover:text-[#F4CDD4] transition-colors">Onde encontrar</a></li>
                 <li><a href="#" className="hover:text-[#F4CDD4] transition-colors">Blog Bubbles</a></li>
-                <li><a href="#" className="hover:text-[#F4CDD4] transition-colors">Academy</a></li>
+                <li><a href="#" className="hover:text-[#F4CDD4] transition-colors">Academy (em breve)</a></li>
                 <li><a href="#" className="hover:text-[#F4CDD4] transition-colors">Quero ser distribuidor</a></li>
+                <li><a href="https://www.encontre.bubbles.com.br/" className="hover:text-[#F4CDD4] transition-colors">Encontrar distribuidor</a></li>
               </ul>
             </details>
             <ul className="hidden md:block space-y-1.5 text-sm text-gray-600">
               <li><a href="https://www.bubbles.com.br/pages/quem-somos?" className="hover:text-[#F4CDD4] transition-colors">Quem somos</a></li>
               <li><a href="https://www.encontre.bubbles.com.br/" className="hover:text-[#F4CDD4] transition-colors">Onde encontrar</a></li>
               <li><a href="#" className="hover:text-[#F4CDD4] transition-colors">Blog Bubbles</a></li>
-              <li><a href="#" className="hover:text-[#F4CDD4] transition-colors">Academy</a></li>
+              <li><a href="#" className="hover:text-[#F4CDD4] transition-colors">Academy (em breve)</a></li>
               <li><a href="#" className="hover:text-[#F4CDD4] transition-colors">Quero ser distribuidor</a></li>
+              <li><a href="https://www.encontre.bubbles.com.br/" className="hover:text-[#F4CDD4] transition-colors">Encontrar distribuidor</a></li>
             </ul>
 
             <div className="pt-4">

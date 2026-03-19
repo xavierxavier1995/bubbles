@@ -3,6 +3,7 @@
 import { Figtree } from 'next/font/google';
 import { Search, Crosshair, MessageCircle, Instagram, MapPin, Phone, Copy, Check, ChevronDown, ChevronUp, ArrowRight, Store } from 'lucide-react';
 import { useState, useMemo } from 'react';
+import BrazilMap from '@svg-maps/brazil';
 
 const figtree = Figtree({ subsets: ['latin'] });
 
@@ -78,47 +79,239 @@ const STATE_PATHS = [
   { id: 'DF', d: 'M600,480 L630,480 L630,510 L600,510 Z' },
 ];
 
-const BrazilMapSVG = ({ activeStates, selectedState, onStateClick }: { activeStates: string[], selectedState: string | null, onStateClick: (state: string) => void }) => {
+const STATE_COORDS_PERCENT: Record<string, { x: number, y: number }> = {
+  'AC': { x: 15, y: 45 }, 'AL': { x: 88, y: 38 }, 'AM': { x: 30, y: 25 }, 'AP': { x: 58, y: 12 },
+  'BA': { x: 75, y: 48 }, 'CE': { x: 83, y: 25 }, 'DF': { x: 62, y: 52 }, 'ES': { x: 82, y: 62 },
+  'GO': { x: 58, y: 52 }, 'MA': { x: 68, y: 25 }, 'MG': { x: 72, y: 58 }, 'MS': { x: 48, y: 62 },
+  'MT': { x: 45, y: 42 }, 'PA': { x: 52, y: 25 }, 'PB': { x: 90, y: 30 }, 'PE': { x: 88, y: 34 },
+  'PI': { x: 72, y: 30 }, 'PR': { x: 55, y: 75 }, 'RJ': { x: 78, y: 68 }, 'RN': { x: 92, y: 26 },
+  'RO': { x: 30, y: 45 }, 'RR': { x: 35, y: 10 },  'RS': { x: 50, y: 88 }, 'SC': { x: 55, y: 82 },
+  'SE': { x: 86, y: 40 }, 'SP': { x: 62, y: 68 }, 'TO': { x: 62, y: 38 }
+};
+
+const MapVariation1 = ({ activeStates, selectedState, onStateClick }: { activeStates: string[], selectedState: string | null, onStateClick: (state: string) => void }) => {
+  const [imgSrc, setImgSrc] = useState("https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Brazil_States_Map.svg/800px-Brazil_States_Map.svg.png");
+  return (
+    <div className="relative w-full max-w-md mx-auto aspect-[4/4.5]">
+      <img 
+        src={imgSrc} 
+        alt="Mapa do Brasil" 
+        className="w-full h-full object-contain opacity-30 grayscale" 
+        onError={() => setImgSrc("https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Brazil_blank_map.svg/800px-Brazil_blank_map.svg.png")}
+      />
+      {Object.entries(STATE_COORDS_PERCENT).map(([id, coords]) => {
+        if (!activeStates.includes(id)) return null;
+        const isSelected = selectedState === id;
+        return (
+          <div key={`pin-${id}`} className="absolute transform -translate-x-1/2 -translate-y-1/2 cursor-pointer group" style={{ left: `${coords.x}%`, top: `${coords.y}%` }} onClick={() => onStateClick(id)}>
+            <div className={`relative flex items-center justify-center transition-all duration-300 ${isSelected ? 'scale-125 z-10' : 'hover:scale-110 z-0'}`}>
+              <MapPin className={`w-6 h-6 md:w-8 md:h-8 ${isSelected ? 'text-[#F4CDD4] drop-shadow-md' : 'text-[#0D0C0D]'}`} fill={isSelected ? "#F4CDD4" : "none"} />
+              <div className="absolute -bottom-5 bg-white px-2 py-0.5 rounded text-[10px] font-bold shadow-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                {id}
+              </div>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
+const MapVariation2 = ({ activeStates, selectedState, onStateClick }: { activeStates: string[], selectedState: string | null, onStateClick: (state: string) => void }) => {
+  const [imgSrc, setImgSrc] = useState("https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Brazil_location_map.svg/800px-Brazil_location_map.svg.png");
+  return (
+    <div className="relative w-full max-w-md mx-auto aspect-[4/4.5]">
+      <img 
+        src={imgSrc} 
+        alt="Mapa do Brasil" 
+        className="w-full h-full object-contain opacity-30 grayscale" 
+        onError={() => setImgSrc("https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Brazil_blank_map.svg/800px-Brazil_blank_map.svg.png")}
+      />
+      {Object.entries(STATE_COORDS_PERCENT).map(([id, coords]) => {
+        if (!activeStates.includes(id)) return null;
+        const isSelected = selectedState === id;
+        return (
+          <div key={`bubble-${id}`} className="absolute transform -translate-x-1/2 -translate-y-1/2 cursor-pointer group" style={{ left: `${coords.x}%`, top: `${coords.y}%` }} onClick={() => onStateClick(id)}>
+            <div className={`rounded-full bg-[#F4CDD4] transition-all mix-blend-multiply flex items-center justify-center ${isSelected ? 'w-12 h-12 opacity-90' : 'w-8 h-8 opacity-60 hover:opacity-90'}`}>
+              <span className="text-[10px] font-bold text-[#0D0C0D]">{id}</span>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
+const MapVariation3 = ({ activeStates, selectedState, onStateClick }: { activeStates: string[], selectedState: string | null, onStateClick: (state: string) => void }) => {
+  return (
+    <div className="grid grid-cols-3 sm:grid-cols-4 gap-2 w-full max-w-md mx-auto">
+      {activeStates.map(id => (
+        <button key={`grid-${id}`} onClick={() => onStateClick(id)} className={`p-3 rounded-xl border text-center font-bold transition-all ${selectedState === id ? 'bg-[#F4CDD4] border-[#F4CDD4] text-[#0D0C0D] shadow-sm' : 'bg-white border-gray-200 text-gray-600 hover:border-[#F4CDD4]'}`}>
+          {id}
+        </button>
+      ))}
+    </div>
+  );
+};
+
+const MapVariation4 = ({ activeStates, selectedState, onStateClick }: { activeStates: string[], selectedState: string | null, onStateClick: (state: string) => void }) => {
   return (
     <div className="relative w-full max-w-md mx-auto aspect-square">
       <svg viewBox="0 0 1000 1000" className="w-full h-full drop-shadow-sm">
         <g stroke="#FFFFFF" strokeWidth="4" fill="#F3F4F6">
           {STATE_PATHS.map((state) => (
-            <path 
-              key={`path-${state.id}`} 
-              d={state.d} 
-              className="transition-colors duration-300 cursor-pointer hover:fill-gray-200"
-              onClick={() => onStateClick(state.id)}
-            />
+            <path key={`path-${state.id}`} d={state.d} className="transition-colors duration-300 cursor-pointer hover:fill-gray-200" onClick={() => onStateClick(state.id)} />
           ))}
         </g>
-
         {Object.entries(STATE_CENTROIDS).map(([id, coords]) => {
-          const hasDistributor = activeStates.includes(id);
+          if (!activeStates.includes(id)) return null;
           const isSelected = selectedState === id;
-          
-          if (!hasDistributor) return null;
-
           return (
-            <g 
-              key={`pin-${id}`} 
-              transform={`translate(${coords.x}, ${coords.y})`}
-              onClick={() => onStateClick(id)}
-              className="cursor-pointer group"
-            >
-              {isSelected && (
-                <circle cx="0" cy="-15" r="30" fill="#0D0C0D" opacity="0.1" className="animate-ping" />
-              )}
-              <path 
-                d="M0,-30 C12,-30 20,-20 20,-10 C20,5 0,20 0,20 C0,20 -20,5 -20,-10 C-20,-20 -12,-30 0,-30 Z" 
-                fill={isSelected ? '#0D0C0D' : '#F4CDD4'} 
-                className="transition-all duration-300 group-hover:fill-[#0D0C0D] shadow-lg"
-              />
+            <g key={`pin-${id}`} transform={`translate(${coords.x}, ${coords.y})`} onClick={() => onStateClick(id)} className="cursor-pointer group">
+              <path d="M0,-30 C12,-30 20,-20 20,-10 C20,5 0,20 0,20 C0,20 -20,5 -20,-10 C-20,-20 -12,-30 0,-30 Z" fill={isSelected ? '#0D0C0D' : '#F4CDD4'} className="transition-all duration-300 group-hover:fill-[#0D0C0D] shadow-lg" />
               <circle cx="0" cy="-12" r="6" fill="#FFFFFF" />
             </g>
           );
         })}
       </svg>
+    </div>
+  );
+};
+
+const MapVariation5 = ({ activeStates, selectedState, onStateClick }: { activeStates: string[], selectedState: string | null, onStateClick: (state: string) => void }) => {
+  return (
+    <div className="flex flex-col gap-2 w-full max-w-md mx-auto max-h-[400px] overflow-y-auto pr-2">
+      {activeStates.map(id => (
+        <button key={`list-${id}`} onClick={() => onStateClick(id)} className={`flex items-center justify-between p-4 rounded-xl border transition-all ${selectedState === id ? 'bg-[#F4CDD4] border-[#F4CDD4] text-[#0D0C0D] shadow-sm' : 'bg-white border-gray-100 hover:bg-gray-50'}`}>
+          <span className="font-bold">Estado {id}</span>
+          <ArrowRight className="w-4 h-4 opacity-50" />
+        </button>
+      ))}
+    </div>
+  );
+};
+
+const MapVariation6 = ({ activeStates, selectedState, onStateClick }: { activeStates: string[], selectedState: string | null, onStateClick: (state: string) => void }) => {
+  return (
+    <div className="flex flex-wrap gap-3 justify-center items-center p-6 bg-white rounded-3xl border border-gray-100 w-full max-w-md mx-auto">
+      {activeStates.map((id) => {
+        const isSelected = selectedState === id;
+        return (
+          <span key={`tag-${id}`} onClick={() => onStateClick(id)} className={`transition-all cursor-pointer ${isSelected ? 'text-2xl font-black text-[#0D0C0D] bg-[#F4CDD4] px-4 py-2 rounded-full shadow-sm' : 'text-lg font-bold text-gray-400 hover:text-[#0D0C0D]'}`}>
+            {id}
+          </span>
+        );
+      })}
+    </div>
+  );
+};
+
+const MapVariation7 = ({ activeStates, selectedState, onStateClick }: { activeStates: string[], selectedState: string | null, onStateClick: (state: string) => void }) => {
+  const [imgSrc, setImgSrc] = useState("https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Brazil_political_map_blank.svg/800px-Brazil_political_map_blank.svg.png");
+  return (
+    <div className="relative w-full max-w-md mx-auto aspect-[4/4.5]">
+      <img 
+        src={imgSrc} 
+        alt="Mapa do Brasil" 
+        className="w-full h-full object-contain opacity-40 grayscale" 
+        onError={() => setImgSrc("https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Brazil_blank_map.svg/800px-Brazil_blank_map.svg.png")}
+      />
+      {Object.entries(STATE_COORDS_PERCENT).map(([id, coords]) => {
+        if (!activeStates.includes(id)) return null;
+        const isSelected = selectedState === id;
+        return (
+          <div key={`pin7-${id}`} className="absolute transform -translate-x-1/2 -translate-y-1/2 cursor-pointer group" style={{ left: `${coords.x}%`, top: `${coords.y}%` }} onClick={() => onStateClick(id)}>
+            <div className={`relative flex items-center justify-center transition-all duration-300 ${isSelected ? 'scale-125 z-10' : 'hover:scale-110 z-0'}`}>
+              <div className={`w-3 h-3 rounded-full border-2 border-white shadow-md ${isSelected ? 'bg-[#F4CDD4]' : 'bg-[#0D0C0D]'}`} />
+              <div className="absolute -bottom-5 bg-white px-2 py-0.5 rounded text-[10px] font-bold shadow-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                {id}
+              </div>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
+const MapVariation8 = ({ activeStates, selectedState, onStateClick }: { activeStates: string[], selectedState: string | null, onStateClick: (state: string) => void }) => {
+  return (
+    <div className="relative w-full max-w-md mx-auto aspect-square">
+      <svg viewBox={BrazilMap.viewBox} className="w-full h-full drop-shadow-sm" aria-label={BrazilMap.label}>
+        <g stroke="#FFFFFF" strokeWidth="2" strokeLinejoin="round">
+          {BrazilMap.locations.map((location: { id: string, name: string, path: string }) => {
+            const stateId = location.id.toUpperCase();
+            const isActive = activeStates.includes(stateId);
+            const isSelected = selectedState === stateId;
+            
+            let fill = '#F3F4F6';
+            if (isSelected) fill = '#0D0C0D';
+            else if (isActive) fill = '#F4CDD4';
+            
+            return (
+              <path
+                key={location.id}
+                id={location.id}
+                name={location.name}
+                d={location.path}
+                fill={fill}
+                className={`transition-colors duration-300 ${isActive ? 'cursor-pointer hover:fill-[#e8b8c2]' : 'opacity-50'}`}
+                onClick={() => isActive && onStateClick(stateId)}
+              />
+            );
+          })}
+        </g>
+      </svg>
+    </div>
+  );
+};
+
+const MapVariation9 = ({ activeStates, selectedState, onStateClick }: { activeStates: string[], selectedState: string | null, onStateClick: (state: string) => void }) => {
+  const [hoveredState, setHoveredState] = useState<string | null>(null);
+
+  return (
+    <div className="relative w-full max-w-md mx-auto aspect-square">
+      <svg viewBox={BrazilMap.viewBox} className="w-full h-full drop-shadow-sm" aria-label={BrazilMap.label}>
+        <g stroke="#FFFFFF" strokeWidth="1.5" strokeLinejoin="round">
+          {BrazilMap.locations.map((location: { id: string, name: string, path: string }) => {
+            const stateId = location.id.toUpperCase();
+            const isActive = activeStates.includes(stateId);
+            const isSelected = selectedState === stateId;
+            const isHovered = hoveredState === stateId;
+            
+            let fill = '#E5E7EB'; // gray-200
+            if (isSelected) fill = '#0D0C0D';
+            else if (isHovered && isActive) fill = '#0D0C0D';
+            else if (isActive) fill = '#F4CDD4';
+            
+            return (
+              <path
+                key={`var9-${location.id}`}
+                id={`var9-${location.id}`}
+                name={location.name}
+                d={location.path}
+                fill={fill}
+                className={`transition-all duration-300 ${isActive ? 'cursor-pointer' : 'opacity-40'}`}
+                onClick={() => isActive && onStateClick(stateId)}
+                onMouseEnter={() => setHoveredState(stateId)}
+                onMouseLeave={() => setHoveredState(null)}
+                style={{
+                  transformOrigin: 'center',
+                  transformBox: 'fill-box',
+                  transform: isHovered && isActive && !isSelected ? 'scale(1.02)' : 'scale(1)',
+                }}
+              />
+            );
+          })}
+        </g>
+      </svg>
+      {hoveredState && activeStates.includes(hoveredState) && (
+        <div className="absolute top-4 right-4 bg-white px-3 py-2 rounded-xl shadow-md border border-gray-100 pointer-events-none z-10">
+          <p className="text-xs font-bold text-gray-500">Estado</p>
+          <p className="text-lg font-black text-[#0D0C0D]">{BrazilMap.locations.find((l: { id: string, name: string, path: string }) => l.id.toUpperCase() === hoveredState)?.name}</p>
+          <p className="text-xs text-[#F4CDD4] font-bold mt-1">Clique para ver distribuidores</p>
+        </div>
+      )}
     </div>
   );
 };
@@ -223,7 +416,7 @@ const DistributorCard = ({ dist }: { dist: any }) => {
 export default function StoreLocator() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedState, setSelectedState] = useState<string | null>(null);
-  const [visibleCount, setVisibleCount] = useState(10);
+  const [visibleCount, setVisibleCount] = useState(6);
 
   const activeStates = useMemo(() => Array.from(new Set(DISTRIBUTORS.map(d => d.state))), []);
 
@@ -237,7 +430,11 @@ export default function StoreLocator() {
   };
 
   const filteredDistributors = useMemo(() => {
-    return DISTRIBUTORS.filter(d => {
+    const stateWeights: Record<string, number> = {
+      'SP': 1, 'MG': 2, 'RJ': 3, 'BA': 4, 'PR': 5, 'RS': 6, 'PE': 7, 'CE': 8, 'PA': 9, 'SC': 10
+    };
+
+    const filtered = DISTRIBUTORS.filter(d => {
       const matchesSearch = 
         d.cities.some(city => city.toLowerCase().includes(searchQuery.toLowerCase())) || 
         d.state.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -246,6 +443,12 @@ export default function StoreLocator() {
       const matchesState = selectedState ? d.state === selectedState : true;
 
       return matchesSearch && matchesState;
+    });
+
+    return filtered.sort((a, b) => {
+      const weightA = stateWeights[a.state] || 99;
+      const weightB = stateWeights[b.state] || 99;
+      return weightA - weightB;
     });
   }, [searchQuery, selectedState]);
 
@@ -257,24 +460,21 @@ export default function StoreLocator() {
       
       {/* Header Slim */}
       <header className="bg-white border-b border-gray-100 sticky top-0 z-40 shadow-sm py-3 px-6 md:px-12">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="font-extrabold text-2xl tracking-tighter text-[#0D0C0D] shrink-0">
-            Bubbles
-          </div>
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-center gap-4">
           
           {/* Barra de Busca Horizontal e Compacta */}
-          <div className="flex-1 w-full max-w-3xl flex flex-row items-center bg-gray-50 border border-gray-200 rounded-xl p-1 shadow-inner gap-1">
+          <div className="w-full max-w-3xl flex flex-row items-center bg-gray-50 border border-gray-200 rounded-xl p-1 shadow-inner gap-1">
             <div className="relative flex-1 min-w-[150px]">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
               <input 
                 type="text" 
-                placeholder="Cidade ou CEP..." 
+                placeholder="Encontre o distribuidor mais próximo (Digite sua cidade)..." 
                 value={searchQuery}
                 onChange={(e) => {
                   setSearchQuery(e.target.value);
-                  setVisibleCount(10);
+                  setVisibleCount(6);
                 }}
-                className="w-full bg-transparent pl-9 pr-3 py-1.5 text-sm text-[#0D0C0D] placeholder:text-gray-500 focus:outline-none"
+                className="w-full bg-transparent pl-9 pr-3 py-1.5 text-sm md:text-base text-[#0D0C0D] placeholder:text-gray-500 focus:outline-none"
               />
             </div>
             
@@ -284,7 +484,7 @@ export default function StoreLocator() {
               value={selectedState || ''}
               onChange={(e) => {
                 setSelectedState(e.target.value || null);
-                setVisibleCount(10);
+                setVisibleCount(6);
               }}
               className="bg-transparent text-sm font-medium text-[#0D0C0D] py-1.5 pl-2 pr-6 outline-none cursor-pointer max-w-[120px]"
             >
@@ -317,10 +517,10 @@ export default function StoreLocator() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-12 gap-12 items-start">
+        <div className="flex flex-col lg:grid lg:grid-cols-12 gap-12 items-start">
           
           {/* Interactive Map Section */}
-          <div className="lg:col-span-5 lg:sticky lg:top-24">
+          <div className="order-2 lg:order-1 lg:col-span-5 lg:sticky lg:top-24 w-full">
             <div className="bg-gray-50 rounded-3xl p-6 border border-gray-100 shadow-sm">
               <div className="text-center mb-4">
                 <h2 className="text-lg font-bold tracking-tight">Nossa Cobertura</h2>
@@ -329,12 +529,12 @@ export default function StoreLocator() {
                 </p>
               </div>
               
-              <BrazilMapSVG 
+              <MapVariation9 
                 activeStates={activeStates} 
                 selectedState={selectedState} 
                 onStateClick={(state: string) => {
                   setSelectedState(state === selectedState ? null : state);
-                  setVisibleCount(10);
+                  setVisibleCount(6);
                 }} 
               />
 
@@ -342,9 +542,9 @@ export default function StoreLocator() {
                 <button 
                   onClick={() => {
                     setSelectedState(null);
-                    setVisibleCount(10);
+                    setVisibleCount(6);
                   }}
-                  className="mt-4 w-full py-2 text-xs font-bold text-gray-500 hover:text-[#0D0C0D] transition-colors"
+                  className="mt-4 w-full py-2.5 text-sm font-bold bg-[#F4CDD4] text-[#0D0C0D] rounded-xl hover:bg-[#e8b8c2] transition-colors shadow-sm"
                 >
                   Ver todos os distribuidores
                 </button>
@@ -353,7 +553,7 @@ export default function StoreLocator() {
           </div>
 
           {/* Distributors Grid */}
-          <div className="lg:col-span-7 space-y-6">
+          <div className="order-1 lg:order-2 lg:col-span-7 space-y-6 w-full">
             <div className="flex items-center justify-between mb-2">
               <h2 className="text-xl font-bold tracking-tight">Resultados da Busca</h2>
               <span className="text-xs font-bold bg-[#F4CDD4]/30 text-[#0D0C0D] px-3 py-1.5 rounded-full">
@@ -362,12 +562,21 @@ export default function StoreLocator() {
             </div>
 
             {filteredDistributors.length === 0 ? (
-              <div className="bg-gray-50 rounded-3xl p-12 border border-gray-100 text-center shadow-sm">
-                <MapPin className="w-10 h-10 text-gray-300 mx-auto mb-4" />
-                <h3 className="text-lg font-bold mb-2">Nenhum distribuidor encontrado</h3>
-                <p className="text-sm text-gray-500">
-                  Tente buscar por outra cidade ou estado, ou limpe os filtros.
+              <div className="bg-gray-50 rounded-3xl p-8 md:p-12 border border-gray-100 text-center shadow-sm flex flex-col items-center">
+                <MapPin className="w-12 h-12 text-gray-300 mb-4" />
+                <h3 className="text-xl font-bold text-[#0D0C0D] mb-2">Nenhum distribuidor encontrado na sua região</h3>
+                <p className="text-gray-600 mb-8 max-w-md">
+                  Não se preocupe! Você pode comprar diretamente conosco no whatsapp com condições especiais exclusivas.
                 </p>
+                <a 
+                  href={`https://wa.me/5511999999999?text=${encodeURIComponent('Olá! Busquei por um distribuidor na minha cidade e não encontrei. Gostaria de saber mais sobre as condições especiais para comprar diretamente com vocês.')}`}
+                  target="_blank" 
+                  rel="nofollow noopener noreferrer"
+                  className="bg-[#25D366] text-white font-bold px-6 py-3.5 rounded-xl hover:bg-[#20bd5a] transition-colors flex items-center gap-2 shadow-sm shadow-[#25D366]/20"
+                >
+                  <WhatsAppIcon className="w-5 h-5" />
+                  Comprar com Condição Especial
+                </a>
               </div>
             ) : (
               <>
@@ -378,10 +587,10 @@ export default function StoreLocator() {
                 </div>
                 
                 {hasMore && (
-                  <div className="pt-6 text-center">
+                  <div className="pt-8 pb-4 text-center">
                     <button 
-                      onClick={() => setVisibleCount(prev => prev + 10)}
-                      className="bg-white border-2 border-gray-200 text-[#0D0C0D] font-bold px-6 py-3 rounded-xl hover:border-[#F4CDD4] transition-colors shadow-sm"
+                      onClick={() => setVisibleCount(prev => prev + 6)}
+                      className="bg-[#F4CDD4] text-[#0D0C0D] font-extrabold px-8 py-3.5 rounded-xl hover:bg-[#e8b8c2] transition-all shadow-sm hover:shadow-md text-sm md:text-base"
                     >
                       Ver mais distribuidores
                     </button>
@@ -393,6 +602,101 @@ export default function StoreLocator() {
 
         </div>
       </main>
+
+      {/* Demonstrativo de Variações de Mapa */}
+      <section className="bg-gray-50 py-16 px-6 md:px-12 border-t border-gray-200 mt-12">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-extrabold tracking-tight text-[#0D0C0D] mb-4">Demonstrativo: 8 Opções de Mapas</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Abaixo estão 8 variações diferentes para a exibição dos estados. A Opção 8 (Mapa Interativo SVG) é a que está sendo usada na seção principal acima.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Opção 8 */}
+            <div className="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 flex flex-col">
+              <h3 className="text-lg font-bold mb-2 text-center">Opção 8: Mapa Interativo SVG (Novo)</h3>
+              <p className="text-xs text-gray-500 text-center mb-6">SVG real interativo com hover e tooltips</p>
+              <div className="flex-1 flex items-center justify-center">
+                <MapVariation9 activeStates={activeStates} selectedState={selectedState} onStateClick={setSelectedState} />
+              </div>
+            </div>
+
+            {/* Opção 9 */}
+            <div className="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 flex flex-col">
+              <h3 className="text-lg font-bold mb-2 text-center">Opção 9: Mapa Interativo Simples (Novo)</h3>
+              <p className="text-xs text-gray-500 text-center mb-6">SVG real interativo com cores sólidas</p>
+              <div className="flex-1 flex items-center justify-center">
+                <MapVariation8 activeStates={activeStates} selectedState={selectedState} onStateClick={setSelectedState} />
+              </div>
+            </div>
+
+            {/* Opção 1 */}
+            <div className="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 flex flex-col">
+              <h3 className="text-lg font-bold mb-2 text-center">Opção 1: Imagem 1 + Pins</h3>
+              <p className="text-xs text-gray-500 text-center mb-6">Mapa real (Fonte 1) com pins sobrepostos</p>
+              <div className="flex-1 flex items-center justify-center">
+                <MapVariation1 activeStates={activeStates} selectedState={selectedState} onStateClick={setSelectedState} />
+              </div>
+            </div>
+
+            {/* Opção 2 */}
+            <div className="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 flex flex-col">
+              <h3 className="text-lg font-bold mb-2 text-center">Opção 2: Imagem 2 + Bolhas</h3>
+              <p className="text-xs text-gray-500 text-center mb-6">Mapa real (Fonte 2) com bolhas de densidade</p>
+              <div className="flex-1 flex items-center justify-center">
+                <MapVariation2 activeStates={activeStates} selectedState={selectedState} onStateClick={setSelectedState} />
+              </div>
+            </div>
+
+            {/* Opção 7 */}
+            <div className="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 flex flex-col">
+              <h3 className="text-lg font-bold mb-2 text-center">Opção 3: Imagem 3 + Pontos</h3>
+              <p className="text-xs text-gray-500 text-center mb-6">Mapa real (Fonte 3) com pontos minimalistas</p>
+              <div className="flex-1 flex items-center justify-center">
+                <MapVariation7 activeStates={activeStates} selectedState={selectedState} onStateClick={setSelectedState} />
+              </div>
+            </div>
+
+            {/* Opção 3 */}
+            <div className="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 flex flex-col">
+              <h3 className="text-lg font-bold mb-2 text-center">Opção 4: Grid de Estados</h3>
+              <p className="text-xs text-gray-500 text-center mb-6">Sem mapa, apenas botões em grid (Ótimo para mobile)</p>
+              <div className="flex-1 flex items-center justify-center">
+                <MapVariation3 activeStates={activeStates} selectedState={selectedState} onStateClick={setSelectedState} />
+              </div>
+            </div>
+
+            {/* Opção 4 */}
+            <div className="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 flex flex-col">
+              <h3 className="text-lg font-bold mb-2 text-center">Opção 5: Geométrico (Abstrato)</h3>
+              <p className="text-xs text-gray-500 text-center mb-6">O mapa em blocos da versão anterior</p>
+              <div className="flex-1 flex items-center justify-center">
+                <MapVariation4 activeStates={activeStates} selectedState={selectedState} onStateClick={setSelectedState} />
+              </div>
+            </div>
+
+            {/* Opção 5 */}
+            <div className="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 flex flex-col">
+              <h3 className="text-lg font-bold mb-2 text-center">Opção 6: Lista Minimalista</h3>
+              <p className="text-xs text-gray-500 text-center mb-6">Lista limpa e direta</p>
+              <div className="flex-1 flex items-center justify-center w-full">
+                <MapVariation5 activeStates={activeStates} selectedState={selectedState} onStateClick={setSelectedState} />
+              </div>
+            </div>
+
+            {/* Opção 6 */}
+            <div className="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 flex flex-col">
+              <h3 className="text-lg font-bold mb-2 text-center">Opção 7: Nuvem de Tags</h3>
+              <p className="text-xs text-gray-500 text-center mb-6">Design moderno e desconstruído</p>
+              <div className="flex-1 flex items-center justify-center">
+                <MapVariation6 activeStates={activeStates} selectedState={selectedState} onStateClick={setSelectedState} />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Footer CTA: Quero ser um Distribuidor */}
       <section className="max-w-6xl mx-auto px-6 md:px-12 mt-8 mb-16">
