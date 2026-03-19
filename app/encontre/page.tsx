@@ -1,7 +1,7 @@
 'use client';
 
 import { Figtree } from 'next/font/google';
-import { Search, Crosshair, MessageCircle, Instagram, MapPin, Phone, Copy, Check, ChevronDown, ChevronUp } from 'lucide-react';
+import { Search, Crosshair, MessageCircle, Instagram, MapPin, Phone, Copy, Check, ChevronDown, ChevronUp, ArrowRight, Store } from 'lucide-react';
 import { useState, useMemo } from 'react';
 
 const figtree = Figtree({ subsets: ['latin'] });
@@ -38,52 +38,52 @@ const generateDistributors = () => {
 const DISTRIBUTORS = generateDistributors();
 
 // Mapa SVG do Brasil Simplificado
+const STATE_CENTROIDS: Record<string, { x: number, y: number }> = {
+  'AC': { x: 150, y: 380 }, 'AL': { x: 880, y: 350 }, 'AM': { x: 280, y: 220 }, 'AP': { x: 550, y: 100 },
+  'BA': { x: 750, y: 420 }, 'CE': { x: 820, y: 220 }, 'DF': { x: 620, y: 500 }, 'ES': { x: 820, y: 600 },
+  'GO': { x: 580, y: 520 }, 'MA': { x: 680, y: 220 }, 'MG': { x: 720, y: 580 }, 'MS': { x: 480, y: 620 },
+  'MT': { x: 450, y: 420 }, 'PA': { x: 520, y: 220 }, 'PB': { x: 900, y: 280 }, 'PE': { x: 880, y: 310 },
+  'PI': { x: 720, y: 280 }, 'PR': { x: 550, y: 750 }, 'RJ': { x: 780, y: 680 }, 'RN': { x: 920, y: 240 },
+  'RO': { x: 300, y: 420 }, 'RR': { x: 350, y: 80 },  'RS': { x: 500, y: 880 }, 'SC': { x: 580, y: 820 },
+  'SE': { x: 860, y: 380 }, 'SP': { x: 620, y: 680 }, 'TO': { x: 620, y: 350 }
+};
+
+const STATE_PATHS = [
+  { id: 'AC', d: 'M100,350 L200,350 L200,400 L100,400 Z' },
+  { id: 'AM', d: 'M200,150 L400,150 L400,350 L200,350 Z' },
+  { id: 'RR', d: 'M300,50 L400,50 L400,150 L300,150 Z' },
+  { id: 'RO', d: 'M250,350 L350,350 L350,450 L250,450 Z' },
+  { id: 'PA', d: 'M400,150 L600,150 L600,350 L400,350 Z' },
+  { id: 'AP', d: 'M500,50 L600,50 L600,150 L500,150 Z' },
+  { id: 'MT', d: 'M350,350 L550,350 L550,550 L350,550 Z' },
+  { id: 'MS', d: 'M400,550 L550,550 L550,700 L400,700 Z' },
+  { id: 'GO', d: 'M550,450 L650,450 L650,600 L550,600 Z' },
+  { id: 'TO', d: 'M550,300 L650,300 L650,450 L550,450 Z' },
+  { id: 'MA', d: 'M600,150 L720,150 L720,300 L600,300 Z' },
+  { id: 'PI', d: 'M680,250 L760,250 L760,380 L680,380 Z' },
+  { id: 'CE', d: 'M760,180 L860,180 L860,260 L760,260 Z' },
+  { id: 'RN', d: 'M860,200 L950,200 L950,260 L860,260 Z' },
+  { id: 'PB', d: 'M860,260 L950,260 L950,300 L860,300 Z' },
+  { id: 'PE', d: 'M800,300 L950,300 L950,340 L800,340 Z' },
+  { id: 'AL', d: 'M840,340 L920,340 L920,370 L840,370 Z' },
+  { id: 'SE', d: 'M840,370 L900,370 L900,400 L840,400 Z' },
+  { id: 'BA', d: 'M680,380 L840,380 L840,520 L680,520 Z' },
+  { id: 'MG', d: 'M650,520 L800,520 L800,650 L650,650 Z' },
+  { id: 'ES', d: 'M800,550 L860,550 L860,650 L800,650 Z' },
+  { id: 'RJ', d: 'M750,650 L820,650 L820,720 L750,720 Z' },
+  { id: 'SP', d: 'M550,600 L750,600 L750,720 L550,720 Z' },
+  { id: 'PR', d: 'M500,700 L650,700 L650,800 L500,800 Z' },
+  { id: 'SC', d: 'M520,800 L650,800 L650,850 L520,850 Z' },
+  { id: 'RS', d: 'M450,850 L600,850 L600,980 L450,980 Z' },
+  { id: 'DF', d: 'M600,480 L630,480 L630,510 L600,510 Z' },
+];
+
 const BrazilMapSVG = ({ activeStates, selectedState, onStateClick }: { activeStates: string[], selectedState: string | null, onStateClick: (state: string) => void }) => {
-  const stateCentroids: Record<string, { x: number, y: number }> = {
-    'AC': { x: 150, y: 380 }, 'AL': { x: 880, y: 350 }, 'AM': { x: 280, y: 220 }, 'AP': { x: 550, y: 100 },
-    'BA': { x: 750, y: 420 }, 'CE': { x: 820, y: 220 }, 'DF': { x: 620, y: 500 }, 'ES': { x: 820, y: 600 },
-    'GO': { x: 580, y: 520 }, 'MA': { x: 680, y: 220 }, 'MG': { x: 720, y: 580 }, 'MS': { x: 480, y: 620 },
-    'MT': { x: 450, y: 420 }, 'PA': { x: 520, y: 220 }, 'PB': { x: 900, y: 280 }, 'PE': { x: 880, y: 310 },
-    'PI': { x: 720, y: 280 }, 'PR': { x: 550, y: 750 }, 'RJ': { x: 780, y: 680 }, 'RN': { x: 920, y: 240 },
-    'RO': { x: 300, y: 420 }, 'RR': { x: 350, y: 80 },  'RS': { x: 500, y: 880 }, 'SC': { x: 580, y: 820 },
-    'SE': { x: 860, y: 380 }, 'SP': { x: 620, y: 680 }, 'TO': { x: 620, y: 350 }
-  };
-
-  const statePaths = [
-    { id: 'AC', d: 'M100,350 L200,350 L200,400 L100,400 Z' },
-    { id: 'AM', d: 'M200,150 L400,150 L400,350 L200,350 Z' },
-    { id: 'RR', d: 'M300,50 L400,50 L400,150 L300,150 Z' },
-    { id: 'RO', d: 'M250,350 L350,350 L350,450 L250,450 Z' },
-    { id: 'PA', d: 'M400,150 L600,150 L600,350 L400,350 Z' },
-    { id: 'AP', d: 'M500,50 L600,50 L600,150 L500,150 Z' },
-    { id: 'MT', d: 'M350,350 L550,350 L550,550 L350,550 Z' },
-    { id: 'MS', d: 'M400,550 L550,550 L550,700 L400,700 Z' },
-    { id: 'GO', d: 'M550,450 L650,450 L650,600 L550,600 Z' },
-    { id: 'TO', d: 'M550,300 L650,300 L650,450 L550,450 Z' },
-    { id: 'MA', d: 'M600,150 L720,150 L720,300 L600,300 Z' },
-    { id: 'PI', d: 'M680,250 L760,250 L760,380 L680,380 Z' },
-    { id: 'CE', d: 'M760,180 L860,180 L860,260 L760,260 Z' },
-    { id: 'RN', d: 'M860,200 L950,200 L950,260 L860,260 Z' },
-    { id: 'PB', d: 'M860,260 L950,260 L950,300 L860,300 Z' },
-    { id: 'PE', d: 'M800,300 L950,300 L950,340 L800,340 Z' },
-    { id: 'AL', d: 'M840,340 L920,340 L920,370 L840,370 Z' },
-    { id: 'SE', d: 'M840,370 L900,370 L900,400 L840,400 Z' },
-    { id: 'BA', d: 'M680,380 L840,380 L840,520 L680,520 Z' },
-    { id: 'MG', d: 'M650,520 L800,520 L800,650 L650,650 Z' },
-    { id: 'ES', d: 'M800,550 L860,550 L860,650 L800,650 Z' },
-    { id: 'RJ', d: 'M750,650 L820,650 L820,720 L750,720 Z' },
-    { id: 'SP', d: 'M550,600 L750,600 L750,720 L550,720 Z' },
-    { id: 'PR', d: 'M500,700 L650,700 L650,800 L500,800 Z' },
-    { id: 'SC', d: 'M520,800 L650,800 L650,850 L520,850 Z' },
-    { id: 'RS', d: 'M450,850 L600,850 L600,980 L450,980 Z' },
-    { id: 'DF', d: 'M600,480 L630,480 L630,510 L600,510 Z' },
-  ];
-
   return (
     <div className="relative w-full max-w-md mx-auto aspect-square">
       <svg viewBox="0 0 1000 1000" className="w-full h-full drop-shadow-sm">
         <g stroke="#FFFFFF" strokeWidth="4" fill="#F3F4F6">
-          {statePaths.map((state) => (
+          {STATE_PATHS.map((state) => (
             <path 
               key={`path-${state.id}`} 
               d={state.d} 
@@ -93,7 +93,7 @@ const BrazilMapSVG = ({ activeStates, selectedState, onStateClick }: { activeSta
           ))}
         </g>
 
-        {Object.entries(stateCentroids).map(([id, coords]) => {
+        {Object.entries(STATE_CENTROIDS).map(([id, coords]) => {
           const hasDistributor = activeStates.includes(id);
           const isSelected = selectedState === id;
           
@@ -101,19 +101,20 @@ const BrazilMapSVG = ({ activeStates, selectedState, onStateClick }: { activeSta
 
           return (
             <g 
-              key={`bubble-${id}`} 
+              key={`pin-${id}`} 
               transform={`translate(${coords.x}, ${coords.y})`}
               onClick={() => onStateClick(id)}
               className="cursor-pointer group"
             >
               {isSelected && (
-                <circle cx="0" cy="0" r="35" fill="#0D0C0D" opacity="0.1" className="animate-ping" />
+                <circle cx="0" cy="-15" r="30" fill="#0D0C0D" opacity="0.1" className="animate-ping" />
               )}
-              <circle 
-                cx="0" cy="0" r={isSelected ? "25" : "18"} 
+              <path 
+                d="M0,-30 C12,-30 20,-20 20,-10 C20,5 0,20 0,20 C0,20 -20,5 -20,-10 C-20,-20 -12,-30 0,-30 Z" 
                 fill={isSelected ? '#0D0C0D' : '#F4CDD4'} 
                 className="transition-all duration-300 group-hover:fill-[#0D0C0D] shadow-lg"
               />
+              <circle cx="0" cy="-12" r="6" fill="#FFFFFF" />
             </g>
           );
         })}
@@ -121,6 +122,12 @@ const BrazilMapSVG = ({ activeStates, selectedState, onStateClick }: { activeSta
     </div>
   );
 };
+
+const WhatsAppIcon = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" className={className} fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+  </svg>
+);
 
 const DistributorCard = ({ dist }: { dist: any }) => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -132,90 +139,80 @@ const DistributorCard = ({ dist }: { dist: any }) => {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const truncateTitle = (title: string) => title.length > 35 ? title.substring(0, 32) + '...' : title;
-  const whatsappMessage = encodeURIComponent(`Olá! Vi no site da Bubbles que você é fornecedor e gostaria de comprar produtos para meu banho e tosa.`);
+  const whatsappMessage = encodeURIComponent(`Olá! Vi no site da Bubbles que você é fornecedor e gostaria de comprar produtos para meu estabelecimento.`);
   const whatsappLink = `https://wa.me/${dist.phone}?text=${whatsappMessage}`;
   const mapsLink = `https://www.google.com/maps/search/?api=1&query=${dist.lat},${dist.lng}`;
 
-  const visibleCities = isExpanded ? dist.cities : dist.cities.slice(0, 4);
-  const hiddenCount = dist.cities.length - 4;
+  const visibleCities = isExpanded ? dist.cities : dist.cities.slice(0, 3);
+  const hiddenCount = dist.cities.length - 3;
 
   return (
-    <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-md hover:border-[#F4CDD4] transition-all flex flex-col h-full">
-      <h3 className="text-lg font-bold text-[#0D0C0D] leading-tight mb-3" title={dist.name}>
-        {truncateTitle(dist.name)}
+    <div className="bg-white rounded-xl p-4 border border-gray-100 shadow-sm hover:shadow-md hover:border-[#F4CDD4] transition-all flex flex-col h-full">
+      <h3 className="text-base font-bold text-[#0D0C0D] leading-tight mb-2 line-clamp-2" title={dist.name}>
+        {dist.name}
       </h3>
 
-      <div className="flex flex-wrap gap-1.5 mb-5">
+      <div className="flex flex-wrap gap-1.5 mb-4">
         {visibleCities.map((city: string) => (
-          <span key={city} className="text-[11px] font-bold bg-[#F4CDD4]/20 text-[#0D0C0D] px-2.5 py-1 rounded-md">
+          <span key={city} className="text-[10px] font-bold bg-[#F4CDD4]/20 text-[#0D0C0D] px-2 py-1 rounded">
             {city}
           </span>
         ))}
         {!isExpanded && hiddenCount > 0 && (
           <button 
             onClick={() => setIsExpanded(true)}
-            className="text-[11px] font-bold bg-gray-100 text-gray-600 hover:bg-gray-200 px-2.5 py-1 rounded-md transition-colors flex items-center gap-1"
+            className="text-[10px] font-bold bg-[#0D0C0D] text-white px-2 py-1 rounded transition-colors"
           >
-            +{hiddenCount} cidades <ChevronDown className="w-3 h-3" />
+            +{hiddenCount} CIDADES
           </button>
         )}
         {isExpanded && hiddenCount > 0 && (
           <button 
             onClick={() => setIsExpanded(false)}
-            className="text-[11px] font-bold bg-gray-100 text-gray-600 hover:bg-gray-200 px-2.5 py-1 rounded-md transition-colors flex items-center gap-1"
+            className="text-[10px] font-bold bg-gray-100 text-gray-600 hover:bg-gray-200 px-2 py-1 rounded transition-colors"
           >
-            Ver menos <ChevronUp className="w-3 h-3" />
+            Ocultar
           </button>
         )}
       </div>
 
-      <div className="space-y-3 mt-auto">
-        <div className="grid grid-cols-2 gap-2">
-          <a 
-            href={`tel:+${dist.phone}`}
-            className="w-full bg-gray-50 text-[#0D0C0D] border border-gray-200 font-bold px-3 py-2.5 rounded-xl hover:bg-gray-100 transition-colors flex items-center justify-center gap-2 text-sm"
-          >
-            <Phone className="w-4 h-4" />
-            Ligar
-          </a>
-          <button 
+      <div className="mt-auto space-y-3">
+        <div className="flex items-center justify-between">
+          <div 
             onClick={handleCopy}
-            className="w-full bg-gray-50 text-[#0D0C0D] border border-gray-200 font-bold px-3 py-2.5 rounded-xl hover:bg-gray-100 transition-colors flex items-center justify-center gap-2 text-sm"
+            className="flex items-center gap-1.5 text-xs text-gray-500 hover:text-[#0D0C0D] cursor-pointer transition-colors"
+            title="Clique para copiar"
           >
-            {copied ? <Check className="w-4 h-4 text-green-600" /> : <Copy className="w-4 h-4" />}
-            {copied ? 'Copiado!' : 'Copiar'}
-          </button>
-        </div>
-
-        <a 
-          href={whatsappLink} 
-          target="_blank" 
-          rel="nofollow noopener noreferrer"
-          className="w-full bg-[#F4CDD4] text-[#0D0C0D] font-bold px-4 py-3 rounded-xl hover:bg-[#e8b8c2] transition-colors flex items-center justify-center gap-2 shadow-sm text-sm"
-        >
-          <MessageCircle className="w-4 h-4 text-white fill-white" />
-          WhatsApp
-        </a>
-        
-        <div className="flex items-center justify-between pt-2">
-          <a 
-            href={`https://instagram.com/${dist.instagram}`} 
-            target="_blank" 
-            rel="nofollow noopener noreferrer"
-            className="text-gray-500 hover:text-[#0D0C0D] transition-colors flex items-center gap-1.5 text-xs font-bold"
-          >
-            <Instagram className="w-4 h-4" />
-            @{dist.instagram}
-          </a>
+            <Phone className="w-3 h-3" />
+            <span className="font-mono">{dist.phone}</span>
+            {copied ? <span className="text-green-600 text-[10px] font-bold ml-1">Copiado!</span> : <Copy className="w-3 h-3 ml-1 opacity-50" />}
+          </div>
           <a 
             href={mapsLink} 
             target="_blank" 
             rel="nofollow noopener noreferrer"
-            className="text-gray-400 hover:text-[#0D0C0D] text-[11px] underline decoration-gray-200 underline-offset-2 transition-colors flex items-center gap-1"
+            className="text-gray-400 hover:text-[#0D0C0D] text-[10px] underline decoration-gray-200 underline-offset-2 transition-colors flex items-center gap-1"
           >
-            <MapPin className="w-3 h-3" />
-            Ver no Maps
+            <MapPin className="w-3 h-3" /> Maps
+          </a>
+        </div>
+
+        <div className="grid grid-cols-2 gap-2">
+          <a 
+            href={`tel:+${dist.phone}`}
+            className="w-full bg-gray-50 text-[#0D0C0D] border border-gray-200 font-bold px-2 py-2 rounded-lg hover:bg-gray-100 transition-colors flex items-center justify-center gap-1.5 text-xs"
+          >
+            <Phone className="w-3.5 h-3.5" />
+            Ligar
+          </a>
+          <a 
+            href={whatsappLink} 
+            target="_blank" 
+            rel="nofollow noopener noreferrer"
+            className="w-full bg-[#25D366] text-white font-bold px-2 py-2 rounded-lg hover:bg-[#20bd5a] transition-colors flex items-center justify-center gap-1.5 shadow-sm text-xs"
+          >
+            <WhatsAppIcon className="w-3.5 h-3.5" />
+            WhatsApp
           </a>
         </div>
       </div>
@@ -374,7 +371,7 @@ export default function StoreLocator() {
               </div>
             ) : (
               <>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-5">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   {visibleDistributors.map((dist) => (
                     <DistributorCard key={dist.id} dist={dist} />
                   ))}
@@ -398,16 +395,23 @@ export default function StoreLocator() {
       </main>
 
       {/* Footer CTA: Quero ser um Distribuidor */}
-      <section className="bg-[#F4CDD4] mt-12 py-16 px-6">
-        <div className="max-w-3xl mx-auto text-center space-y-6">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-[#0D0C0D] tracking-tight">
-            Leve a revolução da cosmética pet para sua região
-          </h2>
-          <p className="text-[#0D0C0D]/80 text-lg leading-relaxed max-w-2xl mx-auto">
-            Seja um parceiro oficial Bubbles e ofereça o melhor rendimento e tecnologia para os groomers da sua cidade.
-          </p>
-          <button className="bg-[#0D0C0D] text-white font-bold px-8 py-4 rounded-xl hover:bg-gray-800 transition-colors shadow-lg shadow-black/10 text-lg">
-            Quero ser Distribuidor
+      <section className="max-w-6xl mx-auto px-6 md:px-12 mt-8 mb-16">
+        <div className="bg-[#FCF8F9] rounded-[2rem] p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8">
+          <div className="flex flex-col md:flex-row items-center text-center md:text-left gap-5 md:gap-6">
+            <div className="bg-white w-16 h-16 md:w-20 md:h-20 rounded-2xl md:rounded-[1.5rem] flex items-center justify-center shadow-sm shrink-0">
+              <MessageCircle className="w-8 h-8 md:w-10 md:h-10 text-[#0D0C0D]" strokeWidth={1.5} />
+            </div>
+            <div>
+              <h2 className="text-xl md:text-2xl font-bold text-[#0D0C0D] mb-1 md:mb-2">
+                Quer ser um distribuidor?
+              </h2>
+              <p className="text-[#0D0C0D]/70 text-base md:text-lg">
+                Nossa equipe está pronta para ajudar você a ser um parceiro oficial.
+              </p>
+            </div>
+          </div>
+          <button className="shrink-0 bg-[#0D0C0D] text-white font-semibold px-6 py-3 md:px-8 md:py-4 rounded-xl md:rounded-2xl hover:bg-gray-800 transition-colors flex items-center gap-2 md:gap-3 text-base md:text-lg">
+            Fale com nossa equipe <ArrowRight className="w-5 h-5" />
           </button>
         </div>
       </section>
