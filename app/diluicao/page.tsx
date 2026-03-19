@@ -194,7 +194,7 @@ export default function DilutionGuide() {
                 Para garantir a máxima segurança biológica, <strong>dilua apenas a quantidade de produto que será utilizada no dia</strong>. 
               </p>
               <p className="text-amber-800/80 leading-relaxed">
-                A adição de água reduz a concentração do sistema conservante original do cosmético. Descartar as sobras após 24 horas é essencial para prevenir a proliferação de bactérias (como a <em>Pseudomonas</em>) e fungos na mistura, protegendo a pele dos pets contra infecções e garantindo a qualidade do seu serviço.
+                Para garantir a melhor performance e segurança, o ideal é utilizar água filtrada na mistura. Como a qualidade da água pode variar conforme a região, recomendamos diluir apenas o que for usar no dia, mantendo a integridade bacteriológica do produto.
               </p>
             </div>
           </div>

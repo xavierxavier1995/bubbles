@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { LayoutTemplate, FileText, ArrowRight, Sparkles, RefreshCcw, ShieldCheck, Gavel } from 'lucide-react';
+import { LayoutTemplate, FileText, ArrowRight, Sparkles, RefreshCcw, ShieldCheck, Gavel, MapPinIcon } from 'lucide-react';
 
 export default function ProjectHub() {
   const pages = [
@@ -40,6 +40,14 @@ export default function ProjectHub() {
       path: '/diluicao',
       description: 'Calculadora e guia prático para máxima rentabilidade e segurança.',
       icon: FileText,
+      status: 'Concluído',
+      statusColor: 'bg-green-100 text-green-700'
+    },
+    {
+      title: 'Encontre um Distribuidor',
+      path: '/encontre',
+      description: 'Localizador interativo de distribuidores oficiais Bubbles.',
+      icon: MapPinIcon,
       status: 'Novo',
       statusColor: 'bg-blue-100 text-blue-700'
     },
