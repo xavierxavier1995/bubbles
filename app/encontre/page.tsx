@@ -48,66 +48,88 @@ const STATE_CENTROIDS: Record<string, { x: number, y: number }> = {
   'SE': { x: 860, y: 380 }, 'SP': { x: 620, y: 680 }, 'TO': { x: 620, y: 350 }
 };
 
-const STATE_PATHS = [
-  { id: 'AC', d: 'M100,350 L200,350 L200,400 L100,400 Z' },
-  { id: 'AM', d: 'M200,150 L400,150 L400,350 L200,350 Z' },
-  { id: 'RR', d: 'M300,50 L400,50 L400,150 L300,150 Z' },
-  { id: 'RO', d: 'M250,350 L350,350 L350,450 L250,450 Z' },
-  { id: 'PA', d: 'M400,150 L600,150 L600,350 L400,350 Z' },
-  { id: 'AP', d: 'M500,50 L600,50 L600,150 L500,150 Z' },
-  { id: 'MT', d: 'M350,350 L550,350 L550,550 L350,550 Z' },
-  { id: 'MS', d: 'M400,550 L550,550 L550,700 L400,700 Z' },
-  { id: 'GO', d: 'M550,450 L650,450 L650,600 L550,600 Z' },
-  { id: 'TO', d: 'M550,300 L650,300 L650,450 L550,450 Z' },
-  { id: 'MA', d: 'M600,150 L720,150 L720,300 L600,300 Z' },
-  { id: 'PI', d: 'M680,250 L760,250 L760,380 L680,380 Z' },
-  { id: 'CE', d: 'M760,180 L860,180 L860,260 L760,260 Z' },
-  { id: 'RN', d: 'M860,200 L950,200 L950,260 L860,260 Z' },
-  { id: 'PB', d: 'M860,260 L950,260 L950,300 L860,300 Z' },
-  { id: 'PE', d: 'M800,300 L950,300 L950,340 L800,340 Z' },
-  { id: 'AL', d: 'M840,340 L920,340 L920,370 L840,370 Z' },
-  { id: 'SE', d: 'M840,370 L900,370 L900,400 L840,400 Z' },
-  { id: 'BA', d: 'M680,380 L840,380 L840,520 L680,520 Z' },
-  { id: 'MG', d: 'M650,520 L800,520 L800,650 L650,650 Z' },
-  { id: 'ES', d: 'M800,550 L860,550 L860,650 L800,650 Z' },
-  { id: 'RJ', d: 'M750,650 L820,650 L820,720 L750,720 Z' },
-  { id: 'SP', d: 'M550,600 L750,600 L750,720 L550,720 Z' },
-  { id: 'PR', d: 'M500,700 L650,700 L650,800 L500,800 Z' },
-  { id: 'SC', d: 'M520,800 L650,800 L650,850 L520,850 Z' },
-  { id: 'RS', d: 'M450,850 L600,850 L600,980 L450,980 Z' },
-  { id: 'DF', d: 'M600,480 L630,480 L630,510 L600,510 Z' },
-];
-
-const STATE_COORDS_PERCENT: Record<string, { x: number, y: number }> = {
-  'AC': { x: 15, y: 45 }, 'AL': { x: 88, y: 38 }, 'AM': { x: 30, y: 25 }, 'AP': { x: 58, y: 12 },
-  'BA': { x: 75, y: 48 }, 'CE': { x: 83, y: 25 }, 'DF': { x: 62, y: 52 }, 'ES': { x: 82, y: 62 },
-  'GO': { x: 58, y: 52 }, 'MA': { x: 68, y: 25 }, 'MG': { x: 72, y: 58 }, 'MS': { x: 48, y: 62 },
-  'MT': { x: 45, y: 42 }, 'PA': { x: 52, y: 25 }, 'PB': { x: 90, y: 30 }, 'PE': { x: 88, y: 34 },
-  'PI': { x: 72, y: 30 }, 'PR': { x: 55, y: 75 }, 'RJ': { x: 78, y: 68 }, 'RN': { x: 92, y: 26 },
-  'RO': { x: 30, y: 45 }, 'RR': { x: 35, y: 10 },  'RS': { x: 50, y: 88 }, 'SC': { x: 55, y: 82 },
-  'SE': { x: 86, y: 40 }, 'SP': { x: 62, y: 68 }, 'TO': { x: 62, y: 38 }
-};
+import BrazilMap from '@svg-maps/brazil';
+import { useRef, useEffect } from 'react';
 
 const MapComponent = ({ activeStates, selectedState, onStateClick }: { activeStates: string[], selectedState: string | null, onStateClick: (state: string) => void }) => {
+  const [hoveredState, setHoveredState] = useState<string | null>(null);
+  const [pinPos, setPinPos] = useState<{x: number, y: number} | null>(null);
+  const svgRef = useRef<SVGSVGElement>(null);
+
+  useEffect(() => {
+    if (selectedState && svgRef.current) {
+      const path = svgRef.current.querySelector(`path[id="${selectedState.toLowerCase()}"]`) as SVGGraphicsElement;
+      if (path) {
+        const bbox = path.getBBox();
+        setPinPos({
+          x: bbox.x + bbox.width / 2,
+          y: bbox.y + bbox.height / 2
+        });
+      }
+    } else {
+      setPinPos(null);
+    }
+  }, [selectedState]);
+
   return (
     <div className="relative w-full max-w-md mx-auto aspect-square">
-      <svg viewBox="0 0 1000 1000" className="w-full h-full drop-shadow-sm">
-        <g stroke="#FFFFFF" strokeWidth="4" fill="#F3F4F6">
-          {STATE_PATHS.map((state) => (
-            <path key={`path-${state.id}`} d={state.d} className="transition-colors duration-300 cursor-pointer hover:fill-gray-200" onClick={() => onStateClick(state.id)} />
-          ))}
+      <svg ref={svgRef} viewBox={BrazilMap.viewBox} className="w-full h-full drop-shadow-sm">
+        <g stroke="#FFFFFF" strokeWidth="2" fill="#F3F4F6">
+          {BrazilMap.locations.map((location: any) => {
+            const isActive = activeStates.includes(location.id.toUpperCase());
+            const isSelected = selectedState === location.id.toUpperCase();
+            const isHovered = hoveredState === location.id.toUpperCase();
+            
+            let fillClass = "fill-gray-100";
+            if (isSelected) {
+              fillClass = "fill-[#F48FB1]"; // Rosa ainda mais suave para o estado
+            } else if (isActive) {
+              fillClass = "fill-[#F4CDD4] hover:fill-[#e8b8c2] cursor-pointer";
+            }
+
+            return (
+              <path 
+                key={`path-${location.id}`} 
+                id={location.id}
+                name={location.name}
+                d={location.path} 
+                className={`transition-colors duration-300 ${fillClass}`} 
+                onClick={() => {
+                  if (isActive) onStateClick(location.id.toUpperCase());
+                }}
+                onMouseEnter={() => {
+                  if (isActive) setHoveredState(location.id.toUpperCase());
+                }}
+                onMouseLeave={() => {
+                  if (isActive) setHoveredState(null);
+                }}
+              />
+            );
+          })}
         </g>
-        {Object.entries(STATE_CENTROIDS).map(([id, coords]) => {
-          if (!activeStates.includes(id)) return null;
-          const isSelected = selectedState === id;
-          return (
-            <g key={`pin-${id}`} transform={`translate(${coords.x}, ${coords.y})`} onClick={() => onStateClick(id)} className="cursor-pointer group">
-              <path d="M0,-30 C12,-30 20,-20 20,-10 C20,5 0,20 0,20 C0,20 -20,5 -20,-10 C-20,-20 -12,-30 0,-30 Z" fill={isSelected ? '#0D0C0D' : '#F4CDD4'} className="transition-all duration-300 group-hover:fill-[#0D0C0D] shadow-lg" />
-              <circle cx="0" cy="-12" r="6" fill="#FFFFFF" />
-            </g>
-          );
-        })}
+        
+        {/* Pino no estado selecionado */}
+        {pinPos && (
+          <g transform={`translate(${pinPos.x}, ${pinPos.y})`} className="pointer-events-none drop-shadow-md">
+            <path 
+              d="M0,-24 C8,-24 14,-16 14,-8 C14,4 0,16 0,16 C0,16 -14,4 -14,-8 C-14,-16 -8,-24 0,-24 Z" 
+              fill="#E91E63" 
+              stroke="#FFFFFF" 
+              strokeWidth="2"
+            />
+            <circle cx="0" cy="-10" r="4" fill="#FFFFFF" />
+          </g>
+        )}
       </svg>
+      
+      {/* Tooltip for state name */}
+      {(hoveredState || selectedState) && (
+        <div className="absolute top-4 right-4 bg-white px-3 py-1.5 rounded-lg shadow-md border border-gray-100 pointer-events-none z-10">
+          <span className="text-sm font-bold text-[#0D0C0D]">
+            {BrazilMap.locations.find((l: any) => l.id.toUpperCase() === (hoveredState || selectedState))?.name}
+          </span>
+        </div>
+      )}
     </div>
   );
 };
