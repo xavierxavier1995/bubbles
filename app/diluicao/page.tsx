@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { DilutionCalculator } from '@/components/DilutionCalculator';
-import { Beaker, Droplets, AlertTriangle, ShieldCheck, CheckCircle2, Package, ArrowRight, MessageCircle, FlaskConical, Sparkles, TrendingUp, Shield, Info } from 'lucide-react';
+import { Beaker, Droplets, AlertTriangle, ShieldCheck, CheckCircle2, Package, ArrowRight, MessageCircle, FlaskConical, Sparkles, TrendingUp, Shield, Info, PlayCircle } from 'lucide-react';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'Guia de Diluição Pet Profissional | Calculadora Bubbles',
@@ -179,8 +180,60 @@ export default function DilutionGuide() {
           </div>
         </section>
 
-        {/* SECTION 5: Regra das 24h (Subtle & Professional) */}
-        <section className="max-w-4xl mx-auto">
+        {/* SECTION 5: Frasco Diluidor (New) */}
+        <section className="max-w-5xl mx-auto pt-12 border-t border-gray-100">
+          <div className="bg-gradient-to-br from-[#F4CDD4]/20 to-white border border-[#F4CDD4]/30 rounded-[2rem] p-8 md:p-12 flex flex-col md:flex-row items-center gap-10 shadow-sm">
+            <div className="w-full md:w-1/2 space-y-6">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white text-[#0D0C0D] text-xs font-bold uppercase tracking-wider border border-gray-100 shadow-sm">
+                <FlaskConical className="w-4 h-4 text-[#F48FB1]" />
+                Acessório Indispensável
+              </div>
+              <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-[#0D0C0D] leading-tight">
+                Frasco Diluidor Bubbles
+              </h2>
+              <p className="text-lg text-gray-600 leading-relaxed">
+                A ferramenta perfeita para garantir a proporção exata em todas as suas diluições. Com marcações precisas, você evita desperdícios e garante a máxima performance dos produtos.
+              </p>
+              <ul className="space-y-3">
+                <li className="flex items-center gap-3 text-gray-700 font-medium">
+                  <CheckCircle2 className="w-5 h-5 text-[#F48FB1]" />
+                  Marcações de proporção claras (1:4 até 1:10)
+                </li>
+                <li className="flex items-center gap-3 text-gray-700 font-medium">
+                  <CheckCircle2 className="w-5 h-5 text-[#F48FB1]" />
+                  Capacidade ideal de 500ml
+                </li>
+                <li className="flex items-center gap-3 text-gray-700 font-medium">
+                  <CheckCircle2 className="w-5 h-5 text-[#F48FB1]" />
+                  Material resistente e durável
+                </li>
+              </ul>
+              <div className="pt-4">
+                <a 
+                  href="https://www.bubbles.com.br/products/frasco-diluidor-groomer-bubbles-500ml?_pos=2&_psq=diluidor&_ss=e&_v=1.0"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 bg-[#0D0C0D] text-white font-bold px-8 py-4 rounded-xl hover:bg-gray-800 transition-colors shadow-md"
+                >
+                  Comprar Frasco Diluidor
+                  <ArrowRight className="w-5 h-5" />
+                </a>
+              </div>
+            </div>
+            <div className="w-full md:w-1/2 relative aspect-square max-w-md mx-auto">
+              <Image 
+                src="https://www.bubbles.com.br/cdn/shop/files/bubbles_frasco-diluidor-frente-verso_500ml_fundo-branco.jpg?v=1770904481&width=1206"
+                alt="Frasco Diluidor Bubbles 500ml"
+                fill
+                className="object-contain drop-shadow-xl"
+                referrerPolicy="no-referrer"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* SECTION 6: Regra das 24h (Subtle & Professional) */}
+        <section className="max-w-4xl mx-auto pt-12">
           <div className="bg-amber-50 border border-amber-200 rounded-3xl p-8 md:p-10 flex flex-col md:flex-row gap-8 items-start shadow-sm">
             <div className="w-16 h-16 bg-amber-100 rounded-2xl flex items-center justify-center shrink-0 border border-amber-200">
               <ShieldCheck className="w-8 h-8 text-amber-600" />
@@ -200,7 +253,83 @@ export default function DilutionGuide() {
           </div>
         </section>
 
-        {/* SECTION 6: Seção Comercial e Contato */}
+        {/* SECTION 7: Vídeos Educativos (Shorts) */}
+        <section className="pt-12 border-t border-gray-100">
+          <div className="text-center max-w-2xl mx-auto space-y-4 mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Aprenda na Prática</h2>
+            <p className="text-lg text-gray-600">Confira nossos tutoriais rápidos sobre as melhores práticas de diluição e uso dos produtos Bubbles.</p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {/* Video 1 */}
+            <div className="bg-gray-50 rounded-3xl overflow-hidden border border-gray-100 shadow-sm group hover:shadow-md transition-all">
+              <div className="relative aspect-[9/16] w-full bg-gray-200">
+                <Image 
+                  src="https://images.tcdn.com.br/img/editor/up/769798/Como_fazer_a_diluicao_correta_1.gif"
+                  alt="Como fazer a diluição correta"
+                  fill
+                  className="object-cover"
+                  referrerPolicy="no-referrer"
+                  unoptimized
+                />
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+                  <div className="w-14 h-14 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform">
+                    <PlayCircle className="w-8 h-8 text-[#0D0C0D] ml-1" />
+                  </div>
+                </div>
+              </div>
+              <div className="p-5">
+                <h3 className="font-bold text-lg text-[#0D0C0D] line-clamp-2">Como fazer a diluição correta passo a passo</h3>
+              </div>
+            </div>
+
+            {/* Video 2 */}
+            <div className="bg-gray-50 rounded-3xl overflow-hidden border border-gray-100 shadow-sm group hover:shadow-md transition-all">
+              <div className="relative aspect-[9/16] w-full bg-gray-200">
+                <Image 
+                  src="https://images.tcdn.com.br/img/editor/up/769798/Como_fazer_a_diluicao_correta_1.gif"
+                  alt="Dicas de rendimento"
+                  fill
+                  className="object-cover"
+                  referrerPolicy="no-referrer"
+                  unoptimized
+                />
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+                  <div className="w-14 h-14 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform">
+                    <PlayCircle className="w-8 h-8 text-[#0D0C0D] ml-1" />
+                  </div>
+                </div>
+              </div>
+              <div className="p-5">
+                <h3 className="font-bold text-lg text-[#0D0C0D] line-clamp-2">Dicas para maximizar o rendimento do seu galão</h3>
+              </div>
+            </div>
+
+            {/* Video 3 */}
+            <div className="bg-gray-50 rounded-3xl overflow-hidden border border-gray-100 shadow-sm group hover:shadow-md transition-all">
+              <div className="relative aspect-[9/16] w-full bg-gray-200">
+                <Image 
+                  src="https://images.tcdn.com.br/img/editor/up/769798/Como_fazer_a_diluicao_correta_1.gif"
+                  alt="Erros comuns na diluição"
+                  fill
+                  className="object-cover"
+                  referrerPolicy="no-referrer"
+                  unoptimized
+                />
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+                  <div className="w-14 h-14 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform">
+                    <PlayCircle className="w-8 h-8 text-[#0D0C0D] ml-1" />
+                  </div>
+                </div>
+              </div>
+              <div className="p-5">
+                <h3 className="font-bold text-lg text-[#0D0C0D] line-clamp-2">3 erros comuns na hora de diluir o shampoo</h3>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* SECTION 8: Seção Comercial e Contato */}
         <section className="bg-gray-50 rounded-3xl p-8 md:p-16 border border-gray-100 mt-12">
           <div className="text-center max-w-2xl mx-auto space-y-4 mb-12">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Estoque Inteligente: Linha Ego / Pro 5L</h2>

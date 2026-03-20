@@ -1,41 +1,22 @@
 'use client';
 
 import { Figtree } from 'next/font/google';
-import { Search, Crosshair, MessageCircle, MapPin, Phone, Copy, ArrowRight } from 'lucide-react';
-import { useState, useMemo } from 'react';
+import { Search, Crosshair, MessageCircle, MapPin, Phone, Copy, ArrowRight, Globe, X } from 'lucide-react';
+import { useState, useMemo, useRef, useEffect } from 'react';
+import BrazilMap from '@svg-maps/brazil';
+import WorldMap from '@svg-maps/world';
 
 const figtree = Figtree({ subsets: ['latin'] });
 
-// Simulação de 90+ Distribuidores
-const generateDistributors = () => {
-  const base = [
-    { id: 1, name: 'Bubbles Distribuidora Bauru Oficial', state: 'SP', cities: ['Bauru', 'Agudos', 'Pederneiras', 'Piratininga', 'Arealva', 'Duartina'], phone: '5514999999991', instagram: 'bubbles.bauru1', lat: -22.3145, lng: -49.0587 },
-    { id: 2, name: 'Bubbles Bauru Centro', state: 'SP', cities: ['Bauru'], phone: '5514999999992', instagram: 'bubbles.bauru2', lat: -22.3245, lng: -49.0687 },
-    { id: 3, name: 'Bubbles Bauru Sul', state: 'SP', cities: ['Bauru', 'Avaí'], phone: '5514999999993', instagram: 'bubbles.bauru3', lat: -22.3345, lng: -49.0787 },
-    { id: 4, name: 'Bubbles Lençóis Paulista Alpha', state: 'SP', cities: ['Lençóis Paulista', 'Macatuba', 'Borebi', 'Igaraçu do Tietê', 'Barra Bonita'], phone: '5514999999994', instagram: 'bubbles.lencois1', lat: -22.5986, lng: -48.8003 },
-    { id: 5, name: 'Bubbles Lençóis Paulista Beta', state: 'SP', cities: ['Lençóis Paulista', 'Areiópolis'], phone: '5514999999995', instagram: 'bubbles.lencois2', lat: -22.6086, lng: -48.8103 },
-  ];
-  
-  const states = ['RJ', 'MG', 'PR', 'SC', 'RS', 'BA', 'GO', 'DF', 'PE', 'CE', 'PA', 'AM', 'MT', 'MS', 'ES'];
-  for(let i=6; i<=95; i++) {
-    const st = states[i % states.length];
-    const cityCount = 2 + Math.floor(Math.random() * 6); // 2 to 7 cities
-    const cities = Array.from({length: cityCount}, (_, idx) => `Cidade ${idx+1} ${st}`);
-    base.push({
-      id: i,
-      name: `Bubbles Distribuidora ${st} ${i} - Representação Oficial`,
-      state: st,
-      cities: cities,
-      phone: `55119999900${i.toString().padStart(2, '0')}`,
-      instagram: `bubbles.${st.toLowerCase()}${i}`,
-      lat: -20 + (Math.random() * 10),
-      lng: -50 + (Math.random() * 10),
-    });
-  }
-  return base;
-};
+import DISTRIBUTORS_DATA from '@/app/data/distributors.json';
 
-const DISTRIBUTORS = generateDistributors();
+const DISTRIBUTORS = DISTRIBUTORS_DATA as any[];
+
+const INTL_DISTRIBUTORS = [
+  { id: 'cl-1', name: 'Distribuidora Santiago', country: 'Chile', countryCode: 'cl', phone: '56999999999', cities: ['Santiago'], lat: -33.4489, lng: -70.6693 },
+  { id: 'cl-2', name: 'Pet Supplies Valparaíso', country: 'Chile', countryCode: 'cl', phone: '56988888888', cities: ['Valparaíso'], lat: -33.0456, lng: -71.6197 },
+  { id: 'ca-1', name: 'Maple Pet Care', country: 'Canadá', countryCode: 'ca', phone: '14165550198', cities: ['Toronto'], lat: 43.65107, lng: -79.347015 }
+];
 
 // Mapa SVG do Brasil Simplificado
 const STATE_CENTROIDS: Record<string, { x: number, y: number }> = {
@@ -47,9 +28,6 @@ const STATE_CENTROIDS: Record<string, { x: number, y: number }> = {
   'RO': { x: 300, y: 420 }, 'RR': { x: 350, y: 80 },  'RS': { x: 500, y: 880 }, 'SC': { x: 580, y: 820 },
   'SE': { x: 860, y: 380 }, 'SP': { x: 620, y: 680 }, 'TO': { x: 620, y: 350 }
 };
-
-import BrazilMap from '@svg-maps/brazil';
-import { useRef, useEffect } from 'react';
 
 const MapComponent = ({ activeStates, selectedState, onStateClick }: { activeStates: string[], selectedState: string | null, onStateClick: (state: string) => void }) => {
   const [hoveredState, setHoveredState] = useState<string | null>(null);
@@ -134,15 +112,93 @@ const MapComponent = ({ activeStates, selectedState, onStateClick }: { activeSta
   );
 };
 
+const WorldMapComponent = ({ activeCountries }: { activeCountries: string[] }) => {
+  return (
+    <div className="relative w-full max-w-lg mx-auto aspect-video">
+      <svg viewBox={WorldMap.viewBox} className="w-full h-full drop-shadow-sm">
+        <g stroke="#FFFFFF" strokeWidth="1" fill="#F3F4F6">
+          {WorldMap.locations.map((location: any) => {
+            const isActive = activeCountries.includes(location.id.toLowerCase());
+            
+            let fillClass = "fill-gray-100";
+            if (isActive) {
+              fillClass = "fill-[#F48FB1]"; // Rosa suave
+            }
+
+            return (
+              <path 
+                key={`path-${location.id}`} 
+                id={location.id}
+                name={location.name}
+                d={location.path} 
+                className={`transition-colors duration-300 ${fillClass}`} 
+              />
+            );
+          })}
+        </g>
+      </svg>
+    </div>
+  );
+};
+
+const CitiesModal = ({ isOpen, onClose, cities, distName }: { isOpen: boolean, onClose: () => void, cities: string[], distName: string }) => {
+  const [search, setSearch] = useState('');
+  
+  if (!isOpen) return null;
+
+  const filteredCities = cities.filter(c => c.toLowerCase().includes(search.toLowerCase()));
+
+  return (
+    <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/50 p-4">
+      <div className="bg-white rounded-2xl w-full max-w-md max-h-[80vh] flex flex-col shadow-xl relative">
+        <div className="p-4 border-b border-gray-100 flex items-center justify-between">
+          <h3 className="font-bold text-[#0D0C0D] truncate pr-4">Cidades atendidas - {distName}</h3>
+          <button onClick={onClose} className="p-1.5 bg-gray-100 hover:bg-gray-200 rounded-full transition-colors shrink-0">
+            <X className="w-4 h-4 text-gray-600" />
+          </button>
+        </div>
+        
+        <div className="p-4 border-b border-gray-100">
+          <div className="relative">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+            <input 
+              type="text" 
+              placeholder="Buscar cidade..." 
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              className="w-full bg-gray-50 border border-gray-200 rounded-lg pl-9 pr-3 py-2 text-sm text-[#0D0C0D] placeholder:text-gray-500 focus:outline-none focus:border-[#F4CDD4]"
+            />
+          </div>
+        </div>
+
+        <div className="p-4 overflow-y-auto flex-1">
+          {filteredCities.length === 0 ? (
+            <p className="text-center text-gray-500 text-sm py-4">Nenhuma cidade encontrada.</p>
+          ) : (
+            <div className="flex flex-wrap gap-2">
+              {filteredCities.map(city => (
+                <span key={city} className="text-xs font-bold bg-[#F4CDD4]/20 text-[#0D0C0D] px-2.5 py-1.5 rounded-md border border-[#F4CDD4]/30">
+                  {city}
+                </span>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const WhatsAppIcon = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 24 24" className={className} fill="currentColor" xmlns="http://www.w3.org/2000/svg">
     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
   </svg>
 );
 
-const DistributorCard = ({ dist }: { dist: any }) => {
+const DistributorCard = ({ dist, isIntl = false }: { dist: any, isIntl?: boolean }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [showCitiesModal, setShowCitiesModal] = useState(false);
 
   const handleCopy = () => {
     navigator.clipboard.writeText(dist.phone);
@@ -152,82 +208,99 @@ const DistributorCard = ({ dist }: { dist: any }) => {
 
   const whatsappMessage = encodeURIComponent(`Olá! Vi no site da Bubbles que você é fornecedor e gostaria de comprar produtos para meu estabelecimento.`);
   const whatsappLink = `https://wa.me/${dist.phone}?text=${whatsappMessage}`;
-  const mapsLink = `https://www.google.com/maps/search/?api=1&query=${dist.lat},${dist.lng}`;
+  const mapsLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(dist.name + ' ' + dist.cities[0] + ' ' + (dist.state || dist.country))}`;
 
   const visibleCities = isExpanded ? dist.cities : dist.cities.slice(0, 3);
   const hiddenCount = dist.cities.length - 3;
 
+  const handleExpandClick = () => {
+    if (dist.cities.length > 5) {
+      setShowCitiesModal(true);
+    } else {
+      setIsExpanded(true);
+    }
+  };
+
   return (
-    <div className="bg-white rounded-xl p-4 border border-gray-100 shadow-sm hover:shadow-md hover:border-[#F4CDD4] transition-all flex flex-col h-full">
-      <h3 className="text-base font-bold text-[#0D0C0D] leading-tight mb-2 line-clamp-2" title={dist.name}>
-        {dist.name}
-      </h3>
+    <>
+      <div className="bg-white rounded-xl p-4 border border-gray-100 shadow-sm hover:shadow-md hover:border-[#F4CDD4] transition-all flex flex-col h-full">
+        <h3 className="text-base font-bold text-[#0D0C0D] leading-tight mb-2 line-clamp-2" title={dist.name}>
+          {dist.name}
+        </h3>
 
-      <div className="flex flex-wrap gap-1.5 mb-4">
-        {visibleCities.map((city: string) => (
-          <span key={city} className="text-[10px] font-bold bg-[#F4CDD4]/20 text-[#0D0C0D] px-2 py-1 rounded">
-            {city}
-          </span>
-        ))}
-        {!isExpanded && hiddenCount > 0 && (
-          <button 
-            onClick={() => setIsExpanded(true)}
-            className="text-[10px] font-bold bg-[#0D0C0D] text-white px-2 py-1 rounded transition-colors"
-          >
-            +{hiddenCount} CIDADES
-          </button>
-        )}
-        {isExpanded && hiddenCount > 0 && (
-          <button 
-            onClick={() => setIsExpanded(false)}
-            className="text-[10px] font-bold bg-gray-100 text-gray-600 hover:bg-gray-200 px-2 py-1 rounded transition-colors"
-          >
-            Ocultar
-          </button>
-        )}
-      </div>
+        <div className="flex flex-wrap gap-1.5 mb-4">
+          {visibleCities.map((city: string) => (
+            <span key={city} className="text-[10px] font-bold bg-[#F4CDD4]/20 text-[#0D0C0D] px-2 py-1 rounded">
+              {city}
+            </span>
+          ))}
+          {!isExpanded && hiddenCount > 0 && (
+            <button 
+              onClick={handleExpandClick}
+              className="text-[10px] font-bold bg-[#0D0C0D] text-white px-2 py-1 rounded transition-colors"
+            >
+              +{hiddenCount} CIDADES
+            </button>
+          )}
+          {isExpanded && hiddenCount > 0 && (
+            <button 
+              onClick={() => setIsExpanded(false)}
+              className="text-[10px] font-bold bg-gray-100 text-gray-600 hover:bg-gray-200 px-2 py-1 rounded transition-colors"
+            >
+              Ocultar
+            </button>
+          )}
+        </div>
 
-      <div className="mt-auto space-y-3">
-        <div className="flex items-center justify-between">
-          <div 
-            onClick={handleCopy}
-            className="flex items-center gap-1.5 text-xs text-gray-500 hover:text-[#0D0C0D] cursor-pointer transition-colors"
-            title="Clique para copiar"
-          >
-            <Phone className="w-3 h-3" />
-            <span className="font-mono">{dist.phone}</span>
-            {copied ? <span className="text-green-600 text-[10px] font-bold ml-1">Copiado!</span> : <Copy className="w-3 h-3 ml-1 opacity-50" />}
+        <div className="mt-auto space-y-3">
+          <div className="flex items-center justify-between">
+            <div 
+              onClick={handleCopy}
+              className="flex items-center gap-1.5 text-xs text-gray-500 hover:text-[#0D0C0D] cursor-pointer transition-colors"
+              title="Clique para copiar"
+            >
+              <Phone className="w-3 h-3" />
+              <span className="font-mono">{dist.phone}</span>
+              {copied ? <span className="text-green-600 text-[10px] font-bold ml-1">Copiado!</span> : <Copy className="w-3 h-3 ml-1 opacity-50" />}
+            </div>
+            <a 
+              href={mapsLink} 
+              target="_blank" 
+              rel="nofollow noopener noreferrer"
+              className="text-gray-400 hover:text-[#0D0C0D] text-[10px] underline decoration-gray-200 underline-offset-2 transition-colors flex items-center gap-1"
+            >
+              <MapPin className="w-3 h-3" /> Maps
+            </a>
           </div>
-          <a 
-            href={mapsLink} 
-            target="_blank" 
-            rel="nofollow noopener noreferrer"
-            className="text-gray-400 hover:text-[#0D0C0D] text-[10px] underline decoration-gray-200 underline-offset-2 transition-colors flex items-center gap-1"
-          >
-            <MapPin className="w-3 h-3" /> Maps
-          </a>
-        </div>
 
-        <div className="grid grid-cols-2 gap-2">
-          <a 
-            href={`tel:+${dist.phone}`}
-            className="w-full bg-gray-50 text-[#0D0C0D] border border-gray-200 font-bold px-2 py-2 rounded-lg hover:bg-gray-100 transition-colors flex items-center justify-center gap-1.5 text-xs"
-          >
-            <Phone className="w-3.5 h-3.5" />
-            Ligar
-          </a>
-          <a 
-            href={whatsappLink} 
-            target="_blank" 
-            rel="nofollow noopener noreferrer"
-            className="w-full bg-[#25D366] text-white font-bold px-2 py-2 rounded-lg hover:bg-[#20bd5a] transition-colors flex items-center justify-center gap-1.5 shadow-sm text-xs"
-          >
-            <WhatsAppIcon className="w-3.5 h-3.5" />
-            WhatsApp
-          </a>
+          <div className="grid grid-cols-2 gap-2">
+            <a 
+              href={`tel:+${dist.phone}`}
+              className="w-full bg-gray-50 text-[#0D0C0D] border border-gray-200 font-bold px-2 py-2 rounded-lg hover:bg-gray-100 transition-colors flex items-center justify-center gap-1.5 text-xs"
+            >
+              <Phone className="w-3.5 h-3.5" />
+              Ligar
+            </a>
+            <a 
+              href={whatsappLink} 
+              target="_blank" 
+              rel="nofollow noopener noreferrer"
+              className="w-full bg-[#25D366] text-white font-bold px-2 py-2 rounded-lg hover:bg-[#20bd5a] transition-colors flex items-center justify-center gap-1.5 shadow-sm text-xs"
+            >
+              <WhatsAppIcon className="w-3.5 h-3.5" />
+              WhatsApp
+            </a>
+          </div>
         </div>
       </div>
-    </div>
+
+      <CitiesModal 
+        isOpen={showCitiesModal} 
+        onClose={() => setShowCitiesModal(false)} 
+        cities={dist.cities} 
+        distName={dist.name} 
+      />
+    </>
   );
 };
 
@@ -235,6 +308,7 @@ export default function StoreLocator() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedState, setSelectedState] = useState<string | null>(null);
   const [visibleCount, setVisibleCount] = useState(6);
+  const [showIntlModal, setShowIntlModal] = useState(false);
 
   const activeStates = useMemo(() => Array.from(new Set(DISTRIBUTORS.map(d => d.state))), []);
 
@@ -252,9 +326,9 @@ export default function StoreLocator() {
       'SP': 1, 'MG': 2, 'RJ': 3, 'BA': 4, 'PR': 5, 'RS': 6, 'PE': 7, 'CE': 8, 'PA': 9, 'SC': 10
     };
 
-    const filtered = DISTRIBUTORS.filter(d => {
+    const filtered = DISTRIBUTORS.filter((d: any) => {
       const matchesSearch = 
-        d.cities.some(city => city.toLowerCase().includes(searchQuery.toLowerCase())) || 
+        d.cities.some((city: string) => city.toLowerCase().includes(searchQuery.toLowerCase())) || 
         d.state.toLowerCase().includes(searchQuery.toLowerCase()) ||
         d.name.toLowerCase().includes(searchQuery.toLowerCase());
       
@@ -367,6 +441,14 @@ export default function StoreLocator() {
                   Ver todos os distribuidores
                 </button>
               )}
+
+              <button 
+                onClick={() => setShowIntlModal(true)}
+                className="mt-4 w-full py-3 text-sm font-bold bg-white border-2 border-[#F4CDD4] text-[#0D0C0D] rounded-xl hover:bg-[#F4CDD4]/10 transition-colors shadow-sm flex items-center justify-center gap-2"
+              >
+                <Globe className="w-5 h-5" />
+                Quero um distribuidor internacional
+              </button>
             </div>
           </div>
 
@@ -420,6 +502,40 @@ export default function StoreLocator() {
 
         </div>
       </main>
+
+      {/* International Distributors Modal */}
+      {showIntlModal && (
+        <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/50 p-4 backdrop-blur-sm">
+          <div className="bg-white rounded-3xl w-full max-w-5xl max-h-[90vh] flex flex-col shadow-2xl relative overflow-hidden">
+            <div className="p-6 border-b border-gray-100 flex items-center justify-between bg-gray-50">
+              <div className="flex items-center gap-3">
+                <div className="bg-[#F4CDD4] p-2.5 rounded-xl shadow-sm">
+                  <Globe className="w-6 h-6 text-[#0D0C0D]" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-extrabold text-[#0D0C0D]">Distribuidores Internacionais</h3>
+                  <p className="text-sm text-gray-500 font-medium">Encontre a Bubbles pelo mundo</p>
+                </div>
+              </div>
+              <button onClick={() => setShowIntlModal(false)} className="p-2.5 bg-white hover:bg-gray-100 rounded-full transition-colors shrink-0 shadow-sm border border-gray-200">
+                <X className="w-5 h-5 text-gray-600" />
+              </button>
+            </div>
+            
+            <div className="p-6 overflow-y-auto flex-1 bg-white">
+              <div className="mb-8 bg-gray-50 rounded-3xl p-6 border border-gray-100 shadow-inner">
+                <WorldMapComponent activeCountries={['cl', 'ca']} />
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                {INTL_DISTRIBUTORS.map((dist) => (
+                  <DistributorCard key={dist.id} dist={dist} isIntl={true} />
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Footer CTA: Quero ser um Distribuidor */}
       <section className="max-w-6xl mx-auto px-6 md:px-12 mt-8 mb-16">

@@ -1,0 +1,49 @@
+[
+  {
+    "id": 1,
+    "name": "BOM PRA CACHORRO DISTRIBUIDORA",
+    "state": "SP",
+    "cities": [
+      "Suzano",
+      "Rio Grande da Serra",
+      "Ribeirão Pires",
+      "Mauá"
+    ],
+    "phone": "11973889683",
+    "instagram": "",
+    "site": "",
+    "lat": 0,
+    "lng": 0
+  },
+  {
+    "id": 2,
+    "name": "UNIVERSO TOSADOR DISTRIBUIDORA",
+    "state": "SP",
+    "cities": [
+      "São Paulo"
+    ],
+    "phone": "11948275444",
+    "instagram": "universodotosador",
+    "site": "",
+    "lat": 0,
+    "lng": 0
+  },
+  {
+    "id": 3,
+    "name": "DOG SHOWER DISTRIBUIDORA",
+    "state": "PR",
+    "cities": [
+      "Fazenda Rio Grande",
+      "Campo Largo",
+      "Rio Negro",
+      "Almirante Tamandaré do Sul",
+      "Colombo",
+      "São José dos Pinhais"
+    ],
+    "phone": "4396611413",
+    "instagram": "dog_shower_distribuidora",
+    "site": "",
+    "lat": 0,
+    "lng": 0
+  }
+]
