@@ -60,8 +60,8 @@ export default function ShippingPolicy() {
         </section>
 
         {/* Free Shipping Rules */}
-        <section className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
+        <section className="grid md:grid-cols-2 gap-8 md:gap-12 items-stretch">
+          <div className="space-y-6 flex flex-col">
             <h2 className="text-3xl font-bold tracking-tight">Frete Grátis por Região</h2>
             <p className="text-gray-600">
               Faça seus pedidos e aproveite nossas condições especiais de frete grátis. Entregamos em todo o Brasil com as melhores condições.
@@ -99,23 +99,24 @@ export default function ShippingPolicy() {
                 </tbody>
               </table>
             </div>
-            <div className="mt-4 p-4 bg-gray-50 rounded-xl border border-gray-100 text-sm text-gray-600 leading-relaxed">
+            <div className="mt-4 p-4 bg-gray-50 rounded-xl border border-gray-100 text-sm text-gray-600 leading-relaxed mt-auto">
               <strong>Importante:</strong> O pedido pode levar até 3 dias úteis para ser faturado e despachado. Após essa etapa, o prazo de entrega até o seu banho e tosa varia conforme a transportadora definida pela nossa parceira logística, de acordo com a sua região.
             </div>
           </div>
           
-          <div className="relative h-[400px] rounded-3xl overflow-hidden bg-gray-100">
+          <div className="relative h-full min-h-[400px] rounded-3xl overflow-hidden bg-gray-100">
             <Image 
-              src="https://picsum.photos/seed/dogplaying/800/800" 
-              alt="Cachorro brincando" 
+              src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=800&q=80" 
+              alt="Cachorro tomando banho" 
               fill 
               className="object-cover"
               referrerPolicy="no-referrer"
+              unoptimized
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-            <div className="absolute bottom-6 left-6 right-6 text-white">
-              <p className="font-medium text-sm uppercase tracking-wider mb-1 opacity-90">Rendimento Garantido</p>
-              <p className="text-xl font-bold">Seu banho e tosa sempre abastecido.</p>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+            <div className="absolute bottom-8 left-8 right-8 text-white">
+              <p className="font-medium text-sm uppercase tracking-wider mb-2 opacity-90 text-[#F4CDD4]">Rendimento Garantido</p>
+              <p className="text-2xl font-bold leading-tight">Seu banho e tosa sempre abastecido.</p>
             </div>
           </div>
         </section>
@@ -123,20 +124,24 @@ export default function ShippingPolicy() {
         {/* Deadlines & Security */}
         <section className="grid md:grid-cols-2 gap-8">
           <div className="bg-[#F4CDD4]/20 rounded-3xl p-8 md:p-12 space-y-6">
-            <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center shadow-sm">
-              <Clock className="w-7 h-7 text-[#0D0C0D]" />
+            <div className="flex items-center gap-4">
+              <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center shadow-sm shrink-0">
+                <Clock className="w-7 h-7 text-[#0D0C0D]" />
+              </div>
+              <h3 className="text-2xl font-bold">Prazos e Processamento</h3>
             </div>
-            <h3 className="text-2xl font-bold">Prazos e Processamento</h3>
             <p className="text-gray-700 leading-relaxed">
               Após a aprovação do pagamento, temos um prazo de <strong>até 3 dias úteis</strong> para despacho. Utilizamos a plataforma <strong>Mandaê</strong>, que seleciona a transportadora mais eficiente e rápida para a sua região.
             </p>
           </div>
 
           <div className="bg-gray-50 rounded-3xl p-8 md:p-12 space-y-6 relative overflow-hidden group">
-            <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center shadow-sm relative z-10">
-              <ShieldCheck className="w-7 h-7 text-[#0D0C0D]" />
+            <div className="flex items-center gap-4 relative z-10">
+              <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center shadow-sm shrink-0">
+                <ShieldCheck className="w-7 h-7 text-[#0D0C0D]" />
+              </div>
+              <h3 className="text-2xl font-bold">Segurança no Transporte</h3>
             </div>
-            <h3 className="text-2xl font-bold relative z-10">Segurança no Transporte</h3>
             <p className="text-gray-700 leading-relaxed relative z-10">
               Utilizamos embalagens reforçadas para garantir que seus produtos cheguem intactos e em perfeitas condições até você.
             </p>
@@ -175,10 +180,12 @@ export default function ShippingPolicy() {
               }
             ].map((step, i) => (
               <div key={i} className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
-                <div className="w-10 h-10 rounded-full bg-[#F4CDD4]/30 flex items-center justify-center mb-4 text-[#0D0C0D]">
-                  <step.icon className="w-5 h-5" />
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-full bg-[#F4CDD4]/30 flex items-center justify-center text-[#0D0C0D] shrink-0">
+                    <step.icon className="w-5 h-5" />
+                  </div>
+                  <h4 className="text-lg font-bold">{step.title}</h4>
                 </div>
-                <h4 className="text-lg font-bold mb-2">{step.title}</h4>
                 <p className="text-sm text-gray-600 leading-relaxed">{step.desc}</p>
               </div>
             ))}
@@ -195,10 +202,12 @@ export default function ShippingPolicy() {
           <div className="grid md:grid-cols-3 gap-8">
             {/* Logística de Galões (5L) */}
             <div className="bg-red-50 border border-red-200 rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col h-full">
-              <div className="w-12 h-12 bg-red-100 rounded-2xl flex items-center justify-center mb-6 text-red-600">
-                <Package className="w-6 h-6" />
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 bg-red-100 rounded-2xl flex items-center justify-center text-red-600 shrink-0">
+                  <Package className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-bold text-red-800">Logística de Galões (5L)</h3>
               </div>
-              <h3 className="text-xl font-bold mb-4 text-red-800">Logística de Galões (5L)</h3>
               <p className="text-red-700 mb-6 leading-relaxed flex-grow">
                 Sabemos que galões de 5L pesam cerca de 5,2 kg e exigem cuidado redobrado. Desenvolvemos uma inteligência de cubagem e embalagem para que os produtos das linhas Ego / Pro, Basiq, Sensorial e Collora não estourem no transporte:
               </p>
@@ -220,10 +229,12 @@ export default function ShippingPolicy() {
 
             {/* Como Receber seu Pedido */}
             <div className="bg-white border border-gray-200 rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col h-full">
-              <div className="w-12 h-12 bg-red-50 rounded-2xl flex items-center justify-center mb-6 text-red-600">
-                <ShieldAlert className="w-6 h-6" />
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 bg-red-50 rounded-2xl flex items-center justify-center text-red-600 shrink-0">
+                  <ShieldAlert className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-bold">Como Receber seu Pedido</h3>
               </div>
-              <h3 className="text-xl font-bold mb-4">Como Receber seu Pedido</h3>
               <p className="text-gray-600 mb-6 leading-relaxed flex-grow">
                 Para garantir a integridade do seu investimento, siga este rigoroso protocolo de conferência no ato da entrega:
               </p>
@@ -245,10 +256,12 @@ export default function ShippingPolicy() {
 
             {/* Transparência no Rastreio */}
             <div className="bg-white border border-gray-200 rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col h-full">
-              <div className="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center mb-6 text-blue-600">
-                <Smartphone className="w-6 h-6" />
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 shrink-0">
+                  <Smartphone className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-bold">Transparência no Rastreio</h3>
               </div>
-              <h3 className="text-xl font-bold mb-4">Transparência no Rastreio</h3>
               <p className="text-gray-600 mb-6 leading-relaxed flex-grow">
                 Diminua a ansiedade de esperar por um produto essencial. Em parceria com a <strong>Mandaê</strong>, garantimos previsibilidade total para a sua agenda:
               </p>

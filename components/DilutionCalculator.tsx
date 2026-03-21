@@ -140,7 +140,7 @@ export function DilutionCalculator() {
 
               {/* Água */}
               <div className="flex flex-col items-center flex-1">
-                <div className="flex flex-wrap gap-1 justify-center max-w-[56px] mb-2">
+                <div className="flex flex-wrap gap-1 justify-center max-w-[56px] md:max-w-[84px] mb-2">
                   {Array.from({ length: Math.min(waterParts, 10) }).map((_, i) => (
                     <div key={`w-${i}`} className="bg-blue-50 border border-blue-200 rounded-b-md rounded-t-sm flex items-end justify-center pb-0.5 w-6 h-8">
                       <div className="w-full h-3/4 bg-blue-300/50 rounded-b-sm"></div>
