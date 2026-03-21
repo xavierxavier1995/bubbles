@@ -1,9 +1,35 @@
 import Image from 'next/image';
 import { RefreshCcw, Calendar, ShieldAlert, Smartphone, CreditCard, ChevronDown, Package, MessageCircle, ArrowRight, Truck, CheckCircle2, HeartPulse, ClipboardCheck } from 'lucide-react';
+import { Metadata } from 'next';
+import SupportBanner from '@/components/SupportBanner';
+
+export const metadata: Metadata = {
+  title: 'Política de Troca e Devoluções | Bubbles® Cosméticos Pet Profissionais',
+  description: 'Transparência e segurança para o seu pet shop. Conheça nossa política de trocas e devoluções com suporte técnico humanizado.',
+};
 
 export default function ReturnPolicy() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Política de Troca e Devoluções | Bubbles® Cosméticos Pet Profissionais",
+    "description": "Transparência e segurança para o seu pet shop. Conheça nossa política de trocas e devoluções com suporte técnico humanizado.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Bubbles",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://bubbles.com.br/logo.png"
+      }
+    }
+  };
+
   return (
     <div className="min-h-screen bg-white text-[#0D0C0D] font-sans selection:bg-[#F4CDD4] selection:text-[#0D0C0D]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Navigation Bar Simulation */}
       <nav className="border-b border-gray-100 py-4 px-6 md:px-12 flex justify-between items-center sticky top-0 bg-white/80 backdrop-blur-md z-50">
         <div className="flex items-center gap-2">
@@ -325,6 +351,7 @@ export default function ReturnPolicy() {
           </div>
         </section>
 
+        <SupportBanner pageName="Política de Troca e Devoluções" />
       </main>
     </div>
   );

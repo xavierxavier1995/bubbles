@@ -1,5 +1,12 @@
 import Link from 'next/link';
 import { Package } from 'lucide-react';
+import { Metadata } from 'next';
+import SupportBanner from '@/components/SupportBanner';
+
+export const metadata: Metadata = {
+  title: 'Rodapé | Bubbles® Cosméticos Pet Profissionais',
+  description: 'Rodapé da Bubbles Cosméticos Pet Profissionais.',
+};
 
 export default function FooterPreview() {
   return (
@@ -12,6 +19,10 @@ export default function FooterPreview() {
         </div>
         <h1 className="text-3xl font-bold text-[#0D0C0D]">Conteúdo da Loja</h1>
         <p className="text-gray-500 max-w-md">Role para baixo para visualizar o novo rodapé projetado com foco em conversão, autoridade e usabilidade mobile. Ele agora é global e aparece em todas as páginas!</p>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 md:px-12 pb-16 w-full">
+        <SupportBanner pageName="Rodapé" />
       </div>
 
     </div>

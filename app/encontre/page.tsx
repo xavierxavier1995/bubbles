@@ -5,6 +5,7 @@ import { Search, Crosshair, MessageCircle, MapPin, Phone, Copy, ArrowRight, Glob
 import { useState, useMemo, useRef, useEffect } from 'react';
 import BrazilMap from '@svg-maps/brazil';
 import WorldMap from '@svg-maps/world';
+import SupportBanner from '@/components/SupportBanner';
 
 const figtree = Figtree({ subsets: ['latin'] });
 
@@ -196,47 +197,111 @@ const WhatsAppIcon = ({ className }: { className?: string }) => (
 );
 
 const DistributorCard = ({ dist, isIntl = false }: { dist: any, isIntl?: boolean }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [copied, setCopied] = useState(false);
+  const [showCitiesModal, setShowCitiesModal] = useState(false);
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(dist.phone);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   const whatsappMessage = encodeURIComponent(`Olá! Vi no site da Bubbles que você é fornecedor e gostaria de comprar produtos para meu estabelecimento.`);
   const whatsappLink = `https://wa.me/${dist.phone}?text=${whatsappMessage}`;
+  const mapsLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(dist.name + ' ' + dist.cities[0] + ' ' + (dist.state || dist.country))}`;
+
+  const visibleCities = isExpanded ? dist.cities : dist.cities.slice(0, 3);
+  const hiddenCount = dist.cities.length - 3;
+
+  const handleExpandClick = () => {
+    if (dist.cities.length > 5) {
+      setShowCitiesModal(true);
+    } else {
+      setIsExpanded(true);
+    }
+  };
 
   return (
-    <div className="flex flex-col gap-3 group">
-      {/* Imagem Retangular (Placeholder) */}
-      <div className="w-full aspect-[4/3] bg-gray-100 rounded-2xl overflow-hidden relative">
-        <div className="absolute inset-0 flex items-center justify-center text-gray-300">
-          <MapPin className="w-12 h-12 opacity-50" />
+    <>
+      <div className="bg-white rounded-xl p-4 border border-gray-100 shadow-sm hover:shadow-md hover:border-[#F4CDD4] transition-all flex flex-col h-full">
+        <h3 className="text-base font-bold text-[#0D0C0D] leading-tight mb-2 line-clamp-2" title={dist.name}>
+          {dist.name}
+        </h3>
+
+        <div className="flex flex-wrap gap-1.5 mb-4">
+          {visibleCities.map((city: string) => (
+            <span key={city} className="text-[10px] font-bold bg-[#F4CDD4]/20 text-[#0D0C0D] px-2 py-1 rounded">
+              {city}
+            </span>
+          ))}
+          {!isExpanded && hiddenCount > 0 && (
+            <button 
+              onClick={handleExpandClick}
+              className="text-[10px] font-bold bg-[#0D0C0D] text-white px-2 py-1 rounded transition-colors"
+            >
+              +{hiddenCount} CIDADES
+            </button>
+          )}
+          {isExpanded && hiddenCount > 0 && (
+            <button 
+              onClick={() => setIsExpanded(false)}
+              className="text-[10px] font-bold bg-gray-100 text-gray-600 hover:bg-gray-200 px-2 py-1 rounded transition-colors"
+            >
+              Ocultar
+            </button>
+          )}
         </div>
-        {/* Gatilhos de Confiança (Emblemas) */}
-        <div className="absolute bottom-3 left-3 flex gap-2">
-          <div className="bg-white/90 backdrop-blur-sm px-2 py-1 rounded-md flex items-center gap-1 shadow-sm">
-            <span className="text-[10px] font-bold text-gray-800">🇧🇷 Oficial</span>
+
+        <div className="mt-auto space-y-3">
+          <div className="flex items-center justify-between">
+            <div 
+              onClick={handleCopy}
+              className="flex items-center gap-1.5 text-xs text-gray-500 hover:text-[#0D0C0D] cursor-pointer transition-colors"
+              title="Clique para copiar"
+            >
+              <Phone className="w-3 h-3" />
+              <span className="font-mono">{dist.phone}</span>
+              {copied ? <span className="text-green-600 text-[10px] font-bold ml-1">Copiado!</span> : <Copy className="w-3 h-3 ml-1 opacity-50" />}
+            </div>
+            <a 
+              href={mapsLink} 
+              target="_blank" 
+              rel="nofollow noopener noreferrer"
+              className="text-gray-400 hover:text-[#0D0C0D] text-[10px] underline decoration-gray-200 underline-offset-2 transition-colors flex items-center gap-1"
+            >
+              <MapPin className="w-3 h-3" /> Maps
+            </a>
           </div>
-          <div className="bg-white/90 backdrop-blur-sm px-2 py-1 rounded-md flex items-center gap-1 shadow-sm">
-            <span className="text-[10px] font-bold text-gray-800">🏆 PRO</span>
+
+          <div className="grid grid-cols-2 gap-2">
+            <a 
+              href={`tel:+${dist.phone}`}
+              className="w-full bg-gray-50 text-[#0D0C0D] border border-gray-200 font-bold px-2 py-2 rounded-lg hover:bg-gray-100 transition-colors flex items-center justify-center gap-1.5 text-xs"
+            >
+              <Phone className="w-3.5 h-3.5" />
+              Ligar
+            </a>
+            <a 
+              href={whatsappLink} 
+              target="_blank" 
+              rel="nofollow noopener noreferrer"
+              className="w-full bg-[#25D366] text-white font-bold px-2 py-2 rounded-lg hover:bg-[#20bd5a] transition-colors flex items-center justify-center gap-1.5 shadow-sm text-xs"
+            >
+              <WhatsAppIcon className="w-3.5 h-3.5" />
+              WhatsApp
+            </a>
           </div>
         </div>
       </div>
 
-      {/* Hierarquia de Texto */}
-      <div className="flex flex-col">
-        <h3 className="text-base font-bold text-[#0D0C0D] leading-tight truncate" title={dist.name}>
-          {dist.name}
-        </h3>
-        <p className="text-sm text-gray-500 mt-0.5 truncate">
-          {dist.cities[0]} • {dist.state || dist.country}
-        </p>
-        
-        {/* Botão Minimalista */}
-        <a 
-          href={whatsappLink} 
-          target="_blank" 
-          rel="nofollow noopener noreferrer"
-          className="mt-3 text-sm font-bold text-[#0D0C0D] underline decoration-[#F4CDD4] decoration-2 underline-offset-4 hover:text-[#F4CDD4] transition-colors w-fit"
-        >
-          FALE NO WHATSAPP
-        </a>
-      </div>
-    </div>
+      <CitiesModal 
+        isOpen={showCitiesModal} 
+        onClose={() => setShowCitiesModal(false)} 
+        cities={dist.cities} 
+        distName={dist.name} 
+      />
+    </>
   );
 };
 
@@ -280,7 +345,7 @@ export default function StoreLocator() {
       <div className="flex flex-col lg:flex-row min-h-screen">
         
         {/* Coluna Esquerda (Cards - Rolagem Independente) */}
-        <div className="w-full lg:w-[60%] flex flex-col h-screen overflow-y-auto custom-scrollbar">
+        <div className="w-full lg:w-[60%] flex flex-col h-screen overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
           
           <div className="px-6 md:px-12 pt-8 pb-12 flex-1">
             
@@ -323,7 +388,7 @@ export default function StoreLocator() {
             </div>
 
             {/* Grade de Cards */}
-            <div className="max-w-4xl mx-auto">
+            <div className="max-w-2xl mx-auto">
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-xl font-bold tracking-tight">Resultados da Busca</h2>
                 <span className="text-xs font-bold bg-[#F4CDD4]/30 text-[#0D0C0D] px-3 py-1.5 rounded-full">
@@ -350,7 +415,7 @@ export default function StoreLocator() {
                 </div>
               ) : (
                 <>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     {visibleDistributors.map((dist) => (
                       <DistributorCard key={dist.id} dist={dist} />
                     ))}
@@ -445,6 +510,10 @@ export default function StoreLocator() {
           </div>
         </div>
 
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 md:px-12 pb-16">
+        <SupportBanner pageName="Encontre um Distribuidor" />
       </div>
 
       {/* International Distributors Modal */}

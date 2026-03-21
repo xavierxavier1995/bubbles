@@ -8,6 +8,18 @@ export function DilutionCalculator() {
   const [customWater, setCustomWater] = useState(10);
   const [finalVolume, setFinalVolume] = useState(500);
 
+  const handleProportionChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const newProp = e.target.value;
+    setProportion(newProp);
+    if (newProp === '1:4') {
+      setFinalVolume(500);
+    } else if (newProp === '1:5') {
+      setFinalVolume(600);
+    } else if (newProp === '1:10') {
+      setFinalVolume(1100);
+    }
+  };
+
   let pParts = 1;
   let wParts = 10;
 
@@ -44,11 +56,11 @@ export function DilutionCalculator() {
               <label className="block text-sm font-bold text-gray-700">Proporção</label>
               <select 
                 value={proportion}
-                onChange={(e) => setProportion(e.target.value)}
+                onChange={handleProportionChange}
                 className="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 text-[#0D0C0D] font-medium focus:outline-none focus:ring-2 focus:ring-[#F4CDD4] transition-all"
               >
                 <option value="1:1">1:1 (Uso Direto)</option>
-                <option value="1:4">1:4 (Basiq / Sensorial / Essential)</option>
+                <option value="1:4">1:4 (Sensorial / Essential)</option>
                 <option value="1:5">1:5</option>
                 <option value="1:10">1:10 (Ego / Pro)</option>
                 <option value="custom">Customizado</option>
@@ -90,72 +102,78 @@ export function DilutionCalculator() {
             </div>
           )}
 
-          {/* Alerta Sticky */}
-          <div className="bg-amber-50 border border-amber-200 rounded-lg py-2 px-3 text-center">
-            <p className="text-xs text-amber-800 font-medium">
-              <strong>⚠️ IMPORTANTE:</strong> Sempre coloque a água primeiro para evitar espuma excessiva.
-            </p>
-          </div>
-
           {/* Resultados */}
-          <div className="grid grid-cols-2 gap-3">
-            <div className="bg-white p-3 rounded-xl border border-[#F4CDD4]/50 shadow-sm text-center">
-              <span className="block text-[10px] font-bold text-gray-500 mb-1 uppercase tracking-wider">Produto Concentrado</span>
-              <strong className="text-2xl font-black text-[#0D0C0D]">{productMl} <span className="text-xs text-gray-400 font-medium">ml</span></strong>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+            <div className="bg-white p-3 rounded-xl border border-[#F4CDD4]/50 shadow-sm text-center flex flex-col justify-between">
+              <span className="block text-[9px] md:text-[10px] font-bold text-gray-500 mb-1 uppercase tracking-wider">Produto Concentrado</span>
+              <strong className="text-xl md:text-2xl font-black text-[#0D0C0D]">{productMl} <span className="text-[10px] md:text-xs text-gray-400 font-medium">ml</span></strong>
             </div>
-            <div className="bg-white p-3 rounded-xl border border-blue-200 shadow-sm text-center">
-              <span className="block text-[10px] font-bold text-gray-500 mb-1 uppercase tracking-wider">Água</span>
-              <strong className="text-2xl font-black text-blue-600">{waterMl} <span className="text-xs text-blue-300 font-medium">ml</span></strong>
+            <div className="bg-white p-3 rounded-xl border border-blue-200 shadow-sm text-center flex flex-col justify-between">
+              <span className="block text-[9px] md:text-[10px] font-bold text-gray-500 mb-1 uppercase tracking-wider">Água</span>
+              <strong className="text-xl md:text-2xl font-black text-blue-600">{waterMl} <span className="text-[10px] md:text-xs text-blue-300 font-medium">ml</span></strong>
+            </div>
+            <div className="col-span-2 md:col-span-1 bg-white p-3 rounded-xl border border-purple-200 shadow-sm text-center flex flex-col justify-between">
+              <span className="block text-[9px] md:text-[10px] font-bold text-gray-500 mb-1 uppercase tracking-wider">Mistura Final</span>
+              <strong className="text-xl md:text-2xl font-black text-purple-600">{finalVolume} <span className="text-[10px] md:text-xs text-purple-300 font-medium">ml</span></strong>
             </div>
           </div>
         </div>
 
         {/* Ilustração Visual */}
-        <div className="md:col-span-5 bg-gray-50 rounded-2xl p-4 border border-gray-100 flex flex-col justify-center">
-          <p className="text-center text-xs font-bold text-gray-500 mb-4 uppercase tracking-wider">Mistura Final</p>
-          
-          <div className="flex items-center justify-between gap-2 w-full">
-            {/* Produto */}
-            <div className="flex flex-col items-center flex-1">
-              <div className="w-8 h-10 bg-[#F4CDD4]/30 border border-[#F4CDD4] rounded-b-md rounded-t-sm flex items-end justify-center pb-0.5 mb-2">
-                <div className="w-full h-3/4 bg-[#F4CDD4]/80 rounded-b-sm"></div>
+        <div className="md:col-span-5 flex flex-col gap-4">
+          <div className="bg-gray-50 rounded-2xl p-4 border border-gray-100 flex flex-col justify-center flex-1">
+            <p className="text-center text-xs font-bold text-gray-500 mb-4 uppercase tracking-wider">Mistura Final</p>
+            
+            <div className="flex items-end justify-between gap-2 w-full">
+              {/* Produto */}
+              <div className="flex flex-col items-center flex-1">
+                <div className="w-6 h-8 bg-[#F4CDD4]/30 border border-[#F4CDD4] rounded-b-md rounded-t-sm flex items-end justify-center pb-0.5 mb-2">
+                  <div className="w-full h-3/4 bg-[#F4CDD4]/80 rounded-b-sm"></div>
+                </div>
+                <div className="text-center h-8 flex flex-col justify-end">
+                  <strong className="block text-xs text-[#0D0C0D] leading-tight">{productParts} Parte{productParts !== 1 ? 's' : ''}</strong>
+                  <span className="text-[10px] text-gray-500 leading-tight">Produto Concentrado</span>
+                </div>
               </div>
-              <div className="text-center">
-                <strong className="block text-xs text-[#0D0C0D]">{productParts} Parte{productParts !== 1 ? 's' : ''}</strong>
-                <span className="text-[10px] text-gray-500">Produto</span>
+
+              <div className="text-gray-400 font-black text-lg mb-8">+</div>
+
+              {/* Água */}
+              <div className="flex flex-col items-center flex-1">
+                <div className="flex flex-wrap gap-1 justify-center max-w-[56px] mb-2">
+                  {Array.from({ length: Math.min(waterParts, 10) }).map((_, i) => (
+                    <div key={`w-${i}`} className="bg-blue-50 border border-blue-200 rounded-b-md rounded-t-sm flex items-end justify-center pb-0.5 w-6 h-8">
+                      <div className="w-full h-3/4 bg-blue-300/50 rounded-b-sm"></div>
+                    </div>
+                  ))}
+                  {waterParts > 10 && <span className="text-xs font-bold text-gray-400 self-center">+{waterParts - 10}</span>}
+                </div>
+                <div className="text-center h-8 flex flex-col justify-end">
+                  <strong className="block text-xs text-[#0D0C0D] leading-tight">{waterParts} Parte{waterParts !== 1 ? 's' : ''}</strong>
+                  <span className="text-[10px] text-gray-500 leading-tight">Água</span>
+                </div>
+              </div>
+
+              <div className="text-gray-400 font-black text-lg mb-8">=</div>
+
+              {/* Total */}
+              <div className="flex flex-col items-center flex-1">
+                <div className="w-8 h-10 bg-purple-50 border border-purple-200 rounded-b-md rounded-t-sm flex items-end justify-center pb-0.5 mb-2">
+                  <div className="w-full h-full bg-purple-300/50 rounded-b-sm"></div>
+                </div>
+                <div className="text-center h-8 flex flex-col justify-end">
+                  <strong className="block text-xs text-[#0D0C0D] leading-tight">{totalParts} Partes</strong>
+                  <span className="text-[10px] text-gray-500 leading-tight">Mistura Final</span>
+                </div>
               </div>
             </div>
+          </div>
 
-            <div className="text-gray-400 font-black text-lg">+</div>
-
-            {/* Água */}
-            <div className="flex flex-col items-center flex-1">
-              <div className="flex flex-wrap gap-1 justify-center max-w-[80px] mb-2">
-                {Array.from({ length: Math.min(waterParts, 4) }).map((_, i) => (
-                  <div key={`w-${i}`} className="w-8 h-10 bg-blue-50 border border-blue-200 rounded-b-md rounded-t-sm flex items-end justify-center pb-0.5">
-                    <div className="w-full h-3/4 bg-blue-300/50 rounded-b-sm"></div>
-                  </div>
-                ))}
-                {waterParts > 4 && <span className="text-xs font-bold text-gray-400 self-center">+{waterParts - 4}</span>}
-              </div>
-              <div className="text-center">
-                <strong className="block text-xs text-[#0D0C0D]">{waterParts} Parte{waterParts !== 1 ? 's' : ''}</strong>
-                <span className="text-[10px] text-gray-500">Água</span>
-              </div>
-            </div>
-
-            <div className="text-gray-400 font-black text-lg">=</div>
-
-            {/* Total */}
-            <div className="flex flex-col items-center flex-1">
-              <div className="w-10 h-12 bg-purple-50 border border-purple-200 rounded-b-md rounded-t-sm flex items-end justify-center pb-0.5 mb-2">
-                <div className="w-full h-full bg-purple-300/50 rounded-b-sm"></div>
-              </div>
-              <div className="text-center">
-                <strong className="block text-xs text-[#0D0C0D]">{totalParts} Partes</strong>
-                <span className="text-[10px] text-gray-500">Mistura</span>
-              </div>
-            </div>
+          {/* Alerta Sticky */}
+          <div className="bg-amber-50 border border-amber-200 rounded-lg py-2 px-3 text-center">
+            <p className="text-xs text-amber-800 font-medium">
+              <strong>⚠️ IMPORTANTE:</strong> Sempre coloque a água primeiro para evitar espuma excessiva.
+            </p>
           </div>
         </div>
       </div>

@@ -1,8 +1,34 @@
 import { ShieldCheck, Database, UserCheck, Cookie, Mail, Lock, Heart, Link as LinkIcon, MessageCircle, Clock } from 'lucide-react';
+import { Metadata } from 'next';
+import SupportBanner from '@/components/SupportBanner';
+
+export const metadata: Metadata = {
+  title: 'Política de Privacidade | Bubbles® Cosméticos Pet Profissionais',
+  description: 'Conheça nossa Política de Privacidade. Garantimos a segurança dos seus dados para você focar no que importa: agilidade no banho e tosa com qualidade profissional.',
+};
 
 export default function PrivacyPolicy() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Política de Privacidade | Bubbles® Cosméticos Pet Profissionais",
+    "description": "Conheça nossa Política de Privacidade. Garantimos a segurança dos seus dados para você focar no que importa: agilidade no banho e tosa com qualidade profissional.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Bubbles",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://bubbles.com.br/logo.png"
+      }
+    }
+  };
+
   return (
     <div className="min-h-screen bg-white text-[#0D0C0D] font-sans selection:bg-[#F4CDD4] selection:text-[#0D0C0D]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Navigation Bar Simulation */}
       <nav className="border-b border-gray-100 py-4 px-6 md:px-12 flex justify-between items-center sticky top-0 bg-white/80 backdrop-blur-md z-50">
         <div className="flex items-center gap-2">
@@ -165,6 +191,8 @@ export default function PrivacyPolicy() {
             </div>
           </section>
         </div>
+
+        <SupportBanner pageName="Política de Privacidade" />
       </main>
     </div>
   );

@@ -1,9 +1,35 @@
 import Image from 'next/image';
 import { Truck, ShieldCheck, MessageCircle, Package, MapPin, ArrowRight, CheckCircle2, Clock, RefreshCcw, Calendar, ShieldAlert, Smartphone, CreditCard, ChevronDown } from 'lucide-react';
+import { Metadata } from 'next';
+import SupportBanner from '@/components/SupportBanner';
+
+export const metadata: Metadata = {
+  title: 'Política de Entrega e Frete | Bubbles® Cosméticos Pet Profissionais',
+  description: 'Conheça nossa logística inteligente. Entregamos em todo o Brasil com segurança e agilidade para que seu banho e tosa nunca fique desabastecido.',
+};
 
 export default function ShippingPolicy() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Política de Entrega e Frete | Bubbles® Cosméticos Pet Profissionais",
+    "description": "Conheça nossa logística inteligente. Entregamos em todo o Brasil com segurança e agilidade para que seu banho e tosa nunca fique desabastecido.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Bubbles",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://bubbles.com.br/logo.png"
+      }
+    }
+  };
+
   return (
     <div className="min-h-screen bg-white text-[#0D0C0D] font-sans selection:bg-[#F4CDD4] selection:text-[#0D0C0D]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Navigation Bar Simulation */}
       <nav className="border-b border-gray-100 py-4 px-6 md:px-12 flex justify-between items-center sticky top-0 bg-white/80 backdrop-blur-md z-50">
         <div className="flex items-center gap-2">
@@ -376,6 +402,7 @@ export default function ShippingPolicy() {
           </div>
         </section>
 
+        <SupportBanner pageName="Política de Entrega e Frete" />
       </main>
     </div>
   );

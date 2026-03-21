@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { Mail, ArrowRight, Sparkles, Star, Bell, TrendingUp, ShieldCheck, Clock, BarChart, Heart } from 'lucide-react';
+import SupportBanner from '@/components/SupportBanner';
 
 export default function NewsletterVariations() {
   return (
@@ -330,6 +331,7 @@ export default function NewsletterVariations() {
             </p>
           </section>
 
+          <SupportBanner pageName="Newsletter" />
         </div>
       </div>
     </div>
