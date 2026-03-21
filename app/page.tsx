@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { LayoutTemplate, FileText, ArrowRight, Sparkles, RefreshCcw, ShieldCheck, Gavel, MapPinIcon } from 'lucide-react';
+import { LayoutTemplate, FileText, ArrowRight, Sparkles, RefreshCcw, ShieldCheck, Gavel, MapPinIcon, Mail } from 'lucide-react';
 
 export default function ProjectHub() {
   const pages = [
@@ -48,6 +48,14 @@ export default function ProjectHub() {
       path: '/encontre',
       description: 'Localizador interativo de distribuidores oficiais Bubbles.',
       icon: MapPinIcon,
+      status: 'Concluído',
+      statusColor: 'bg-green-100 text-green-700'
+    },
+    {
+      title: 'Variações de Newsletter',
+      path: '/newsletter',
+      description: '10 opções de design e copy para captura de leads.',
+      icon: Mail,
       status: 'Novo',
       statusColor: 'bg-blue-100 text-blue-700'
     },

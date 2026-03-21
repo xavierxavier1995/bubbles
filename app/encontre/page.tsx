@@ -196,111 +196,47 @@ const WhatsAppIcon = ({ className }: { className?: string }) => (
 );
 
 const DistributorCard = ({ dist, isIntl = false }: { dist: any, isIntl?: boolean }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
-  const [copied, setCopied] = useState(false);
-  const [showCitiesModal, setShowCitiesModal] = useState(false);
-
-  const handleCopy = () => {
-    navigator.clipboard.writeText(dist.phone);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
-
   const whatsappMessage = encodeURIComponent(`Olá! Vi no site da Bubbles que você é fornecedor e gostaria de comprar produtos para meu estabelecimento.`);
   const whatsappLink = `https://wa.me/${dist.phone}?text=${whatsappMessage}`;
-  const mapsLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(dist.name + ' ' + dist.cities[0] + ' ' + (dist.state || dist.country))}`;
-
-  const visibleCities = isExpanded ? dist.cities : dist.cities.slice(0, 3);
-  const hiddenCount = dist.cities.length - 3;
-
-  const handleExpandClick = () => {
-    if (dist.cities.length > 5) {
-      setShowCitiesModal(true);
-    } else {
-      setIsExpanded(true);
-    }
-  };
 
   return (
-    <>
-      <div className="bg-white rounded-xl p-4 border border-gray-100 shadow-sm hover:shadow-md hover:border-[#F4CDD4] transition-all flex flex-col h-full">
-        <h3 className="text-base font-bold text-[#0D0C0D] leading-tight mb-2 line-clamp-2" title={dist.name}>
-          {dist.name}
-        </h3>
-
-        <div className="flex flex-wrap gap-1.5 mb-4">
-          {visibleCities.map((city: string) => (
-            <span key={city} className="text-[10px] font-bold bg-[#F4CDD4]/20 text-[#0D0C0D] px-2 py-1 rounded">
-              {city}
-            </span>
-          ))}
-          {!isExpanded && hiddenCount > 0 && (
-            <button 
-              onClick={handleExpandClick}
-              className="text-[10px] font-bold bg-[#0D0C0D] text-white px-2 py-1 rounded transition-colors"
-            >
-              +{hiddenCount} CIDADES
-            </button>
-          )}
-          {isExpanded && hiddenCount > 0 && (
-            <button 
-              onClick={() => setIsExpanded(false)}
-              className="text-[10px] font-bold bg-gray-100 text-gray-600 hover:bg-gray-200 px-2 py-1 rounded transition-colors"
-            >
-              Ocultar
-            </button>
-          )}
+    <div className="flex flex-col gap-3 group">
+      {/* Imagem Retangular (Placeholder) */}
+      <div className="w-full aspect-[4/3] bg-gray-100 rounded-2xl overflow-hidden relative">
+        <div className="absolute inset-0 flex items-center justify-center text-gray-300">
+          <MapPin className="w-12 h-12 opacity-50" />
         </div>
-
-        <div className="mt-auto space-y-3">
-          <div className="flex items-center justify-between">
-            <div 
-              onClick={handleCopy}
-              className="flex items-center gap-1.5 text-xs text-gray-500 hover:text-[#0D0C0D] cursor-pointer transition-colors"
-              title="Clique para copiar"
-            >
-              <Phone className="w-3 h-3" />
-              <span className="font-mono">{dist.phone}</span>
-              {copied ? <span className="text-green-600 text-[10px] font-bold ml-1">Copiado!</span> : <Copy className="w-3 h-3 ml-1 opacity-50" />}
-            </div>
-            <a 
-              href={mapsLink} 
-              target="_blank" 
-              rel="nofollow noopener noreferrer"
-              className="text-gray-400 hover:text-[#0D0C0D] text-[10px] underline decoration-gray-200 underline-offset-2 transition-colors flex items-center gap-1"
-            >
-              <MapPin className="w-3 h-3" /> Maps
-            </a>
+        {/* Gatilhos de Confiança (Emblemas) */}
+        <div className="absolute bottom-3 left-3 flex gap-2">
+          <div className="bg-white/90 backdrop-blur-sm px-2 py-1 rounded-md flex items-center gap-1 shadow-sm">
+            <span className="text-[10px] font-bold text-gray-800">🇧🇷 Oficial</span>
           </div>
-
-          <div className="grid grid-cols-2 gap-2">
-            <a 
-              href={`tel:+${dist.phone}`}
-              className="w-full bg-gray-50 text-[#0D0C0D] border border-gray-200 font-bold px-2 py-2 rounded-lg hover:bg-gray-100 transition-colors flex items-center justify-center gap-1.5 text-xs"
-            >
-              <Phone className="w-3.5 h-3.5" />
-              Ligar
-            </a>
-            <a 
-              href={whatsappLink} 
-              target="_blank" 
-              rel="nofollow noopener noreferrer"
-              className="w-full bg-[#25D366] text-white font-bold px-2 py-2 rounded-lg hover:bg-[#20bd5a] transition-colors flex items-center justify-center gap-1.5 shadow-sm text-xs"
-            >
-              <WhatsAppIcon className="w-3.5 h-3.5" />
-              WhatsApp
-            </a>
+          <div className="bg-white/90 backdrop-blur-sm px-2 py-1 rounded-md flex items-center gap-1 shadow-sm">
+            <span className="text-[10px] font-bold text-gray-800">🏆 PRO</span>
           </div>
         </div>
       </div>
 
-      <CitiesModal 
-        isOpen={showCitiesModal} 
-        onClose={() => setShowCitiesModal(false)} 
-        cities={dist.cities} 
-        distName={dist.name} 
-      />
-    </>
+      {/* Hierarquia de Texto */}
+      <div className="flex flex-col">
+        <h3 className="text-base font-bold text-[#0D0C0D] leading-tight truncate" title={dist.name}>
+          {dist.name}
+        </h3>
+        <p className="text-sm text-gray-500 mt-0.5 truncate">
+          {dist.cities[0]} • {dist.state || dist.country}
+        </p>
+        
+        {/* Botão Minimalista */}
+        <a 
+          href={whatsappLink} 
+          target="_blank" 
+          rel="nofollow noopener noreferrer"
+          className="mt-3 text-sm font-bold text-[#0D0C0D] underline decoration-[#F4CDD4] decoration-2 underline-offset-4 hover:text-[#F4CDD4] transition-colors w-fit"
+        >
+          FALE NO WHATSAPP
+        </a>
+      </div>
+    </div>
   );
 };
 
@@ -311,15 +247,6 @@ export default function StoreLocator() {
   const [showIntlModal, setShowIntlModal] = useState(false);
 
   const activeStates = useMemo(() => Array.from(new Set(DISTRIBUTORS.map(d => d.state))), []);
-
-  const handleLocationRequest = () => {
-    if ('geolocation' in navigator) {
-      navigator.geolocation.getCurrentPosition(
-        () => alert('Localização obtida! Em produção, isso ordenaria a lista por proximidade.'),
-        () => alert('Não foi possível obter sua localização. Por favor, digite sua cidade ou CEP.')
-      );
-    }
-  };
 
   const filteredDistributors = useMemo(() => {
     const stateWeights: Record<string, number> = {
@@ -350,77 +277,162 @@ export default function StoreLocator() {
   return (
     <div className={`min-h-screen bg-white text-[#0D0C0D] ${figtree.className} selection:bg-[#F4CDD4] selection:text-[#0D0C0D]`}>
       
-      {/* Header Slim */}
-      <header className="bg-white border-b border-gray-100 sticky top-0 z-40 shadow-sm py-3 px-6 md:px-12">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-center gap-4">
+      <div className="flex flex-col lg:flex-row min-h-screen">
+        
+        {/* Coluna Esquerda (Cards - Rolagem Independente) */}
+        <div className="w-full lg:w-[60%] flex flex-col h-screen overflow-y-auto custom-scrollbar">
           
-          {/* Barra de Busca Horizontal e Compacta */}
-          <div className="w-full max-w-3xl flex flex-row items-center bg-gray-50 border border-gray-200 rounded-xl p-1 shadow-inner gap-1">
-            <div className="relative flex-1 min-w-[150px]">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-              <input 
-                type="text" 
-                placeholder="Encontre o distribuidor mais próximo (Digite sua cidade)..." 
-                value={searchQuery}
-                onChange={(e) => {
-                  setSearchQuery(e.target.value);
-                  setVisibleCount(6);
-                }}
-                className="w-full bg-transparent pl-9 pr-3 py-1.5 text-sm md:text-base text-[#0D0C0D] placeholder:text-gray-500 focus:outline-none"
-              />
+          <div className="px-6 md:px-12 pt-8 pb-12 flex-1">
+            
+            {/* Barra de Pesquisa "Onde" */}
+            <div className="w-full max-w-2xl mx-auto mb-12">
+              <div className="bg-white rounded-[50px] shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-gray-100 p-2 flex items-center transition-all hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
+                <div className="flex-1 px-6 py-2 flex flex-col justify-center">
+                  <label htmlFor="search-location" className="text-[10px] font-bold text-gray-800 uppercase tracking-wider mb-0.5 cursor-pointer">
+                    Onde
+                  </label>
+                  <input 
+                    id="search-location"
+                    type="text" 
+                    placeholder="Digite sua cidade ou estado" 
+                    value={searchQuery}
+                    onChange={(e) => {
+                      setSearchQuery(e.target.value);
+                      setVisibleCount(6);
+                    }}
+                    className="w-full bg-transparent text-base text-[#0D0C0D] placeholder:text-gray-400 focus:outline-none"
+                  />
+                </div>
+                <button 
+                  className="w-12 h-12 rounded-full bg-[#F4CDD4] flex items-center justify-center shrink-0 hover:bg-[#e8b8c2] transition-colors shadow-sm"
+                  aria-label="Buscar"
+                >
+                  <Search className="w-5 h-5 text-white" strokeWidth={2.5} />
+                </button>
+              </div>
             </div>
-            
-            <div className="w-px h-5 bg-gray-200 mx-1"></div>
-            
-            <select 
-              value={selectedState || ''}
-              onChange={(e) => {
-                setSelectedState(e.target.value || null);
-                setVisibleCount(6);
-              }}
-              className="bg-transparent text-sm font-medium text-[#0D0C0D] py-1.5 pl-2 pr-6 outline-none cursor-pointer max-w-[120px]"
-            >
-              <option value="">Todos</option>
-              {activeStates.map(st => (
-                <option key={st} value={st}>{st}</option>
-              ))}
-            </select>
-            
-            <button 
-              onClick={handleLocationRequest}
-              title="Usar minha localização"
-              className="p-1.5 bg-white rounded-lg border border-gray-200 text-gray-500 hover:text-[#0D0C0D] hover:border-[#F4CDD4] transition-all shadow-sm shrink-0 ml-1"
-            >
-              <Crosshair className="w-4 h-4" />
-            </button>
+
+            {/* Texto Institucional */}
+            <div className="max-w-2xl mx-auto mb-10">
+              <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-4">
+                Encontre um Distribuidor Oficial
+              </h1>
+              <p className="text-lg text-gray-600 leading-relaxed">
+                A Bubbles® está presente em todas as regiões do Brasil. Temos sempre uma distribuidora parceira pronta para atender seu banho e tosa com agilidade e consultoria técnica.
+              </p>
+            </div>
+
+            {/* Grade de Cards */}
+            <div className="max-w-4xl mx-auto">
+              <div className="flex items-center justify-between mb-6">
+                <h2 className="text-xl font-bold tracking-tight">Resultados da Busca</h2>
+                <span className="text-xs font-bold bg-[#F4CDD4]/30 text-[#0D0C0D] px-3 py-1.5 rounded-full">
+                  {filteredDistributors.length} {filteredDistributors.length === 1 ? 'parceiro' : 'parceiros'}
+                </span>
+              </div>
+
+              {filteredDistributors.length === 0 ? (
+                <div className="bg-gray-50 rounded-3xl p-8 md:p-12 border border-gray-100 text-center shadow-sm flex flex-col items-center">
+                  <MapPin className="w-12 h-12 text-gray-300 mb-4" />
+                  <h3 className="text-xl font-bold text-[#0D0C0D] mb-2">Nenhum distribuidor encontrado na sua região</h3>
+                  <p className="text-gray-600 mb-8 max-w-md">
+                    Não se preocupe! Você pode comprar diretamente conosco no whatsapp com condições especiais exclusivas.
+                  </p>
+                  <a 
+                    href={`https://wa.me/5511999999999?text=${encodeURIComponent('Olá! Busquei por um distribuidor na minha cidade e não encontrei. Gostaria de saber mais sobre as condições especiais para comprar diretamente com vocês.')}`}
+                    target="_blank" 
+                    rel="nofollow noopener noreferrer"
+                    className="bg-[#25D366] text-white font-bold px-6 py-3.5 rounded-xl hover:bg-[#20bd5a] transition-colors flex items-center gap-2 shadow-sm shadow-[#25D366]/20"
+                  >
+                    <WhatsAppIcon className="w-5 h-5" />
+                    Comprar com Condição Especial
+                  </a>
+                </div>
+              ) : (
+                <>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {visibleDistributors.map((dist) => (
+                      <DistributorCard key={dist.id} dist={dist} />
+                    ))}
+                  </div>
+                  
+                  {hasMore && (
+                    <div className="pt-8 pb-4 text-center">
+                      <button 
+                        onClick={() => setVisibleCount(prev => prev + 6)}
+                        className="bg-[#F4CDD4] text-[#0D0C0D] font-bold px-8 py-3 rounded-lg hover:bg-[#e8b8c2] transition-all shadow-sm hover:shadow-md text-sm"
+                      >
+                        Ver mais distribuidores
+                      </button>
+                    </div>
+                  )}
+                </>
+              )}
+            </div>
+
+            {/* Footer CTA: Quero ser um Distribuidor */}
+            <div className="max-w-2xl mx-auto mt-16">
+              <div className="bg-[#FCF8F9] rounded-3xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+                <div className="flex flex-col md:flex-row items-center text-center md:text-left gap-5">
+                  <div className="bg-white w-14 h-14 rounded-2xl flex items-center justify-center shadow-sm shrink-0">
+                    <MessageCircle className="w-6 h-6 text-[#0D0C0D]" strokeWidth={1.5} />
+                  </div>
+                  <div>
+                    <h2 className="text-lg font-bold text-[#0D0C0D] mb-1">
+                      Quer ser um distribuidor?
+                    </h2>
+                    <p className="text-[#0D0C0D]/70 text-sm">
+                      Nossa equipe está pronta para ajudar você a ser um parceiro oficial.
+                    </p>
+                  </div>
+                </div>
+                <button className="shrink-0 bg-[#0D0C0D] text-white font-semibold px-6 py-3 rounded-xl hover:bg-gray-800 transition-colors flex items-center gap-2 text-sm">
+                  Falar com equipe <ArrowRight className="w-4 h-4" />
+                </button>
+              </div>
+            </div>
+
           </div>
         </div>
-      </header>
 
-      <main className="max-w-6xl mx-auto px-6 md:px-12 py-10">
-        
-        {/* Copywriting Persuasivo */}
-        <div className="text-center max-w-3xl mx-auto mb-12 space-y-4">
-          <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight">
-            Encontre um Distribuidor Oficial
-          </h1>
-          <p className="text-lg text-gray-600 leading-relaxed">
-            A Bubbles® está presente em todas as regiões do Brasil. Temos sempre uma distribuidora parceira pronta para atender seu banho e tosa com agilidade e consultoria técnica.
-          </p>
-        </div>
-
-        <div className="flex flex-col lg:grid lg:grid-cols-12 gap-12 items-start">
-          
-          {/* Interactive Map Section */}
-          <div className="order-2 lg:order-1 lg:col-span-5 lg:sticky lg:top-24 w-full">
-            <div className="bg-gray-50 rounded-3xl p-6 border border-gray-100 shadow-sm">
-              <div className="text-center mb-4">
-                <h2 className="text-lg font-bold tracking-tight">Nossa Cobertura</h2>
-                <p className="text-xs text-gray-500 mt-1">
-                  {selectedState ? `Mostrando parceiros em ${selectedState}` : 'Selecione uma bolha no mapa para filtrar'}
-                </p>
-              </div>
+        {/* Coluna Direita (Mapa - Fixo) */}
+        <div className="hidden lg:block lg:w-[40%] h-screen sticky top-0 bg-gray-50 border-l border-gray-200 p-8 flex flex-col">
+          <div className="flex-1 flex flex-col justify-center relative">
+            
+            <div className="absolute top-0 right-0 flex flex-col gap-2 z-10">
+              <button 
+                onClick={() => setShowIntlModal(true)}
+                className="py-2 px-3 text-xs font-bold bg-white border border-gray-200 text-[#0D0C0D] rounded-lg hover:bg-gray-50 transition-colors shadow-sm flex items-center gap-1.5"
+              >
+                <Globe className="w-3.5 h-3.5" />
+                Internacional
+              </button>
               
+              {/* Espaço pré-alocado para o botão de reset */}
+              <div className="h-8">
+                {selectedState && (
+                  <button 
+                    onClick={() => {
+                      setSelectedState(null);
+                      setVisibleCount(6);
+                    }}
+                    className="w-full py-2 px-3 text-xs font-bold bg-[#F4CDD4] text-[#0D0C0D] rounded-lg hover:bg-[#e8b8c2] transition-colors shadow-sm flex items-center justify-center gap-1"
+                  >
+                    <X className="w-3 h-3" />
+                    Limpar Filtro
+                  </button>
+                )}
+              </div>
+            </div>
+
+            <div className="text-center mb-6 mt-8">
+              <h2 className="text-xl font-bold tracking-tight">Nossa Cobertura</h2>
+              <p className="text-sm text-gray-500 mt-1">
+                {selectedState ? `Mostrando parceiros em ${selectedState}` : 'Selecione uma bolha no mapa para filtrar'}
+              </p>
+            </div>
+            
+            <div className="flex-1 flex items-center justify-center">
               <MapComponent 
                 activeStates={activeStates} 
                 selectedState={selectedState} 
@@ -429,79 +441,11 @@ export default function StoreLocator() {
                   setVisibleCount(6);
                 }} 
               />
-
-              {selectedState && (
-                <button 
-                  onClick={() => {
-                    setSelectedState(null);
-                    setVisibleCount(6);
-                  }}
-                  className="mt-4 w-full py-2.5 text-sm font-bold bg-[#F4CDD4] text-[#0D0C0D] rounded-xl hover:bg-[#e8b8c2] transition-colors shadow-sm"
-                >
-                  Ver todos os distribuidores
-                </button>
-              )}
-
-              <button 
-                onClick={() => setShowIntlModal(true)}
-                className="mt-4 w-full py-3 text-sm font-bold bg-white border-2 border-[#F4CDD4] text-[#0D0C0D] rounded-xl hover:bg-[#F4CDD4]/10 transition-colors shadow-sm flex items-center justify-center gap-2"
-              >
-                <Globe className="w-5 h-5" />
-                Quero um distribuidor internacional
-              </button>
             </div>
           </div>
-
-          {/* Distributors Grid */}
-          <div className="order-1 lg:order-2 lg:col-span-7 space-y-6 w-full">
-            <div className="flex items-center justify-between mb-2">
-              <h2 className="text-xl font-bold tracking-tight">Resultados da Busca</h2>
-              <span className="text-xs font-bold bg-[#F4CDD4]/30 text-[#0D0C0D] px-3 py-1.5 rounded-full">
-                {filteredDistributors.length} {filteredDistributors.length === 1 ? 'parceiro' : 'parceiros'}
-              </span>
-            </div>
-
-            {filteredDistributors.length === 0 ? (
-              <div className="bg-gray-50 rounded-3xl p-8 md:p-12 border border-gray-100 text-center shadow-sm flex flex-col items-center">
-                <MapPin className="w-12 h-12 text-gray-300 mb-4" />
-                <h3 className="text-xl font-bold text-[#0D0C0D] mb-2">Nenhum distribuidor encontrado na sua região</h3>
-                <p className="text-gray-600 mb-8 max-w-md">
-                  Não se preocupe! Você pode comprar diretamente conosco no whatsapp com condições especiais exclusivas.
-                </p>
-                <a 
-                  href={`https://wa.me/5511999999999?text=${encodeURIComponent('Olá! Busquei por um distribuidor na minha cidade e não encontrei. Gostaria de saber mais sobre as condições especiais para comprar diretamente com vocês.')}`}
-                  target="_blank" 
-                  rel="nofollow noopener noreferrer"
-                  className="bg-[#25D366] text-white font-bold px-6 py-3.5 rounded-xl hover:bg-[#20bd5a] transition-colors flex items-center gap-2 shadow-sm shadow-[#25D366]/20"
-                >
-                  <WhatsAppIcon className="w-5 h-5" />
-                  Comprar com Condição Especial
-                </a>
-              </div>
-            ) : (
-              <>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                  {visibleDistributors.map((dist) => (
-                    <DistributorCard key={dist.id} dist={dist} />
-                  ))}
-                </div>
-                
-                {hasMore && (
-                  <div className="pt-8 pb-4 text-center">
-                    <button 
-                      onClick={() => setVisibleCount(prev => prev + 6)}
-                      className="bg-[#F4CDD4] text-[#0D0C0D] font-extrabold px-8 py-3.5 rounded-xl hover:bg-[#e8b8c2] transition-all shadow-sm hover:shadow-md text-sm md:text-base"
-                    >
-                      Ver mais distribuidores
-                    </button>
-                  </div>
-                )}
-              </>
-            )}
-          </div>
-
         </div>
-      </main>
+
+      </div>
 
       {/* International Distributors Modal */}
       {showIntlModal && (
@@ -536,28 +480,6 @@ export default function StoreLocator() {
           </div>
         </div>
       )}
-
-      {/* Footer CTA: Quero ser um Distribuidor */}
-      <section className="max-w-6xl mx-auto px-6 md:px-12 mt-8 mb-16">
-        <div className="bg-[#FCF8F9] rounded-[2rem] p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8">
-          <div className="flex flex-col md:flex-row items-center text-center md:text-left gap-5 md:gap-6">
-            <div className="bg-white w-16 h-16 md:w-20 md:h-20 rounded-2xl md:rounded-[1.5rem] flex items-center justify-center shadow-sm shrink-0">
-              <MessageCircle className="w-8 h-8 md:w-10 md:h-10 text-[#0D0C0D]" strokeWidth={1.5} />
-            </div>
-            <div>
-              <h2 className="text-xl md:text-2xl font-bold text-[#0D0C0D] mb-1 md:mb-2">
-                Quer ser um distribuidor?
-              </h2>
-              <p className="text-[#0D0C0D]/70 text-base md:text-lg">
-                Nossa equipe está pronta para ajudar você a ser um parceiro oficial.
-              </p>
-            </div>
-          </div>
-          <button className="shrink-0 bg-[#0D0C0D] text-white font-semibold px-6 py-3 md:px-8 md:py-4 rounded-xl md:rounded-2xl hover:bg-gray-800 transition-colors flex items-center gap-2 md:gap-3 text-base md:text-lg">
-            Fale com nossa equipe <ArrowRight className="w-5 h-5" />
-          </button>
-        </div>
-      </section>
     </div>
   );
 }
