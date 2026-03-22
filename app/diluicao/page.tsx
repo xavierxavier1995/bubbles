@@ -45,9 +45,38 @@ export default function DilutionGuide() {
       </nav>
 
       <main className="max-w-6xl mx-auto px-6 md:px-12 py-8 space-y-16">
+        <style>{`
+          @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
+          @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-30px); }
+            to { opacity: 1; transform: translateX(0); }
+          }
+          @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(30px); }
+            to { opacity: 1; transform: translateX(0); }
+          }
+          .animate-fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+            opacity: 0;
+          }
+          .animate-slide-in-left {
+            animation: slideInLeft 0.8s ease-out forwards;
+            opacity: 0;
+          }
+          .animate-slide-in-right {
+            animation: slideInRight 0.8s ease-out forwards;
+            opacity: 0;
+          }
+          .delay-100 { animation-delay: 100ms; }
+          .delay-200 { animation-delay: 200ms; }
+          .delay-300 { animation-delay: 300ms; }
+        `}</style>
         
         {/* Hero Section */}
-        <section className="grid md:grid-cols-2 gap-8 items-center max-w-5xl mx-auto">
+        <section className="grid md:grid-cols-2 gap-8 items-center max-w-5xl mx-auto animate-fade-in-up">
           <div className="space-y-4 text-left">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#F4CDD4]/30 text-[#0D0C0D] text-sm font-bold">
               <FlaskConical className="w-4 h-4" />
@@ -90,7 +119,7 @@ export default function DilutionGuide() {
         </section>
 
         {/* SECTION 2: Calculadora de Diluição (Moved Up) */}
-        <section className="space-y-10 scroll-mt-24" id="calculadora">
+        <section className="space-y-10 scroll-mt-24 animate-fade-in-up delay-100" id="calculadora">
           <div className="text-center max-w-2xl mx-auto space-y-4">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Calculadora de Diluição</h2>
             <p className="text-lg text-gray-600">Descubra exatamente quanto de água e produto você precisa para o volume desejado, sem confusão matemática.</p>
@@ -100,20 +129,7 @@ export default function DilutionGuide() {
         </section>
 
         {/* SECTION 3: A Ciência da Diluição e Benefícios (SEO Optimized) */}
-        <section className="space-y-12 pt-12 border-t border-gray-100">
-          <style>{`
-            @keyframes fadeInUp {
-              from { opacity: 0; transform: translateY(20px); }
-              to { opacity: 1; transform: translateY(0); }
-            }
-            .animate-fade-in-up {
-              animation: fadeInUp 0.6s ease-out forwards;
-              opacity: 0;
-            }
-            .delay-100 { animation-delay: 100ms; }
-            .delay-200 { animation-delay: 200ms; }
-            .delay-300 { animation-delay: 300ms; }
-          `}</style>
+        <section className="space-y-12 pt-12 border-t border-gray-100 animate-fade-in-up delay-200">
           <div className="text-center max-w-3xl mx-auto space-y-4">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Por que a diluição é fundamental?</h2>
             <p className="text-lg text-gray-600 leading-relaxed">
@@ -141,7 +157,7 @@ export default function DilutionGuide() {
                 <h3 className="text-lg md:text-xl font-bold">Rentabilidade Extrema</h3>
               </div>
               <p className="text-gray-600 text-sm md:text-base leading-relaxed">
-                Um galão de 5L da linha Ego / Pro (1:10) se transforma em até 55 litros de produto pronto para uso. Isso reduz drasticamente o custo por banho.
+                Um Produto da linha Ego / Pro (1:10) se transforma em até 55 litros de produto pronto para uso. Isso reduz drasticamente o custo por banho.
               </p>
             </div>
             <div className="animate-fade-in-up delay-300 bg-gray-50 rounded-2xl p-4 md:p-5 border border-gray-100 hover:border-[#F4CDD4] transition-colors">
@@ -194,7 +210,7 @@ export default function DilutionGuide() {
         </section>
 
         {/* SECTION 5: Vídeos Educativos (Shorts) */}
-        <section className="pt-12 border-t border-gray-100">
+        <section className="pt-12 border-t border-gray-100 animate-fade-in-up delay-300">
           <div className="text-center max-w-2xl mx-auto space-y-4 mb-8">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Aprenda na Prática</h2>
             <p className="text-lg text-gray-600">Confira nosso tutorial rápido sobre as melhores práticas de diluição.</p>
@@ -226,30 +242,12 @@ export default function DilutionGuide() {
         </section>
 
         {/* SECTION 6: Frasco Diluidor */}
-        <section className="max-w-4xl mx-auto pt-12 border-t border-gray-100 mt-12">
-          <style>{`
-            @keyframes slideInLeft {
-              from { opacity: 0; transform: translateX(-30px); }
-              to { opacity: 1; transform: translateX(0); }
-            }
-            @keyframes slideInRight {
-              from { opacity: 0; transform: translateX(30px); }
-              to { opacity: 1; transform: translateX(0); }
-            }
-            .animate-slide-in-left {
-              animation: slideInLeft 0.8s ease-out forwards;
-              opacity: 0;
-            }
-            .animate-slide-in-right {
-              animation: slideInRight 0.8s ease-out forwards;
-              opacity: 0;
-            }
-          `}</style>
+        <section className="max-w-4xl mx-auto pt-12 border-t border-gray-100 mt-12 animate-fade-in-up delay-100">
           <a 
             href="https://www.bubbles.com.br/products/frasco-diluidor-groomer-bubbles-500ml?_pos=2&_psq=diluidor&_ss=e&_v=1.0"
             target="_blank"
             rel="noopener noreferrer"
-            className="block bg-gradient-to-br from-[#F4CDD4]/10 to-white border border-[#F4CDD4]/30 rounded-[2rem] p-6 md:p-12 flex flex-col md:flex-row items-center gap-8 md:gap-12 shadow-sm hover:shadow-md transition-all duration-500 group overflow-hidden"
+            className="flex flex-col md:flex-row bg-gradient-to-br from-[#F4CDD4]/10 to-white border border-[#F4CDD4]/30 rounded-[2rem] p-6 md:p-12 items-center gap-8 md:gap-12 shadow-sm hover:shadow-md transition-all duration-500 group overflow-hidden"
           >
             <div className="w-full md:w-1/2 space-y-6 text-center md:text-left animate-slide-in-left">
               <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-green-50 text-green-600 text-xs font-bold uppercase tracking-wider border border-green-200 shadow-sm">
@@ -292,7 +290,7 @@ export default function DilutionGuide() {
         </section>
 
         {/* SECTION 7: Regra das 24h (Subtle & Professional) */}
-        <section className="max-w-3xl mx-auto pt-12">
+        <section className="max-w-3xl mx-auto pt-12 animate-fade-in-up delay-200">
           <div className="bg-amber-50 border border-amber-200 rounded-2xl p-6 md:p-8 flex flex-col md:flex-row gap-6 items-center shadow-sm text-center md:text-left">
             <div className="w-16 h-16 bg-amber-100 rounded-2xl flex items-center justify-center shrink-0 border border-amber-200 shadow-inner">
               <ShieldCheck className="w-8 h-8 text-amber-600" />
@@ -310,7 +308,7 @@ export default function DilutionGuide() {
         </section>
 
         {/* SECTION 8: Regra de Ouro do Preparo */}
-        <section className="space-y-8 pt-12 border-t border-gray-100">
+        <section className="space-y-8 pt-12 border-t border-gray-100 animate-fade-in-up delay-300">
           <div className="text-center max-w-2xl mx-auto space-y-2">
             <h2 className="text-2xl md:text-3xl font-bold tracking-tight">A Regra de Ouro do Preparo</h2>
             <p className="text-sm text-gray-600">Siga estes dois passos simples para garantir a mistura perfeita e evitar desperdícios.</p>
@@ -347,7 +345,7 @@ export default function DilutionGuide() {
         </section>
 
         {/* SECTION 8: Seção Comercial e Contato */}
-        <section className="bg-gray-50 rounded-3xl p-8 md:p-16 border border-gray-100 mt-12">
+        <section className="bg-gray-50 rounded-3xl p-8 md:p-16 border border-gray-100 mt-12 animate-fade-in-up delay-100">
           <div className="text-center max-w-2xl mx-auto space-y-4 mb-12">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Confira nossos produtos de alta rentabilidade</h2>
           </div>

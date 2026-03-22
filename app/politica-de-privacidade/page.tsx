@@ -62,19 +62,15 @@ export default function PrivacyPolicy() {
             <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-sm shrink-0 mb-6">
               <Database className="w-6 h-6 text-[#0D0C0D]" />
             </div>
-            <div className="space-y-4 w-full text-left">
-              <h2 className="text-2xl font-bold text-center md:text-left">1. Transparência na Coleta: O que guardamos e por quê?</h2>
+            <div className="space-y-4 w-full text-center md:text-left">
+              <h2 className="text-2xl font-bold">1. Transparência na Coleta: o que guardamos e por quê?</h2>
               <p className="text-gray-700 leading-relaxed">
-                As informações são solicitadas apenas para que o fornecimento do serviço seja viabilizado. Elas são coletadas por meios justos e legais, com o seu conhecimento e consentimento. Coletamos apenas o necessário para que sua operação não pare:
+                As informações são solicitadas exclusivamente para viabilizar o fornecimento dos nossos produtos e serviços. Elas são coletadas por meios justos e legais, com o seu conhecimento e consentimento, sempre limitadas ao necessário para garantir uma operação eficiente.
               </p>
-              <ul className="space-y-3 text-gray-700 text-left">
+              <ul className="space-y-3 text-gray-700 text-left md:text-left inline-block w-full">
                 <li className="flex items-start gap-3">
                   <div className="w-1.5 h-1.5 rounded-full bg-[#F4CDD4] mt-2 shrink-0"></div>
-                  <span><strong>Dados Cadastrais e de Entrega (Nome, CPF, E-mail, Endereço):</strong> Essenciais para faturamento e para que nossa parceira logística, a <strong>Mandaê</strong>, entregue seus produtos essenciais com rapidez e precisão.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#F4CDD4] mt-2 shrink-0"></div>
-                  <span><strong>Dados dos Pets (Raça e Tipo de Pelo):</strong> Nosso diferencial. Usamos essas informações para enviar <strong>dicas educativas personalizadas</strong> de uso e diluição das linhas <strong>Ego / Pro e Basiq</strong>, ajudando você a extrair a máxima performance no banho e tosa.</span>
+                  <span><strong>Dados cadastrais e de entrega (nome, CPF/CNPJ, e-mail e endereço):</strong> essenciais para faturamento, comunicação e para que nossa parceira logística realize a entrega com agilidade e precisão.</span>
                 </li>
               </ul>
             </div>
@@ -85,8 +81,8 @@ export default function PrivacyPolicy() {
             <div className="w-12 h-12 bg-[#F4CDD4]/20 rounded-2xl flex items-center justify-center shrink-0 mb-6">
               <UserCheck className="w-6 h-6 text-[#0D0C0D]" />
             </div>
-            <div className="space-y-4 w-full text-left">
-              <h2 className="text-2xl font-bold text-center md:text-left">2. Seus Direitos (Art. 18 da LGPD)</h2>
+            <div className="space-y-4 w-full text-center md:text-left">
+              <h2 className="text-2xl font-bold">2. Seus Direitos (Art. 18 da LGPD)</h2>
               <p className="text-gray-700 leading-relaxed">
                 Você tem controle total sobre as suas informações. A qualquer momento, você pode nos solicitar:
               </p>
@@ -116,8 +112,8 @@ export default function PrivacyPolicy() {
             <div className="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center shrink-0 mb-6">
               <Lock className="w-6 h-6 text-[#F4CDD4]" />
             </div>
-            <div className="space-y-4 w-full text-left">
-              <h2 className="text-2xl font-bold text-center md:text-left">3. Segurança e Armazenamento dos Dados</h2>
+            <div className="space-y-4 w-full text-center md:text-left">
+              <h2 className="text-2xl font-bold">3. Segurança e Armazenamento dos Dados</h2>
               <p className="text-gray-300 leading-relaxed">
                 Seus dados pessoais ficam armazenados apenas pelo tempo necessário para o fornecimento do serviço requisitado. Absolutamente todos são protegidos por meios comercialmente aceitáveis, evitando perda, roubo, acesso de terceiros, divulgação ou modificação não autorizada.
               </p>
@@ -132,13 +128,10 @@ export default function PrivacyPolicy() {
             <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-sm shrink-0 mb-6">
               <Cookie className="w-6 h-6 text-[#0D0C0D]" />
             </div>
-            <div className="space-y-4 w-full text-left">
-              <h2 className="text-2xl font-bold text-center md:text-left">4. Política de Cookies e Rastreamento</h2>
+            <div className="space-y-4 w-full text-center md:text-left">
+              <h2 className="text-2xl font-bold">4. Política de Cookies e Rastreamento</h2>
               <p className="text-gray-700 leading-relaxed">
-                A Bubbles utiliza cookies e tecnologias de rastreamento para otimizar a performance da plataforma, garantir a segurança das transações e personalizar a sua experiência de navegação. A coleta de dados comportamentais é realizada de forma <strong>anonimizada</strong>, em total conformidade com a LGPD.
-              </p>
-              <p className="text-gray-700 leading-relaxed">
-                Esses dados nos permitem entender as preferências do seu banho e tosa, possibilitando a entrega de <strong>ofertas exclusivas, cupons personalizados e recomendações de produtos</strong> altamente relevantes para o seu negócio. Você pode gerenciar suas preferências de cookies diretamente nas configurações do seu navegador, embora o bloqueio de cookies essenciais possa impactar funcionalidades do site.
+                Coletamos dados anonimizados para análise via ferramentas de publicidade (sem acesso direto da marca à identidade do usuário) para otimizar produtos e oferecer cupons e condições exclusivas. A segurança dos seus dados é prioridade absoluta na Bubbles.
               </p>
             </div>
           </section>
@@ -148,8 +141,8 @@ export default function PrivacyPolicy() {
             <div className="w-12 h-12 bg-gray-100 rounded-2xl flex items-center justify-center shrink-0 mb-6">
               <LinkIcon className="w-6 h-6 text-gray-700" />
             </div>
-            <div className="space-y-4 w-full text-left">
-              <h2 className="text-2xl font-bold text-center md:text-left">5. Links Externos e Consentimento</h2>
+            <div className="space-y-4 w-full text-center md:text-left">
+              <h2 className="text-2xl font-bold">5. Links Externos e Consentimento</h2>
               <p className="text-gray-700 leading-relaxed">
                 A navegação em nosso site pode conter links para sites externos que não são conduzidos por nossa equipe. É importante ter consciência de que não possuímos controle sobre as práticas e conteúdos deles, não tendo responsabilidade sobre suas políticas de privacidade.
               </p>

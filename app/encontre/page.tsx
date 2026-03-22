@@ -310,6 +310,7 @@ export default function StoreLocator() {
   const [selectedState, setSelectedState] = useState<string | null>(null);
   const [visibleCount, setVisibleCount] = useState(6);
   const [showIntlModal, setShowIntlModal] = useState(false);
+  const [showIntlEffect, setShowIntlEffect] = useState(false);
 
   const activeStates = useMemo(() => Array.from(new Set(DISTRIBUTORS.map(d => d.state))), []);
 
@@ -350,7 +351,7 @@ export default function StoreLocator() {
           <div className="px-6 md:px-12 pt-8 pb-12 flex-1">
             
             {/* Barra de Pesquisa "Onde" */}
-            <div className="w-full max-w-2xl mx-auto mb-12">
+            <div className="w-full max-w-2xl mx-auto mb-8 sticky top-0 z-30 pt-4 pb-4 bg-white/95 backdrop-blur-md">
               <div className="bg-white rounded-[50px] shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-gray-100 p-2 flex items-center transition-all hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
                 <div className="flex-1 px-6 py-2 flex flex-col justify-center">
                   <label htmlFor="search-location" className="text-[10px] font-bold text-gray-800 uppercase tracking-wider mb-0.5 cursor-pointer">
@@ -389,7 +390,7 @@ export default function StoreLocator() {
 
             {/* Grade de Cards */}
             <div className="max-w-2xl mx-auto relative">
-              <div className="sticky top-0 bg-white/90 backdrop-blur-md z-20 py-4 border-b border-gray-100 mb-6 flex items-center justify-between">
+              <div className="sticky top-[88px] bg-white/90 backdrop-blur-md z-20 py-4 border-b border-gray-100 mb-6 flex items-center justify-between">
                 <h2 className="text-xl font-bold tracking-tight">Resultados da Busca</h2>
                 <span className="text-xs font-bold bg-[#F4CDD4]/30 text-[#0D0C0D] px-3 py-1.5 rounded-full">
                   {filteredDistributors.length} {filteredDistributors.length === 1 ? 'parceiro' : 'parceiros'}
@@ -467,18 +468,11 @@ export default function StoreLocator() {
             <div className="absolute top-0 right-0 flex flex-col gap-2 z-10">
               <button 
                 onClick={() => {
-                  const btn = document.getElementById('intl-btn');
-                  if (btn) {
-                    btn.classList.add('animate-pulse', 'bg-[#F4CDD4]', 'text-white');
-                    btn.innerHTML = '<span class="flex items-center gap-1.5"><svg class="w-3.5 h-3.5 animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Bubbles pelo mundo...</span>';
-                    setTimeout(() => {
-                      btn.classList.remove('animate-pulse', 'bg-[#F4CDD4]', 'text-white');
-                      btn.innerHTML = '<span class="flex items-center gap-1.5"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-globe w-3.5 h-3.5"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg> Internacional</span>';
-                      setShowIntlModal(true);
-                    }, 800);
-                  } else {
+                  setShowIntlEffect(true);
+                  setTimeout(() => {
+                    setShowIntlEffect(false);
                     setShowIntlModal(true);
-                  }
+                  }, 1000);
                 }}
                 id="intl-btn"
                 className="py-2 px-3 text-xs font-bold bg-white border border-gray-200 text-[#0D0C0D] rounded-lg hover:bg-gray-50 transition-all duration-300 shadow-sm flex items-center gap-1.5"
@@ -531,6 +525,16 @@ export default function StoreLocator() {
       <div className="max-w-7xl mx-auto px-6 md:px-12 pb-16">
         <SupportBanner pageName="Encontre um Distribuidor" />
       </div>
+
+      {/* International Effect Overlay */}
+      {showIntlEffect && (
+        <div className="fixed inset-0 z-[70] flex items-center justify-center bg-[#F4CDD4]/95 backdrop-blur-md transition-opacity duration-300">
+          <div className="text-white text-4xl md:text-6xl font-extrabold tracking-tight animate-pulse flex items-center gap-4 drop-shadow-lg">
+            <Globe className="w-12 h-12 md:w-16 md:h-16" />
+            Bubbles pelo Mundo
+          </div>
+        </div>
+      )}
 
       {/* International Distributors Modal */}
       {showIntlModal && (

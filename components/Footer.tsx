@@ -107,7 +107,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Col 4: Atendimento */}
+          {/* Col 4: Suporte */}
           <div className="space-y-4 bg-gray-50 p-6 rounded-2xl md:bg-transparent md:p-0 md:rounded-none">
             <div>
               <h3 className="font-bold text-base tracking-tight mb-2">Contato</h3>
@@ -120,7 +120,7 @@ export default function Footer() {
                   </a>
                 </p>
                 <p>
-                  <a href="#" className="group hover:text-[#0D0C0D] transition-colors font-medium flex items-center gap-2">
+                  <a href="/faq" className="group hover:text-[#0D0C0D] transition-colors font-medium flex items-center gap-2">
                     <HelpCircle className="w-5 h-5 text-[#F4CDD4] group-hover:text-[#0D0C0D] transition-colors" />
                     Perguntas Frequentes (FAQ)
                   </a>
@@ -142,7 +142,7 @@ export default function Footer() {
                   <Clock className="w-5 h-5 text-[#F4CDD4] shrink-0 mt-0.5" />
                   <div>
                     <p className="font-medium text-[#0D0C0D]">Horário de funcionamento</p>
-                    <p>Atendimento de segunda a sexta, das 8h às 17h30.</p>
+                    <p>Suporte Técnico Humanizado de segunda a sexta, das 8h às 17h30.</p>
                   </div>
                 </div>
               </div>

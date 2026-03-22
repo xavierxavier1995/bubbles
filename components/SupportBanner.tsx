@@ -33,7 +33,7 @@ export default function SupportBanner({ pageName }: { pageName: string }) {
             Fale com nossa equipe
           </a>
           <span className="text-[10px] text-[#0D0C0D]/70 font-medium">
-            Atendimento de segunda a sexta, das 8h às 17h30.
+            Suporte Técnico Humanizado de segunda a sexta, das 8h às 17h30.
           </span>
         </div>
       </div>

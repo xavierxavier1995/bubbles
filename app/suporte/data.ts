@@ -1,0 +1,132 @@
+import { Droplet, Bath, Truck, RefreshCcw } from 'lucide-react';
+
+export const faqData = [
+  {
+    id: 'performance',
+    category: 'Performance e Diluição',
+    icon: Droplet,
+    questions: [
+      {
+        tag: 'DILUIÇÃO',
+        question: 'Como garantir a estabilidade da mistura no Frasco Diluidor?',
+        answer: 'A diluição deve ser feita preferencialmente com água filtrada para evitar contaminações minerais. Recomenda-se o preparo apenas da quantidade que será utilizada no dia.'
+      },
+      {
+        tag: 'ECONOMIA',
+        question: 'Qual o rendimento médio da Linha Pro com diluição 1:10?',
+        answer: 'O rendimento é otimizado para até 11 litros de produto pronto para uso, reduzindo o custo por banho.'
+      },
+      {
+        tag: 'ACESSÓRIOS',
+        question: 'Por que o Frasco Diluidor é considerado um acessório essencial?',
+        answer: 'Garante precisão da dosagem técnica e evita desperdícios de ativos químicos.'
+      }
+    ]
+  },
+  {
+    id: 'protocolos',
+    category: 'Protocolos de Banho e Tosa',
+    icon: Bath,
+    questions: [
+      {
+        tag: 'SECAGEM',
+        question: 'Como o Leave-in Ego auxilia na redução do tempo de soprador?',
+        answer: 'Microemulsões que expulsam a umidade capilar, permitindo secagem até 60% mais rápida.'
+      },
+      {
+        tag: 'SEGURANÇA',
+        question: 'O Shampoo Dermo Facial pode ser utilizado em animais com hipersensibilidade?',
+        answer: 'Sim, possui pH fisiológico e é isento de sulfatos, indicado para face e áreas sensíveis.'
+      },
+      {
+        tag: 'ESTÉTICA FELINA',
+        question: 'Qual o diferencial do Shampoo Redutor de Oleosidade para gatos?',
+        answer: 'Atua na quebra das cadeias lipídicas felinas sem remover a hidratação natural.'
+      },
+      {
+        tag: 'PELAGEM CLARA',
+        question: 'O Shampoo Clareador pode causar manchas em pelagens bipartidas?',
+        answer: 'Não. Utiliza branqueadores ópticos em vez de corantes violetas, sendo seguro para todas as cores.'
+      }
+    ]
+  },
+  {
+    id: 'logistica',
+    category: 'Logística e Entrega',
+    icon: Truck,
+    questions: [
+      {
+        tag: 'PRAZO',
+        question: 'Qual o prazo de entrega para a minha região?',
+        answer: 'O prazo varia de acordo com o seu CEP. Você pode simular o prazo exato na calculadora de frete disponível no carrinho de compras ou no final da página de frete.'
+      },
+      {
+        tag: 'RASTREIO',
+        question: 'Como faço para rastrear meu pedido?',
+        answer: 'Assim que o pedido for despachado, você receberá um link e o código de rastreamento por e-mail e WhatsApp para acompanhar a entrega em tempo real.'
+      },
+      {
+        tag: 'FRETE GRÁTIS',
+        question: 'A Bubbles oferece frete grátis?',
+        answer: 'Sim! Oferecemos frete grátis para todo o Brasil com valores mínimos de compra que variam por região. Para mais detalhes e para acompanhar sua entrega, acesse nossa página de rastreamento.'
+      }
+    ]
+  },
+  {
+    id: 'trocas',
+    category: 'Trocas e Devoluções',
+    icon: RefreshCcw,
+    questions: [
+      {
+        tag: 'DISTRIBUIDOR',
+        question: 'Comprei em um distribuidor, posso trocar no site?',
+        answer: 'A troca deve ocorrer no local da compra.'
+      },
+      {
+        tag: 'REAÇÃO ADVERSA',
+        question: 'O produto causou reação no pet?',
+        answer: 'Direcionar para suporte técnico humanizado via ajuda@bubbles.com.br ou pelo nosso WhatsApp.'
+      },
+      {
+        tag: 'AVARIA',
+        question: 'O produto chegou com vazamento. O que devo fazer?',
+        answer: 'Mesmo com nossa embalagem reforçada anti-vazamento, se notar qualquer dano no ato da entrega, recuse o recebimento e anote o motivo no verso da nota fiscal. Se notar após a abertura, entre em contato em até 24h via WhatsApp com fotos do lote.'
+      },
+      {
+        tag: 'KITS',
+        question: 'Comprei um Kit Profissional e quero devolver apenas um item. É possível?',
+        answer: 'Não. Para devolução por arrependimento, o kit deve ser devolvido em sua totalidade, incluindo brindes e acessórios que acompanham a promoção, mantendo a integridade do conjunto industrial.'
+      },
+      {
+        tag: 'ACESSÓRIOS',
+        question: 'O bico dosador/válvula do meu produto apresentou defeito. Vocês trocam?',
+        answer: 'Sim. Caso acessórios de aplicação apresentem defeitos de fabricação em até 30 dias, enviamos a reposição da peça via frete expresso após comprovação por vídeo, garantindo que sua operação não pare.'
+      },
+      {
+        tag: 'RESULTADO TÉCNICO',
+        question: 'Usei o produto e o resultado não foi o esperado. Posso trocar?',
+        answer: 'Trocas por insatisfação com o resultado técnico devem ser precedidas de uma consultoria com nosso suporte humanizado. Muitas vezes, um simples ajuste na diluição (ex: 1:10 na Linha Ego / Pro) ou no modo de aplicação (como o uso do Spray Preparo na Linha Collora) resolve a questão. Não trocamos produtos abertos com mais de 10% de uso. Em caso de dúvidas, contate nosso WhatsApp.'
+      },
+      {
+        tag: 'EVENTOS',
+        question: 'Comprei o produto em uma feira ou evento (ex: Pet South America). Como troco?',
+        answer: 'Compras realizadas em eventos seguem o canal de suporte técnico humanizado direto do evento, não o fluxo do e-commerce. Entre em contato através do nosso WhatsApp de suporte apresentando o comprovante de compra emitido no stand oficial.'
+      },
+      {
+        tag: 'BRINDES',
+        question: 'Como funciona a troca de brindes exclusivos?',
+        answer: 'Brindes não possuem garantia de troca, exceto em casos de defeito de fabricação comprovado por foto no momento da abertura do pacote.'
+      },
+      {
+        tag: 'PRAZO DE TROCA',
+        question: 'Já solicitei a troca, em quanto tempo recebo o novo produto?',
+        answer: 'É necessário aguardar a chegada do produto ao nosso Centro de Distribuição (CD) e a conferência técnica antes do novo envio. Após a aprovação, o novo envio é processado. Em caso de dúvidas, entre em contato no WhatsApp.'
+      },
+      {
+        tag: 'RECUSA',
+        question: 'O suporte técnico pode negar uma troca?',
+        answer: 'Sim. A troca será indeferida caso a auditoria técnica identifique: Indícios de mau uso ou diluição incorreta; Armazenamento inadequado (ex: exposição ao sol/luz intensa); Lacre violado sem defeito de fabricação comprovado; Uso superior a 10% do volume do produto. O cliente será formalmente informado sobre a decisão (procedência ou improcedência) após a conclusão da análise técnica.'
+      }
+    ]
+  }
+];

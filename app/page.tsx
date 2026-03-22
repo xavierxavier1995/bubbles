@@ -1,8 +1,16 @@
 import Link from 'next/link';
-import { LayoutTemplate, FileText, ArrowRight, Sparkles, RefreshCcw, ShieldCheck, Gavel, MapPinIcon, Mail } from 'lucide-react';
+import { LayoutTemplate, FileText, ArrowRight, Sparkles, RefreshCcw, ShieldCheck, Gavel, MapPinIcon, Mail, HelpCircle } from 'lucide-react';
 
 export default function ProjectHub() {
   const pages = [
+    {
+      title: 'Central de Ajuda e FAQ',
+      path: '/faq',
+      description: 'Página de suporte técnico, diluição e dúvidas frequentes.',
+      icon: HelpCircle,
+      status: 'Novo',
+      statusColor: 'bg-blue-100 text-blue-700'
+    },
     {
       title: 'Política de Entrega e Frete',
       path: '/politica-de-frete-e-entrega',
