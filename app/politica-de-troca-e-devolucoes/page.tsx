@@ -59,11 +59,13 @@ export default function ReturnPolicy() {
 
         <section className="grid md:grid-cols-2 gap-8">
           {/* Direito de Arrependimento */}
-          <div className="bg-gray-50 rounded-3xl p-8 space-y-4">
-            <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-sm">
-              <Calendar className="w-6 h-6 text-[#0D0C0D]" />
+          <div className="bg-gray-50 rounded-3xl p-6 md:p-8 space-y-4">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow-sm shrink-0">
+                <Calendar className="w-5 h-5 text-[#0D0C0D]" />
+              </div>
+              <h3 className="text-xl font-bold">Direito de Arrependimento (7 Dias)</h3>
             </div>
-            <h3 className="text-xl font-bold">Direito de Arrependimento (7 Dias)</h3>
             <p className="text-gray-700 leading-relaxed">
               Conforme o Código de Defesa do Consumidor, o prazo para desistência é de <strong>7 dias corridos</strong> após o recebimento.
             </p>
@@ -73,11 +75,13 @@ export default function ReturnPolicy() {
           </div>
 
           {/* Protocolo de Avarias e Vícios */}
-          <div className="bg-gray-50 rounded-3xl p-8 space-y-4">
-            <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-sm">
-              <ShieldAlert className="w-6 h-6 text-[#0D0C0D]" />
+          <div className="bg-gray-50 rounded-3xl p-6 md:p-8 space-y-4">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow-sm shrink-0">
+                <ShieldAlert className="w-5 h-5 text-[#0D0C0D]" />
+              </div>
+              <h3 className="text-xl font-bold">Protocolo de Avarias e Vícios (Segurança Industrial)</h3>
             </div>
-            <h3 className="text-xl font-bold">Protocolo de Avarias e Vícios (Segurança Industrial)</h3>
             <p className="text-sm text-gray-700 leading-relaxed">
               <strong className="text-[#0D0C0D]">No Recebimento:</strong> Caso a embalagem apresente danos ou vazamentos visíveis (mesmo com nossa embalagem reforçada), recuse a entrega e anote o motivo no verso da nota fiscal.
             </p>
@@ -87,12 +91,14 @@ export default function ReturnPolicy() {
           </div>
 
           {/* Como Solicitar */}
-          <div className="bg-gray-50 rounded-3xl p-8 space-y-4">
-            <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-sm">
-              <Smartphone className="w-6 h-6 text-[#0D0C0D]" />
+          <div className="bg-gray-50 rounded-3xl p-6 md:p-8 space-y-4">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow-sm shrink-0">
+                <Smartphone className="w-5 h-5 text-[#0D0C0D]" />
+              </div>
+              <h3 className="text-xl font-bold">Como Solicitar</h3>
             </div>
-            <h3 className="text-xl font-bold">Como Solicitar</h3>
-            <ul className="space-y-3 text-gray-700">
+            <ul className="space-y-3 text-gray-700 text-sm">
               <li className="flex items-start gap-3">
                 <div className="w-6 h-6 rounded-full bg-[#F4CDD4]/30 flex items-center justify-center text-sm font-bold shrink-0">1</div>
                 <span>Acesse &quot;Meus Pedidos&quot; no seu Perfil.</span>
@@ -103,25 +109,30 @@ export default function ReturnPolicy() {
               </li>
               <li className="flex items-start gap-3">
                 <div className="w-6 h-6 rounded-full bg-[#F4CDD4]/30 flex items-center justify-center text-sm font-bold shrink-0">3</div>
-                <span>Envie fotos do lote e da avaria para validação técnica via WhatsApp <strong>(14) 99631-2932</strong>.</span>
+                <span>Envie fotos do lote e da avaria para validação técnica via <a href="mailto:contato@bubbles.com.br" className="text-[#F4CDD4] hover:underline font-medium">E-mail</a> ou <a href="https://wa.me/5514997646454" target="_blank" rel="noopener noreferrer" className="text-[#F4CDD4] hover:underline font-medium">WhatsApp</a>.</span>
               </li>
             </ul>
           </div>
 
           {/* Regras de Reembolso */}
-          <div className="bg-gray-50 rounded-3xl p-8 space-y-4">
-            <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-sm">
-              <CreditCard className="w-6 h-6 text-[#0D0C0D]" />
+          <div className="bg-gray-50 rounded-3xl p-6 md:p-8 space-y-4">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow-sm shrink-0">
+                <CreditCard className="w-5 h-5 text-[#0D0C0D]" />
+              </div>
+              <h3 className="text-xl font-bold">Regras de Reembolso</h3>
             </div>
-            <h3 className="text-xl font-bold">Regras de Reembolso</h3>
             <div className="space-y-4">
               <div className="bg-white p-4 rounded-xl border border-gray-100">
                 <strong className="block text-[#0D0C0D] mb-1">Cartão de Crédito</strong>
                 <span className="text-sm text-gray-600">Estorno em até duas faturas após conferência.</span>
               </div>
               <div className="bg-white p-4 rounded-xl border border-gray-100">
-                <strong className="block text-[#0D0C0D] mb-1">PIX/Boleto</strong>
+                <strong className="block text-[#0D0C0D] mb-1">PIX</strong>
                 <span className="text-sm text-gray-600">Reembolso em conta do titular em até <strong>30 dias úteis</strong> após aprovação de qualidade.</span>
+              </div>
+              <div className="bg-white/60 border border-[#F4CDD4] rounded-xl p-4 text-sm text-[#0D0C0D]">
+                <strong>⚠️ Atenção:</strong> Alguns reembolsos dependem obrigatoriamente do retorno da mercadoria ao nosso centro de distribuição. Em caso de dúvidas, <a href="https://wa.me/5514997646454" target="_blank" rel="noopener noreferrer" className="text-[#F4CDD4] hover:underline font-medium">entre em contato aqui</a>.
               </div>
             </div>
           </div>
@@ -147,7 +158,7 @@ export default function ReturnPolicy() {
               <ul className="space-y-3 text-sm text-gray-700">
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-blue-600 mt-0.5 shrink-0" />
-                  <span>Produtos com <strong>lacre rompido</strong> (especialmente galões de 5L) não podem ser devolvidos por arrependimento.</span>
+                  <span>Produtos com <strong>lacre rompido</strong> não podem ser devolvidos por arrependimento.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-blue-600 mt-0.5 shrink-0" />
@@ -226,7 +237,7 @@ export default function ReturnPolicy() {
             </details>
             <details className="group bg-white border border-gray-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden">
               <summary className="flex cursor-pointer items-center justify-between gap-1.5 p-6 text-[#0D0C0D] font-bold">
-                O galão de 5L chegou com vazamento. O que devo fazer?
+                O produto chegou com vazamento. O que devo fazer?
                 <ChevronDown className="w-5 h-5 transition duration-300 group-open:-rotate-180" />
               </summary>
               <div className="px-6 pb-6 text-gray-600 leading-relaxed">
@@ -266,7 +277,7 @@ export default function ReturnPolicy() {
                 <ChevronDown className="w-5 h-5 transition duration-300 group-open:-rotate-180" />
               </summary>
               <div className="px-6 pb-6 text-gray-600 leading-relaxed">
-                Compras realizadas em eventos seguem o canal de atendimento direto do evento, não o fluxo do e-commerce. Entre em contato através do nosso e-mail de suporte apresentando o comprovante de compra emitido no stand oficial.
+                Compras realizadas em eventos seguem o canal de atendimento direto do evento, não o fluxo do e-commerce. Entre em contato através do nosso <a href="https://wa.me/5514997646454" target="_blank" rel="noopener noreferrer" className="text-[#F4CDD4] hover:underline font-medium">WhatsApp de suporte</a> apresentando o comprovante de compra emitido no stand oficial.
               </div>
             </details>
             <details className="group bg-white border border-gray-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden">
@@ -276,15 +287,6 @@ export default function ReturnPolicy() {
               </summary>
               <div className="px-6 pb-6 text-gray-600 leading-relaxed">
                 Sim. O valor pago em dinheiro/cartão é estornado e o saldo de cashback utilizado retorna para sua <strong>carteira digital</strong> no site para uma compra futura, não sendo devolvido em dinheiro.
-              </div>
-            </details>
-            <details className="group bg-white border border-gray-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden">
-              <summary className="flex cursor-pointer items-center justify-between gap-1.5 p-6 text-[#0D0C0D] font-bold">
-                Posso trocar um produto que está próximo do vencimento?
-                <ChevronDown className="w-5 h-5 transition duration-300 group-open:-rotate-180" />
-              </summary>
-              <div className="px-6 pb-6 text-gray-600 leading-relaxed">
-                Garantimos o envio de produtos com validade adequada para uso profissional. Caso receba um item com vencimento inferior a 3 meses, realizaremos a troca imediata sem custos.
               </div>
             </details>
             <details className="group bg-white border border-gray-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden">
@@ -302,7 +304,7 @@ export default function ReturnPolicy() {
                 <ChevronDown className="w-5 h-5 transition duration-300 group-open:-rotate-180" />
               </summary>
               <div className="px-6 pb-6 text-gray-600 leading-relaxed">
-                O novo envio é processado em até 5 dias úteis após o recebimento e conferência do item devolvido em nossa fábrica em Lençóis Paulista.
+                O novo envio é processado em até 5 dias úteis após o recebimento e conferência técnica do item devolvido em nosso Centro de Distribuição (CD).
               </div>
             </details>
             <details className="group bg-white border border-gray-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden">

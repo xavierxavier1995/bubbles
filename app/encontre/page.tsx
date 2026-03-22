@@ -493,7 +493,7 @@ export default function StoreLocator() {
             <div className="text-center mb-6 mt-8">
               <h2 className="text-xl font-bold tracking-tight">Nossa Cobertura</h2>
               <p className="text-sm text-gray-500 mt-1">
-                {selectedState ? `Mostrando parceiros em ${selectedState}` : 'Selecione uma bolha no mapa para filtrar'}
+                {selectedState ? <>Mostrando parceiros em <strong>{selectedState}</strong></> : 'Selecione uma bolha no mapa para filtrar'}
               </p>
             </div>
             

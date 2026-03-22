@@ -78,23 +78,23 @@ export default function ShippingPolicy() {
                 <tbody className="divide-y divide-gray-100">
                   <tr className="hover:bg-gray-50 transition-colors">
                     <td className="py-4 px-6 font-medium">Sudeste</td>
-                    <td className="py-4 px-6 text-gray-600">Acima de R$ 399,90</td>
+                    <td className="py-4 px-6 text-gray-600 whitespace-nowrap">Acima de <strong>R$399,90</strong></td>
                   </tr>
                   <tr className="hover:bg-gray-50 transition-colors">
                     <td className="py-4 px-6 font-medium">Sul</td>
-                    <td className="py-4 px-6 text-gray-600">Acima de R$ 449,90</td>
+                    <td className="py-4 px-6 text-gray-600 whitespace-nowrap">Acima de <strong>R$449,90</strong></td>
                   </tr>
                   <tr className="hover:bg-gray-50 transition-colors">
                     <td className="py-4 px-6 font-medium">Centro-Oeste</td>
-                    <td className="py-4 px-6 text-gray-600">Acima de R$ 499,90</td>
+                    <td className="py-4 px-6 text-gray-600 whitespace-nowrap">Acima de <strong>R$499,90</strong></td>
                   </tr>
                   <tr className="hover:bg-gray-50 transition-colors">
                     <td className="py-4 px-6 font-medium">Nordeste</td>
-                    <td className="py-4 px-6 text-gray-600">Acima de R$ 799,90</td>
+                    <td className="py-4 px-6 text-gray-600 whitespace-nowrap">Acima de <strong>R$799,90</strong></td>
                   </tr>
                   <tr className="hover:bg-gray-50 transition-colors">
                     <td className="py-4 px-6 font-medium">Norte</td>
-                    <td className="py-4 px-6 text-gray-600">Acima de R$ 899,90</td>
+                    <td className="py-4 px-6 text-gray-600 whitespace-nowrap">Acima de <strong>R$899,90</strong></td>
                   </tr>
                 </tbody>
               </table>
@@ -106,8 +106,8 @@ export default function ShippingPolicy() {
           
           <div className="relative h-full min-h-[400px] rounded-3xl overflow-hidden bg-gray-100">
             <Image 
-              src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=800&q=80" 
-              alt="Cachorro tomando banho" 
+              src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&w=800&q=80" 
+              alt="Shih Tzu tomando banho" 
               fill 
               className="object-cover"
               referrerPolicy="no-referrer"
@@ -133,6 +133,11 @@ export default function ShippingPolicy() {
             <p className="text-gray-700 leading-relaxed">
               Após a aprovação do pagamento, temos um prazo de <strong>até 3 dias úteis</strong> para despacho. Utilizamos a plataforma <strong>Mandaê</strong>, que seleciona a transportadora mais eficiente e rápida para a sua região.
             </p>
+            <div className="mt-auto pt-4">
+              <div className="bg-white/60 border border-[#F4CDD4] rounded-xl p-4 text-sm text-[#0D0C0D]">
+                <strong>⚠️ IMPORTANTE:</strong> Antes de descartar a embalagem original, verifique minuciosamente a integridade de todos os produtos recebidos. A conservação da caixa é essencial caso seja necessária qualquer tratativa de troca ou avaria.
+              </div>
+            </div>
           </div>
 
           <div className="bg-gray-50 rounded-3xl p-8 md:p-12 space-y-6 relative overflow-hidden group">
@@ -151,6 +156,20 @@ export default function ShippingPolicy() {
 
         {/* Communication & Tracking */}
         <section className="space-y-12">
+          <style>{`
+            @keyframes fadeInUp {
+              from { opacity: 0; transform: translateY(20px); }
+              to { opacity: 1; transform: translateY(0); }
+            }
+            .animate-fade-in-up {
+              animation: fadeInUp 0.6s ease-out forwards;
+              opacity: 0;
+            }
+            .delay-100 { animation-delay: 100ms; }
+            .delay-200 { animation-delay: 200ms; }
+            .delay-300 { animation-delay: 300ms; }
+            .delay-400 { animation-delay: 400ms; }
+          `}</style>
           <div className="text-center max-w-2xl mx-auto space-y-4">
             <h2 className="text-3xl font-bold tracking-tight">Comunicação e Rastreamento</h2>
             <p className="text-gray-600">Acompanhe cada passo do seu pedido com total transparência.</p>
@@ -179,7 +198,10 @@ export default function ShippingPolicy() {
                 desc: 'Padrão de até 3 tentativas de entrega antes do retorno à fábrica.'
               }
             ].map((step, i) => (
-              <div key={i} className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
+              <div 
+                key={i} 
+                className={`bg-white border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow animate-fade-in-up delay-${(i + 1) * 100}`}
+              >
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 rounded-full bg-[#F4CDD4]/30 flex items-center justify-center text-[#0D0C0D] shrink-0">
                     <step.icon className="w-5 h-5" />
@@ -199,7 +221,7 @@ export default function ShippingPolicy() {
             <p className="text-gray-600">Entendemos que a sua agenda não pode parar. Veja como garantimos a segurança do seu estoque.</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8">
             {/* Logística de Galões (5L) */}
             <div className="bg-red-50 border border-red-200 rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col h-full">
               <div className="flex items-center gap-4 mb-6">
@@ -253,32 +275,48 @@ export default function ShippingPolicy() {
                 </li>
               </ul>
             </div>
+          </div>
+        </section>
 
-            {/* Transparência no Rastreio */}
-            <div className="bg-white border border-gray-200 rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col h-full">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 shrink-0">
-                  <Smartphone className="w-6 h-6" />
+        {/* Transparência no Rastreio */}
+        <section className="space-y-8 pt-12 border-t border-gray-100">
+          <div className="text-center max-w-2xl mx-auto space-y-4">
+            <h2 className="text-3xl font-bold tracking-tight">Transparência no Rastreio</h2>
+            <p className="text-gray-600">Acompanhe seu pedido com clareza e previsibilidade.</p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-3 md:gap-6">
+            <div className="bg-white border border-gray-200 rounded-2xl p-5 md:p-6 shadow-sm">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600 shrink-0">
+                  <Package className="w-5 h-5" />
                 </div>
-                <h3 className="text-xl font-bold">Transparência no Rastreio</h3>
+                <h3 className="text-lg font-bold">Código de Rastreio</h3>
               </div>
-              <p className="text-gray-600 mb-6 leading-relaxed flex-grow">
-                Diminua a ansiedade de esperar por um produto essencial. Em parceria com a <strong>Mandaê</strong>, garantimos previsibilidade total para a sua agenda:
+              <p className="text-sm text-gray-600 leading-relaxed">
+                Após a postagem do seu pedido, você receberá o código de rastreamento diretamente no e-mail cadastrado.
               </p>
-              <ul className="space-y-3 text-sm text-gray-700">
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-blue-600 mt-0.5 shrink-0" />
-                  <span><strong>Notificações Ativas:</strong> Acompanhe cada passo do pedido diretamente pelo WhatsApp.</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-blue-600 mt-0.5 shrink-0" />
-                  <span><strong>Link em Tempo Real:</strong> Saiba exatamente quando o pedido saiu para entrega na sua região.</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-blue-600 mt-0.5 shrink-0" />
-                  <span><strong>Suporte Parceiro:</strong> Nossa equipe acompanha as rotas para intervir em caso de imprevistos logísticos.</span>
-                </li>
-              </ul>
+            </div>
+            <div className="bg-white border border-gray-200 rounded-2xl p-5 md:p-6 shadow-sm">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600 shrink-0">
+                  <MessageCircle className="w-5 h-5" />
+                </div>
+                <h3 className="text-lg font-bold">Suporte Parceiro</h3>
+              </div>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                Nossa equipe de Customer Experience atua em conjunto com os parceiros logísticos para garantir a entrega.
+              </p>
+            </div>
+            <div className="bg-white border border-gray-200 rounded-2xl p-5 md:p-6 shadow-sm">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600 shrink-0">
+                  <RefreshCcw className="w-5 h-5" />
+                </div>
+                <h3 className="text-lg font-bold">Atualizações de Status</h3>
+              </div>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                O status do seu pedido é atualizado em nosso sistema conforme o processamento logístico avança.
+              </p>
             </div>
           </div>
         </section>

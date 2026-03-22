@@ -101,6 +101,19 @@ export default function DilutionGuide() {
 
         {/* SECTION 3: A Ciência da Diluição e Benefícios (SEO Optimized) */}
         <section className="space-y-12 pt-12 border-t border-gray-100">
+          <style>{`
+            @keyframes fadeInUp {
+              from { opacity: 0; transform: translateY(20px); }
+              to { opacity: 1; transform: translateY(0); }
+            }
+            .animate-fade-in-up {
+              animation: fadeInUp 0.6s ease-out forwards;
+              opacity: 0;
+            }
+            .delay-100 { animation-delay: 100ms; }
+            .delay-200 { animation-delay: 200ms; }
+            .delay-300 { animation-delay: 300ms; }
+          `}</style>
           <div className="text-center max-w-3xl mx-auto space-y-4">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Por que a diluição é fundamental?</h2>
             <p className="text-lg text-gray-600 leading-relaxed">
@@ -109,36 +122,36 @@ export default function DilutionGuide() {
           </div>
 
           <div className="flex flex-col md:grid md:grid-cols-3 gap-3 md:gap-6">
-            <div className="bg-gray-50 rounded-2xl p-4 md:p-5 border border-gray-100 hover:border-[#F4CDD4] transition-colors">
+            <div className="animate-fade-in-up delay-100 bg-gray-50 rounded-2xl p-4 md:p-5 border border-gray-100 hover:border-[#F4CDD4] transition-colors">
               <div className="flex items-center gap-3 mb-2 md:mb-3">
                 <div className="w-8 h-8 md:w-10 md:h-10 bg-white rounded-xl flex items-center justify-center shadow-sm shrink-0">
                   <Sparkles className="w-4 h-4 md:w-5 md:h-5 text-[#F4CDD4]" />
                 </div>
-                <h3 className="text-base md:text-lg font-bold">Ativação Química</h3>
+                <h3 className="text-lg md:text-xl font-bold">Ativação Química</h3>
               </div>
-              <p className="text-gray-600 text-xs md:text-sm leading-relaxed">
+              <p className="text-gray-600 text-sm md:text-base leading-relaxed">
                 Adicionar água na proporção correta &quot;ativa&quot; o produto, garantindo a espalhabilidade ideal, limpeza profunda sem agressão e a liberação correta da fragrância.
               </p>
             </div>
-            <div className="bg-gray-50 rounded-2xl p-4 md:p-5 border border-gray-100 hover:border-[#F4CDD4] transition-colors">
+            <div className="animate-fade-in-up delay-200 bg-gray-50 rounded-2xl p-4 md:p-5 border border-gray-100 hover:border-[#F4CDD4] transition-colors">
               <div className="flex items-center gap-3 mb-2 md:mb-3">
                 <div className="w-8 h-8 md:w-10 md:h-10 bg-white rounded-xl flex items-center justify-center shadow-sm shrink-0">
                   <TrendingUp className="w-4 h-4 md:w-5 md:h-5 text-green-500" />
                 </div>
-                <h3 className="text-base md:text-lg font-bold">Rentabilidade Extrema</h3>
+                <h3 className="text-lg md:text-xl font-bold">Rentabilidade Extrema</h3>
               </div>
-              <p className="text-gray-600 text-xs md:text-sm leading-relaxed">
+              <p className="text-gray-600 text-sm md:text-base leading-relaxed">
                 Um galão de 5L da linha Ego / Pro (1:10) se transforma em até 55 litros de produto pronto para uso. Isso reduz drasticamente o custo por banho.
               </p>
             </div>
-            <div className="bg-gray-50 rounded-2xl p-4 md:p-5 border border-gray-100 hover:border-[#F4CDD4] transition-colors">
+            <div className="animate-fade-in-up delay-300 bg-gray-50 rounded-2xl p-4 md:p-5 border border-gray-100 hover:border-[#F4CDD4] transition-colors">
               <div className="flex items-center gap-3 mb-2 md:mb-3">
                 <div className="w-8 h-8 md:w-10 md:h-10 bg-white rounded-xl flex items-center justify-center shadow-sm shrink-0">
                   <Shield className="w-4 h-4 md:w-5 md:h-5 text-blue-500" />
                 </div>
-                <h3 className="text-base md:text-lg font-bold">Enxágue Rápido</h3>
+                <h3 className="text-lg md:text-xl font-bold">Enxágue Rápido</h3>
               </div>
-              <p className="text-gray-600 text-xs md:text-sm leading-relaxed">
+              <p className="text-gray-600 text-sm md:text-base leading-relaxed">
                 Produtos diluídos corretamente não deixam resíduos pesados. Isso significa um enxágue muito mais rápido, economizando água, energia e tempo.
               </p>
             </div>
@@ -218,29 +231,20 @@ export default function DilutionGuide() {
             href="https://www.bubbles.com.br/products/frasco-diluidor-groomer-bubbles-500ml?_pos=2&_psq=diluidor&_ss=e&_v=1.0"
             target="_blank"
             rel="noopener noreferrer"
-            className="block bg-gradient-to-br from-[#F4CDD4]/10 to-white border border-[#F4CDD4]/30 rounded-[2rem] p-6 md:p-8 flex flex-col md:flex-row items-center gap-6 shadow-sm hover:shadow-md transition-all duration-500 group"
+            className="block bg-gradient-to-br from-[#F4CDD4]/10 to-white border border-[#F4CDD4]/30 rounded-[2rem] p-6 md:p-8 flex flex-col items-center gap-6 shadow-sm hover:shadow-md transition-all duration-500 group"
           >
-            <div className="w-full md:w-1/2 relative aspect-square max-w-[240px] mx-auto mix-blend-multiply transition-transform duration-700 group-hover:scale-105">
-              <Image 
-                src="https://www.bubbles.com.br/cdn/shop/files/bubbles_frasco-diluidor-frente-verso_500ml_fundo-branco.jpg?v=1770904481&width=1206"
-                alt="Frasco Diluidor Bubbles 500ml"
-                fill
-                className="object-contain drop-shadow-lg mix-blend-multiply"
-                referrerPolicy="no-referrer"
-              />
-            </div>
-            <div className="w-full md:w-1/2 space-y-4 text-center md:text-left">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white text-[#0D0C0D] text-xs font-bold uppercase tracking-wider border border-gray-100 shadow-sm mx-auto md:mx-0">
-                <FlaskConical className="w-4 h-4 text-[#F48FB1]" />
-                Acessório Indispensável
+            <div className="w-full space-y-4 text-center">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-green-50 text-green-600 text-xs font-bold uppercase tracking-wider border border-green-200 shadow-sm mx-auto">
+                <FlaskConical className="w-4 h-4 text-green-500" />
+                Acessório Essencial
               </div>
               <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-[#0D0C0D] leading-tight">
                 Frasco Diluidor Bubbles
               </h2>
-              <p className="text-base md:text-lg text-gray-700 leading-relaxed">
+              <p className="text-base md:text-lg text-gray-700 leading-relaxed max-w-2xl mx-auto">
                 A ferramenta perfeita para garantir a proporção exata em todas as suas diluições. Evite desperdícios e garanta a máxima performance.
               </p>
-              <ul className="space-y-3 text-base text-left inline-block md:block mx-auto">
+              <ul className="space-y-3 text-base text-left inline-block mx-auto">
                 <li className="flex items-center gap-3 text-gray-800 font-medium">
                   <CheckCircle2 className="w-5 h-5 text-[#F48FB1]" />
                   Marcações claras (1:4 até 1:10)
@@ -257,6 +261,15 @@ export default function DilutionGuide() {
                 </div>
               </div>
             </div>
+            <div className="w-full relative aspect-square max-w-[240px] mx-auto mix-blend-multiply transition-transform duration-700 group-hover:scale-105 mt-4">
+              <Image 
+                src="https://www.bubbles.com.br/cdn/shop/files/bubbles_frasco-diluidor-frente-verso_500ml_fundo-branco.jpg?v=1770904481&width=1206"
+                alt="Frasco Diluidor Bubbles 500ml"
+                fill
+                className="object-contain drop-shadow-lg mix-blend-multiply"
+                referrerPolicy="no-referrer"
+              />
+            </div>
           </a>
         </section>
 
@@ -272,7 +285,7 @@ export default function DilutionGuide() {
                 <h3 className="text-xl font-bold text-amber-900">Atenção à validade</h3>
               </div>
               <p className="text-amber-800 text-base leading-relaxed">
-                Para garantir a melhor performance e segurança, o ideal é utilizar água filtrada na mistura. Como a qualidade da água pode variar conforme a região, recomendamos diluir apenas o que for usar no dia, mantendo a integridade bacteriológica do produto.
+                Para garantir a melhor performance e segurança, o ideal é utilizar <strong>água filtrada</strong> na mistura. Como a qualidade da água pode <strong>variar conforme a região</strong>, recomendamos diluir apenas o que for usar no dia, mantendo a integridade bacteriológica do produto.
               </p>
             </div>
           </div>

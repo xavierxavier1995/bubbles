@@ -58,11 +58,11 @@ export default function TermsOfService() {
 
         <div className="space-y-8">
           {/* 1. Elegibilidade */}
-          <section className="bg-gray-50 rounded-3xl p-8 md:p-10 flex flex-col md:flex-row gap-8 items-start border border-gray-100">
-            <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center shadow-sm shrink-0">
+          <section className="bg-gray-50 rounded-3xl p-8 md:p-10 flex flex-col md:flex-row gap-8 items-center md:items-start border border-gray-100">
+            <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center shadow-sm shrink-0 mx-auto md:mx-0">
               <UserPlus className="w-7 h-7 text-[#0D0C0D]" />
             </div>
-            <div className="space-y-4">
+            <div className="space-y-4 w-full text-left">
               <h2 className="text-2xl font-bold">1. Elegibilidade de Compra</h2>
               <p className="text-gray-700 leading-relaxed">
                 A Bubbles desenvolve cosméticos de alta performance. Por isso, a compra de itens profissionais (como nossos galões de 5L) é <strong>destinada exclusivamente a maiores de 18 anos e profissionais atuantes do setor pet</strong>.
@@ -74,18 +74,18 @@ export default function TermsOfService() {
           </section>
 
           {/* 2. Uso Profissional e Responsabilidade */}
-          <section className="bg-white rounded-3xl p-8 md:p-10 flex flex-col md:flex-row gap-8 items-start border border-gray-200 shadow-sm">
-            <div className="w-14 h-14 bg-[#F4CDD4]/20 rounded-2xl flex items-center justify-center shrink-0">
+          <section className="bg-white rounded-3xl p-8 md:p-10 flex flex-col md:flex-row gap-8 items-center md:items-start border border-gray-200 shadow-sm">
+            <div className="w-14 h-14 bg-[#F4CDD4]/20 rounded-2xl flex items-center justify-center shrink-0 mx-auto md:mx-0">
               <AlertTriangle className="w-7 h-7 text-[#0D0C0D]" />
             </div>
-            <div className="space-y-4 w-full">
+            <div className="space-y-4 w-full text-left">
               <h2 className="text-2xl font-bold">2. Uso Profissional e Responsabilidade</h2>
               <p className="text-gray-700 leading-relaxed">
                 Nossas fórmulas são concentradas e exigem conhecimento técnico para garantir a eficácia e a segurança dos pets.
               </p>
               <div className="bg-gray-50 p-6 rounded-2xl border border-gray-100 mt-4 space-y-4">
                 <p className="text-gray-700 leading-relaxed">
-                  Você declara estar ciente de que os produtos das linhas <strong>Ego / Pro, Basiq e Collora</strong> devem seguir rigorosamente o modo de uso técnico indicado nos rótulos e materiais de apoio (ex: <strong>diluição obrigatória de 1:10</strong> e uso do <strong>Spray Preparo</strong>).
+                  Você declara estar ciente de que os produtos das linhas <strong>Ego / Pro, Basiq e Collora</strong> devem seguir rigorosamente o modo de uso técnico indicado nos rótulos e materiais de apoio. Para garantir a máxima performance, recomendamos a leitura do nosso <a href="/diluicao" className="text-[#F48FB1] font-bold hover:underline">Guia de Diluição</a> (ex: <strong>diluição obrigatória de 1:10</strong> e uso do <strong>Spray Preparo</strong>).
                 </p>
                 <div className="bg-white p-4 rounded-xl border-l-4 border-[#0D0C0D] text-sm text-gray-600">
                   <strong>Isenção de Responsabilidade:</strong> A Bubbles isenta-se de qualquer responsabilidade por danos, reações ou resultados insatisfatórios decorrentes do <strong>uso inadequado, falta de diluição correta ou armazenamento impróprio</strong> dos produtos por parte do comprador.
@@ -95,11 +95,11 @@ export default function TermsOfService() {
           </section>
 
           {/* 3. Política Anti-Revenda */}
-          <section className="bg-gray-50 rounded-3xl p-8 md:p-10 flex flex-col md:flex-row gap-8 items-start border border-gray-100">
-            <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center shadow-sm shrink-0">
+          <section className="bg-gray-50 rounded-3xl p-8 md:p-10 flex flex-col md:flex-row gap-8 items-center md:items-start border border-gray-100">
+            <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center shadow-sm shrink-0 mx-auto md:mx-0">
               <Store className="w-7 h-7 text-[#0D0C0D]" />
             </div>
-            <div className="space-y-4">
+            <div className="space-y-4 w-full text-left">
               <h2 className="text-2xl font-bold">3. Política Anti-Revenda (Proteção da Cadeia)</h2>
               <p className="text-gray-700 leading-relaxed">
                 Para garantir a qualidade, a cadeia de custódia e a segurança biológica dos nossos cosméticos, <strong>é terminantemente proibida a revenda dos produtos Bubbles em marketplaces (como Shopee, Mercado Livre, Amazon, etc.)</strong> sem um contrato de distribuição prévio e formalizado.
@@ -111,11 +111,11 @@ export default function TermsOfService() {
           </section>
 
           {/* 4. Propriedade Intelectual */}
-          <section className="bg-white rounded-3xl p-8 md:p-10 flex flex-col md:flex-row gap-8 items-start border border-gray-200 shadow-sm">
-            <div className="w-14 h-14 bg-gray-100 rounded-2xl flex items-center justify-center shrink-0">
+          <section className="bg-white rounded-3xl p-8 md:p-10 flex flex-col md:flex-row gap-8 items-center md:items-start border border-gray-200 shadow-sm">
+            <div className="w-14 h-14 bg-gray-100 rounded-2xl flex items-center justify-center shrink-0 mx-auto md:mx-0">
               <Copyright className="w-7 h-7 text-gray-700" />
             </div>
-            <div className="space-y-4">
+            <div className="space-y-4 w-full text-left">
               <h2 className="text-2xl font-bold">4. Propriedade Intelectual</h2>
               <p className="text-gray-700 leading-relaxed">
                 Todos os ativos da Bubbles, incluindo <strong>logotipos, fotos das linhas, textos descritivos, vídeos e fórmulas</strong>, são de nossa propriedade exclusiva e protegidos por leis de direitos autorais.
@@ -127,11 +127,11 @@ export default function TermsOfService() {
           </section>
 
           {/* 5. Segurança SSL e Site Blindado */}
-          <section className="bg-[#0D0C0D] text-white rounded-3xl p-8 md:p-10 flex flex-col md:flex-row gap-8 items-start shadow-lg">
-            <div className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center shrink-0">
+          <section className="bg-[#0D0C0D] text-white rounded-3xl p-8 md:p-10 flex flex-col md:flex-row gap-8 items-center md:items-start shadow-lg">
+            <div className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center shrink-0 mx-auto md:mx-0">
               <Shield className="w-7 h-7 text-[#F4CDD4]" />
             </div>
-            <div className="space-y-4 w-full">
+            <div className="space-y-4 w-full text-left">
               <h2 className="text-2xl font-bold">5. Segurança SSL e Site Blindado</h2>
               <p className="text-gray-300 leading-relaxed">
                 Sua transação está protegida de ponta a ponta contra fraudes.
