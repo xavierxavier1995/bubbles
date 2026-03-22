@@ -134,7 +134,7 @@ export default function ShippingPolicy() {
               Após a aprovação do pagamento, temos um prazo de <strong>até 3 dias úteis</strong> para despacho. Utilizamos a plataforma <strong>Mandaê</strong>, que seleciona a transportadora mais eficiente e rápida para a sua região.
             </p>
             <div className="mt-auto pt-4">
-              <div className="bg-white/60 border border-[#F4CDD4] rounded-xl p-4 text-sm text-[#0D0C0D]">
+              <div className="bg-white/60 border border-[#F4CDD4] rounded-xl p-3 text-xs text-[#0D0C0D]">
                 <strong>⚠️ IMPORTANTE:</strong> Antes de descartar a embalagem original, verifique minuciosamente a integridade de todos os produtos recebidos. A conservação da caixa é essencial caso seja necessária qualquer tratativa de troca ou avaria.
               </div>
             </div>
@@ -148,7 +148,7 @@ export default function ShippingPolicy() {
               <h3 className="text-2xl font-bold">Segurança no Transporte</h3>
             </div>
             <p className="text-gray-700 leading-relaxed relative z-10">
-              Utilizamos embalagens reforçadas para garantir que seus produtos cheguem intactos e em perfeitas condições até você.
+              Utilizamos embalagens reforçadas para garantir que seus produtos cheguem intactos e em perfeitas condições até você. Nossa equipe de logística acompanha de perto cada etapa do processo, desde a separação até a entrega final, assegurando que o padrão de qualidade Bubbles seja mantido em todo o trajeto.
             </p>
             <div className="absolute -bottom-12 -right-12 w-64 h-64 bg-white rounded-full opacity-50 group-hover:scale-110 transition-transform duration-700"></div>
           </div>
@@ -202,13 +202,13 @@ export default function ShippingPolicy() {
                 key={i} 
                 className={`bg-white border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow animate-fade-in-up delay-${(i + 1) * 100}`}
               >
-                <div className="flex items-center gap-3 mb-4">
+                <div className="flex flex-col md:items-start items-center gap-3 mb-4">
                   <div className="w-10 h-10 rounded-full bg-[#F4CDD4]/30 flex items-center justify-center text-[#0D0C0D] shrink-0">
                     <step.icon className="w-5 h-5" />
                   </div>
-                  <h4 className="text-lg font-bold">{step.title}</h4>
+                  <h4 className="text-lg font-bold text-center md:text-left">{step.title}</h4>
                 </div>
-                <p className="text-sm text-gray-600 leading-relaxed">{step.desc}</p>
+                <p className="text-sm text-gray-600 leading-relaxed text-center md:text-left">{step.desc}</p>
               </div>
             ))}
           </div>
@@ -231,7 +231,7 @@ export default function ShippingPolicy() {
                 <h3 className="text-xl font-bold text-red-800">Logística de Galões (5L)</h3>
               </div>
               <p className="text-red-700 mb-6 leading-relaxed flex-grow">
-                Sabemos que galões de 5L pesam cerca de 5,2 kg e exigem cuidado redobrado. Desenvolvemos uma inteligência de cubagem e embalagem para que os produtos das linhas Ego / Pro, Basiq, Sensorial e Collora não estourem no transporte:
+                Sabemos que galões de 5L pesam cerca de 5,2 kg e exigem cuidado redobrado. Desenvolvemos uma inteligência de cubagem e embalagem para que os produtos das linhas Ego / Pro, Basiq, Sensorial e Collora não sofram avarias no transporte:
               </p>
               <ul className="space-y-3 text-sm text-red-800">
                 <li className="flex items-start gap-2">
@@ -258,7 +258,7 @@ export default function ShippingPolicy() {
                 <h3 className="text-xl font-bold">Como Receber seu Pedido</h3>
               </div>
               <p className="text-gray-600 mb-6 leading-relaxed flex-grow">
-                Para garantir a integridade do seu investimento, siga este rigoroso protocolo de conferência no ato da entrega:
+                Para garantir a integridade do seu pedido, siga este rigoroso protocolo de conferência no ato da entrega:
               </p>
               <ul className="space-y-3 text-sm text-gray-700">
                 <li className="flex items-start gap-2">
@@ -282,7 +282,7 @@ export default function ShippingPolicy() {
         <section className="space-y-8 pt-12 border-t border-gray-100">
           <div className="text-center max-w-2xl mx-auto space-y-4">
             <h2 className="text-3xl font-bold tracking-tight">Transparência no Rastreio</h2>
-            <p className="text-gray-600">Acompanhe seu pedido com clareza e previsibilidade.</p>
+            <p className="text-gray-600">Acompanhe seu pedido com clareza e ganhe previsibilidade.</p>
           </div>
           <div className="grid md:grid-cols-3 gap-3 md:gap-6">
             <div className="bg-white border border-gray-200 rounded-2xl p-5 md:p-6 shadow-sm">
@@ -293,7 +293,7 @@ export default function ShippingPolicy() {
                 <h3 className="text-lg font-bold">Código de Rastreio</h3>
               </div>
               <p className="text-sm text-gray-600 leading-relaxed">
-                Após a postagem do seu pedido, você receberá o código de rastreamento diretamente no e-mail cadastrado.
+                Após a postagem do seu pedido, você receberá o código de rastreamento e o link de acompanhamento diretamente no seu e-mail cadastrado e também através do WhatsApp.
               </p>
             </div>
             <div className="bg-white border border-gray-200 rounded-2xl p-5 md:p-6 shadow-sm">
@@ -304,7 +304,7 @@ export default function ShippingPolicy() {
                 <h3 className="text-lg font-bold">Suporte Parceiro</h3>
               </div>
               <p className="text-sm text-gray-600 leading-relaxed">
-                Nossa equipe de Customer Experience atua em conjunto com os parceiros logísticos para garantir a entrega.
+                Nossa equipe de <a href="https://wa.me/5511913612053?text=Preciso%20de%20ajuda%20a%20respeito%20do%20rastreio" target="_blank" rel="noopener noreferrer" className="font-bold hover:text-[#F4CDD4] transition-colors">Customer Experience</a> atua em conjunto com os parceiros logísticos para garantir a entrega.
               </p>
             </div>
             <div className="bg-white border border-gray-200 rounded-2xl p-5 md:p-6 shadow-sm">
@@ -315,7 +315,7 @@ export default function ShippingPolicy() {
                 <h3 className="text-lg font-bold">Atualizações de Status</h3>
               </div>
               <p className="text-sm text-gray-600 leading-relaxed">
-                O status do seu pedido é atualizado em nosso sistema conforme o processamento logístico avança.
+                Você pode acompanhar cada etapa do seu pedido em tempo real diretamente através do link de rastreio da transportadora.
               </p>
             </div>
           </div>
@@ -351,7 +351,7 @@ export default function ShippingPolicy() {
                 <ChevronDown className="w-5 h-5 transition duration-300 group-open:-rotate-180" />
               </summary>
               <div className="px-6 pb-6 text-gray-600 leading-relaxed">
-                Sim! Oferecemos frete grátis para todo o Brasil com valores mínimos de compra que variam por região. Consulte a tabela &quot;Frete Grátis por Região&quot; acima.
+                Sim! Oferecemos frete grátis para todo o Brasil com valores mínimos de compra que variam por região. Para mais detalhes e para acompanhar sua entrega, acesse nossa <a href="/rastreio" className="font-bold underline hover:text-[#F4CDD4] transition-colors">página de rastreamento</a>.
               </div>
             </details>
             <details className="group bg-white border border-gray-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden">
@@ -369,7 +369,7 @@ export default function ShippingPolicy() {
                 <ChevronDown className="w-5 h-5 transition duration-300 group-open:-rotate-180" />
               </summary>
               <div className="px-6 pb-6 text-gray-600 leading-relaxed">
-                Caso precise alterar o endereço, entre em contato com nosso atendimento pelo WhatsApp. A alteração pode ser realizada desde que o pedido ainda não tenha sido faturado.
+                Caso precise alterar o endereço, entre em contato com nosso atendimento pelo <a href="https://wa.me/5511913612053?text=Preciso%20alterar%20o%20endere%C3%A7o%20de%20entrega" target="_blank" rel="noopener noreferrer" className="font-bold underline hover:text-[#F4CDD4] transition-colors">WhatsApp</a>. A alteração pode ser realizada desde que o pedido ainda não tenha sido faturado.
               </div>
             </details>
             <details className="group bg-white border border-gray-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden">
@@ -378,7 +378,7 @@ export default function ShippingPolicy() {
                 <ChevronDown className="w-5 h-5 transition duration-300 group-open:-rotate-180" />
               </summary>
               <div className="px-6 pb-6 text-gray-600 leading-relaxed">
-                Não. Nossas transportadoras parceiras operam e realizam entregas apenas em dias úteis, de segunda a sexta-feira, em horário comercial.
+                Isso depende da transportadora selecionada e da sua região de entrega. Para verificar a previsão exata, entre em contato com seu código de rastreio no nosso <a href="https://wa.me/5511913612053?text=Gostaria%20de%20saber%20se%20minha%20entrega%20pode%20ocorrer%20no%20final%20de%20semana" target="_blank" rel="noopener noreferrer" className="font-bold underline hover:text-[#F4CDD4] transition-colors">WhatsApp</a>.
               </div>
             </details>
             <details className="group bg-white border border-gray-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden">
@@ -387,7 +387,7 @@ export default function ShippingPolicy() {
                 <ChevronDown className="w-5 h-5 transition duration-300 group-open:-rotate-180" />
               </summary>
               <div className="px-6 pb-6 text-gray-600 leading-relaxed">
-                Verifique primeiro com vizinhos, funcionários ou na portaria. Caso realmente não encontre, contate nosso suporte via WhatsApp imediatamente.
+                Verifique primeiro com vizinhos, funcionários ou na portaria. Caso realmente não encontre, contate nosso suporte via <a href="https://wa.me/5511913612053?text=Meu%20pedido%20consta%20como%20entregue%20mas%20n%C3%A3o%20recebi" target="_blank" rel="noopener noreferrer" className="font-bold underline hover:text-[#F4CDD4] transition-colors">WhatsApp</a> imediatamente.
               </div>
             </details>
             <details className="group bg-white border border-gray-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden">
