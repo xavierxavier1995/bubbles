@@ -227,24 +227,42 @@ export default function DilutionGuide() {
 
         {/* SECTION 6: Frasco Diluidor */}
         <section className="max-w-4xl mx-auto pt-12 border-t border-gray-100 mt-12">
+          <style>{`
+            @keyframes slideInLeft {
+              from { opacity: 0; transform: translateX(-30px); }
+              to { opacity: 1; transform: translateX(0); }
+            }
+            @keyframes slideInRight {
+              from { opacity: 0; transform: translateX(30px); }
+              to { opacity: 1; transform: translateX(0); }
+            }
+            .animate-slide-in-left {
+              animation: slideInLeft 0.8s ease-out forwards;
+              opacity: 0;
+            }
+            .animate-slide-in-right {
+              animation: slideInRight 0.8s ease-out forwards;
+              opacity: 0;
+            }
+          `}</style>
           <a 
             href="https://www.bubbles.com.br/products/frasco-diluidor-groomer-bubbles-500ml?_pos=2&_psq=diluidor&_ss=e&_v=1.0"
             target="_blank"
             rel="noopener noreferrer"
-            className="block bg-gradient-to-br from-[#F4CDD4]/10 to-white border border-[#F4CDD4]/30 rounded-[2rem] p-6 md:p-8 flex flex-col items-center gap-6 shadow-sm hover:shadow-md transition-all duration-500 group"
+            className="block bg-gradient-to-br from-[#F4CDD4]/10 to-white border border-[#F4CDD4]/30 rounded-[2rem] p-6 md:p-12 flex flex-col md:flex-row items-center gap-8 md:gap-12 shadow-sm hover:shadow-md transition-all duration-500 group overflow-hidden"
           >
-            <div className="w-full space-y-4 text-center">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-green-50 text-green-600 text-xs font-bold uppercase tracking-wider border border-green-200 shadow-sm mx-auto">
+            <div className="w-full md:w-1/2 space-y-6 text-center md:text-left animate-slide-in-left">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-green-50 text-green-600 text-xs font-bold uppercase tracking-wider border border-green-200 shadow-sm">
                 <FlaskConical className="w-4 h-4 text-green-500" />
                 Acessório Essencial
               </div>
               <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-[#0D0C0D] leading-tight">
                 Frasco Diluidor Bubbles
               </h2>
-              <p className="text-base md:text-lg text-gray-700 leading-relaxed max-w-2xl mx-auto">
+              <p className="text-base md:text-lg text-gray-700 leading-relaxed">
                 A ferramenta perfeita para garantir a proporção exata em todas as suas diluições. Evite desperdícios e garanta a máxima performance.
               </p>
-              <ul className="space-y-3 text-base text-left inline-block mx-auto">
+              <ul className="space-y-3 text-base text-left inline-block md:block">
                 <li className="flex items-center gap-3 text-gray-800 font-medium">
                   <CheckCircle2 className="w-5 h-5 text-[#F48FB1]" />
                   Marcações claras (1:4 até 1:10)
@@ -261,7 +279,7 @@ export default function DilutionGuide() {
                 </div>
               </div>
             </div>
-            <div className="w-full relative aspect-square max-w-[240px] mx-auto mix-blend-multiply transition-transform duration-700 group-hover:scale-105 mt-4">
+            <div className="w-full md:w-1/2 relative aspect-square max-w-[280px] md:max-w-none mx-auto mix-blend-multiply transition-transform duration-700 group-hover:scale-105 animate-slide-in-right">
               <Image 
                 src="https://www.bubbles.com.br/cdn/shop/files/bubbles_frasco-diluidor-frente-verso_500ml_fundo-branco.jpg?v=1770904481&width=1206"
                 alt="Frasco Diluidor Bubbles 500ml"

@@ -60,7 +60,7 @@ export default function ReturnPolicy() {
         <section className="grid md:grid-cols-2 gap-8">
           {/* Direito de Arrependimento */}
           <div className="bg-gray-50 rounded-3xl p-6 md:p-8 space-y-4">
-            <div className="flex items-center gap-3">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
               <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow-sm shrink-0">
                 <Calendar className="w-5 h-5 text-[#0D0C0D]" />
               </div>
@@ -76,7 +76,7 @@ export default function ReturnPolicy() {
 
           {/* Protocolo de Avarias e Vícios */}
           <div className="bg-gray-50 rounded-3xl p-6 md:p-8 space-y-4">
-            <div className="flex items-center gap-3">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
               <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow-sm shrink-0">
                 <ShieldAlert className="w-5 h-5 text-[#0D0C0D]" />
               </div>
@@ -92,7 +92,7 @@ export default function ReturnPolicy() {
 
           {/* Como Solicitar */}
           <div className="bg-gray-50 rounded-3xl p-6 md:p-8 space-y-4">
-            <div className="flex items-center gap-3">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
               <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow-sm shrink-0">
                 <Smartphone className="w-5 h-5 text-[#0D0C0D]" />
               </div>
@@ -109,14 +109,14 @@ export default function ReturnPolicy() {
               </li>
               <li className="flex items-start gap-3">
                 <div className="w-6 h-6 rounded-full bg-[#F4CDD4]/30 flex items-center justify-center text-sm font-bold shrink-0">3</div>
-                <span>Envie fotos do lote e da avaria para validação técnica via <a href="mailto:contato@bubbles.com.br" className="text-[#F4CDD4] hover:underline font-medium">E-mail</a> ou <a href="https://wa.me/5514997646454" target="_blank" rel="noopener noreferrer" className="text-[#F4CDD4] hover:underline font-medium">WhatsApp</a>.</span>
+                <span>Envie fotos do lote e da avaria para validação técnica via <a href="mailto:ajuda@bubbles.com.br" className="text-[#F4CDD4] hover:underline font-medium">E-mail</a> ou <a href="https://wa.me/5514997646454" target="_blank" rel="noopener noreferrer" className="text-[#F4CDD4] hover:underline font-medium">WhatsApp</a>.</span>
               </li>
             </ul>
           </div>
 
           {/* Regras de Reembolso */}
           <div className="bg-gray-50 rounded-3xl p-6 md:p-8 space-y-4">
-            <div className="flex items-center gap-3">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
               <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow-sm shrink-0">
                 <CreditCard className="w-5 h-5 text-[#0D0C0D]" />
               </div>
@@ -131,7 +131,7 @@ export default function ReturnPolicy() {
                 <strong className="block text-[#0D0C0D] mb-1">PIX</strong>
                 <span className="text-sm text-gray-600">Reembolso em conta do titular em até <strong>30 dias úteis</strong> após aprovação de qualidade.</span>
               </div>
-              <div className="bg-white/60 border border-[#F4CDD4] rounded-xl p-4 text-sm text-[#0D0C0D]">
+              <div className="bg-white/60 border border-[#F4CDD4] rounded-xl p-3 text-xs text-[#0D0C0D]">
                 <strong>⚠️ Atenção:</strong> Alguns reembolsos dependem obrigatoriamente do retorno da mercadoria ao nosso centro de distribuição. Em caso de dúvidas, <a href="https://wa.me/5514997646454" target="_blank" rel="noopener noreferrer" className="text-[#F4CDD4] hover:underline font-medium">entre em contato aqui</a>.
               </div>
             </div>
@@ -148,10 +148,12 @@ export default function ReturnPolicy() {
           <div className="grid md:grid-cols-3 gap-8">
             {/* Protocolo de Biossegurança */}
             <div className="bg-white border border-gray-200 rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col h-full">
-              <div className="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center mb-6 text-blue-600">
-                <ShieldAlert className="w-6 h-6" />
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-6">
+                <div className="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 shrink-0">
+                  <ShieldAlert className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-bold">Protocolo de Biossegurança (Lacre)</h3>
               </div>
-              <h3 className="text-xl font-bold mb-4">Protocolo de Biossegurança (Lacre)</h3>
               <p className="text-gray-600 mb-6 leading-relaxed flex-grow">
                 Por se tratar de cosméticos profissionais de alta performance, a Bubbles segue normas rígidas de segurança biológica. Para garantir a integridade da formulação e a saúde dos pets:
               </p>
@@ -169,10 +171,12 @@ export default function ReturnPolicy() {
 
             {/* Reação Adversa */}
             <div className="bg-white border border-gray-200 rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col h-full">
-              <div className="w-12 h-12 bg-[#F4CDD4]/20 rounded-2xl flex items-center justify-center mb-6 text-[#0D0C0D]">
-                <HeartPulse className="w-6 h-6" />
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-6">
+                <div className="w-12 h-12 bg-[#F4CDD4]/20 rounded-2xl flex items-center justify-center text-[#0D0C0D] shrink-0">
+                  <HeartPulse className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-bold">Reação Adversa no Pet</h3>
               </div>
-              <h3 className="text-xl font-bold mb-4">Reação Adversa no Pet</h3>
               <p className="text-gray-600 mb-6 leading-relaxed flex-grow">
                 Nossos produtos são Veganos, Hipoalergênicos e testados dermatologicamente. Porém, sabemos que cada animal é único e possui suas particularidades. Se notar qualquer sensibilidade:
               </p>
@@ -183,17 +187,19 @@ export default function ReturnPolicy() {
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#0D0C0D] mt-0.5 shrink-0" />
-                  <span>Contate nosso <strong>suporte técnico humanizado</strong> para receber orientação especializada e darmos andamento ao protocolo de saúde.</span>
+                  <span><a href="https://wa.me/5514997646454?text=Notei%20uma%20rea%C3%A7%C3%A3o%20adversa%20no%20pet" target="_blank" rel="noopener noreferrer" className="font-bold underline hover:text-[#F4CDD4] transition-colors">Entre em contato imediatamente</a> com nosso suporte técnico para receber orientação especializada e darmos andamento ao protocolo de saúde.</span>
                 </li>
               </ul>
             </div>
 
             {/* Análise Técnica */}
             <div className="bg-white border border-gray-200 rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col h-full">
-              <div className="w-12 h-12 bg-gray-100 rounded-2xl flex items-center justify-center mb-6 text-gray-700">
-                <ClipboardCheck className="w-6 h-6" />
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-6">
+                <div className="w-12 h-12 bg-gray-100 rounded-2xl flex items-center justify-center text-gray-700 shrink-0">
+                  <ClipboardCheck className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-bold">Análise Técnica Industrial</h3>
               </div>
-              <h3 className="text-xl font-bold mb-4">Análise Técnica Industrial</h3>
               <p className="text-gray-600 mb-6 leading-relaxed flex-grow">
                 Para garantir que você sempre receba o melhor, todo produto devolvido passa por uma rigorosa auditoria em nossa fábrica em Lençóis Paulista.
               </p>
@@ -232,7 +238,7 @@ export default function ReturnPolicy() {
                 <ChevronDown className="w-5 h-5 transition duration-300 group-open:-rotate-180" />
               </summary>
               <div className="px-6 pb-6 text-gray-600 leading-relaxed">
-                Direcionar para suporte técnico humanizado via <a href="mailto:ajuda@bubbles.com.br" className="text-[#F4CDD4] hover:underline font-medium">ajuda@bubbles.com.br</a>.
+                Direcionar para suporte técnico humanizado via <a href="mailto:ajuda@bubbles.com.br" className="text-[#F4CDD4] hover:underline font-medium">ajuda@bubbles.com.br</a> ou pelo nosso <a href="https://wa.me/5514997646454?text=O%20produto%20causou%20uma%20rea%C3%A7%C3%A3o%20no%20pet" target="_blank" rel="noopener noreferrer" className="font-bold underline hover:text-[#F4CDD4] transition-colors">WhatsApp</a>.
               </div>
             </details>
             <details className="group bg-white border border-gray-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden">
@@ -241,7 +247,7 @@ export default function ReturnPolicy() {
                 <ChevronDown className="w-5 h-5 transition duration-300 group-open:-rotate-180" />
               </summary>
               <div className="px-6 pb-6 text-gray-600 leading-relaxed">
-                Mesmo com nossa embalagem reforçada anti-vazamento, se notar qualquer dano no ato da entrega, recuse o recebimento e anote o motivo no verso da nota fiscal. Se notar após a abertura, entre em contato em até 24h via WhatsApp com fotos do lote.
+                Mesmo com nossa embalagem reforçada anti-vazamento, se notar qualquer dano no ato da entrega, recuse o recebimento e anote o motivo no verso da nota fiscal. Se notar após a abertura, entre em contato em até 24h via <a href="https://wa.me/5514997646454?text=Meu%20produto%20chegou%20com%20vazamento" target="_blank" rel="noopener noreferrer" className="font-bold underline hover:text-[#F4CDD4] transition-colors">WhatsApp</a> com fotos do lote.
               </div>
             </details>
             <details className="group bg-white border border-gray-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden">
@@ -268,7 +274,7 @@ export default function ReturnPolicy() {
                 <ChevronDown className="w-5 h-5 transition duration-300 group-open:-rotate-180" />
               </summary>
               <div className="px-6 pb-6 text-gray-600 leading-relaxed">
-                Trocas por insatisfação com o resultado técnico devem ser precedidas de uma consultoria com nosso suporte humanizado. Muitas vezes, um simples ajuste na diluição (ex: <strong>1:10 na Linha Ego / Pro</strong>) ou no modo de aplicação (como o uso do <strong>Spray Preparo na Linha Collora</strong>) resolve a questão. Não trocamos produtos abertos com mais de 10% de uso.
+                Trocas por insatisfação com o resultado técnico devem ser precedidas de uma consultoria com nosso suporte humanizado. Muitas vezes, um simples ajuste na diluição (ex: <strong>1:10 na Linha Ego / Pro</strong>) ou no modo de aplicação (como o uso do <strong>Spray Preparo na Linha Collora</strong>) resolve a questão. Não trocamos produtos abertos com mais de 10% de uso. Em caso de dúvidas, contate nosso <a href="https://wa.me/5514997646454?text=Preciso%20de%20ajuda%20com%20o%20resultado%20do%20produto" target="_blank" rel="noopener noreferrer" className="font-bold underline hover:text-[#F4CDD4] transition-colors">WhatsApp</a>.
               </div>
             </details>
             <details className="group bg-white border border-gray-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden">
@@ -278,15 +284,6 @@ export default function ReturnPolicy() {
               </summary>
               <div className="px-6 pb-6 text-gray-600 leading-relaxed">
                 Compras realizadas em eventos seguem o canal de atendimento direto do evento, não o fluxo do e-commerce. Entre em contato através do nosso <a href="https://wa.me/5514997646454" target="_blank" rel="noopener noreferrer" className="text-[#F4CDD4] hover:underline font-medium">WhatsApp de suporte</a> apresentando o comprovante de compra emitido no stand oficial.
-              </div>
-            </details>
-            <details className="group bg-white border border-gray-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden">
-              <summary className="flex cursor-pointer items-center justify-between gap-1.5 p-6 text-[#0D0C0D] font-bold">
-                O cashback utilizado na compra é devolvido em caso de estorno?
-                <ChevronDown className="w-5 h-5 transition duration-300 group-open:-rotate-180" />
-              </summary>
-              <div className="px-6 pb-6 text-gray-600 leading-relaxed">
-                Sim. O valor pago em dinheiro/cartão é estornado e o saldo de cashback utilizado retorna para sua <strong>carteira digital</strong> no site para uma compra futura, não sendo devolvido em dinheiro.
               </div>
             </details>
             <details className="group bg-white border border-gray-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden">
@@ -304,7 +301,7 @@ export default function ReturnPolicy() {
                 <ChevronDown className="w-5 h-5 transition duration-300 group-open:-rotate-180" />
               </summary>
               <div className="px-6 pb-6 text-gray-600 leading-relaxed">
-                O novo envio é processado em até 5 dias úteis após o recebimento e conferência técnica do item devolvido em nosso Centro de Distribuição (CD).
+                É necessário aguardar o produto chegar em nosso Centro de Distribuição (CD) e passar pela inspeção e conferência técnica. Após a aprovação, o novo envio é processado. Em caso de dúvidas, entre em contato no <a href="https://wa.me/5514997646454?text=Gostaria%20de%20saber%20o%20status%20da%20minha%20troca" target="_blank" rel="noopener noreferrer" className="font-bold underline hover:text-[#F4CDD4] transition-colors">WhatsApp</a>.
               </div>
             </details>
             <details className="group bg-white border border-gray-200 rounded-2xl [&_summary::-webkit-details-marker]:hidden">
@@ -317,8 +314,10 @@ export default function ReturnPolicy() {
                 <ul className="list-disc pl-5 mt-2 space-y-1">
                   <li>Indícios de <strong>mau uso</strong> ou diluição incorreta;</li>
                   <li><strong>Armazenamento inadequado</strong> (ex: exposição ao sol/luz intensa);</li>
-                  <li><strong>Lacre violado</strong> sem defeito de fabricação comprovado.</li>
+                  <li><strong>Lacre violado</strong> sem defeito de fabricação comprovado;</li>
+                  <li>Uso superior a 10% do volume do produto.</li>
                 </ul>
+                <p className="mt-3">Você será informado detalhadamente sobre a aprovação ou a não realização da troca após a conclusão da análise técnica.</p>
               </div>
             </details>
           </div>

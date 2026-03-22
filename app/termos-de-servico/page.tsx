@@ -46,7 +46,7 @@ export default function TermsOfService() {
         <section className="text-center space-y-6">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0D0C0D] text-white text-sm font-semibold mb-4">
             <Gavel className="w-4 h-4 text-[#F4CDD4]" />
-            <span>Regras de Uso e Blindagem</span>
+            <span>Regras de Uso e Blindagem (Ego / Pro, Basiq, Sensorial e Collora)</span>
           </div>
           <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-[#0D0C0D]">
             Termos de Serviço e Segurança
@@ -63,7 +63,7 @@ export default function TermsOfService() {
               <UserPlus className="w-7 h-7 text-[#0D0C0D]" />
             </div>
             <div className="space-y-4 w-full text-left">
-              <h2 className="text-2xl font-bold">1. Elegibilidade de Compra</h2>
+              <h2 className="text-2xl font-bold text-center md:text-left">1. Elegibilidade de Compra</h2>
               <p className="text-gray-700 leading-relaxed">
                 A Bubbles desenvolve cosméticos de alta performance. Por isso, a compra de itens profissionais (como nossos galões de 5L) é <strong>destinada exclusivamente a maiores de 18 anos e profissionais atuantes do setor pet</strong>.
               </p>
@@ -79,13 +79,13 @@ export default function TermsOfService() {
               <AlertTriangle className="w-7 h-7 text-[#0D0C0D]" />
             </div>
             <div className="space-y-4 w-full text-left">
-              <h2 className="text-2xl font-bold">2. Uso Profissional e Responsabilidade</h2>
+              <h2 className="text-2xl font-bold text-center md:text-left">2. Uso Profissional e Responsabilidade</h2>
               <p className="text-gray-700 leading-relaxed">
                 Nossas fórmulas são concentradas e exigem conhecimento técnico para garantir a eficácia e a segurança dos pets.
               </p>
               <div className="bg-gray-50 p-6 rounded-2xl border border-gray-100 mt-4 space-y-4">
                 <p className="text-gray-700 leading-relaxed">
-                  Você declara estar ciente de que os produtos das linhas <strong>Ego / Pro, Basiq e Collora</strong> devem seguir rigorosamente o modo de uso técnico indicado nos rótulos e materiais de apoio. Para garantir a máxima performance, recomendamos a leitura do nosso <a href="/diluicao" className="text-[#F48FB1] font-bold hover:underline">Guia de Diluição</a> (ex: <strong>diluição obrigatória de 1:10</strong> e uso do <strong>Spray Preparo</strong>).
+                  Você declara estar ciente de que os produtos das linhas <strong>Ego / Pro, Basiq, Sensorial e Collora</strong> devem seguir rigorosamente o modo de uso técnico indicado nos rótulos e materiais de apoio. Para garantir a máxima performance, recomendamos a leitura do nosso <a href="/diluicao" className="text-[#F48FB1] font-bold hover:underline">Guia de Diluição</a>.
                 </p>
                 <div className="bg-white p-4 rounded-xl border-l-4 border-[#0D0C0D] text-sm text-gray-600">
                   <strong>Isenção de Responsabilidade:</strong> A Bubbles isenta-se de qualquer responsabilidade por danos, reações ou resultados insatisfatórios decorrentes do <strong>uso inadequado, falta de diluição correta ou armazenamento impróprio</strong> dos produtos por parte do comprador.
@@ -100,7 +100,7 @@ export default function TermsOfService() {
               <Store className="w-7 h-7 text-[#0D0C0D]" />
             </div>
             <div className="space-y-4 w-full text-left">
-              <h2 className="text-2xl font-bold">3. Política Anti-Revenda (Proteção da Cadeia)</h2>
+              <h2 className="text-2xl font-bold text-center md:text-left">3. Política Anti-Revenda (Proteção da Cadeia)</h2>
               <p className="text-gray-700 leading-relaxed">
                 Para garantir a qualidade, a cadeia de custódia e a segurança biológica dos nossos cosméticos, <strong>é terminantemente proibida a revenda dos produtos Bubbles em marketplaces (como Shopee, Mercado Livre, Amazon, etc.)</strong> sem um contrato de distribuição prévio e formalizado.
               </p>
@@ -116,7 +116,7 @@ export default function TermsOfService() {
               <Copyright className="w-7 h-7 text-gray-700" />
             </div>
             <div className="space-y-4 w-full text-left">
-              <h2 className="text-2xl font-bold">4. Propriedade Intelectual</h2>
+              <h2 className="text-2xl font-bold text-center md:text-left">4. Propriedade Intelectual</h2>
               <p className="text-gray-700 leading-relaxed">
                 Todos os ativos da Bubbles, incluindo <strong>logotipos, fotos das linhas, textos descritivos, vídeos e fórmulas</strong>, são de nossa propriedade exclusiva e protegidos por leis de direitos autorais.
               </p>
@@ -132,11 +132,11 @@ export default function TermsOfService() {
               <Shield className="w-7 h-7 text-[#F4CDD4]" />
             </div>
             <div className="space-y-4 w-full text-left">
-              <h2 className="text-2xl font-bold">5. Segurança SSL e Site Blindado</h2>
+              <h2 className="text-2xl font-bold text-center md:text-left">5. Segurança SSL e Site Blindado</h2>
               <p className="text-gray-300 leading-relaxed">
                 Sua transação está protegida de ponta a ponta contra fraudes.
               </p>
-              <div className="grid sm:grid-cols-2 gap-4 mt-4">
+              <div className="grid sm:grid-cols-2 gap-4 mt-4 text-left">
                 <div className="bg-white/5 p-4 rounded-xl border border-white/10">
                   <strong className="flex items-center gap-2 text-white mb-2">
                     <Lock className="w-4 h-4 text-[#F4CDD4]" /> Criptografia SSL

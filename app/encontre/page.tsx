@@ -388,8 +388,8 @@ export default function StoreLocator() {
             </div>
 
             {/* Grade de Cards */}
-            <div className="max-w-2xl mx-auto">
-              <div className="flex items-center justify-between mb-6">
+            <div className="max-w-2xl mx-auto relative">
+              <div className="sticky top-0 bg-white/90 backdrop-blur-md z-20 py-4 border-b border-gray-100 mb-6 flex items-center justify-between">
                 <h2 className="text-xl font-bold tracking-tight">Resultados da Busca</h2>
                 <span className="text-xs font-bold bg-[#F4CDD4]/30 text-[#0D0C0D] px-3 py-1.5 rounded-full">
                   {filteredDistributors.length} {filteredDistributors.length === 1 ? 'parceiro' : 'parceiros'}
@@ -466,11 +466,27 @@ export default function StoreLocator() {
             
             <div className="absolute top-0 right-0 flex flex-col gap-2 z-10">
               <button 
-                onClick={() => setShowIntlModal(true)}
-                className="py-2 px-3 text-xs font-bold bg-white border border-gray-200 text-[#0D0C0D] rounded-lg hover:bg-gray-50 transition-colors shadow-sm flex items-center gap-1.5"
+                onClick={() => {
+                  const btn = document.getElementById('intl-btn');
+                  if (btn) {
+                    btn.classList.add('animate-pulse', 'bg-[#F4CDD4]', 'text-white');
+                    btn.innerHTML = '<span class="flex items-center gap-1.5"><svg class="w-3.5 h-3.5 animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Bubbles pelo mundo...</span>';
+                    setTimeout(() => {
+                      btn.classList.remove('animate-pulse', 'bg-[#F4CDD4]', 'text-white');
+                      btn.innerHTML = '<span class="flex items-center gap-1.5"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-globe w-3.5 h-3.5"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg> Internacional</span>';
+                      setShowIntlModal(true);
+                    }, 800);
+                  } else {
+                    setShowIntlModal(true);
+                  }
+                }}
+                id="intl-btn"
+                className="py-2 px-3 text-xs font-bold bg-white border border-gray-200 text-[#0D0C0D] rounded-lg hover:bg-gray-50 transition-all duration-300 shadow-sm flex items-center gap-1.5"
               >
-                <Globe className="w-3.5 h-3.5" />
-                Internacional
+                <span className="flex items-center gap-1.5">
+                  <Globe className="w-3.5 h-3.5" />
+                  Internacional
+                </span>
               </button>
               
               {/* Espaço pré-alocado para o botão de reset */}

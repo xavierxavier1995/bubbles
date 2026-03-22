@@ -99,7 +99,7 @@ export default function ShippingPolicy() {
                 </tbody>
               </table>
             </div>
-            <div className="mt-4 p-4 bg-gray-50 rounded-xl border border-gray-100 text-sm text-gray-600 leading-relaxed mt-auto">
+            <div className="mt-4 p-3 bg-gray-50 rounded-xl border border-gray-100 text-xs text-gray-600 leading-relaxed mt-auto">
               <strong>Importante:</strong> O pedido pode levar até 3 dias úteis para ser faturado e despachado. Após essa etapa, o prazo de entrega até o seu banho e tosa varia conforme a transportadora definida pela nossa parceira logística, de acordo com a sua região.
             </div>
           </div>
@@ -122,34 +122,34 @@ export default function ShippingPolicy() {
         </section>
 
         {/* Deadlines & Security */}
-        <section className="grid md:grid-cols-2 gap-8">
-          <div className="bg-[#F4CDD4]/20 rounded-3xl p-8 md:p-12 space-y-6">
-            <div className="flex items-center gap-4">
-              <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center shadow-sm shrink-0">
-                <Clock className="w-7 h-7 text-[#0D0C0D]" />
-              </div>
-              <h3 className="text-2xl font-bold">Prazos e Processamento</h3>
+        <section className="grid md:grid-cols-2 gap-4 md:gap-8">
+          <div className="bg-[#F4CDD4]/20 rounded-3xl p-6 md:p-8 space-y-4 flex flex-col items-center text-center">
+            <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-sm shrink-0 mb-4">
+              <Clock className="w-6 h-6 text-[#0D0C0D]" />
             </div>
-            <p className="text-gray-700 leading-relaxed">
-              Após a aprovação do pagamento, temos um prazo de <strong>até 3 dias úteis</strong> para despacho. Utilizamos a plataforma <strong>Mandaê</strong>, que seleciona a transportadora mais eficiente e rápida para a sua região.
-            </p>
-            <div className="mt-auto pt-4">
-              <div className="bg-white/60 border border-[#F4CDD4] rounded-xl p-3 text-xs text-[#0D0C0D]">
-                <strong>⚠️ IMPORTANTE:</strong> Antes de descartar a embalagem original, verifique minuciosamente a integridade de todos os produtos recebidos. A conservação da caixa é essencial caso seja necessária qualquer tratativa de troca ou avaria.
+            <div className="w-full">
+              <h3 className="text-xl md:text-2xl font-bold mb-4">Prazos e Processamento</h3>
+              <p className="text-gray-700 leading-relaxed flex-grow text-sm md:text-base">
+                Após a aprovação do pagamento, temos um prazo de <strong>até 3 dias úteis</strong> para despacho. Utilizamos a plataforma <strong>Mandaê</strong>, que seleciona a transportadora mais eficiente e rápida para a sua região.
+              </p>
+              <div className="mt-4 pt-2">
+                <div className="text-xs text-gray-600">
+                  <strong>⚠️ IMPORTANTE:</strong> Guarde a embalagem original e verifique os produtos no recebimento. A caixa é essencial para trocas.
+                </div>
               </div>
             </div>
           </div>
 
-          <div className="bg-gray-50 rounded-3xl p-8 md:p-12 space-y-6 relative overflow-hidden group">
-            <div className="flex items-center gap-4 relative z-10">
-              <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center shadow-sm shrink-0">
-                <ShieldCheck className="w-7 h-7 text-[#0D0C0D]" />
-              </div>
-              <h3 className="text-2xl font-bold">Segurança no Transporte</h3>
+          <div className="bg-gray-50 rounded-3xl p-6 md:p-8 space-y-4 relative overflow-hidden group flex flex-col items-center text-center">
+            <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-sm shrink-0 relative z-10 mb-4">
+              <ShieldCheck className="w-6 h-6 text-[#0D0C0D]" />
             </div>
-            <p className="text-gray-700 leading-relaxed relative z-10">
-              Utilizamos embalagens reforçadas para garantir que seus produtos cheguem intactos e em perfeitas condições até você. Nossa equipe de logística acompanha de perto cada etapa do processo, desde a separação até a entrega final, assegurando que o padrão de qualidade Bubbles seja mantido em todo o trajeto.
-            </p>
+            <div className="w-full relative z-10">
+              <h3 className="text-xl md:text-2xl font-bold mb-4">Segurança no Transporte</h3>
+              <p className="text-gray-700 leading-relaxed flex-grow text-sm md:text-base">
+                Utilizamos embalagens reforçadas para garantir que seus produtos cheguem intactos e em perfeitas condições até você. Nossa equipe de logística acompanha de perto cada etapa do processo, desde a separação até a entrega final, assegurando que o padrão de qualidade Bubbles seja mantido em todo o trajeto. Além disso, monitoramos constantemente os índices de satisfação de entrega para aprimorar continuamente nossos serviços logísticos.
+              </p>
+            </div>
             <div className="absolute -bottom-12 -right-12 w-64 h-64 bg-white rounded-full opacity-50 group-hover:scale-110 transition-transform duration-700"></div>
           </div>
         </section>
@@ -200,15 +200,13 @@ export default function ShippingPolicy() {
             ].map((step, i) => (
               <div 
                 key={i} 
-                className={`bg-white border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow animate-fade-in-up delay-${(i + 1) * 100}`}
+                className={`bg-white border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow animate-fade-in-up delay-${(i + 1) * 100} flex flex-col items-center text-center relative pt-12`}
               >
-                <div className="flex flex-col md:items-start items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-full bg-[#F4CDD4]/30 flex items-center justify-center text-[#0D0C0D] shrink-0">
-                    <step.icon className="w-5 h-5" />
-                  </div>
-                  <h4 className="text-lg font-bold text-center md:text-left">{step.title}</h4>
+                <div className="w-12 h-12 rounded-full bg-[#F4CDD4]/30 flex items-center justify-center text-[#0D0C0D] shrink-0 absolute -top-6 left-1/2 -translate-x-1/2 shadow-sm border border-white">
+                  <step.icon className="w-6 h-6" />
                 </div>
-                <p className="text-sm text-gray-600 leading-relaxed text-center md:text-left">{step.desc}</p>
+                <h4 className="text-lg font-bold mb-2">{step.title}</h4>
+                <p className="text-sm text-gray-600 leading-relaxed">{step.desc}</p>
               </div>
             ))}
           </div>
@@ -223,57 +221,57 @@ export default function ShippingPolicy() {
 
           <div className="grid md:grid-cols-2 gap-8">
             {/* Logística de Galões (5L) */}
-            <div className="bg-red-50 border border-red-200 rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col h-full">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 bg-red-100 rounded-2xl flex items-center justify-center text-red-600 shrink-0">
-                  <Package className="w-6 h-6" />
-                </div>
-                <h3 className="text-xl font-bold text-red-800">Logística de Galões (5L)</h3>
+            <div className="bg-red-50 border border-red-200 rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col md:flex-row h-full items-center md:items-start text-center md:text-left">
+              <div className="w-12 h-12 bg-red-100 rounded-2xl flex items-center justify-center text-red-600 shrink-0 mb-4 md:mb-0 md:mr-6">
+                <Package className="w-6 h-6" />
               </div>
-              <p className="text-red-700 mb-6 leading-relaxed flex-grow">
-                Sabemos que galões de 5L pesam cerca de 5,2 kg e exigem cuidado redobrado. Desenvolvemos uma inteligência de cubagem e embalagem para que os produtos das linhas Ego / Pro, Basiq, Sensorial e Collora não sofram avarias no transporte:
-              </p>
-              <ul className="space-y-3 text-sm text-red-800">
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-red-600 mt-0.5 shrink-0" />
-                  <span><strong>Caixas Reforçadas:</strong> Papelão de alta gramatura que suporta empilhamento.</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-red-600 mt-0.5 shrink-0" />
-                  <span><strong>Travas de Segurança:</strong> Tampas com lacre industrial e fitas de contenção.</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-red-600 mt-0.5 shrink-0" />
-                  <span><strong>Acomodação Milimétrica:</strong> Evita atrito interno durante o trajeto.</span>
-                </li>
-              </ul>
+              <div className="w-full">
+                <h3 className="text-xl font-bold text-red-800 mb-6">Logística de Galões (5L)</h3>
+                <p className="text-red-700 mb-6 leading-relaxed flex-grow">
+                  Sabemos que galões de 5L pesam cerca de 5,2 kg e exigem cuidado redobrado. Desenvolvemos uma inteligência de cubagem e embalagem para que os produtos das linhas Ego / Pro, Basiq, Sensorial e Collora não sofram avarias no transporte:
+                </p>
+                <ul className="space-y-3 text-sm text-red-800">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-red-600 mt-0.5 shrink-0" />
+                    <span><strong>Caixas Reforçadas:</strong> Papelão de alta gramatura que suporta empilhamento.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-red-600 mt-0.5 shrink-0" />
+                    <span><strong>Travas de Segurança:</strong> Tampas com lacre industrial e fitas de contenção.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-red-600 mt-0.5 shrink-0" />
+                    <span><strong>Acomodação Milimétrica:</strong> Evita atrito interno durante o trajeto.</span>
+                  </li>
+                </ul>
+              </div>
             </div>
 
             {/* Como Receber seu Pedido */}
-            <div className="bg-white border border-gray-200 rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col h-full">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 bg-red-50 rounded-2xl flex items-center justify-center text-red-600 shrink-0">
-                  <ShieldAlert className="w-6 h-6" />
-                </div>
-                <h3 className="text-xl font-bold">Como Receber seu Pedido</h3>
+            <div className="bg-white border border-gray-200 rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col md:flex-row h-full items-center md:items-start text-center md:text-left">
+              <div className="w-12 h-12 bg-red-50 rounded-2xl flex items-center justify-center text-red-600 shrink-0 mb-4 md:mb-0 md:mr-6">
+                <ShieldAlert className="w-6 h-6" />
               </div>
-              <p className="text-gray-600 mb-6 leading-relaxed flex-grow">
-                Para garantir a integridade do seu pedido, siga este rigoroso protocolo de conferência no ato da entrega:
-              </p>
-              <ul className="space-y-3 text-sm text-gray-700">
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-red-600 mt-0.5 shrink-0" />
-                  <span><strong>Verifique a caixa:</strong> Está seca e sem amassados profundos?</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-red-600 mt-0.5 shrink-0" />
-                  <span><strong>Confira o lacre:</strong> A fita externa está intacta e sem violação?</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-red-600 mt-0.5 shrink-0" />
-                  <span><strong>Ação Imediata:</strong> Se a caixa estiver <strong>molhada, amassada ou violada, RECUSE O RECEBIMENTO</strong>. Anote o motivo no verso da nota fiscal e avise nosso suporte para agilizarmos o reenvio.</span>
-                </li>
-              </ul>
+              <div className="w-full">
+                <h3 className="text-xl font-bold mb-6">Como Receber seu Pedido</h3>
+                <p className="text-gray-600 mb-6 leading-relaxed flex-grow">
+                  Para garantir a integridade do seu produto, siga este rigoroso protocolo de conferência no ato da entrega:
+                </p>
+                <ul className="space-y-3 text-sm text-gray-700">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-red-600 mt-0.5 shrink-0" />
+                    <span><strong>Verifique a caixa:</strong> Está seca e sem amassados profundos?</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-red-600 mt-0.5 shrink-0" />
+                    <span><strong>Confira o lacre:</strong> A fita externa está intacta e sem violação?</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-red-600 mt-0.5 shrink-0" />
+                    <span><strong>Ação Imediata:</strong> Se a caixa estiver <strong>molhada, amassada ou violada, RECUSE O RECEBIMENTO</strong>. Anote o motivo no verso da nota fiscal e avise nosso suporte para agilizarmos o reenvio.</span>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </section>
@@ -282,41 +280,41 @@ export default function ShippingPolicy() {
         <section className="space-y-8 pt-12 border-t border-gray-100">
           <div className="text-center max-w-2xl mx-auto space-y-4">
             <h2 className="text-3xl font-bold tracking-tight">Transparência no Rastreio</h2>
-            <p className="text-gray-600">Acompanhe seu pedido com clareza e ganhe previsibilidade.</p>
+            <p className="text-gray-600">Acompanhe seu pedido em tempo real e tenha mais tranquilidade.</p>
           </div>
           <div className="grid md:grid-cols-3 gap-3 md:gap-6">
-            <div className="bg-white border border-gray-200 rounded-2xl p-5 md:p-6 shadow-sm">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600 shrink-0">
-                  <Package className="w-5 h-5" />
-                </div>
-                <h3 className="text-lg font-bold">Código de Rastreio</h3>
+            <div className="bg-white border border-gray-200 rounded-2xl p-5 md:p-6 shadow-sm flex flex-col items-center text-center">
+              <div className="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600 shrink-0 mb-4">
+                <Package className="w-5 h-5" />
               </div>
-              <p className="text-sm text-gray-600 leading-relaxed">
-                Após a postagem do seu pedido, você receberá o código de rastreamento e o link de acompanhamento diretamente no seu e-mail cadastrado e também através do WhatsApp.
-              </p>
+              <div className="w-full text-left">
+                <h3 className="text-lg font-bold text-center md:text-left mb-3">Código de Rastreio</h3>
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  Assim que o seu pedido for enviado, você receberá o código de rastreamento e o link de acompanhamento diretamente no seu e-mail cadastrado e também através do WhatsApp.
+                </p>
+              </div>
             </div>
-            <div className="bg-white border border-gray-200 rounded-2xl p-5 md:p-6 shadow-sm">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600 shrink-0">
-                  <MessageCircle className="w-5 h-5" />
-                </div>
-                <h3 className="text-lg font-bold">Suporte Parceiro</h3>
+            <div className="bg-white border border-gray-200 rounded-2xl p-5 md:p-6 shadow-sm flex flex-col items-center text-center">
+              <div className="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600 shrink-0 mb-4">
+                <MessageCircle className="w-5 h-5" />
               </div>
-              <p className="text-sm text-gray-600 leading-relaxed">
-                Nossa equipe de <a href="https://wa.me/5511913612053?text=Preciso%20de%20ajuda%20a%20respeito%20do%20rastreio" target="_blank" rel="noopener noreferrer" className="font-bold hover:text-[#F4CDD4] transition-colors">Customer Experience</a> atua em conjunto com os parceiros logísticos para garantir a entrega.
-              </p>
+              <div className="w-full text-left">
+                <h3 className="text-lg font-bold text-center md:text-left mb-3">Suporte Parceiro</h3>
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  Nossa equipe de <a href="https://wa.me/5511913612053?text=Preciso%20de%20ajuda%20a%20respeito%20do%20rastreio" target="_blank" rel="noopener noreferrer" className="font-bold hover:text-[#F4CDD4] transition-colors">Customer Experience</a> atua em conjunto com os parceiros logísticos para garantir a entrega.
+                </p>
+              </div>
             </div>
-            <div className="bg-white border border-gray-200 rounded-2xl p-5 md:p-6 shadow-sm">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600 shrink-0">
-                  <RefreshCcw className="w-5 h-5" />
-                </div>
-                <h3 className="text-lg font-bold">Atualizações de Status</h3>
+            <div className="bg-white border border-gray-200 rounded-2xl p-5 md:p-6 shadow-sm flex flex-col items-center text-center">
+              <div className="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600 shrink-0 mb-4">
+                <RefreshCcw className="w-5 h-5" />
               </div>
-              <p className="text-sm text-gray-600 leading-relaxed">
-                Você pode acompanhar cada etapa do seu pedido em tempo real diretamente através do link de rastreio da transportadora.
-              </p>
+              <div className="w-full text-left">
+                <h3 className="text-lg font-bold text-center md:text-left mb-3">Atualizações de Status</h3>
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  Você pode acompanhar cada etapa do seu pedido em tempo real diretamente através do link de rastreio da transportadora.
+                </p>
+              </div>
             </div>
           </div>
         </section>
@@ -413,12 +411,12 @@ export default function ShippingPolicy() {
 
         {/* UX Elements: Calculator & Help */}
         <section className="bg-[#0D0C0D] text-white rounded-3xl p-8 md:p-12 flex flex-col md:flex-row gap-12 items-center justify-between">
-          <div className="space-y-6 flex-1">
+          <div className="space-y-6 flex-1 w-full">
             <h3 className="text-2xl font-bold">Calcule seu Frete</h3>
             <p className="text-gray-400 text-sm">
               Insira seu CEP abaixo para simular prazos e valores de entrega para o seu pet shop.
             </p>
-            <div className="flex gap-2 max-w-md">
+            <div className="flex flex-col sm:flex-row gap-2 max-w-md">
               <div className="relative flex-1">
                 <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
                 <input 
@@ -427,7 +425,7 @@ export default function ShippingPolicy() {
                   className="w-full bg-white/10 border border-white/20 rounded-xl py-3 pl-10 pr-4 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-[#F4CDD4] transition-all"
                 />
               </div>
-              <button className="bg-[#F4CDD4] text-[#0D0C0D] font-bold px-6 py-3 rounded-xl hover:bg-white transition-colors flex items-center gap-2">
+              <button className="bg-[#F4CDD4] text-[#0D0C0D] font-bold px-6 py-3 rounded-xl hover:bg-white transition-colors flex items-center justify-center gap-2">
                 Calcular
               </button>
             </div>
