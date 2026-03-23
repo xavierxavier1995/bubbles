@@ -10,6 +10,8 @@ import {
   Bath,
   Truck,
   RefreshCcw,
+  ShieldCheck,
+  HelpCircle,
 } from "lucide-react";
 import SupportBanner from "@/components/SupportBanner";
 
@@ -21,13 +23,27 @@ const faqs = [
     questions: [
       {
         question: "Como fazer a diluição correta dos produtos Bubbles?",
-        answer:
-          "Para garantir a performance técnica, utilize água filtrada e prepare apenas a quantidade que será usada no dia de trabalho. A proporção ideal varia por linha (ex: 1:4 ou 1:10), verifique o rótulo ou nosso Guia de Diluição.",
+        answer: (
+          <>
+            Para garantir a performance técnica, utilize água filtrada e prepare apenas a quantidade que será usada no dia de trabalho. A proporção ideal varia por linha (ex: 1:4 ou 1:10), verifique o rótulo ou nosso{" "}
+            <a href="/pages/diluicao" className="text-[#F4CDD4] hover:underline font-medium">
+              Guia de Diluição
+            </a>
+            .
+          </>
+        ),
       },
       {
         question: "Qual o rendimento médio da Linha Pro (1:10) por banho?",
-        answer:
-          "Com a diluição máxima de 1:10, um galão de 5L rende até 55 litros de produto pronto. Em média, isso reduz seu custo por banho significativamente, variando conforme a pelagem e sujidade do pet.",
+        answer: (
+          <>
+            Com a{" "}
+            <a href="/pages/diluicao" className="text-[#F4CDD4] hover:underline font-medium">
+              diluição
+            </a>{" "}
+            máxima de 1:10, um Produto rende até 55 litros de produto pronto. Em média, isso reduz seu custo por banho significativamente, variando conforme a pelagem e sujidade do pet.
+          </>
+        ),
       },
       {
         question: "Por que é obrigatório usar o Frasco Diluidor Bubbles?",
@@ -37,8 +53,39 @@ const faqs = [
       {
         question:
           "Qual o prazo de validade do produto após misturado com água?",
-        answer:
-          "Após a diluição em água filtrada, recomendamos o uso em até 48 horas. Após este prazo, os ativos podem perder eficácia e há risco de contaminação bacteriana.",
+        answer: (
+          <>
+            Após a{" "}
+            <a href="/pages/diluicao" className="text-[#F4CDD4] hover:underline font-medium">
+              diluição
+            </a>{" "}
+            em água filtrada, recomendamos o uso em até 48 horas. Após este prazo, os ativos podem perder eficácia e há risco de contaminação bacteriana.
+          </>
+        ),
+      },
+      {
+        question: "Todos os produtos tem diluição?",
+        answer: (
+          <>
+            Apenas shampoos e condicionadores são concentrados e requerem{" "}
+            <a href="/pages/diluicao" className="text-[#F4CDD4] hover:underline font-medium">
+              diluição
+            </a>
+            ; os outros produtos estão prontos para uso.
+          </>
+        ),
+      },
+      {
+        question: "Como é feito o cálculo de diluição?",
+        answer: (
+          <>
+            Para{" "}
+            <a href="/pages/diluicao" className="text-[#F4CDD4] hover:underline font-medium">
+              diluir
+            </a>{" "}
+            na proporção de 1:10, use 1 parte de produto para 10 partes de água, totalizando 11 partes. Considerando o uso de 120ml de produto para 2 lavagens (porte P), a conta é: 120ml ÷ 11 partes = 10ml. Assim, você deve usar 110ml de água e 10ml de produto puro.
+          </>
+        ),
       },
     ],
   },
@@ -56,33 +103,59 @@ const faqs = [
     ],
   },
   {
-    id: "protocolos",
-    category: "Protocolos de Banho e Tosa",
+    id: "linhas-e-protocolos",
+    category: "Linhas de Produto e Protocolos de Pelagem",
     icon: Bath,
     questions: [
       {
         question:
-          "Como o Leave-in Ego auxilia na redução do tempo de soprador?",
+          "[PERFORMANCE] Como o Leave-in Ego ajuda na secagem 60% mais rápida?",
         answer:
-          "Microemulsões que expulsam a umidade capilar, permitindo secagem até 60% mais rápida.",
+          "Sua tecnologia molecular sela a cutícula e expele a umidade da fibra capilar. Isso reduz o tempo de exposição ao soprador, economizando energia elétrica e preservando a saúde do fio.",
+      },
+      {
+        question: "[SEGURANÇA] O Shampoo Dermo Facial arde os olhos do pet?",
+        answer:
+          "Não. Ele foi formulado com pH fisiológico (idêntico à lágrima) e é isento de sulfatos. É ideal para higienizar a face de cães e gatos sem causar desconforto ou irritação ocular.",
       },
       {
         question:
-          "O Shampoo Dermo Facial pode ser utilizado em animais com hipersensibilidade?",
+          "[ESTÉTICA FELINA] Posso usar os shampoos de cachorro em gatos?",
         answer:
-          "Sim, possui pH fisiológico e é isento de sulfatos, indicado para face e áreas sensíveis.",
+          "Recomendamos o uso do Shampoo Redutor de Oleosidade da Bubbles, específico para felinos. Ele desengraxa a fibra capilar sem remover a hidratação natural, evitando o estresse olfativo e dermatológico no gato.",
       },
       {
         question:
-          "Qual o diferencial do Shampoo Redutor de Oleosidade para gatos?",
+          "[PELAGEM CLARA] O Shampoo Clareador Bubbles mancha pelagens bipartidas (ex: Preto e Branco)?",
         answer:
-          "Atua na quebra das cadeias lipídicas felinas sem remover a hidratação natural.",
+          "Não. Nosso clareador utiliza branqueadores ópticos de última geração, que refletem a luz e devolvem o branco puro sem o risco de manchar as partes escuras da pelagem com corantes agressivos.",
       },
       {
         question:
-          "O Shampoo Clareador pode causar manchas em pelagens bipartidas?",
+          "[LINHA ESSENTIAL] Qual a indicação de uso da Linha Essential?",
         answer:
-          "Não. Utiliza branqueadores ópticos em vez de corantes violetas, sendo seguro para todas as cores.",
+          "Ela é a base de custo-benefício industrial para banhos de alto volume e rotatividade. É ideal para a pré-lavagem ou para serviços mais básicos, garantindo limpeza profunda com economia.",
+      },
+      {
+        question: "Os produtos possuem ingredientes de origem animal?",
+        answer:
+          "Não! Nenhum produto da Bubbles tem quaisquer tipos de ingredientes de origem animal.",
+      },
+      {
+        question: "Os produtos são hipoalergenicos?",
+        answer:
+          "Nossos produtos são 100% veganos e desenvolvidos com ingredientes suaves, com baixo potencial alergênico. No entanto, em pets com pele sensível ou atópica, recomendamos sempre consultar o veterinário antes do uso.",
+      },
+      {
+        question: "Os produtos são para cães e gatos?",
+        answer:
+          "Sim, todos os nossos produtos são para uso exclusivo em cães e gatos.",
+      },
+      {
+        question:
+          "[PRAZO] Qual o tempo de processamento logístico após a aprovação do pagamento?",
+        answer:
+          "Temos um prazo de até 3 dias úteis para despacho do seu pedido, garantindo que a embalagem chegue reforçada e intacta até você.",
       },
     ],
   },
@@ -137,8 +210,15 @@ const faqs = [
       },
       {
         question: "Posso alterar o endereço de entrega após fechar o pedido?",
-        answer:
-          "Caso precise alterar o endereço, entre em contato com nosso suporte técnico humanizado pelo WhatsApp. A alteração pode ser realizada desde que o pedido ainda não tenha sido faturado.",
+        answer: (
+          <>
+            Caso precise alterar o endereço, entre em contato com nosso{" "}
+            <a href="https://wa.me/5514997646454" target="_blank" rel="noopener noreferrer" className="text-[#F4CDD4] hover:underline font-medium">
+              suporte
+            </a>{" "}
+            técnico humanizado pelo WhatsApp (14) 99764-6454. A alteração pode ser realizada desde que o pedido ainda não tenha sido faturado.
+          </>
+        ),
       },
       {
         question: "A entrega é feita em finais de semana ou feriados?",
@@ -148,8 +228,15 @@ const faqs = [
       {
         question:
           "Meu pedido consta como entregue, mas não recebi. O que fazer?",
-        answer:
-          "Verifique primeiro com vizinhos, funcionários ou na portaria. Caso realmente não encontre, contate nosso suporte via WhatsApp imediatamente.",
+        answer: (
+          <>
+            Verifique primeiro com vizinhos, funcionários ou na portaria. Caso realmente não encontre, contate nosso{" "}
+            <a href="https://wa.me/5514997646454" target="_blank" rel="noopener noreferrer" className="text-[#F4CDD4] hover:underline font-medium">
+              suporte
+            </a>{" "}
+            via WhatsApp (14) 99764-6454 imediatamente.
+          </>
+        ),
       },
       {
         question: "Posso retirar meu pedido diretamente na fábrica?",
@@ -160,7 +247,7 @@ const faqs = [
   },
   {
     id: "trocas",
-    category: "Trocas e Devoluções",
+    category: "Trocas, Devoluções e Reembolso (CX)",
     icon: RefreshCcw,
     questions: [
       {
@@ -169,13 +256,21 @@ const faqs = [
       },
       {
         question: "O produto causou reação no pet?",
-        answer:
-          "Direcionar para suporte técnico humanizado via ajuda@bubbles.com.br ou pelo nosso WhatsApp.",
+        answer: (
+          <>
+            Direcionar para{" "}
+            <a href="https://wa.me/5514997646454" target="_blank" rel="noopener noreferrer" className="text-[#F4CDD4] hover:underline font-medium">
+              suporte
+            </a>{" "}
+            técnico humanizado via ajuda@bubbles.com.br ou pelo nosso WhatsApp (14) 99764-6454.
+          </>
+        ),
       },
       {
-        question: "O produto chegou com vazamento. O que devo fazer?",
+        question:
+          "[AVARIA] O que fazer se o produto chegar com vazamento ou lacre violado?",
         answer:
-          "Mesmo com nossa embalagem reforçada anti-vazamento, se notar qualquer dano no ato da entrega, recuse o recebimento e anote o motivo no verso da nota fiscal. Se notar após a abertura, entre em contato em até 24h via WhatsApp com fotos do lote.",
+          "Recuse o recebimento no ato da entrega. Caso identifique após a abertura, entre em contato em até 24h via WhatsApp enviando fotos do lote e da embalagem original.",
       },
       {
         question:
@@ -192,14 +287,35 @@ const faqs = [
       {
         question:
           "Usei o produto e o resultado não foi o esperado. Posso trocar?",
-        answer:
-          "Trocas por insatisfação com o resultado técnico devem ser precedidas de uma consultoria com nosso suporte humanizado. Muitas vezes, um simples ajuste na diluição (ex: 1:10 na Linha Ego / Pro) ou no modo de aplicação (como o uso do Spray Preparo na Linha Collora) resolve a questão. Não trocamos produtos abertos com mais de 10% de uso. Em caso de dúvidas, contate nosso WhatsApp.",
+        answer: (
+          <>
+            <a href="/pages/trocas-e-devolucoes" className="text-[#F4CDD4] hover:underline font-medium">
+              Trocas
+            </a>{" "}
+            por insatisfação com o resultado técnico devem ser precedidas de uma consultoria com nosso{" "}
+            <a href="https://wa.me/5514997646454" target="_blank" rel="noopener noreferrer" className="text-[#F4CDD4] hover:underline font-medium">
+              suporte
+            </a>{" "}
+            humanizado pelo WhatsApp (14) 99764-6454. Muitas vezes, um simples ajuste na{" "}
+            <a href="/pages/diluicao" className="text-[#F4CDD4] hover:underline font-medium">
+              diluição
+            </a>{" "}
+            (ex: 1:10 na Linha Ego / Pro) ou no modo de aplicação (como o uso do Spray Preparo na Linha Collora) resolve a questão. Não trocamos produtos abertos com mais de 10% de uso. Em caso de dúvidas, contate nosso WhatsApp.
+          </>
+        ),
       },
       {
         question:
           "Comprei o produto em uma feira ou evento (ex: Pet South America). Como troco?",
-        answer:
-          "Compras realizadas em eventos seguem o canal de suporte técnico humanizado direto do evento, não o fluxo do e-commerce. Entre em contato através do nosso WhatsApp de suporte apresentando o comprovante de compra emitido no stand oficial.",
+        answer: (
+          <>
+            Compras realizadas em eventos seguem o canal de{" "}
+            <a href="https://wa.me/5514997646454" target="_blank" rel="noopener noreferrer" className="text-[#F4CDD4] hover:underline font-medium">
+              suporte
+            </a>{" "}
+            técnico humanizado direto do evento pelo WhatsApp (14) 99764-6454, não o fluxo do e-commerce. Entre em contato através do nosso WhatsApp de suporte apresentando o comprovante de compra emitido no stand oficial.
+          </>
+        ),
       },
       {
         question: "Como funciona a troca de brindes exclusivos?",
@@ -213,9 +329,69 @@ const faqs = [
           "É necessário aguardar a chegada do produto ao nosso Centro de Distribuição (CD) e a conferência técnica antes do novo envio. Após a aprovação, o novo envio é processado. Em caso de dúvidas, entre em contato no WhatsApp.",
       },
       {
-        question: "O suporte técnico pode negar uma troca?",
+        question:
+          "[REEMBOLSO] Quais os métodos de reembolso em caso de estorno aprovado?",
         answer:
-          "Sim. A troca será indeferida caso a auditoria técnica identifique: indícios de mau uso ou diluição incorreta; armazenamento inadequado; lacre violado sem defeito de fabricação comprovado; uso superior a 10% do volume do produto. O cliente será formalmente informado sobre a decisão após a conclusão da análise técnica.",
+          "O estorno é realizado na mesma forma de pagamento original. Para PIX, em até 3 dias úteis. Para cartão de crédito, o valor pode constar em até duas faturas subsequentes, dependendo da administradora.",
+      },
+      {
+        question: "[NEGATIVA] O suporte técnico pode negar uma troca?",
+        answer: (
+          <>
+            Sim. A{" "}
+            <a href="/pages/trocas-e-devolucoes" className="text-[#F4CDD4] hover:underline font-medium">
+              troca ou devolução
+            </a>{" "}
+            pode ser recusada caso o produto apresente indícios de mau uso, armazenamento incorreto, ou se a solicitação ocorrer fora do prazo legal de 7 dias (para arrependimento).
+          </>
+        ),
+      },
+    ],
+  },
+  {
+    id: "compliance-lgpd",
+    category: "Compliance, Privacidade e Dados (LGPD)",
+    icon: ShieldCheck,
+    questions: [
+      {
+        question:
+          "[LGPD] Como a Bubbles utiliza os dados coletados na minha navegação?",
+        answer:
+          "Coletamos dados anonimizados para análise estatística e otimização de campanhas publicitárias. Não temos acesso direto à identidade do usuário; apenas as ferramentas possuem para entregar melhores publicidades e ofertas exclusivas.",
+      },
+      {
+        question:
+          "[SEGURANÇA] O site Bubbles é seguro para transações financeiras?",
+        answer:
+          "Sim, utilizamos protocolos de criptografia SSL e gateways de pagamento certificados que garantem a proteção total dos dados financeiros durante a compra.",
+      },
+    ],
+  },
+  {
+    id: "duvidas-gerais",
+    category: "Dúvidas Gerais",
+    icon: HelpCircle,
+    questions: [
+      {
+        question: "Como encontrar o distribuidor mais próximo de mim?",
+        answer:
+          "Através da plataforma https://www.encontre.bubbles.com.br/",
+      },
+      {
+        question: "O que fazer quando estiver com problemas na finalização de pedidos?",
+        answer: (
+          <>
+            Entre em contato pelo número{" "}
+            <a href="https://wa.me/5514996312932" target="_blank" rel="noopener noreferrer" className="text-[#F4CDD4] hover:underline font-medium">
+              14 99631-2932
+            </a>{" "}
+            para receber todo o{" "}
+            <a href="https://wa.me/5514997646454" target="_blank" rel="noopener noreferrer" className="text-[#F4CDD4] hover:underline font-medium">
+              suporte
+            </a>{" "}
+            necessário.
+          </>
+        ),
       },
     ],
   },

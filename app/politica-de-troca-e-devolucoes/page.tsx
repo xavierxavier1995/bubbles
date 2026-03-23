@@ -343,7 +343,7 @@ export default function ReturnPolicy() {
         </section>
 
         {/* FAQ */}
-        <section className="relative py-20 -mx-6 md:-mx-12 px-6 md:px-12 bg-gradient-to-br from-[#fff0f3] via-[#f0f7ff] to-[#f5f0ff] overflow-hidden">
+        <section className="relative py-20 px-6 md:px-12 bg-gradient-to-br from-[#fff0f3] via-[#f0f7ff] to-[#f5f0ff] overflow-hidden rounded-3xl">
           {/* Decorative Blobs */}
           <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
             <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-[#ffcce6] mix-blend-multiply filter blur-[100px] opacity-40 animate-blob"></div>
@@ -633,7 +633,8 @@ export default function ReturnPolicy() {
             <details className="group rounded-2xl transition-all duration-300 overflow-hidden backdrop-blur-sm border bg-white/40 border-transparent hover:bg-white/60 open:bg-white open:shadow-sm open:border-white/50 [&_summary::-webkit-details-marker]:hidden">
               <summary className="w-full text-left px-6 py-5 flex items-center justify-between gap-6 cursor-pointer focus:outline-none">
                 <h3 className="text-[15px] leading-snug transition-colors pr-4 text-gray-700 font-medium group-open:text-[#1A1A1A] group-open:font-bold">
-                  O suporte técnico pode negar uma troca?
+                  [AVARIA] O que fazer se o produto chegar com vazamento ou
+                  lacre violado?
                 </h3>
                 <div className="shrink-0 flex items-center justify-center transition-all duration-300">
                   <Plus
@@ -647,27 +648,58 @@ export default function ReturnPolicy() {
                 </div>
               </summary>
               <div className="px-6 pb-6 text-[15px] leading-relaxed text-gray-600">
-                Sim. A troca será indeferida caso a auditoria técnica
-                identifique:
-                <ul className="list-disc pl-5 mt-2 space-y-1">
-                  <li>
-                    Indícios de <strong>mau uso</strong> ou diluição incorreta;
-                  </li>
-                  <li>
-                    <strong>Armazenamento inadequado</strong> (ex: exposição ao
-                    sol/luz intensa);
-                  </li>
-                  <li>
-                    <strong>Lacre violado</strong> sem defeito de fabricação
-                    comprovado;
-                  </li>
-                  <li>Uso superior a 10% do volume do produto.</li>
-                </ul>
-                <p className="mt-3">
-                  O cliente será formalmente informado sobre a decisão
-                  (procedência ou improcedência) após a conclusão da análise
-                  técnica.
-                </p>
+                Recuse o recebimento no ato da entrega. Caso identifique após a
+                abertura, entre em contato em até 24h via WhatsApp enviando
+                fotos do lote e da embalagem original.
+              </div>
+            </details>
+
+            <details className="group rounded-2xl transition-all duration-300 overflow-hidden backdrop-blur-sm border bg-white/40 border-transparent hover:bg-white/60 open:bg-white open:shadow-sm open:border-white/50 [&_summary::-webkit-details-marker]:hidden">
+              <summary className="w-full text-left px-6 py-5 flex items-center justify-between gap-6 cursor-pointer focus:outline-none">
+                <h3 className="text-[15px] leading-snug transition-colors pr-4 text-gray-700 font-medium group-open:text-[#1A1A1A] group-open:font-bold">
+                  [REEMBOLSO] Quais os métodos de reembolso em caso de estorno
+                  aprovado?
+                </h3>
+                <div className="shrink-0 flex items-center justify-center transition-all duration-300">
+                  <Plus
+                    className="w-5 h-5 text-gray-400 group-open:hidden"
+                    strokeWidth={2}
+                  />
+                  <X
+                    className="w-5 h-5 text-[#1A1A1A] hidden group-open:block"
+                    strokeWidth={2}
+                  />
+                </div>
+              </summary>
+              <div className="px-6 pb-6 text-[15px] leading-relaxed text-gray-600">
+                O estorno é realizado na mesma forma de pagamento original. Para
+                PIX, em até 3 dias úteis. Para cartão de crédito, o valor pode
+                constar em até duas faturas subsequentes, dependendo da
+                administradora.
+              </div>
+            </details>
+
+            <details className="group rounded-2xl transition-all duration-300 overflow-hidden backdrop-blur-sm border bg-white/40 border-transparent hover:bg-white/60 open:bg-white open:shadow-sm open:border-white/50 [&_summary::-webkit-details-marker]:hidden">
+              <summary className="w-full text-left px-6 py-5 flex items-center justify-between gap-6 cursor-pointer focus:outline-none">
+                <h3 className="text-[15px] leading-snug transition-colors pr-4 text-gray-700 font-medium group-open:text-[#1A1A1A] group-open:font-bold">
+                  [NEGATIVA] O suporte técnico pode negar uma troca?
+                </h3>
+                <div className="shrink-0 flex items-center justify-center transition-all duration-300">
+                  <Plus
+                    className="w-5 h-5 text-gray-400 group-open:hidden"
+                    strokeWidth={2}
+                  />
+                  <X
+                    className="w-5 h-5 text-[#1A1A1A] hidden group-open:block"
+                    strokeWidth={2}
+                  />
+                </div>
+              </summary>
+              <div className="px-6 pb-6 text-[15px] leading-relaxed text-gray-600">
+                Sim. A troca ou devolução pode ser recusada caso o produto
+                apresente indícios de mau uso, armazenamento incorreto, ou se a
+                solicitação ocorrer fora do prazo legal de 7 dias (para
+                arrependimento).
               </div>
             </details>
           </div>
