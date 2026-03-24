@@ -67,6 +67,14 @@ export default function ProjectHub() {
       status: 'Novo',
       statusColor: 'bg-blue-100 text-blue-700'
     },
+    {
+      title: 'Newsletter Nova',
+      path: '/newsletter-nova',
+      description: 'Nova opção de newsletter com cashback.',
+      icon: Mail,
+      status: 'Novo',
+      statusColor: 'bg-blue-100 text-blue-700'
+    },
   ];
 
   return (
