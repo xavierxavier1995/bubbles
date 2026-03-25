@@ -180,7 +180,7 @@ const faqs = [
         answer: (
           <>
             Realizamos envios internacionais mediante cotação direta. Este serviço não está disponível via checkout automático no site.{" "}
-            <a href="https://wa.me/5514997646454?text=Olá,%20gostaria%20de%20solicitar%20uma%20cotação%20para%20envio%20internacional." target="_blank" rel="noopener noreferrer" className="text-[#F4CDD4] hover:underline font-medium">
+            <a href="https://wa.me/5514997646454?text=Olá,%20gostaria%20de%20solicitar%20uma%20cotação%20para%20envio%20internacional." target="_blank" rel="noopener noreferrer" className="text-inherit underline hover:text-[#F48FB1] transition-colors font-medium">
               [Clique aqui para solicitar sua cotação internacional via WhatsApp]
             </a>
           </>
@@ -212,7 +212,7 @@ const faqs = [
         answer: (
           <>
             Caso precise alterar o endereço, entre em contato com nosso{" "}
-            <a href="https://wa.me/5514997646454" target="_blank" rel="noopener noreferrer" className="text-[#F4CDD4] hover:underline font-medium">
+            <a href="https://wa.me/5514997646454" target="_blank" rel="noopener noreferrer" className="text-inherit underline hover:text-[#F48FB1] transition-colors font-medium">
               suporte
             </a>{" "}
             técnico humanizado pelo WhatsApp (14) 99764-6454. A alteração pode ser realizada desde que o pedido ainda não tenha sido faturado.
@@ -230,7 +230,7 @@ const faqs = [
         answer: (
           <>
             Verifique primeiro com vizinhos, funcionários ou na portaria. Caso realmente não encontre, contate nosso{" "}
-            <a href="https://wa.me/5514997646454" target="_blank" rel="noopener noreferrer" className="text-[#F4CDD4] hover:underline font-medium">
+            <a href="https://wa.me/5514997646454" target="_blank" rel="noopener noreferrer" className="text-inherit underline hover:text-[#F48FB1] transition-colors font-medium">
               suporte
             </a>{" "}
             via WhatsApp (14) 99764-6454 imediatamente.
@@ -258,7 +258,7 @@ const faqs = [
         answer: (
           <>
             Direcionar para{" "}
-            <a href="https://wa.me/5514997646454" target="_blank" rel="noopener noreferrer" className="text-[#F4CDD4] hover:underline font-medium">
+            <a href="https://wa.me/5514997646454" target="_blank" rel="noopener noreferrer" className="text-inherit underline hover:text-[#F48FB1] transition-colors font-medium">
               suporte
             </a>{" "}
             técnico humanizado via ajuda@bubbles.com.br ou pelo nosso WhatsApp (14) 99764-6454.
@@ -292,7 +292,7 @@ const faqs = [
               Trocas
             </a>{" "}
             por insatisfação com o resultado técnico devem ser precedidas de uma consultoria com nosso{" "}
-            <a href="https://wa.me/5514997646454" target="_blank" rel="noopener noreferrer" className="text-[#F4CDD4] hover:underline font-medium">
+            <a href="https://wa.me/5514997646454" target="_blank" rel="noopener noreferrer" className="text-inherit underline hover:text-[#F48FB1] transition-colors font-medium">
               suporte
             </a>{" "}
             humanizado pelo WhatsApp (14) 99764-6454. Muitas vezes, um simples ajuste na{" "}
@@ -309,7 +309,7 @@ const faqs = [
         answer: (
           <>
             Compras realizadas em eventos seguem o canal de{" "}
-            <a href="https://wa.me/5514997646454" target="_blank" rel="noopener noreferrer" className="text-[#F4CDD4] hover:underline font-medium">
+            <a href="https://wa.me/5514997646454" target="_blank" rel="noopener noreferrer" className="text-inherit underline hover:text-[#F48FB1] transition-colors font-medium">
               suporte
             </a>{" "}
             técnico humanizado direto do evento pelo WhatsApp (14) 99764-6454, não o fluxo do e-commerce. Entre em contato através do nosso WhatsApp de suporte apresentando o comprovante de compra emitido no stand oficial.
@@ -381,11 +381,11 @@ const faqs = [
         answer: (
           <>
             Entre em contato pelo número{" "}
-            <a href="https://wa.me/5514996312932" target="_blank" rel="noopener noreferrer" className="text-[#F4CDD4] hover:underline font-medium">
+            <a href="https://wa.me/5514996312932" target="_blank" rel="noopener noreferrer" className="text-inherit underline hover:text-[#F48FB1] transition-colors font-medium">
               14 99631-2932
             </a>{" "}
             para receber todo o{" "}
-            <a href="https://wa.me/5514997646454" target="_blank" rel="noopener noreferrer" className="text-[#F4CDD4] hover:underline font-medium">
+            <a href="https://wa.me/5514997646454" target="_blank" rel="noopener noreferrer" className="text-inherit underline hover:text-[#F48FB1] transition-colors font-medium">
               suporte
             </a>{" "}
             necessário.

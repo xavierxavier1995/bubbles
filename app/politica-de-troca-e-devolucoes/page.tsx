@@ -167,7 +167,7 @@ export default function ReturnPolicy() {
                     E-mail (
                     <a
                       href="mailto:ajuda@bubbles.com.br"
-                      className="text-[#F4CDD4] hover:underline font-medium"
+                      className="text-inherit underline hover:text-[#F48FB1] transition-colors font-medium"
                     >
                       ajuda@bubbles.com.br
                     </a>
@@ -176,7 +176,7 @@ export default function ReturnPolicy() {
                       href="https://wa.me/5514997646454"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[#F4CDD4] hover:underline font-medium"
+                      className="text-inherit underline hover:text-[#F48FB1] transition-colors font-medium"
                     >
                       (14) 99764-6454
                     </a>
@@ -218,7 +218,7 @@ export default function ReturnPolicy() {
                   href="https://wa.me/5514997646454?text=Ol%C3%A1%2C%20preciso%20de%20suporte%20t%C3%A9cnico%20Bubbles"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#F4CDD4] hover:underline font-medium"
+                  className="text-inherit underline hover:text-[#F48FB1] transition-colors font-medium"
                 >
                   entre em contato aqui
                 </a>
@@ -242,110 +242,106 @@ export default function ReturnPolicy() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {/* Protocolo de Biossegurança */}
-            <div className="bg-white border border-gray-200 rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col h-full">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600 shrink-0">
-                  <ShieldAlert className="w-5 h-5" />
-                </div>
-                <h3 className="text-lg font-bold">
-                  Protocolo de Biossegurança (Lacre)
-                </h3>
+            <div className="bg-white border border-gray-100 rounded-2xl p-6 pt-12 shadow-sm relative flex flex-col items-center text-center">
+              <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center border-4 border-white shadow-sm">
+                <ShieldAlert className="w-6 h-6 text-blue-600" />
               </div>
-              <p className="text-gray-600 mb-4 leading-relaxed flex-grow">
-                Por se tratar de cosméticos profissionais de alta performance, a
-                Bubbles segue normas rígidas de segurança biológica. Para
-                garantir a integridade da formulação e a saúde dos pets:
-              </p>
-              <ul className="space-y-3 text-sm text-gray-700">
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-blue-600 mt-0.5 shrink-0" />
-                  <span>
-                    Produtos com <strong>lacre rompido</strong> não podem ser
-                    devolvidos por arrependimento.
-                  </span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-blue-600 mt-0.5 shrink-0" />
-                  <span>
-                    Trocas de itens abertos são aceitas{" "}
-                    <strong>apenas em caso de vício de fabricação</strong>{" "}
-                    comprovado.
-                  </span>
-                </li>
-              </ul>
+              <h3 className="text-lg font-bold mb-2">Protocolo de Biossegurança (Lacre)</h3>
+              <div className="text-sm text-gray-600 leading-relaxed">
+                <p className="mb-4">
+                  Por se tratar de cosméticos profissionais de alta performance, a
+                  Bubbles segue normas rígidas de segurança biológica. Para
+                  garantir a integridade da formulação e a saúde dos pets:
+                </p>
+                <ul className="space-y-3 text-left">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-blue-600 mt-0.5 shrink-0" />
+                    <span>
+                      Produtos com <strong>lacre rompido</strong> não podem ser
+                      devolvidos por arrependimento.
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-blue-600 mt-0.5 shrink-0" />
+                    <span>
+                      Trocas de itens abertos são aceitas{" "}
+                      <strong>apenas em caso de vício de fabricação</strong>{" "}
+                      comprovado.
+                    </span>
+                  </li>
+                </ul>
+              </div>
             </div>
 
             {/* Reação Adversa */}
-            <div className="bg-white border border-gray-200 rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col h-full">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 bg-[#F4CDD4]/20 rounded-xl flex items-center justify-center text-[#0D0C0D] shrink-0">
-                  <HeartPulse className="w-5 h-5" />
-                </div>
-                <h3 className="text-lg font-bold">Reação Adversa no Pet</h3>
+            <div className="bg-white border border-gray-100 rounded-2xl p-6 pt-12 shadow-sm relative flex flex-col items-center text-center">
+              <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-[#F48FB1]/30 flex items-center justify-center border-4 border-white shadow-sm">
+                <HeartPulse className="w-6 h-6 text-[#0D0C0D]" />
               </div>
-              <p className="text-gray-600 mb-4 leading-relaxed flex-grow">
-                Nossos produtos são Veganos, Hipoalergênicos e testados
-                dermatologicamente. Porém, sabemos que cada animal é único e
-                possui suas particularidades. Se notar qualquer sensibilidade:
-              </p>
-              <ul className="space-y-3 text-sm text-gray-700">
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#0D0C0D] mt-0.5 shrink-0" />
-                  <span>
-                    <strong>Suspenda o uso</strong> imediatamente no animal
-                    afetado.
-                  </span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#0D0C0D] mt-0.5 shrink-0" />
-                  <span>
-                    <a
-                      href="https://wa.me/5514997646454?text=Ol%C3%A1%2C%20preciso%20de%20suporte%20t%C3%A9cnico%20Bubbles"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-bold underline hover:text-[#F4CDD4] transition-colors"
-                    >
-                      Entre em contato imediatamente
-                    </a>{" "}
-                    com nosso suporte técnico para receber orientação
-                    especializada e darmos andamento ao protocolo de saúde.
-                  </span>
-                </li>
-              </ul>
+              <h3 className="text-lg font-bold mb-2">Reação Adversa no Pet</h3>
+              <div className="text-sm text-gray-600 leading-relaxed">
+                <p className="mb-4">
+                  Nossos produtos são Veganos, Hipoalergênicos e testados
+                  dermatologicamente. Porém, sabemos que cada animal é único e
+                  possui suas particularidades. Se notar qualquer sensibilidade:
+                </p>
+                <ul className="space-y-3 text-left">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-[#0D0C0D] mt-0.5 shrink-0" />
+                    <span>
+                      <strong>Suspenda o uso</strong> imediatamente no animal
+                      afetado.
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-[#0D0C0D] mt-0.5 shrink-0" />
+                    <span>
+                      <a
+                        href="https://wa.me/5514997646454?text=Ol%C3%A1%2C%20preciso%20de%20suporte%20t%C3%A9cnico%20Bubbles"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-bold underline hover:text-[#F4CDD4] transition-colors"
+                      >
+                        Entre em contato imediatamente
+                      </a>{" "}
+                      com nosso suporte técnico para receber orientação
+                      especializada e darmos andamento ao protocolo de saúde.
+                    </span>
+                  </li>
+                </ul>
+              </div>
             </div>
 
             {/* Análise Técnica */}
-            <div className="bg-white border border-gray-200 rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col h-full">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 bg-gray-100 rounded-xl flex items-center justify-center text-gray-700 shrink-0">
-                  <ClipboardCheck className="w-5 h-5" />
-                </div>
-                <h3 className="text-lg font-bold">
-                  Análise Técnica Industrial
-                </h3>
+            <div className="bg-white border border-gray-100 rounded-2xl p-6 pt-12 shadow-sm relative flex flex-col items-center text-center">
+              <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center border-4 border-white shadow-sm">
+                <ClipboardCheck className="w-6 h-6 text-gray-700" />
               </div>
-              <p className="text-gray-600 mb-4 leading-relaxed flex-grow">
-                Para garantir que você sempre receba o melhor, todo produto
-                devolvido passa por uma rigorosa auditoria em nossa fábrica em
-                Lençóis Paulista.
-              </p>
-              <ul className="space-y-3 text-sm text-gray-700">
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-gray-700 mt-0.5 shrink-0" />
-                  <span>
-                    O prazo de análise é de <strong>até 30 dias</strong> após o
-                    recebimento do item na fábrica.
-                  </span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-gray-700 mt-0.5 shrink-0" />
-                  <span>
-                    Esse processo segue práticas de{" "}
-                    <strong>excelência industrial</strong> para atestar a
-                    qualidade do lote e a segurança da sua operação.
-                  </span>
-                </li>
-              </ul>
+              <h3 className="text-lg font-bold mb-2">Análise Técnica Industrial</h3>
+              <div className="text-sm text-gray-600 leading-relaxed">
+                <p className="mb-4">
+                  Para garantir que você sempre receba o melhor, todo produto
+                  devolvido passa por uma rigorosa auditoria em nossa fábrica em
+                  Lençóis Paulista.
+                </p>
+                <ul className="space-y-3 text-left">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-gray-700 mt-0.5 shrink-0" />
+                    <span>
+                      O prazo de análise é de <strong>até 30 dias</strong> após o
+                      recebimento do item na fábrica.
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-gray-700 mt-0.5 shrink-0" />
+                    <span>
+                      Esse processo segue práticas de{" "}
+                      <strong>excelência industrial</strong> para atestar a
+                      qualidade do lote e a segurança da sua operação.
+                    </span>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </section>
@@ -410,7 +406,7 @@ export default function ReturnPolicy() {
                 Direcionar para suporte técnico humanizado via{" "}
                 <a
                   href="mailto:ajuda@bubbles.com.br"
-                  className="text-[#F4CDD4] hover:underline font-medium"
+                  className="text-inherit underline hover:text-[#F48FB1] transition-colors font-medium"
                 >
                   ajuda@bubbles.com.br
                 </a>{" "}
@@ -571,7 +567,7 @@ export default function ReturnPolicy() {
                   href="https://wa.me/5514997646454?text=Ol%C3%A1%2C%20preciso%20de%20suporte%20t%C3%A9cnico%20Bubbles"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#F4CDD4] hover:underline font-medium"
+                  className="text-inherit underline hover:text-[#F48FB1] transition-colors font-medium"
                 >
                   WhatsApp de suporte
                 </a>{" "}

@@ -193,8 +193,8 @@ export default function ShippingPolicy() {
                 plataforma <strong>Mandaê</strong>, que seleciona a
                 transportadora mais eficiente e rápida para a sua região.
               </p>
-              <div className="text-xs">
-                <strong>⚠️ IMPORTANTE:</strong> Guarde a embalagem original e
+              <div className="bg-white border border-gray-200 rounded-xl p-4 mt-4 text-sm text-gray-600">
+                <strong className="text-gray-900">⚠️ IMPORTANTE:</strong> Guarde a embalagem original e
                 verifique os produtos no recebimento. A caixa é essencial para
                 trocas.
               </div>
@@ -276,7 +276,7 @@ export default function ShippingPolicy() {
                 key={i}
                 className={`bg-white border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow animate-fade-in-up delay-${(i + 1) * 100} flex flex-col items-center text-center relative pt-12`}
               >
-                <div className="w-12 h-12 rounded-full bg-[#F4CDD4]/30 flex items-center justify-center text-[#0D0C0D] shrink-0 absolute -top-6 left-1/2 -translate-x-1/2 shadow-sm border border-white">
+                <div className="w-12 h-12 rounded-full bg-[#F48FB1]/30 flex items-center justify-center text-[#0D0C0D] shrink-0 absolute -top-6 left-1/2 -translate-x-1/2 shadow-sm border border-white">
                   <step.icon className="w-6 h-6" />
                 </div>
                 <h4 className="text-lg font-bold mb-2">{step.title}</h4>
@@ -402,52 +402,44 @@ export default function ShippingPolicy() {
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-3 md:gap-6">
-            <div className="bg-white border border-gray-200 rounded-2xl p-5 md:p-6 shadow-sm flex flex-col md:flex-row items-center md:items-start text-center md:text-left">
-              <div className="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600 shrink-0 mb-4 md:mb-0 md:mr-4">
-                <Package className="w-5 h-5" />
+            <div className="bg-white border border-gray-100 rounded-2xl p-6 pt-12 shadow-sm relative flex flex-col items-center text-center">
+              <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center border-4 border-white shadow-sm">
+                <Package className="w-6 h-6 text-blue-600" />
               </div>
-              <div className="w-full">
-                <h3 className="text-lg font-bold mb-3">Código de Rastreio</h3>
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  Assim que o seu pedido for enviado, você receberá o código de
-                  rastreamento e o link de acompanhamento diretamente no seu
-                  e-mail cadastrado e também através do WhatsApp.
-                </p>
+              <h3 className="text-lg font-bold mb-2">Código de Rastreio</h3>
+              <div className="text-sm text-gray-600 leading-relaxed">
+                Assim que o seu pedido for enviado, você receberá o código de
+                rastreamento e o link de acompanhamento diretamente no seu
+                e-mail cadastrado e também através do WhatsApp.
               </div>
             </div>
-            <div className="bg-white border border-gray-200 rounded-2xl p-5 md:p-6 shadow-sm flex flex-col md:flex-row items-center md:items-start text-center md:text-left">
-              <div className="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600 shrink-0 mb-4 md:mb-0 md:mr-4">
-                <MessageCircle className="w-5 h-5" />
+            <div className="bg-white border border-gray-100 rounded-2xl p-6 pt-12 shadow-sm relative flex flex-col items-center text-center">
+              <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center border-4 border-white shadow-sm">
+                <MessageCircle className="w-6 h-6 text-blue-600" />
               </div>
-              <div className="w-full">
-                <h3 className="text-lg font-bold mb-3">Suporte Parceiro</h3>
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  Nossa equipe de{" "}
-                  <a
-                    href="https://wa.me/5511913612053?text=Preciso%20de%20ajuda%20a%20respeito%20do%20rastreio"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-bold hover:text-[#F4CDD4] transition-colors"
-                  >
-                    Customer Experience
-                  </a>{" "}
-                  atua em conjunto com os parceiros logísticos para garantir a
-                  entrega.
-                </p>
+              <h3 className="text-lg font-bold mb-2">Suporte Parceiro</h3>
+              <div className="text-sm text-gray-600 leading-relaxed">
+                Nossa equipe de{" "}
+                <a
+                  href="https://wa.me/5511913612053?text=Preciso%20de%20ajuda%20a%20respeito%20do%20rastreio"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-bold underline hover:text-[#F48FB1] transition-colors"
+                >
+                  Customer Experience
+                </a>{" "}
+                atua em conjunto com os parceiros logísticos para garantir a
+                entrega.
               </div>
             </div>
-            <div className="bg-white border border-gray-200 rounded-2xl p-5 md:p-6 shadow-sm flex flex-col md:flex-row items-center md:items-start text-center md:text-left">
-              <div className="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600 shrink-0 mb-4 md:mb-0 md:mr-4">
-                <RefreshCcw className="w-5 h-5" />
+            <div className="bg-white border border-gray-100 rounded-2xl p-6 pt-12 shadow-sm relative flex flex-col items-center text-center">
+              <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center border-4 border-white shadow-sm">
+                <RefreshCcw className="w-6 h-6 text-blue-600" />
               </div>
-              <div className="w-full">
-                <h3 className="text-lg font-bold mb-3">
-                  Atualizações de Status
-                </h3>
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  Você pode acompanhar cada etapa do seu pedido em tempo real
-                  diretamente através do link de rastreio da transportadora.
-                </p>
+              <h3 className="text-lg font-bold mb-2">Atualizações de Status</h3>
+              <div className="text-sm text-gray-600 leading-relaxed">
+                Você pode acompanhar cada etapa do seu pedido em tempo real
+                diretamente através do link de rastreio da transportadora.
               </div>
             </div>
           </div>
@@ -656,7 +648,7 @@ export default function ShippingPolicy() {
                   href="https://wa.me/5511913612053?text=Preciso%20alterar%20o%20endere%C3%A7o%20de%20entrega"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-bold underline hover:text-[#F4CDD4] transition-colors"
+                  className="font-bold underline hover:text-[#F48FB1] transition-colors"
                 >
                   WhatsApp
                 </a>
@@ -689,7 +681,7 @@ export default function ShippingPolicy() {
                   href="https://wa.me/5511913612053?text=Gostaria%20de%20saber%20se%20minha%20entrega%20pode%20ocorrer%20no%20final%20de%20semana"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-bold underline hover:text-[#F4CDD4] transition-colors"
+                  className="font-bold underline hover:text-[#F48FB1] transition-colors"
                 >
                   WhatsApp
                 </a>
@@ -720,7 +712,7 @@ export default function ShippingPolicy() {
                   href="https://wa.me/5511913612053?text=Meu%20pedido%20consta%20como%20entregue%20mas%20n%C3%A3o%20recebi"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-bold underline hover:text-[#F4CDD4] transition-colors"
+                  className="font-bold underline hover:text-[#F48FB1] transition-colors"
                 >
                   WhatsApp
                 </a>{" "}

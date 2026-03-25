@@ -137,39 +137,33 @@ export default function DilutionGuide() {
             </p>
           </div>
 
-          <div className="flex flex-col md:grid md:grid-cols-3 gap-3 md:gap-6">
-            <div className="animate-fade-in-up delay-100 bg-gray-50 rounded-2xl p-4 md:p-5 border border-gray-100 hover:border-[#F4CDD4] transition-colors">
-              <div className="flex items-center gap-3 mb-2 md:mb-3">
-                <div className="w-8 h-8 md:w-10 md:h-10 bg-white rounded-xl flex items-center justify-center shadow-sm shrink-0">
-                  <Sparkles className="w-4 h-4 md:w-5 md:h-5 text-[#F4CDD4]" />
-                </div>
-                <h3 className="text-lg md:text-xl font-bold">Ativação Química</h3>
+          <div className="flex flex-col md:grid md:grid-cols-3 gap-6">
+            <div className="bg-white border border-gray-100 rounded-2xl p-6 pt-12 shadow-sm relative flex flex-col items-center text-center animate-fade-in-up delay-100">
+              <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-white flex items-center justify-center border-4 border-white shadow-sm">
+                <Sparkles className="w-6 h-6 text-[#F4CDD4]" />
               </div>
-              <p className="text-gray-600 text-sm md:text-base leading-relaxed">
+              <h3 className="text-lg font-bold mb-2">Ativação Química</h3>
+              <div className="text-sm text-gray-600 leading-relaxed">
                 Adicionar água na proporção correta &quot;ativa&quot; o produto, garantindo a espalhabilidade ideal, limpeza profunda sem agressão e a liberação correta da fragrância.
-              </p>
-            </div>
-            <div className="animate-fade-in-up delay-200 bg-gray-50 rounded-2xl p-4 md:p-5 border border-gray-100 hover:border-[#F4CDD4] transition-colors">
-              <div className="flex items-center gap-3 mb-2 md:mb-3">
-                <div className="w-8 h-8 md:w-10 md:h-10 bg-white rounded-xl flex items-center justify-center shadow-sm shrink-0">
-                  <TrendingUp className="w-4 h-4 md:w-5 md:h-5 text-green-500" />
-                </div>
-                <h3 className="text-lg md:text-xl font-bold">Rentabilidade Extrema</h3>
               </div>
-              <p className="text-gray-600 text-sm md:text-base leading-relaxed">
+            </div>
+            <div className="bg-white border border-gray-100 rounded-2xl p-6 pt-12 shadow-sm relative flex flex-col items-center text-center animate-fade-in-up delay-200">
+              <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-white flex items-center justify-center border-4 border-white shadow-sm">
+                <TrendingUp className="w-6 h-6 text-green-500" />
+              </div>
+              <h3 className="text-lg font-bold mb-2">Rentabilidade Extrema</h3>
+              <div className="text-sm text-gray-600 leading-relaxed">
                 Um Produto da linha Ego / Pro (1:10) se transforma em até 55 litros de produto pronto para uso. Isso reduz drasticamente o custo por banho.
-              </p>
-            </div>
-            <div className="animate-fade-in-up delay-300 bg-gray-50 rounded-2xl p-4 md:p-5 border border-gray-100 hover:border-[#F4CDD4] transition-colors">
-              <div className="flex items-center gap-3 mb-2 md:mb-3">
-                <div className="w-8 h-8 md:w-10 md:h-10 bg-white rounded-xl flex items-center justify-center shadow-sm shrink-0">
-                  <Shield className="w-4 h-4 md:w-5 md:h-5 text-blue-500" />
-                </div>
-                <h3 className="text-lg md:text-xl font-bold">Enxágue Rápido</h3>
               </div>
-              <p className="text-gray-600 text-sm md:text-base leading-relaxed">
+            </div>
+            <div className="bg-white border border-gray-100 rounded-2xl p-6 pt-12 shadow-sm relative flex flex-col items-center text-center animate-fade-in-up delay-300">
+              <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-white flex items-center justify-center border-4 border-white shadow-sm">
+                <Shield className="w-6 h-6 text-blue-500" />
+              </div>
+              <h3 className="text-lg font-bold mb-2">Enxágue Rápido</h3>
+              <div className="text-sm text-gray-600 leading-relaxed">
                 Produtos diluídos corretamente não deixam resíduos pesados. Isso significa um enxágue muito mais rápido, economizando água, energia e tempo.
-              </p>
+              </div>
             </div>
           </div>
 

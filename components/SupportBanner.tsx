@@ -5,7 +5,7 @@ export default function SupportBanner({ pageName }: { pageName: string }) {
   const whatsappLink = `https://wa.me/5514996312932?text=${whatsappMessage}`;
 
   return (
-    <div className="w-full bg-[#F4CDD4] py-12 px-6 mt-16">
+    <div className="w-full bg-[#F4CDD4] py-12 px-6 mt-16 rounded-3xl">
       <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
         <div className="flex flex-col md:flex-row items-center gap-5">
           <div className="bg-white w-16 h-16 rounded-full flex items-center justify-center shadow-sm shrink-0">
