@@ -41,7 +41,7 @@ const faqs = [
             <a href="/pages/diluicao" className="text-[#F4CDD4] hover:underline font-medium">
               diluição
             </a>{" "}
-            máxima de 1:10, um Produto rende até 55 litros de produto pronto. Em média, isso reduz seu custo por banho significativamente, variando conforme a pelagem e sujidade do pet.
+            máxima de 1:10, um Produto rende até 55 litros de produto pronto. Em média, isso reduz seu custo por banho significativamente, variando conforme a pelagem e sujidade do pet. Um galão rende, em média, 500 banhos.
           </>
         ),
       },
@@ -59,7 +59,7 @@ const faqs = [
             <a href="/pages/diluicao" className="text-[#F4CDD4] hover:underline font-medium">
               diluição
             </a>{" "}
-            em água filtrada, recomendamos o uso em até 48 horas. Após este prazo, os ativos podem perder eficácia e há risco de contaminação bacteriana.
+            em água filtrada, recomendamos o uso em até 24 horas. Após este prazo, os ativos podem perder eficácia e há risco de contaminação bacteriana.
           </>
         ),
       },
@@ -93,14 +93,7 @@ const faqs = [
     id: "saude",
     category: "Saúde e Academy",
     icon: Bath,
-    questions: [
-      {
-        question:
-          "Qual o protocolo para banho em animais agressivos ou reativos?",
-        answer:
-          "Uso da Linha Sensorial para relaxamento olfativo e produtos de ação rápida para reduzir o tempo de manejo.",
-      },
-    ],
+    questions: [],
   },
   {
     id: "linhas-e-protocolos",
@@ -184,8 +177,14 @@ const faqs = [
       },
       {
         question: "A Bubbles realiza entregas internacionais?",
-        answer:
-          "No momento, nossa operação logística é focada em envios nacionais.",
+        answer: (
+          <>
+            Realizamos envios internacionais mediante cotação direta. Este serviço não está disponível via checkout automático no site.{" "}
+            <a href="https://wa.me/5514997646454?text=Olá,%20gostaria%20de%20solicitar%20uma%20cotação%20para%20envio%20internacional." target="_blank" rel="noopener noreferrer" className="text-[#F4CDD4] hover:underline font-medium">
+              [Clique aqui para solicitar sua cotação internacional via WhatsApp]
+            </a>
+          </>
+        ),
       },
       {
         question: "Qual o prazo de entrega para a minha região?",

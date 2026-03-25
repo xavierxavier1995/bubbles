@@ -24,7 +24,7 @@ export const faqData = [
         question: 'Qual o rendimento médio da Linha Pro com diluição 1:10?',
         answer: (
           <>
-            O rendimento é otimizado para até 11 litros de produto pronto para uso, reduzindo o custo por banho.
+            O rendimento é otimizado para até 11 litros de produto pronto para uso, reduzindo o custo por banho. Um galão rende, em média, 500 banhos.
           </>
         )
       },
