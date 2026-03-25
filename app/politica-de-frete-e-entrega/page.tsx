@@ -177,26 +177,26 @@ export default function ShippingPolicy() {
 
         {/* Deadlines & Security */}
         <section className="grid md:grid-cols-2 gap-4 md:gap-8">
-          <div className="bg-[#F4CDD4]/20 rounded-3xl p-6 md:p-8 space-y-4 flex flex-col items-center text-center">
-            <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-sm shrink-0 mb-4">
-              <Clock className="w-6 h-6 text-[#0D0C0D]" />
-            </div>
-            <div className="w-full">
-              <h3 className="text-xl md:text-2xl font-bold mb-4">
+          <div className="bg-[#F4CDD4]/20 rounded-3xl p-6 md:p-8 mb-6">
+            <div className="flex items-center gap-4 mb-4">
+              <div className="bg-white border border-gray-200 rounded-xl p-3 flex-shrink-0 flex items-center justify-center">
+                <Clock className="w-6 h-6 text-[#0D0C0D]" />
+              </div>
+              <h3 className="text-lg font-bold text-gray-900">
                 Prazos e Processamento
               </h3>
-              <p className="text-gray-700 leading-relaxed flex-grow text-sm md:text-base">
+            </div>
+            <div className="text-left text-gray-600 space-y-4">
+              <p className="leading-relaxed text-sm md:text-base">
                 Após a aprovação do pagamento, temos um prazo de{" "}
                 <strong>até 3 dias úteis</strong> para despacho. Utilizamos a
                 plataforma <strong>Mandaê</strong>, que seleciona a
                 transportadora mais eficiente e rápida para a sua região.
               </p>
-              <div className="mt-4 pt-2">
-                <div className="text-xs text-gray-600">
-                  <strong>⚠️ IMPORTANTE:</strong> Guarde a embalagem original e
-                  verifique os produtos no recebimento. A caixa é essencial para
-                  trocas.
-                </div>
+              <div className="text-xs">
+                <strong>⚠️ IMPORTANTE:</strong> Guarde a embalagem original e
+                verifique os produtos no recebimento. A caixa é essencial para
+                trocas.
               </div>
             </div>
           </div>
