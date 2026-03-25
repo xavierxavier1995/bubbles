@@ -179,28 +179,30 @@ export default function DilutionGuide() {
               <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-red-900">Regras de Diluição</h2>
               <p className="text-sm text-gray-600">Atenção aos erros comuns que prejudicam a performance do produto e a saúde do pet.</p>
             </div>
-            <div className="flex flex-col md:grid md:grid-cols-2 gap-3 md:gap-4">
-              <div className="bg-red-50 border border-red-100 p-4 md:p-5 rounded-2xl flex flex-col md:flex-row gap-2 md:gap-4 items-start">
-                <div className="flex items-center gap-2 md:gap-3 mb-1 md:mb-0">
-                  <AlertTriangle className="w-5 h-5 md:w-6 md:h-6 text-red-500 shrink-0" />
-                  <strong className="text-base md:text-lg text-red-900 md:hidden">Diluir MENOS:</strong>
+            <div className="flex flex-col md:grid md:grid-cols-2 gap-6">
+              <div className="bg-red-50 rounded-3xl p-6 md:p-8 border border-red-100">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="bg-white border border-red-200 rounded-xl p-3 flex-shrink-0 flex items-center justify-center">
+                    <AlertTriangle className="w-6 h-6 text-red-500" />
+                  </div>
+                  <h2 className="text-lg font-bold text-red-900">Diluir MENOS que o indicado:</h2>
                 </div>
-                <div>
-                  <strong className="hidden md:block text-lg text-red-900 mb-1">Diluir MENOS que o indicado:</strong>
-                  <p className="text-red-800 text-xs md:text-sm leading-relaxed">
+                <div className="text-left text-red-800 space-y-4">
+                  <p className="leading-relaxed">
                     Desperdício de produto e risco de irritação na pele do pet. O excesso de ativos não ativados deixa o pelo pesado e opaco.
                   </p>
                 </div>
               </div>
               
-              <div className="bg-orange-50 border border-orange-100 p-4 md:p-5 rounded-2xl flex flex-col md:flex-row gap-2 md:gap-4 items-start">
-                <div className="flex items-center gap-2 md:gap-3 mb-1 md:mb-0">
-                  <Info className="w-5 h-5 md:w-6 md:h-6 text-orange-500 shrink-0" />
-                  <strong className="text-base md:text-lg text-orange-900 md:hidden">Diluir MAIS:</strong>
+              <div className="bg-orange-50 rounded-3xl p-6 md:p-8 border border-orange-100">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="bg-white border border-orange-200 rounded-xl p-3 flex-shrink-0 flex items-center justify-center">
+                    <Info className="w-6 h-6 text-orange-500" />
+                  </div>
+                  <h2 className="text-lg font-bold text-orange-900">Diluir MAIS que o indicado:</h2>
                 </div>
-                <div>
-                  <strong className="hidden md:block text-lg text-orange-900 mb-1">Diluir MAIS que o indicado:</strong>
-                  <p className="text-orange-800 text-xs md:text-sm leading-relaxed">
+                <div className="text-left text-orange-800 space-y-4">
+                  <p className="leading-relaxed">
                     Reduz a eficácia da limpeza, hidratação e fixação do perfume. Compromete a qualidade do banho e a satisfação do cliente.
                   </p>
                 </div>

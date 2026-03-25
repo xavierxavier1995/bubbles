@@ -58,36 +58,40 @@ export default function TermsOfService() {
 
         <div className="space-y-8">
           {/* 1. Elegibilidade */}
-          <section className="bg-gray-50 rounded-3xl p-8 md:p-10 flex flex-col md:flex-row gap-8 items-center md:items-start border border-gray-100">
-            <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center shadow-sm shrink-0 mx-auto md:mx-0">
-              <UserPlus className="w-7 h-7 text-[#0D0C0D]" />
+          <section className="bg-gray-50 rounded-3xl p-6 md:p-8 mb-6 border border-gray-100">
+            <div className="flex items-center gap-4 mb-4">
+              <div className="bg-white border border-gray-200 rounded-xl p-3 flex-shrink-0 flex items-center justify-center">
+                <UserPlus className="w-6 h-6 text-[#0D0C0D]" />
+              </div>
+              <h2 className="text-lg font-bold text-gray-900">1. Elegibilidade de Compra</h2>
             </div>
-            <div className="space-y-4 w-full text-left">
-              <h2 className="text-2xl font-bold text-center md:text-left">1. Elegibilidade de Compra</h2>
-              <p className="text-gray-700 leading-relaxed">
+            <div className="text-left text-gray-600 space-y-4">
+              <p className="leading-relaxed">
                 A Bubbles desenvolve cosméticos de alta performance. Por isso, a compra de itens profissionais é <strong>destinada exclusivamente a maiores de 18 anos e profissionais atuantes do setor pet</strong>.
               </p>
-              <p className="text-gray-700 leading-relaxed">
+              <p className="leading-relaxed">
                 Ao realizar um pedido, você declara cumprir estes requisitos e estar apto a manusear produtos de uso técnico.
               </p>
             </div>
           </section>
 
           {/* 2. Uso Profissional e Responsabilidade */}
-          <section className="bg-white rounded-3xl p-8 md:p-10 flex flex-col md:flex-row gap-8 items-center md:items-start border border-gray-200 shadow-sm">
-            <div className="w-14 h-14 bg-[#F4CDD4]/20 rounded-2xl flex items-center justify-center shrink-0 mx-auto md:mx-0">
-              <AlertTriangle className="w-7 h-7 text-[#0D0C0D]" />
+          <section className="bg-white rounded-3xl p-6 md:p-8 mb-6 border border-gray-200 shadow-sm">
+            <div className="flex items-center gap-4 mb-4">
+              <div className="bg-white border border-gray-200 rounded-xl p-3 flex-shrink-0 flex items-center justify-center">
+                <AlertTriangle className="w-6 h-6 text-[#0D0C0D]" />
+              </div>
+              <h2 className="text-lg font-bold text-gray-900">2. Uso Profissional e Responsabilidade</h2>
             </div>
-            <div className="space-y-4 w-full text-left">
-              <h2 className="text-2xl font-bold text-center md:text-left">2. Uso Profissional e Responsabilidade</h2>
-              <p className="text-gray-700 leading-relaxed">
+            <div className="text-left text-gray-600 space-y-4">
+              <p className="leading-relaxed">
                 Nossas fórmulas são concentradas e exigem conhecimento técnico para garantir a eficácia e a segurança dos pets.
               </p>
               <div className="bg-gray-50 p-6 rounded-2xl border border-gray-100 mt-4 space-y-4">
-                <p className="text-gray-700 leading-relaxed">
+                <p className="leading-relaxed">
                   Você declara estar ciente de que os produtos das linhas <strong>Ego / Pro, Basiq, Sensorial e Collora</strong> devem seguir rigorosamente o modo de uso técnico indicado nos rótulos e materiais de apoio. Para garantir a máxima performance, recomendamos a leitura do nosso <a href="/diluicao" className="text-[#F48FB1] font-bold hover:underline">Guia de Diluição</a>.
                 </p>
-                <div className="bg-white p-4 rounded-xl border-l-4 border-[#0D0C0D] text-sm text-gray-600">
+                <div className="bg-white p-4 rounded-xl border-l-4 border-[#0D0C0D] text-sm">
                   <strong>Isenção de Responsabilidade:</strong> A Bubbles isenta-se de qualquer responsabilidade por danos, reações ou resultados insatisfatórios decorrentes do <strong>uso inadequado, falta de diluição correta ou armazenamento impróprio</strong> dos produtos por parte do comprador.
                 </div>
               </div>
@@ -95,45 +99,51 @@ export default function TermsOfService() {
           </section>
 
           {/* 3. Política Anti-Revenda */}
-          <section className="bg-gray-50 rounded-3xl p-8 md:p-10 flex flex-col md:flex-row gap-8 items-center md:items-start border border-gray-100">
-            <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center shadow-sm shrink-0 mx-auto md:mx-0">
-              <Store className="w-7 h-7 text-[#0D0C0D]" />
+          <section className="bg-gray-50 rounded-3xl p-6 md:p-8 mb-6 border border-gray-100">
+            <div className="flex items-center gap-4 mb-4">
+              <div className="bg-white border border-gray-200 rounded-xl p-3 flex-shrink-0 flex items-center justify-center">
+                <Store className="w-6 h-6 text-[#0D0C0D]" />
+              </div>
+              <h2 className="text-lg font-bold text-gray-900">3. Política Anti-Revenda (Proteção da Cadeia)</h2>
             </div>
-            <div className="space-y-4 w-full text-left">
-              <h2 className="text-2xl font-bold text-center md:text-left">3. Política Anti-Revenda (Proteção da Cadeia)</h2>
-              <p className="text-gray-700 leading-relaxed">
+            <div className="text-left text-gray-600 space-y-4">
+              <p className="leading-relaxed">
                 Para garantir a qualidade, a cadeia de custódia e a segurança biológica dos nossos cosméticos, <strong>é terminantemente proibida a revenda dos produtos Bubbles em marketplaces (como Shopee, Mercado Livre, Amazon, etc.)</strong> sem um contrato de distribuição prévio e formalizado.
               </p>
-              <p className="text-gray-700 leading-relaxed">
+              <p className="leading-relaxed">
                 O descumprimento desta cláusula acarretará no bloqueio imediato do cadastro e medidas legais cabíveis para proteger a integridade da marca.
               </p>
             </div>
           </section>
 
           {/* 4. Propriedade Intelectual */}
-          <section className="bg-white rounded-3xl p-8 md:p-10 flex flex-col md:flex-row gap-8 items-center md:items-start border border-gray-200 shadow-sm">
-            <div className="w-14 h-14 bg-gray-100 rounded-2xl flex items-center justify-center shrink-0 mx-auto md:mx-0">
-              <Copyright className="w-7 h-7 text-gray-700" />
+          <section className="bg-white rounded-3xl p-6 md:p-8 mb-6 border border-gray-200 shadow-sm">
+            <div className="flex items-center gap-4 mb-4">
+              <div className="bg-white border border-gray-200 rounded-xl p-3 flex-shrink-0 flex items-center justify-center">
+                <Copyright className="w-6 h-6 text-gray-700" />
+              </div>
+              <h2 className="text-lg font-bold text-gray-900">4. Propriedade Intelectual</h2>
             </div>
-            <div className="space-y-4 w-full text-left">
-              <h2 className="text-2xl font-bold text-center md:text-left">4. Propriedade Intelectual</h2>
-              <p className="text-gray-700 leading-relaxed">
+            <div className="text-left text-gray-600 space-y-4">
+              <p className="leading-relaxed">
                 Todos os ativos da Bubbles incluindo logotipos, fotos das linhas, textos descritivos, vídeos e fórmulas são de nossa propriedade exclusiva e protegidos por leis de direitos autorais. O uso indevido, reprodução ou exploração comercial por terceiros com intenção de má-fé é expressamente proibido. Clientes e parceiros estão autorizados a utilizar nossos materiais para fins de divulgação dos produtos, desde que respeitada a integridade da marca e das informações
               </p>
             </div>
           </section>
 
           {/* 5. Segurança SSL e Site Blindado */}
-          <section className="bg-[#0D0C0D] text-white rounded-3xl p-8 md:p-10 flex flex-col md:flex-row gap-8 items-center md:items-start shadow-lg">
-            <div className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center shrink-0 mx-auto md:mx-0">
-              <Shield className="w-7 h-7 text-[#F4CDD4]" />
+          <section className="bg-[#0D0C0D] text-white rounded-3xl p-6 md:p-8 mb-6 shadow-lg">
+            <div className="flex items-center gap-4 mb-4">
+              <div className="bg-white/10 border border-white/20 rounded-xl p-3 flex-shrink-0 flex items-center justify-center">
+                <Shield className="w-6 h-6 text-[#F4CDD4]" />
+              </div>
+              <h2 className="text-lg font-bold text-white">5. Segurança SSL e Site Blindado</h2>
             </div>
-            <div className="space-y-4 w-full text-left">
-              <h2 className="text-2xl font-bold text-center md:text-left">5. Segurança SSL e Site Blindado</h2>
-              <p className="text-gray-300 leading-relaxed">
+            <div className="text-left text-gray-300 space-y-4">
+              <p className="leading-relaxed">
                 Sua transação está protegida de ponta a ponta contra fraudes.
               </p>
-              <div className="grid sm:grid-cols-2 gap-4 mt-4 text-left">
+              <div className="grid sm:grid-cols-2 gap-4 mt-4">
                 <div className="bg-white/5 p-4 rounded-xl border border-white/10">
                   <strong className="flex items-center gap-2 text-white mb-2">
                     <Lock className="w-4 h-4 text-[#F4CDD4]" /> Criptografia SSL

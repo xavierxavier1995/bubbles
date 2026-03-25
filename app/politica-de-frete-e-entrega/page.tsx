@@ -201,15 +201,17 @@ export default function ShippingPolicy() {
             </div>
           </div>
 
-          <div className="bg-gray-50 rounded-3xl p-6 md:p-8 space-y-4 relative overflow-hidden group flex flex-col items-center text-center">
-            <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-sm shrink-0 relative z-10 mb-4">
-              <ShieldCheck className="w-6 h-6 text-[#0D0C0D]" />
-            </div>
-            <div className="w-full relative z-10">
-              <h3 className="text-xl md:text-2xl font-bold mb-4">
+          <div className="bg-gray-50 rounded-3xl p-6 md:p-8 mb-6">
+            <div className="flex items-center gap-4 mb-4">
+              <div className="bg-white border border-gray-200 rounded-xl p-3 flex-shrink-0 flex items-center justify-center">
+                <ShieldCheck className="w-6 h-6 text-[#0D0C0D]" />
+              </div>
+              <h3 className="text-lg font-bold text-gray-900">
                 Segurança no Transporte
               </h3>
-              <p className="text-gray-700 leading-relaxed flex-grow text-sm md:text-base">
+            </div>
+            <div className="text-left text-gray-600 space-y-4">
+              <p className="leading-relaxed text-sm md:text-base">
                 Utilizamos embalagens reforçadas para garantir que seus produtos
                 cheguem intactos e em perfeitas condições até você. Nossa equipe
                 de logística acompanha de perto cada etapa do processo, desde a
@@ -219,7 +221,6 @@ export default function ShippingPolicy() {
                 para aprimorar continuamente nossos serviços logísticos.
               </p>
             </div>
-            <div className="absolute -bottom-12 -right-12 w-64 h-64 bg-white rounded-full opacity-50 group-hover:scale-110 transition-transform duration-700"></div>
           </div>
         </section>
 
@@ -301,21 +302,23 @@ export default function ShippingPolicy() {
 
           <div className="grid md:grid-cols-2 gap-8">
             {/* Logística de Produtos */}
-            <div className="bg-red-50 border border-red-200 rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col md:flex-row h-full items-center md:items-start text-center md:text-left">
-              <div className="w-12 h-12 bg-red-100 rounded-2xl flex items-center justify-center text-red-600 shrink-0 mb-4 md:mb-0 md:mr-6">
-                <Package className="w-6 h-6" />
-              </div>
-              <div className="w-full">
-                <h3 className="text-xl font-bold text-red-800 mb-6">
+            <div className="bg-red-50 border border-red-200 rounded-3xl p-6 md:p-8 mb-6">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="bg-white border border-gray-200 rounded-xl p-3 flex-shrink-0 flex items-center justify-center">
+                  <Package className="w-6 h-6 text-red-600" />
+                </div>
+                <h3 className="text-lg font-bold text-gray-900">
                   Logística de Produtos
                 </h3>
-                <p className="text-red-700 mb-6 leading-relaxed flex-grow">
+              </div>
+              <div className="text-left text-red-700 space-y-4">
+                <p className="leading-relaxed">
                   Sabemos que os produtos pesam cerca de 5,2 kg e exigem cuidado
                   redobrado. Desenvolvemos uma inteligência de cubagem e
                   embalagem para que os produtos das linhas Ego / Pro, Basiq,
                   Sensorial e Collora não sofram avarias no transporte:
                 </p>
-                <ul className="space-y-3 text-sm text-red-800">
+                <ul className="space-y-3 text-sm">
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="w-4 h-4 text-red-600 mt-0.5 shrink-0" />
                     <span>
@@ -342,19 +345,21 @@ export default function ShippingPolicy() {
             </div>
 
             {/* Como Receber seu Pedido */}
-            <div className="bg-white border border-gray-200 rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col md:flex-row h-full items-center md:items-start text-center md:text-left">
-              <div className="w-12 h-12 bg-red-50 rounded-2xl flex items-center justify-center text-red-600 shrink-0 mb-4 md:mb-0 md:mr-6">
-                <ShieldAlert className="w-6 h-6" />
-              </div>
-              <div className="w-full">
-                <h3 className="text-xl font-bold mb-6">
+            <div className="bg-white border border-gray-200 rounded-3xl p-6 md:p-8 mb-6">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="bg-white border border-gray-200 rounded-xl p-3 flex-shrink-0 flex items-center justify-center">
+                  <ShieldAlert className="w-6 h-6 text-red-600" />
+                </div>
+                <h3 className="text-lg font-bold text-gray-900">
                   Como Receber seu Pedido
                 </h3>
-                <p className="text-gray-600 mb-6 leading-relaxed flex-grow">
+              </div>
+              <div className="text-left text-gray-600 space-y-4">
+                <p className="leading-relaxed">
                   Para garantir a integridade do seu produto, siga este rigoroso
                   protocolo de conferência no ato da entrega:
                 </p>
-                <ul className="space-y-3 text-sm text-gray-700">
+                <ul className="space-y-3 text-sm">
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="w-4 h-4 text-red-600 mt-0.5 shrink-0" />
                     <span>

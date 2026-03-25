@@ -86,119 +86,127 @@ export default function ReturnPolicy() {
 
         <section className="grid md:grid-cols-2 gap-8">
           {/* Direito de Arrependimento */}
-          <div className="bg-gray-50 rounded-3xl p-6 md:p-8 space-y-4">
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
-              <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow-sm shrink-0">
-                <Calendar className="w-5 h-5 text-[#0D0C0D]" />
+          <div className="bg-gray-50 rounded-3xl p-6 md:p-8 mb-6">
+            <div className="flex items-center gap-4 mb-4">
+              <div className="bg-white border border-gray-200 rounded-xl p-3 flex-shrink-0 flex items-center justify-center">
+                <Calendar className="w-6 h-6 text-[#0D0C0D]" />
               </div>
-              <h3 className="text-xl font-bold">
+              <h3 className="text-lg font-bold text-gray-900">
                 Direito de Arrependimento (7 Dias)
               </h3>
             </div>
-            <p className="text-gray-700 leading-relaxed">
-              Conforme o Código de Defesa do Consumidor, o prazo para
-              desistência é de <strong>7 dias corridos</strong> após o
-              recebimento.
-            </p>
-            <div className="bg-white p-4 rounded-xl border border-gray-100 text-sm text-gray-600">
-              <strong className="text-[#0D0C0D]">Condição:</strong> O produto
-              deve estar lacrado, sem uso e em embalagem original. Brindes e
-              amostras de campanhas devem ser devolvidos junto ao pedido.
+            <div className="text-left text-gray-600 space-y-4">
+              <p className="leading-relaxed">
+                Conforme o Código de Defesa do Consumidor, o prazo para
+                desistência é de <strong>7 dias corridos</strong> após o
+                recebimento.
+              </p>
+              <div className="bg-white p-4 rounded-xl border border-gray-100 text-sm">
+                <strong className="text-[#0D0C0D]">Condição:</strong> O produto
+                deve estar lacrado, sem uso e em embalagem original. Brindes e
+                amostras de campanhas devem ser devolvidos junto ao pedido.
+              </div>
             </div>
           </div>
 
           {/* Protocolo de Avarias e Vícios */}
-          <div className="bg-gray-50 rounded-3xl p-6 md:p-8 space-y-4">
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
-              <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow-sm shrink-0">
-                <ShieldAlert className="w-5 h-5 text-[#0D0C0D]" />
+          <div className="bg-gray-50 rounded-3xl p-6 md:p-8 mb-6">
+            <div className="flex items-center gap-4 mb-4">
+              <div className="bg-white border border-gray-200 rounded-xl p-3 flex-shrink-0 flex items-center justify-center">
+                <ShieldAlert className="w-6 h-6 text-[#0D0C0D]" />
               </div>
-              <h3 className="text-xl font-bold">
+              <h3 className="text-lg font-bold text-gray-900">
                 Protocolo de Avarias e Vícios (Segurança Industrial)
               </h3>
             </div>
-            <p className="text-sm text-gray-700 leading-relaxed">
-              <strong className="text-[#0D0C0D]">No Recebimento:</strong> Caso a
-              embalagem apresente danos ou vazamentos visíveis (mesmo com nossa
-              embalagem reforçada), recuse a entrega e anote o motivo no verso
-              da nota fiscal.
-            </p>
-            <p className="text-sm text-gray-700 leading-relaxed">
-              <strong className="text-[#0D0C0D]">Vício Oculto:</strong> Prazo de{" "}
-              <strong>30 dias</strong> para relatar defeitos de fabricação que
-              não decorram de mau uso profissional.
-            </p>
+            <div className="text-left text-gray-600 space-y-4">
+              <p className="text-sm leading-relaxed">
+                <strong className="text-[#0D0C0D]">No Recebimento:</strong> Caso a
+                embalagem apresente danos ou vazamentos visíveis (mesmo com nossa
+                embalagem reforçada), recuse a entrega e anote o motivo no verso
+                da nota fiscal.
+              </p>
+              <p className="text-sm leading-relaxed">
+                <strong className="text-[#0D0C0D]">Vício Oculto:</strong> Prazo de{" "}
+                <strong>30 dias</strong> para relatar defeitos de fabricação que
+                não decorram de mau uso profissional.
+              </p>
+            </div>
           </div>
 
           {/* Como Solicitar */}
-          <div className="bg-gray-50 rounded-3xl p-6 md:p-8 space-y-4">
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
-              <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow-sm shrink-0">
-                <Smartphone className="w-5 h-5 text-[#0D0C0D]" />
+          <div className="bg-gray-50 rounded-3xl p-6 md:p-8 mb-6">
+            <div className="flex items-center gap-4 mb-4">
+              <div className="bg-white border border-gray-200 rounded-xl p-3 flex-shrink-0 flex items-center justify-center">
+                <Smartphone className="w-6 h-6 text-[#0D0C0D]" />
               </div>
-              <h3 className="text-xl font-bold">Como Solicitar</h3>
+              <h3 className="text-lg font-bold text-gray-900">
+                Como Solicitar
+              </h3>
             </div>
-            <ul className="space-y-3 text-gray-700 text-sm">
-              <li className="flex items-start gap-3">
-                <div className="w-6 h-6 rounded-full bg-[#F4CDD4]/30 flex items-center justify-center text-sm font-bold shrink-0">
-                  1
-                </div>
-                <span>Acesse &quot;Meus Pedidos&quot; no seu Perfil.</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <div className="w-6 h-6 rounded-full bg-[#F4CDD4]/30 flex items-center justify-center text-sm font-bold shrink-0">
-                  2
-                </div>
-                <span>Clique em &quot;Solicitar Troca/Devolução&quot;.</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <div className="w-6 h-6 rounded-full bg-[#F4CDD4]/30 flex items-center justify-center text-sm font-bold shrink-0">
-                  3
-                </div>
-                <span>
-                  Envie fotos do lote e da avaria para validação técnica via
-                  E-mail (
-                  <a
-                    href="mailto:ajuda@bubbles.com.br"
-                    className="text-[#F4CDD4] hover:underline font-medium"
-                  >
-                    ajuda@bubbles.com.br
-                  </a>
-                  ) ou WhatsApp (
-                  <a
-                    href="https://wa.me/5514997646454"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[#F4CDD4] hover:underline font-medium"
-                  >
-                    (14) 99764-6454
-                  </a>
-                  ).
-                </span>
-              </li>
-            </ul>
+            <div className="text-left text-gray-600 space-y-4">
+              <ul className="space-y-3 text-sm">
+                <li className="flex items-start gap-3">
+                  <div className="w-6 h-6 rounded-full bg-[#F4CDD4]/30 flex items-center justify-center text-sm font-bold shrink-0">
+                    1
+                  </div>
+                  <span>Acesse &quot;Meus Pedidos&quot; no seu Perfil.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-6 h-6 rounded-full bg-[#F4CDD4]/30 flex items-center justify-center text-sm font-bold shrink-0">
+                    2
+                  </div>
+                  <span>Clique em &quot;Solicitar Troca/Devolução&quot;.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-6 h-6 rounded-full bg-[#F4CDD4]/30 flex items-center justify-center text-sm font-bold shrink-0">
+                    3
+                  </div>
+                  <span>
+                    Envie fotos do lote e da avaria para validação técnica via
+                    E-mail (
+                    <a
+                      href="mailto:ajuda@bubbles.com.br"
+                      className="text-[#F4CDD4] hover:underline font-medium"
+                    >
+                      ajuda@bubbles.com.br
+                    </a>
+                    ) ou WhatsApp (
+                    <a
+                      href="https://wa.me/5514997646454"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#F4CDD4] hover:underline font-medium"
+                    >
+                      (14) 99764-6454
+                    </a>
+                    ).
+                  </span>
+                </li>
+              </ul>
+            </div>
           </div>
 
           {/* Regras de Reembolso */}
-          <div className="bg-gray-50 rounded-3xl p-6 md:p-8 space-y-4">
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
-              <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow-sm shrink-0">
-                <CreditCard className="w-5 h-5 text-[#0D0C0D]" />
+          <div className="bg-gray-50 rounded-3xl p-6 md:p-8 mb-6">
+            <div className="flex items-center gap-4 mb-4">
+              <div className="bg-white border border-gray-200 rounded-xl p-3 flex-shrink-0 flex items-center justify-center">
+                <CreditCard className="w-6 h-6 text-[#0D0C0D]" />
               </div>
-              <h3 className="text-xl font-bold">Regras de Reembolso</h3>
+              <h3 className="text-lg font-bold text-gray-900">Regras de Reembolso</h3>
             </div>
-            <div className="space-y-4">
+            <div className="text-left text-gray-600 space-y-4">
               <div className="bg-white p-4 rounded-xl border border-gray-100">
                 <strong className="block text-[#0D0C0D] mb-1">
                   Cartão de Crédito
                 </strong>
-                <span className="text-sm text-gray-600">
+                <span className="text-sm">
                   Estorno em até duas faturas após conferência.
                 </span>
               </div>
               <div className="bg-white p-4 rounded-xl border border-gray-100">
                 <strong className="block text-[#0D0C0D] mb-1">PIX</strong>
-                <span className="text-sm text-gray-600">
+                <span className="text-sm">
                   Reembolso em conta do titular em até{" "}
                   <strong>30 dias úteis</strong> após aprovação de qualidade.
                 </span>

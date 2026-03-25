@@ -58,16 +58,18 @@ export default function PrivacyPolicy() {
 
         <div className="space-y-8">
           {/* 1. Transparência na Coleta */}
-          <section className="bg-gray-50 rounded-3xl p-8 md:p-10 flex flex-col items-center text-center border border-gray-100">
-            <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-sm shrink-0 mb-6">
-              <Database className="w-6 h-6 text-[#0D0C0D]" />
+          <section className="bg-gray-50 rounded-3xl p-6 md:p-8 mb-6 border border-gray-100">
+            <div className="flex items-center gap-4 mb-4">
+              <div className="bg-white border border-gray-200 rounded-xl p-3 flex-shrink-0 flex items-center justify-center">
+                <Database className="w-6 h-6 text-[#0D0C0D]" />
+              </div>
+              <h2 className="text-lg font-bold text-gray-900">1. Transparência na Coleta: o que guardamos e por quê?</h2>
             </div>
-            <div className="space-y-4 w-full text-center md:text-left">
-              <h2 className="text-2xl font-bold">1. Transparência na Coleta: o que guardamos e por quê?</h2>
-              <p className="text-gray-700 leading-relaxed">
+            <div className="text-left text-gray-600 space-y-4">
+              <p className="leading-relaxed">
                 As informações são solicitadas exclusivamente para viabilizar o fornecimento dos nossos produtos e serviços. Elas são coletadas por meios justos e legais, com o seu conhecimento e consentimento, sempre limitadas ao necessário para garantir uma operação eficiente.
               </p>
-              <ul className="space-y-3 text-gray-700 text-left md:text-left inline-block w-full">
+              <ul className="space-y-3 text-left inline-block w-full">
                 <li className="flex items-start gap-3">
                   <div className="w-1.5 h-1.5 rounded-full bg-[#F4CDD4] mt-2 shrink-0"></div>
                   <span><strong>Dados cadastrais e de entrega (nome, CPF/CNPJ, e-mail e endereço):</strong> essenciais para faturamento, comunicação e para que nossa parceira logística realize a entrega com agilidade e precisão.</span>
@@ -77,77 +79,85 @@ export default function PrivacyPolicy() {
           </section>
 
           {/* 2. Direitos do Titular */}
-          <section className="bg-white rounded-3xl p-8 md:p-10 flex flex-col items-center text-center border border-gray-200 shadow-sm">
-            <div className="w-12 h-12 bg-[#F4CDD4]/20 rounded-2xl flex items-center justify-center shrink-0 mb-6">
-              <UserCheck className="w-6 h-6 text-[#0D0C0D]" />
+          <section className="bg-white rounded-3xl p-6 md:p-8 mb-6 border border-gray-200 shadow-sm">
+            <div className="flex items-center gap-4 mb-4">
+              <div className="bg-white border border-gray-200 rounded-xl p-3 flex-shrink-0 flex items-center justify-center">
+                <UserCheck className="w-6 h-6 text-[#0D0C0D]" />
+              </div>
+              <h2 className="text-lg font-bold text-gray-900">2. Seus Direitos (Art. 18 da LGPD)</h2>
             </div>
-            <div className="space-y-4 w-full text-center md:text-left">
-              <h2 className="text-2xl font-bold">2. Seus Direitos (Art. 18 da LGPD)</h2>
-              <p className="text-gray-700 leading-relaxed">
+            <div className="text-left text-gray-600 space-y-4">
+              <p className="leading-relaxed">
                 Você tem controle total sobre as suas informações. A qualquer momento, você pode nos solicitar:
               </p>
-              <div className="grid sm:grid-cols-2 gap-4 mt-4 text-left">
+              <div className="grid sm:grid-cols-2 gap-4 mt-4">
                 <div className="bg-gray-50 p-4 rounded-xl border border-gray-100">
                   <strong className="block text-[#0D0C0D] mb-1">Acesso</strong>
-                  <span className="text-sm text-gray-600">Saber exatamente quais dados seus nós possuímos.</span>
+                  <span className="text-sm">Saber exatamente quais dados seus nós possuímos.</span>
                 </div>
                 <div className="bg-gray-50 p-4 rounded-xl border border-gray-100">
                   <strong className="block text-[#0D0C0D] mb-1">Correção</strong>
-                  <span className="text-sm text-gray-600">Atualizar endereços ou informações incompletas.</span>
+                  <span className="text-sm">Atualizar endereços ou informações incompletas.</span>
                 </div>
                 <div className="bg-gray-50 p-4 rounded-xl border border-gray-100">
                   <strong className="block text-[#0D0C0D] mb-1">Exclusão</strong>
-                  <span className="text-sm text-gray-600">Apagar seus dados da nossa base (exceto os exigidos por lei, como notas fiscais).</span>
+                  <span className="text-sm">Apagar seus dados da nossa base (exceto os exigidos por lei, como notas fiscais).</span>
                 </div>
                 <div className="bg-gray-50 p-4 rounded-xl border border-gray-100">
                   <strong className="block text-[#0D0C0D] mb-1">Portabilidade</strong>
-                  <span className="text-sm text-gray-600">Receber seus dados em formato estruturado.</span>
+                  <span className="text-sm">Receber seus dados em formato estruturado.</span>
                 </div>
               </div>
             </div>
           </section>
 
           {/* 3. Segurança dos Dados */}
-          <section className="bg-[#0D0C0D] text-white rounded-3xl p-8 md:p-10 flex flex-col items-center text-center shadow-lg">
-            <div className="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center shrink-0 mb-6">
-              <Lock className="w-6 h-6 text-[#F4CDD4]" />
+          <section className="bg-[#0D0C0D] text-white rounded-3xl p-6 md:p-8 mb-6 shadow-lg">
+            <div className="flex items-center gap-4 mb-4">
+              <div className="bg-white/10 border border-white/20 rounded-xl p-3 flex-shrink-0 flex items-center justify-center">
+                <Lock className="w-6 h-6 text-[#F4CDD4]" />
+              </div>
+              <h2 className="text-lg font-bold text-white">3. Segurança e Armazenamento dos Dados</h2>
             </div>
-            <div className="space-y-4 w-full text-center md:text-left">
-              <h2 className="text-2xl font-bold">3. Segurança e Armazenamento dos Dados</h2>
-              <p className="text-gray-300 leading-relaxed">
+            <div className="text-left text-gray-300 space-y-4">
+              <p className="leading-relaxed">
                 Seus dados pessoais ficam armazenados apenas pelo tempo necessário para o fornecimento do serviço requisitado. Absolutamente todos são protegidos por meios comercialmente aceitáveis, evitando perda, roubo, acesso de terceiros, divulgação ou modificação não autorizada.
               </p>
-              <p className="text-gray-300 leading-relaxed">
+              <p className="leading-relaxed">
                 Utilizamos <strong>criptografia de ponta a ponta (SSL)</strong> em toda a sua navegação. Seus dados de pagamento são processados em um <strong>ambiente seguro sem nenhum acesso humano</strong> (padrão PCI DSS). Nos comprometemos em jamais realizar o compartilhamento dessas informações de identificação pessoal, exceto quando exigido por lei.
               </p>
             </div>
           </section>
 
           {/* 4. Uso de Cookies */}
-          <section className="bg-gray-50 rounded-3xl p-8 md:p-10 flex flex-col items-center text-center border border-gray-100">
-            <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-sm shrink-0 mb-6">
-              <Cookie className="w-6 h-6 text-[#0D0C0D]" />
+          <section className="bg-gray-50 rounded-3xl p-6 md:p-8 mb-6 border border-gray-100">
+            <div className="flex items-center gap-4 mb-4">
+              <div className="bg-white border border-gray-200 rounded-xl p-3 flex-shrink-0 flex items-center justify-center">
+                <Cookie className="w-6 h-6 text-[#0D0C0D]" />
+              </div>
+              <h2 className="text-lg font-bold text-gray-900">4. Política de Cookies e Rastreamento</h2>
             </div>
-            <div className="space-y-4 w-full text-center md:text-left">
-              <h2 className="text-2xl font-bold">4. Política de Cookies e Rastreamento</h2>
-              <p className="text-gray-700 leading-relaxed">
+            <div className="text-left text-gray-600 space-y-4">
+              <p className="leading-relaxed">
                 Coletamos dados anonimizados para análise via ferramentas de publicidade (sem acesso direto da marca à identidade do usuário) para otimizar produtos e oferecer cupons e condições exclusivas. A segurança dos seus dados é prioridade absoluta na Bubbles.
               </p>
             </div>
           </section>
 
           {/* 5. Links Externos e Consentimento */}
-          <section className="bg-white rounded-3xl p-8 md:p-10 flex flex-col items-center text-center border border-gray-200 shadow-sm">
-            <div className="w-12 h-12 bg-gray-100 rounded-2xl flex items-center justify-center shrink-0 mb-6">
-              <LinkIcon className="w-6 h-6 text-gray-700" />
+          <section className="bg-white rounded-3xl p-6 md:p-8 mb-6 border border-gray-200 shadow-sm">
+            <div className="flex items-center gap-4 mb-4">
+              <div className="bg-white border border-gray-200 rounded-xl p-3 flex-shrink-0 flex items-center justify-center">
+                <LinkIcon className="w-6 h-6 text-gray-700" />
+              </div>
+              <h2 className="text-lg font-bold text-gray-900">5. Links Externos e Consentimento</h2>
             </div>
-            <div className="space-y-4 w-full text-center md:text-left">
-              <h2 className="text-2xl font-bold">5. Links Externos e Consentimento</h2>
-              <p className="text-gray-700 leading-relaxed">
+            <div className="text-left text-gray-600 space-y-4">
+              <p className="leading-relaxed">
                 A navegação em nosso site pode conter links para sites externos que não são conduzidos por nossa equipe. É importante ter consciência de que não possuímos controle sobre as práticas e conteúdos deles, não tendo responsabilidade sobre suas políticas de privacidade.
               </p>
-              <div className="bg-gray-50 p-6 rounded-2xl border border-gray-100 mt-4 text-left">
-                <p className="text-gray-700 leading-relaxed">
+              <div className="bg-gray-50 p-6 rounded-2xl border border-gray-100 mt-4">
+                <p className="leading-relaxed">
                   Você é totalmente livre para recusar e não fornecer suas informações pessoais. Entretanto, é importante ressaltar que essa ação pode resultar no não fornecimento do serviço solicitado. <strong>O uso contínuo de nosso site será entendido como aceitação completa das práticas deste termo de privacidade.</strong>
                 </p>
               </div>
