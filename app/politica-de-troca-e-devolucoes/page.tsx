@@ -150,20 +150,20 @@ export default function ReturnPolicy() {
                   <div className="w-6 h-6 rounded-full bg-[#F4CDD4]/30 flex items-center justify-center text-sm font-bold shrink-0">
                     1
                   </div>
-                  <span>Acesse &quot;Meus Pedidos&quot; no seu Perfil.</span>
+                  <span>Identifique o número do seu pedido e os produtos que deseja trocar ou devolver.</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <div className="w-6 h-6 rounded-full bg-[#F4CDD4]/30 flex items-center justify-center text-sm font-bold shrink-0">
                     2
                   </div>
-                  <span>Clique em &quot;Solicitar Troca/Devolução&quot;.</span>
+                  <span>Prepare fotos nítidas do lote do produto e, em caso de avaria, imagens detalhadas do dano para nossa auditoria técnica rápida.</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <div className="w-6 h-6 rounded-full bg-[#F4CDD4]/30 flex items-center justify-center text-sm font-bold shrink-0">
                     3
                   </div>
                   <span>
-                    Envie fotos do lote e da avaria para validação técnica via
+                    Envie as informações e fotos para validação técnica via
                     E-mail (
                     <a
                       href="mailto:ajuda@bubbles.com.br"
@@ -180,7 +180,7 @@ export default function ReturnPolicy() {
                     >
                       (14) 99764-6454
                     </a>
-                    ).
+                    ). Nossa equipe de Customer Experience iniciará o seu protocolo imediatamente.
                   </span>
                 </li>
               </ul>
@@ -196,34 +196,19 @@ export default function ReturnPolicy() {
               <h3 className="text-lg font-bold text-gray-900">Regras de Reembolso</h3>
             </div>
             <div className="text-left text-gray-600 space-y-4">
-              <div className="bg-white p-4 rounded-xl border border-gray-100">
-                <strong className="block text-[#0D0C0D] mb-1">
-                  Cartão de Crédito
-                </strong>
-                <span className="text-sm">
-                  Estorno em até duas faturas após conferência.
-                </span>
-              </div>
-              <div className="bg-white p-4 rounded-xl border border-gray-100">
-                <strong className="block text-[#0D0C0D] mb-1">PIX</strong>
-                <span className="text-sm">
-                  Reembolso em conta do titular em até{" "}
-                  <strong>30 dias úteis</strong> após aprovação de qualidade.
-                </span>
-              </div>
-              <p className="text-xs text-gray-500 mt-2">
-                * Alguns reembolsos dependem obrigatoriamente do retorno da
-                mercadoria ao nosso centro de distribuição. Em caso de dúvidas,{" "}
+              <p className="text-sm">
+                O processamento do reembolso é realizado de forma personalizada após a análise técnica do caso. Em situações de devolução física, o estorno será iniciado imediatamente após a chegada e conferência dos itens em nosso Centro de Distribuição (CD).
+              </p>
+              <div className="pt-2">
                 <a
-                  href="https://wa.me/5514997646454?text=Ol%C3%A1%2C%20preciso%20de%20suporte%20t%C3%A9cnico%20Bubbles"
+                  href="https://wa.me/5514997646454?text=Ol%C3%A1%21%20Gostaria%20de%20verificar%20o%20status%20do%20meu%20reembolso.%20O%20n%C3%BAmero%20do%20meu%20pedido%20%C3%A9%3A%20%5BPreencher%20Aqui%5D."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-inherit underline hover:text-[#F48FB1] transition-colors font-medium"
+                  className="inline-flex items-center justify-center bg-[#0D0C0D] text-white font-bold py-3 px-6 rounded-full hover:bg-gray-800 transition-colors text-sm"
                 >
-                  entre em contato aqui
+                  Consultar Status de Reembolso
                 </a>
-                .
-              </p>
+              </div>
             </div>
           </div>
         </section>

@@ -3,7 +3,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Star, ChevronRight, ChevronLeft, Minus, Plus, Search, Info, CheckCircle2, AlertCircle, FileText, HelpCircle, BookOpen, Droplets, ShieldCheck, RefreshCcw, TruckIcon } from 'lucide-react';
+import { Star, ChevronRight, ChevronLeft, Minus, Plus, Search, Info, CheckCircle2, AlertCircle, FileText, HelpCircle, BookOpen, Droplets, ShieldCheck, RefreshCcw, Truck } from 'lucide-react';
 
 export default function ProductPage() {
   return (
@@ -162,7 +162,7 @@ export default function ProductPage() {
                   <span className="text-[10px] font-medium text-gray-500 uppercase">Troca Fácil</span>
                 </div>
                 <div className="flex flex-col items-center gap-1">
-                  <TruckIcon className="w-6 h-6 text-[#F48FB1]" />
+                  <Truck className="w-6 h-6 text-[#F48FB1]" />
                   <span className="text-[10px] font-medium text-gray-500 uppercase">Entrega Rápida</span>
                 </div>
               </div>

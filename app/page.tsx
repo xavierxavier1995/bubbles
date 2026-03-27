@@ -1,8 +1,24 @@
 import Link from 'next/link';
-import { LayoutTemplate, FileText, ArrowRight, Sparkles, RefreshCcw, ShieldCheck, Gavel, MapPinIcon, Mail, HelpCircle } from 'lucide-react';
+import { LayoutTemplate, FileText, ArrowRight, Sparkles, RefreshCcw, ShieldCheck, Gavel, MapPinIcon, Mail, HelpCircle, Package } from 'lucide-react';
 
 export default function ProjectHub() {
   const pages = [
+    {
+      title: 'Página de Produto (Bubbles)',
+      path: '/produto-2',
+      description: 'Página de produto de alta conversão para Bubbles Pet Cosméticos.',
+      icon: Package,
+      status: 'Novo',
+      statusColor: 'bg-blue-100 text-blue-700'
+    },
+    {
+      title: 'Página de Produto',
+      path: '/produto',
+      description: 'Página de detalhes do produto recriada com foco em conversão e usabilidade.',
+      icon: Package,
+      status: 'Novo',
+      statusColor: 'bg-blue-100 text-blue-700'
+    },
     {
       title: 'Central de Ajuda e FAQ',
       path: '/faq',
@@ -72,6 +88,14 @@ export default function ProjectHub() {
       path: '/newsletter-nova',
       description: 'Nova opção de newsletter com cashback.',
       icon: Mail,
+      status: 'Novo',
+      statusColor: 'bg-blue-100 text-blue-700'
+    },
+    {
+      title: 'Design System: Degradês',
+      path: '/degrades',
+      description: 'Sugestões de fundos com gradientes suaves baseados na identidade visual da Bubbles.',
+      icon: Sparkles,
       status: 'Novo',
       statusColor: 'bg-blue-100 text-blue-700'
     },

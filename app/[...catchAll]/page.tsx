@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-export default function NotFound() {
+export default function CatchAll() {
   return (
     <div className="flex flex-col items-center justify-center min-h-[60vh] px-4 text-center">
       <h2 className="text-4xl font-bold text-[#2A2A2A] mb-4">Página não encontrada</h2>
