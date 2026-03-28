@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ShoppingCart, Star, Check, ChevronDown, ChevronUp, Plus, Minus, Menu, Search, User, RefreshCcw, Feather, Heart, Map, Shield, Droplet, Sun, Layers, Award, Scissors, Truck, Frown, X, Smile, Gift, Wind, FileText, List, Activity, HelpCircle } from 'react-feather';
+import { ShoppingCart, Star, Check, ChevronDown, ChevronUp, Plus, Minus, Menu, Search, User, RefreshCcw, Feather, Heart, Map, Shield, Droplet, Sun, Layers, Award, Scissors, Truck, Frown, X, Smile, Gift, Wind, FileText, List, Activity, HelpCircle, Maximize2, ChevronLeft, ChevronRight, VolumeX } from 'react-feather';
 
 const CashbackIcon = ({ className }: { className?: string }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
@@ -21,25 +21,20 @@ export default function Produto2() {
   const [isStickyVisible, setIsStickyVisible] = useState(false);
   const [openAccordion, setOpenAccordion] = useState<number | null>(1);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const [scrolled, setScrolled] = useState(false);
   const [quantity, setQuantity] = useState(1);
   const [cep, setCep] = useState('');
   const [shippingResult, setShippingResult] = useState<{days: number, price: string} | null>(null);
+  const [isFullscreen, setIsFullscreen] = useState(false);
   
   const addToCartRef = useRef<HTMLButtonElement>(null);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
+  const nextImage = () => {
+    setMainImage((prev) => (prev + 1) % images.length);
+  };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const prevImage = () => {
+    setMainImage((prev) => (prev - 1 + images.length) % images.length);
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -137,7 +132,7 @@ export default function Produto2() {
       </div>
 
       {/* BLOCO 2: HEADER */}
-      <header className={`sticky top-0 z-50 bg-white transition-shadow duration-300 ${scrolled ? 'shadow-md' : 'border-b border-gray-100'} h-[60px] md:h-[80px] flex items-center justify-between px-4 md:px-8`}>
+      <header className={`sticky top-0 z-50 bg-white transition-shadow duration-300 border-b border-gray-100 h-[60px] md:h-[80px] flex items-center justify-between px-4 md:px-8`}>
         <div className="flex items-center gap-4">
           <button className="md:hidden text-[var(--text-dark)]">
             <Menu className="w-6 h-6" />
@@ -195,24 +190,10 @@ export default function Produto2() {
         <section className="max-w-[1200px] mx-auto px-4 py-6 grid grid-cols-1 md:grid-cols-[55%_45%] gap-8 md:gap-12">
           
           {/* GALERIA */}
-          <div className="flex flex-col gap-4 md:sticky md:top-24 self-start">
-            <div className="relative aspect-square w-full rounded-[var(--radius-xl)] bg-gray-100 overflow-hidden flex flex-col items-center justify-center transition-opacity duration-300">
-              <Image 
-                src={images[mainImage].url} 
-                alt={images[mainImage].alt}
-                fill
-                className="object-cover"
-                referrerPolicy="no-referrer"
-              />
-              <div className="absolute top-4 left-4 bg-[var(--pink)] text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider z-10">
-                LINHA ESSENTIAL
-              </div>
-              <div className="absolute top-4 right-4 bg-[var(--green)] text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider z-10 flex items-center gap-1">
-                <Check className="w-3 h-3" strokeWidth={3} /> VEGANO
-              </div>
-            </div>
-
-            <div className="flex gap-3 overflow-x-auto scrollbar-hide pb-2">
+          <div className="flex flex-col md:flex-row gap-4 md:sticky md:top-24 self-start">
+            
+            {/* Thumbnails (Left on desktop, bottom on mobile) */}
+            <div className="order-2 md:order-1 flex md:flex-col gap-3 overflow-x-auto md:overflow-y-auto scrollbar-hide pb-2 md:pb-0 md:pr-2 md:w-24 flex-shrink-0">
               {images.map((img, idx) => (
                 <button 
                   key={idx}
@@ -228,6 +209,42 @@ export default function Produto2() {
                   />
                 </button>
               ))}
+              {/* Arrows for desktop */}
+              <div className="hidden md:flex items-center justify-center gap-4 mt-2">
+                <button onClick={prevImage} className="bg-[var(--pink)] text-white hover:bg-[var(--pink-dark)] transition-colors p-2 rounded-full shadow-sm">
+                  <ChevronLeft className="w-5 h-5" />
+                </button>
+                <button onClick={nextImage} className="bg-[var(--pink)] text-white hover:bg-[var(--pink-dark)] transition-colors p-2 rounded-full shadow-sm">
+                  <ChevronRight className="w-5 h-5" />
+                </button>
+              </div>
+            </div>
+
+            {/* Main Image (Right on desktop, top on mobile) */}
+            <div className="order-1 md:order-2 relative aspect-square w-full rounded-[var(--radius-xl)] bg-gray-100 overflow-hidden flex flex-col items-center justify-center transition-opacity duration-300 group">
+              <Image 
+                src={images[mainImage].url} 
+                alt={images[mainImage].alt}
+                fill
+                className="object-cover cursor-pointer"
+                onClick={() => setIsFullscreen(true)}
+                referrerPolicy="no-referrer"
+              />
+              
+              {/* Expand Icon */}
+              <button 
+                onClick={() => setIsFullscreen(true)}
+                className="absolute top-4 left-4 bg-white/80 backdrop-blur-sm text-black p-2 rounded-lg shadow-sm hover:bg-white hover:text-[var(--pink)] transition-colors z-10 opacity-0 group-hover:opacity-100 md:opacity-100"
+              >
+                <Maximize2 className="w-5 h-5" />
+              </button>
+
+              <div className="absolute bottom-4 left-4 bg-[var(--pink)] text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider z-10">
+                LINHA ESSENTIAL
+              </div>
+              <div className="absolute top-4 right-4 bg-[var(--green)] text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider z-10 flex items-center gap-1">
+                <Check className="w-3 h-3" strokeWidth={3} /> VEGANO
+              </div>
             </div>
           </div>
 
@@ -272,22 +289,22 @@ export default function Produto2() {
 
             <div className="mb-2 flex items-center gap-3 flex-wrap">
               <span className="text-[32px] font-[900] text-black leading-none">
-                R$ 206,90
+                R$ {(206.90 * quantity).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
               </span>
               <span className="text-[18px] text-[#888] line-through">
-                R$ 229,90
+                R$ {(229.90 * quantity).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
               </span>
               <span className="bg-[#5cb85c] text-white text-[12px] font-bold px-3 py-1 rounded-full">
                 10% de desconto
               </span>
             </div>
             <p className="text-[14px] text-black mb-2">
-              6x de R$ 34,48 sem juros
+              6x de R$ {((206.90 * quantity) / 6).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} sem juros
             </p>
             
             <div className="flex items-center gap-1 text-[14px] text-[#666] mb-6 font-medium">
               <CashbackIcon className="w-4 h-4 text-[#666]" />
-              <span>Ganhe <strong className="text-black">R$ 10,34</strong> de cashback</span>
+              <span>Ganhe <strong className="text-black">R$ {((206.90 * quantity) * 0.05).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</strong> de cashback</span>
             </div>
 
             <div className="bg-[#f5f5f5] rounded-[var(--radius-md)] p-3 mb-6 flex justify-between items-center text-center divide-x divide-gray-300">
@@ -308,29 +325,41 @@ export default function Produto2() {
             {/* QUANTITY AND ADD TO CART - SIDE BY SIDE */}
             <div className="mb-4">
               <p className="font-[700] text-[12px] mb-2 text-[var(--text-dark)]">Quantidade: <span className="text-[#888] font-normal">{quantity} no carrinho</span></p>
-              <div className="flex gap-3">
-                <div className="flex items-center border border-[#E0E0E0] rounded-[var(--radius-md)] h-[52px] bg-white w-[120px] flex-shrink-0">
+              <div className="flex flex-col gap-3">
+                <div className="flex gap-3">
+                  <div className="flex items-center border border-[#E0E0E0] rounded-[var(--radius-md)] h-[52px] bg-white w-[120px] flex-shrink-0">
+                    <button 
+                      onClick={() => setQuantity(Math.max(1, quantity - 1))}
+                      className="w-10 h-full flex items-center justify-center text-[var(--text-mid)] hover:text-[var(--pink)] transition-colors"
+                    >
+                      <Minus className="w-4 h-4" />
+                    </button>
+                    <span className="flex-1 text-center font-bold text-[16px]">{quantity}</span>
+                    <button 
+                      onClick={() => setQuantity(quantity + 1)}
+                      className="w-10 h-full flex items-center justify-center text-[var(--text-mid)] hover:text-[var(--pink)] transition-colors"
+                    >
+                      <Plus className="w-4 h-4" />
+                    </button>
+                  </div>
+
                   <button 
-                    onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                    className="w-10 h-full flex items-center justify-center text-[var(--text-mid)] hover:text-[var(--pink)] transition-colors"
+                    ref={addToCartRef}
+                    className="flex-1 h-[52px] bg-[#25D366] hover:bg-[#1DA851] text-white font-[900] text-[18px] uppercase tracking-wide rounded-[var(--radius-md)] flex items-center justify-center gap-2 transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_8px_20px_rgba(37,211,102,0.4)] active:scale-[0.98]"
                   >
-                    <Minus className="w-4 h-4" />
-                  </button>
-                  <span className="flex-1 text-center font-bold text-[16px]">{quantity}</span>
-                  <button 
-                    onClick={() => setQuantity(quantity + 1)}
-                    className="w-10 h-full flex items-center justify-center text-[var(--text-mid)] hover:text-[var(--pink)] transition-colors"
-                  >
-                    <Plus className="w-4 h-4" />
+                    Comprar
                   </button>
                 </div>
-
-                <button 
-                  ref={addToCartRef}
-                  className="flex-1 h-[52px] bg-[#25D366] hover:bg-[#1DA851] text-white font-[900] text-[18px] uppercase tracking-wide rounded-[var(--radius-md)] flex items-center justify-center gap-2 transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_8px_20px_rgba(37,211,102,0.4)] active:scale-[0.98]"
-                >
-                  Comprar
-                </button>
+                
+                {(206.90 * quantity) > 399.00 && (
+                  <div className="bg-gradient-to-r from-[var(--pink)] to-[#ff8da1] text-white p-1 md:p-3 rounded-[var(--radius-md)] flex items-center gap-1.5 md:gap-3 shadow-[0_4px_15px_rgba(244,143,161,0.4)] animate-pulse border border-[#ffb3c1]">
+                    <Gift className="w-4 h-4 md:w-6 md:h-6 flex-shrink-0" />
+                    <div className="flex-1 min-w-0">
+                      <span className="block font-bold text-[10px] sm:text-[11px] md:text-[14px] uppercase tracking-wide truncate">Brinde Grátis Desbloqueado!</span>
+                      <span className="block text-[9px] sm:text-[10px] md:text-[12px] opacity-90 leading-[1.1] whitespace-normal">Você ganhou um brinde especial (Acima de <strong className="font-black">R$399,00</strong>)</span>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
 
@@ -809,48 +838,118 @@ export default function Produto2() {
           </div>
         </section>
 
-        {/* BLOCO 10: FAQ */}
-        <section className="max-w-[800px] mx-auto px-4 py-16">
-          <h2 className="text-center text-[24px] md:text-[28px] font-[800] text-[var(--text-dark)] mb-8">
-            Perguntas frequentes
-          </h2>
-          
-          <div className="space-y-3">
-            {[
-              {
-                q: "Posso usar em filhotes?",
-                a: "Não recomendamos para filhotes com menos de 4 semanas de vida. Para filhotes entre 4 semanas e 3 meses, recomendamos consultar seu médico veterinário antes do uso."
-              },
-              {
-                q: "Funciona para gatos?",
-                a: "Sim! O Pineapple Essential é indicado para cães e gatos de todas as raças. A fórmula suave e hipoalergênica é segura para felinos, desde que não haja problemas dermatológicos ativos."
-              },
-              {
-                q: "Posso guardar o produto já diluído?",
-                a: "Não. Após a diluição, o produto deve ser usado em até 24 horas. Sempre lave o frasco diluidor antes de preparar uma nova quantidade. O produto concentrado (não diluído) tem validade normal de 24 meses."
-              },
-              {
-                q: "Qual a diferença entre a linha Essential e a linha Basiq?",
-                a: "A linha Essential combina Deoplex Clear com Extrato de Frutas Tropicais, oferecendo hidratação intensa e ação antioxidante superior. A linha Basiq usa tecnologia Sniff Tech com Booster de Espuma, com foco na limpeza profunda. Ambas são neutralizadoras de odores — a Essential tem ação hidratante premium."
-              }
-            ].map((faq, idx) => (
-              <div key={idx} className="border border-[var(--border)] rounded-[var(--radius-md)] overflow-hidden bg-white">
-                <button 
-                  onClick={() => toggleFaq(idx)}
-                  className="w-full px-6 py-4 flex items-center justify-between bg-white hover:bg-gray-50 transition-colors text-left"
+        {/* BLOCO 10.5: VIDEO CAROUSEL */}
+        <section className="py-16 px-4 overflow-hidden bg-white">
+          <div className="max-w-[1200px] mx-auto">
+            <h2 className="text-center text-[24px] md:text-[28px] font-[800] text-[var(--text-dark)] mb-10">
+              Veja nossos produtos em ação
+            </h2>
+            
+            <div className="flex overflow-x-auto gap-4 md:gap-6 pb-8 snap-x snap-mandatory scrollbar-hide -mx-4 px-4 md:mx-0 md:px-0">
+              {[
+                {
+                  id: 1,
+                  videoThumbnail: "https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=600&auto=format&fit=crop",
+                  productImage: "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=800&auto=format&fit=crop",
+                  title: "SHAMPOO PET REALÇADOR DE COR PRO (EGO) 1L (1:10)",
+                  oldPrice: "R$ 149,90",
+                  newPrice: "R$ 119,90"
+                },
+                {
+                  id: 2,
+                  videoThumbnail: "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=600&auto=format&fit=crop",
+                  productImage: "https://images.unsplash.com/photo-1586445580980-08080211283e?q=80&w=800&auto=format&fit=crop",
+                  title: "KIT PET TEXTURIZADOR PRO (EGO) (4 ITENS)",
+                  oldPrice: "R$ 518,90",
+                  newPrice: "R$ 440,90"
+                },
+                {
+                  id: 3,
+                  videoThumbnail: "https://images.unsplash.com/photo-1537151608804-ea6f1184cfe8?q=80&w=600&auto=format&fit=crop",
+                  productImage: "https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=800&auto=format&fit=crop",
+                  title: "BASIQ KIT BLUEBERRY PET [KIT 3 PRODUTOS]",
+                  oldPrice: "R$ 599,90",
+                  newPrice: "R$ 359,90",
+                  isActive: true // Para simular o card central maior
+                },
+                {
+                  id: 4,
+                  videoThumbnail: "https://images.unsplash.com/photo-1587300003388-59208cb962cb?q=80&w=600&auto=format&fit=crop",
+                  productImage: "https://images.unsplash.com/photo-1550246140-5119ae4790b8?q=80&w=800&auto=format&fit=crop",
+                  title: "SHAMPOO PET NEUTRO ESSENTIAL 5L (1:5)",
+                  oldPrice: "R$ 245,90",
+                  newPrice: "R$ 195,90"
+                },
+                {
+                  id: 5,
+                  videoThumbnail: "https://images.unsplash.com/photo-1541599540903-216a46ca1dc0?q=80&w=600&auto=format&fit=crop",
+                  productImage: "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=800&auto=format&fit=crop",
+                  title: "KIT PET COMPLETO PRO",
+                  oldPrice: "R$ 1.523,90",
+                  newPrice: "R$ 1.447,90"
+                }
+              ].map((item) => (
+                <div 
+                  key={item.id} 
+                  className={`flex-shrink-0 snap-center flex flex-col bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 transition-all duration-300 cursor-pointer hover:shadow-md ${item.isActive ? 'w-[300px] md:w-[340px] scale-[1.02] shadow-lg border-[var(--pink-light)]' : 'w-[260px] md:w-[280px] hover:scale-[1.01]'}`}
                 >
-                  <span className="font-bold text-[15px] text-[var(--text-dark)] pr-4">
-                    {faq.q}
-                  </span>
-                  {openFaq === idx ? <ChevronUp className="w-5 h-5 text-[var(--pink)] flex-shrink-0" /> : <ChevronDown className="w-5 h-5 text-[var(--text-mid)] flex-shrink-0" />}
-                </button>
-                {openFaq === idx && (
-                  <div className="px-6 pb-5 pt-1 text-[14px] text-[var(--text-mid)] leading-relaxed border-t border-gray-50">
-                    {faq.a}
+                  {/* Video Area */}
+                  <div className={`relative w-full ${item.isActive ? 'aspect-[9/16]' : 'aspect-[3/4]'} bg-gray-200 overflow-hidden`}>
+                    <Image 
+                      src={item.videoThumbnail} 
+                      alt="Video thumbnail" 
+                      fill 
+                      className="object-cover"
+                      referrerPolicy="no-referrer"
+                    />
+                    {/* Overlay gradient for better icon visibility */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-60"></div>
+                    
+                    {/* View count indicator */}
+                    <div className="absolute top-3 left-3 bg-black/40 backdrop-blur-sm text-white text-[11px] font-medium px-2 py-1 rounded-md flex items-center gap-1">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                      1.00M
+                    </div>
+
+                    {/* Mute icon */}
+                    <button className="absolute bottom-3 right-3 w-8 h-8 bg-black/40 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-black/60 transition-colors">
+                      <VolumeX className="w-4 h-4" />
+                    </button>
+                    
+                    {/* Play icon overlay if not active */}
+                    {!item.isActive && (
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="w-12 h-12 bg-white/30 backdrop-blur-sm rounded-full flex items-center justify-center text-white">
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M5 3l14 9-14 9V3z"/></svg>
+                        </div>
+                      </div>
+                    )}
                   </div>
-                )}
-              </div>
-            ))}
+
+                  {/* Product Info Area */}
+                  <div className="p-4 flex gap-3 items-center bg-white">
+                    <div className="w-12 h-12 relative flex-shrink-0 bg-gray-50 rounded-md border border-gray-100 overflow-hidden">
+                      <Image 
+                        src={item.productImage} 
+                        alt={item.title} 
+                        fill 
+                        className="object-contain p-1"
+                        referrerPolicy="no-referrer"
+                      />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-[11px] font-bold text-[var(--text-dark)] leading-tight mb-1 line-clamp-2 uppercase">
+                        {item.title}
+                      </h3>
+                      <div className="flex items-center gap-2">
+                        <span className="text-[10px] text-[var(--text-light)] line-through">{item.oldPrice}</span>
+                        <span className="text-[12px] font-black text-black">{item.newPrice}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -880,7 +979,125 @@ export default function Produto2() {
           </div>
         </section>
 
+        {/* BLOCO 12: NOSSAS LINHAS */}
+        <section className="py-16 px-4">
+          <div className="max-w-[1200px] mx-auto">
+            <h2 className="text-center text-[24px] md:text-[28px] font-[800] text-[var(--text-dark)] mb-10">
+              Conheça nossas linhas
+            </h2>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[
+                { name: 'Linha Pro', desc: 'Performance superior para profissionais exigentes.', image: 'https://www.bubbles.com.br/cdn/shop/files/logo-bubbles-pro.png?v=1756150663&width=200', color: 'bg-black', textColor: 'text-white', descColor: 'text-gray-300' },
+                { name: 'Linha Essential', desc: 'Hidratação e cuidado premium para o dia a dia.', image: 'https://www.bubbles.com.br/cdn/shop/files/logo-bubbles-essential.png?v=1756150690&width=200', color: 'bg-[#FDF0F6]', textColor: 'text-[#E6007E]', descColor: 'text-[var(--text-mid)]' },
+                { name: 'Linha Xperience', desc: 'Experiência sensorial única e resultados incríveis.', image: 'https://www.bubbles.com.br/cdn/shop/files/logo-bubbles-xperience.png?v=1756150984&width=200', color: 'bg-[#FFF8E1]', textColor: 'text-[#F57C00]', descColor: 'text-[var(--text-mid)]' },
+                { name: 'Linha Collora', desc: 'Cores vibrantes e proteção para pelagens tingidas.', image: 'https://www.bubbles.com.br/cdn/shop/files/logo-bubbles-collora.png?v=1756150931&width=200', color: 'bg-[#E3F2FD]', textColor: 'text-[#1976D2]', descColor: 'text-[var(--text-mid)]' }
+              ].map((linha, idx) => (
+                <div key={idx} className={`${linha.color} rounded-[var(--radius-lg)] p-8 text-center hover:-translate-y-2 transition-transform cursor-pointer shadow-sm flex flex-col items-center`}>
+                  <div className="h-16 mb-4 relative w-full flex justify-center items-center">
+                    <Image src={linha.image} alt={linha.name} fill className="object-contain" referrerPolicy="no-referrer" />
+                  </div>
+                  <h3 className={`text-xl font-black mb-3 ${linha.textColor}`}>{linha.name}</h3>
+                  <p className={`${linha.descColor} text-sm leading-relaxed`}>{linha.desc}</p>
+                  <button className={`mt-6 px-6 py-2 rounded-full border-2 border-current ${linha.textColor} font-bold text-sm hover:bg-white/20 transition-colors`}>
+                    Ver produtos
+                  </button>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* BLOCO 13: FAQ */}
+        <section className="bg-white max-w-[800px] mx-auto px-4 py-16">
+          <h2 className="text-center text-[24px] md:text-[28px] font-[800] text-[var(--text-dark)] mb-8">
+            Perguntas frequentes
+          </h2>
+          
+          <div className="space-y-3">
+            {[
+              {
+                q: "Posso usar em filhotes?",
+                a: "Não recomendamos para filhotes com menos de 4 semanas de vida. Para filhotes entre 4 semanas e 3 meses, recomendamos consultar seu médico veterinário antes do uso."
+              },
+              {
+                q: "Funciona para gatos?",
+                a: "Sim! O Pineapple Essential é indicado para cães e gatos de todas as raças. A fórmula suave e hipoalergênica é segura para felinos, desde que não haja problemas dermatológicos ativos."
+              },
+              {
+                q: "Posso guardar o produto já diluído?",
+                a: "Não. Após a diluição, o produto deve ser usado em até 24 horas. Sempre lave o frasco diluidor antes de preparar uma nova quantidade. O produto concentrado (não diluído) tem validade normal de 24 meses."
+              },
+              {
+                q: "Qual a diferença entre a linha Essential e a linha Basiq?",
+                a: "A linha Essential combina Deoplex Clear com Extrato de Frutas Tropicais, oferecendo hidratação intensa e ação antioxidante superior. A linha Basiq usa tecnologia Sniff Tech com Booster de Espuma, com foco na limpeza profunda. Ambas são neutralizadoras de odores — a Essential tem ação hidratante premium."
+              },
+              {
+                q: "Qual a validade do produto?",
+                a: "O produto tem validade de 24 meses a partir da data de fabricação impressa na embalagem, desde que conservado em local fresco e ao abrigo da luz."
+              },
+              {
+                q: "Os produtos são testados em animais?",
+                a: "Não! Somos uma marca 100% cruelty-free. Nossos produtos não são testados em animais em nenhuma etapa da produção."
+              }
+            ].map((faq, idx) => (
+              <div key={idx} className="border border-[var(--border)] rounded-[var(--radius-md)] overflow-hidden bg-white">
+                <button 
+                  onClick={() => toggleFaq(idx)}
+                  className="w-full px-6 py-4 flex items-center justify-between bg-white hover:bg-gray-50 transition-colors text-left"
+                >
+                  <span className="font-bold text-[15px] text-[var(--text-dark)] pr-4">
+                    {faq.q}
+                  </span>
+                  {openFaq === idx ? <ChevronUp className="w-5 h-5 text-[var(--pink)] flex-shrink-0" /> : <ChevronDown className="w-5 h-5 text-[var(--text-mid)] flex-shrink-0" />}
+                </button>
+                {openFaq === idx && (
+                  <div className="px-6 pb-5 pt-1 text-[14px] text-[var(--text-mid)] leading-relaxed border-t border-gray-50">
+                    {faq.a}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </section>
+
       </div>
+
+      {/* FULLSCREEN MODAL */}
+      {isFullscreen && (
+        <div className="fixed inset-0 z-[1000] bg-black/95 flex items-center justify-center backdrop-blur-sm" onClick={() => setIsFullscreen(false)}>
+          <button 
+            onClick={(e) => { e.stopPropagation(); setIsFullscreen(false); }}
+            className="absolute top-6 right-6 text-white/70 hover:text-white transition-colors bg-black/50 p-2 rounded-full z-50"
+          >
+            <X className="w-8 h-8" />
+          </button>
+          
+          <button 
+            onClick={(e) => { e.stopPropagation(); prevImage(); }}
+            className="absolute left-4 md:left-10 text-white/70 hover:text-[var(--pink)] transition-colors bg-black/50 p-3 rounded-full z-50"
+          >
+            <ChevronLeft className="w-8 h-8" />
+          </button>
+
+          <div className="relative w-full max-w-5xl h-[60vh] md:h-[85vh] flex items-center justify-center" onClick={(e) => e.stopPropagation()}>
+            <Image 
+              src={images[mainImage].url} 
+              alt={images[mainImage].alt}
+              fill
+              className="object-contain"
+              referrerPolicy="no-referrer"
+            />
+          </div>
+
+          <button 
+            onClick={(e) => { e.stopPropagation(); nextImage(); }}
+            className="absolute right-4 md:right-10 text-white/70 hover:text-[var(--pink)] transition-colors bg-black/50 p-3 rounded-full z-50"
+          >
+            <ChevronRight className="w-8 h-8" />
+          </button>
+        </div>
+      )}
 
       {/* BLOCO 12: STICKY ADD TO CART */}
       <div 
@@ -898,7 +1115,7 @@ export default function Produto2() {
             </div>
           </div>
         </div>
-        <button className="bg-[#25D366] hover:bg-[#1DA851] text-white font-[900] uppercase tracking-wide text-[14px] md:text-[16px] py-2 md:py-3 px-6 md:px-8 rounded-[var(--radius-md)] flex items-center gap-2 transition-all hover:scale-[1.02] active:scale-[0.98]">
+        <button className="bg-[#25D366] hover:bg-[#1DA851] text-white font-[900] uppercase tracking-wide text-[14px] md:text-[16px] py-2 md:py-3 px-6 md:px-8 rounded-[var(--radius-md)] flex items-center gap-2 transition-all hover:scale-[1.05] active:scale-[0.98] animate-[pulse_1.5s_ease-in-out_infinite] shadow-[0_0_20px_rgba(37,211,102,0.8)]">
           <ShoppingCart className="w-4 h-4 md:w-5 md:h-5" />
           <span className="hidden md:inline">Comprar agora</span>
           <span className="md:hidden">Comprar</span>

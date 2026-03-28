@@ -1,8 +1,16 @@
 import Link from 'next/link';
-import { LayoutTemplate, FileText, ArrowRight, Sparkles, RefreshCcw, ShieldCheck, Gavel, MapPinIcon, Mail, HelpCircle, Package, Truck } from 'lucide-react';
+import { LayoutTemplate, FileText, ArrowRight, Sparkles, RefreshCcw, ShieldCheck, Gavel, MapPinIcon, Mail, HelpCircle, Package, Truck, AlertCircle } from 'lucide-react';
 
 export default function ProjectHub() {
   const pages = [
+    {
+      title: 'Página 404',
+      path: '/pagina-nao-encontrada-teste',
+      description: 'Página de erro 404 personalizada com a temática da Bubbles Pet.',
+      icon: AlertCircle,
+      status: 'Novo',
+      statusColor: 'bg-blue-100 text-blue-700'
+    },
     {
       title: 'Página de Produto (Bubbles)',
       path: '/produto-2',
