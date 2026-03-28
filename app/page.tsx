@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { LayoutTemplate, FileText, ArrowRight, Sparkles, RefreshCcw, ShieldCheck, Gavel, MapPinIcon, Mail, HelpCircle, Package } from 'lucide-react';
+import { LayoutTemplate, FileText, ArrowRight, Sparkles, RefreshCcw, ShieldCheck, Gavel, MapPinIcon, Mail, HelpCircle, Package, Truck } from 'lucide-react';
 
 export default function ProjectHub() {
   const pages = [
@@ -31,7 +31,7 @@ export default function ProjectHub() {
       title: 'Política de Entrega e Frete',
       path: '/politica-de-frete-e-entrega',
       description: 'Página de regras de frete, prazos e rastreamento.',
-      icon: TruckIcon,
+      icon: Truck,
       status: 'Concluído',
       statusColor: 'bg-green-100 text-green-700'
     },

@@ -83,115 +83,17 @@ export default function DegradesPage() {
             Design System: Degradês & FAQs
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl">
-            Sugestões de fundos com gradientes suaves baseados na identidade visual da Bubbles. Cada exemplo abaixo demonstra como a seção de FAQ se comportaria na prática com o respectivo fundo.
+            Sugestões de fundos com gradientes baseados nas cores #F48FA1 e #F4CDD4. Cada exemplo abaixo demonstra como a seção de FAQ se comportaria na prática com o respectivo fundo.
           </p>
         </header>
 
         <div className="space-y-24">
           
-          {/* Degradê 1 */}
+          {/* Degradê 01 */}
           <section>
             <div className="mb-4">
-              <h2 className="text-2xl font-bold">1. Degradê FAQ (Inspirado na Referência)</h2>
-              <div className="inline-block mt-2 bg-gray-100 px-3 py-1 rounded-md">
-                <code className="text-sm font-mono text-gray-800">bg-gradient-to-br from-pink-100 via-blue-50 to-purple-100</code>
-              </div>
-            </div>
-            <div className="relative w-full rounded-3xl border border-gray-100 shadow-sm overflow-hidden bg-gradient-to-br from-pink-100 via-blue-50 to-purple-100">
-              <FaqSection />
-            </div>
-          </section>
-
-          {/* Degradê 2 */}
-          <section>
-            <div className="mb-4">
-              <h2 className="text-2xl font-bold">2. Brisa Suave (Horizontal)</h2>
-              <div className="inline-block mt-2 bg-gray-100 px-3 py-1 rounded-md">
-                <code className="text-sm font-mono text-gray-800">bg-gradient-to-r from-sky-50 via-indigo-50 to-pink-50</code>
-              </div>
-            </div>
-            <div className="relative w-full rounded-3xl border border-gray-100 shadow-sm overflow-hidden bg-gradient-to-r from-sky-50 via-indigo-50 to-pink-50">
-              <FaqSection />
-            </div>
-          </section>
-
-          {/* Degradê 3 */}
-          <section>
-            <div className="mb-4">
-              <h2 className="text-2xl font-bold">3. Aurora Boreal (Radial)</h2>
-              <div className="inline-block mt-2 bg-gray-100 px-3 py-1 rounded-md">
-                <code className="text-sm font-mono text-gray-800">bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-pink-50 via-white to-blue-50</code>
-              </div>
-            </div>
-            <div className="relative w-full rounded-3xl border border-gray-100 shadow-sm overflow-hidden bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-pink-50 via-white to-blue-50">
-              <FaqSection />
-            </div>
-          </section>
-
-          {/* Degradê 4 */}
-          <section>
-            <div className="mb-4">
-              <h2 className="text-2xl font-bold">4. Algodão Doce (Diagonal Invertida)</h2>
-              <div className="inline-block mt-2 bg-gray-100 px-3 py-1 rounded-md">
-                <code className="text-sm font-mono text-gray-800">bg-gradient-to-tr from-fuchsia-100 via-pink-50 to-sky-100</code>
-              </div>
-            </div>
-            <div className="relative w-full rounded-3xl border border-gray-100 shadow-sm overflow-hidden bg-gradient-to-tr from-fuchsia-100 via-pink-50 to-sky-100">
-              <FaqSection />
-            </div>
-          </section>
-
-          {/* Degradê 5 */}
-          <section>
-            <div className="mb-4">
-              <h2 className="text-2xl font-bold">5. Mesh Gradient (Complexo)</h2>
-              <div className="inline-block mt-2 bg-gray-100 px-3 py-1 rounded-md">
-                <code className="text-sm font-mono text-gray-800">Feito com divs absolutas + blur-3xl</code>
-              </div>
-            </div>
-            <div className="relative w-full rounded-3xl border border-gray-100 shadow-sm overflow-hidden bg-white">
-              <div className="absolute top-0 left-0 w-full h-full overflow-hidden rounded-3xl">
-                <div className="absolute -top-[20%] -left-[10%] w-[70%] h-[70%] rounded-full bg-pink-200/40 blur-3xl mix-blend-multiply"></div>
-                <div className="absolute top-[10%] -right-[10%] w-[60%] h-[60%] rounded-full bg-blue-200/40 blur-3xl mix-blend-multiply"></div>
-                <div className="absolute -bottom-[20%] left-[20%] w-[80%] h-[80%] rounded-full bg-purple-200/40 blur-3xl mix-blend-multiply"></div>
-              </div>
-              <FaqSection />
-            </div>
-          </section>
-
-          {/* Degradê 6 - Novas Cores */}
-          <section>
-            <div className="mb-4">
-              <h2 className="text-2xl font-bold">6. Rosé Vibrante (Linear Vertical)</h2>
-              <p className="text-gray-600">Utilizando as novas cores solicitadas: #F48FA1 e #F4CDD4</p>
-              <div className="inline-block mt-2 bg-gray-100 px-3 py-1 rounded-md">
-                <code className="text-sm font-mono text-gray-800">bg-gradient-to-b from-[#F48FA1] to-[#F4CDD4]</code>
-              </div>
-            </div>
-            <div className="relative w-full rounded-3xl border border-gray-100 shadow-sm overflow-hidden bg-gradient-to-b from-[#F48FA1] to-[#F4CDD4]">
-              <FaqSection />
-            </div>
-          </section>
-
-          {/* Degradê 7 - Novas Cores */}
-          <section>
-            <div className="mb-4">
-              <h2 className="text-2xl font-bold">7. Rosé Suave (Linear Diagonal)</h2>
-              <p className="text-gray-600">Utilizando as novas cores solicitadas: #F4CDD4 e #F48FA1</p>
-              <div className="inline-block mt-2 bg-gray-100 px-3 py-1 rounded-md">
-                <code className="text-sm font-mono text-gray-800">bg-gradient-to-br from-[#F4CDD4] to-[#F48FA1]</code>
-              </div>
-            </div>
-            <div className="relative w-full rounded-3xl border border-gray-100 shadow-sm overflow-hidden bg-gradient-to-br from-[#F4CDD4] to-[#F48FA1]">
-              <FaqSection />
-            </div>
-          </section>
-
-          {/* Degradê 8 - Novas Cores */}
-          <section>
-            <div className="mb-4">
-              <h2 className="text-2xl font-bold">8. Rosé Iluminado (Radial)</h2>
-              <p className="text-gray-600">Radial com centro claro, expandindo para as novas cores solicitadas.</p>
+              <h2 className="text-2xl font-bold">01. Rosé Iluminado (Radial)</h2>
+              <p className="text-gray-600">Radial com centro claro, expandindo para as cores solicitadas.</p>
               <div className="inline-block mt-2 bg-gray-100 px-3 py-1 rounded-md">
                 <code className="text-sm font-mono text-gray-800">bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-white via-[#F4CDD4] to-[#F48FA1]</code>
               </div>
@@ -201,11 +103,11 @@ export default function DegradesPage() {
             </div>
           </section>
 
-          {/* Degradê 9 - Novas Cores */}
+          {/* Degradê 02 */}
           <section>
             <div className="mb-4">
-              <h2 className="text-2xl font-bold">9. Rosé Mesh Gradient (Complexo)</h2>
-              <p className="text-gray-600">Mesh gradient utilizando as novas cores solicitadas e branco.</p>
+              <h2 className="text-2xl font-bold">02. Rosé Mesh Gradient (Complexo)</h2>
+              <p className="text-gray-600">Mesh gradient utilizando as cores solicitadas e branco.</p>
               <div className="inline-block mt-2 bg-gray-100 px-3 py-1 rounded-md">
                 <code className="text-sm font-mono text-gray-800">Feito com divs absolutas + blur-3xl com #F48FA1 e #F4CDD4</code>
               </div>
@@ -216,6 +118,76 @@ export default function DegradesPage() {
                 <div className="absolute top-[10%] -right-[10%] w-[60%] h-[60%] rounded-full bg-[#F4CDD4]/60 blur-3xl mix-blend-multiply"></div>
                 <div className="absolute -bottom-[20%] left-[20%] w-[80%] h-[80%] rounded-full bg-[#F48FA1]/30 blur-3xl mix-blend-multiply"></div>
               </div>
+              <FaqSection />
+            </div>
+          </section>
+
+          {/* Degradê 03 */}
+          <section>
+            <div className="mb-4">
+              <h2 className="text-2xl font-bold">03. Rosé Horizontal (Linear)</h2>
+              <p className="text-gray-600">Transição horizontal suave entre as duas cores.</p>
+              <div className="inline-block mt-2 bg-gray-100 px-3 py-1 rounded-md">
+                <code className="text-sm font-mono text-gray-800">bg-gradient-to-r from-[#F48FA1] to-[#F4CDD4]</code>
+              </div>
+            </div>
+            <div className="relative w-full rounded-3xl border border-gray-100 shadow-sm overflow-hidden bg-gradient-to-r from-[#F48FA1] to-[#F4CDD4]">
+              <FaqSection />
+            </div>
+          </section>
+
+          {/* Degradê 04 */}
+          <section>
+            <div className="mb-4">
+              <h2 className="text-2xl font-bold">04. Rosé Diagonal Invertida (Linear)</h2>
+              <p className="text-gray-600">Transição do canto inferior esquerdo para o superior direito.</p>
+              <div className="inline-block mt-2 bg-gray-100 px-3 py-1 rounded-md">
+                <code className="text-sm font-mono text-gray-800">bg-gradient-to-tr from-[#F4CDD4] to-[#F48FA1]</code>
+              </div>
+            </div>
+            <div className="relative w-full rounded-3xl border border-gray-100 shadow-sm overflow-hidden bg-gradient-to-tr from-[#F4CDD4] to-[#F48FA1]">
+              <FaqSection />
+            </div>
+          </section>
+
+          {/* Degradê 05 */}
+          <section>
+            <div className="mb-4">
+              <h2 className="text-2xl font-bold">05. Rosé Conic (Cônico)</h2>
+              <p className="text-gray-600">Gradiente cônico partindo do centro superior, criando um efeito de luz.</p>
+              <div className="inline-block mt-2 bg-gray-100 px-3 py-1 rounded-md">
+                <code className="text-sm font-mono text-gray-800">bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] from-white via-[#F4CDD4] to-[#F48FA1]</code>
+              </div>
+            </div>
+            <div className="relative w-full rounded-3xl border border-gray-100 shadow-sm overflow-hidden bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] from-white via-[#F4CDD4] to-[#F48FA1]">
+              <FaqSection />
+            </div>
+          </section>
+
+          {/* Degradê 06 */}
+          <section>
+            <div className="mb-4">
+              <h2 className="text-2xl font-bold">06. Rosé Soft Blend (Mistura Suave)</h2>
+              <p className="text-gray-600">Mistura bem suave com branco no meio para dar respiro ao conteúdo.</p>
+              <div className="inline-block mt-2 bg-gray-100 px-3 py-1 rounded-md">
+                <code className="text-sm font-mono text-gray-800">bg-gradient-to-br from-[#F48FA1] via-white to-[#F4CDD4]</code>
+              </div>
+            </div>
+            <div className="relative w-full rounded-3xl border border-gray-100 shadow-sm overflow-hidden bg-gradient-to-br from-[#F48FA1] via-white to-[#F4CDD4]">
+              <FaqSection />
+            </div>
+          </section>
+
+          {/* Degradê 07 */}
+          <section>
+            <div className="mb-4">
+              <h2 className="text-2xl font-bold">07. Rosé Triplo (Três Paradas)</h2>
+              <p className="text-gray-600">Gradiente linear com três paradas de cor, alternando entre os tons.</p>
+              <div className="inline-block mt-2 bg-gray-100 px-3 py-1 rounded-md">
+                <code className="text-sm font-mono text-gray-800">bg-gradient-to-b from-[#F4CDD4] via-[#F48FA1] to-[#F4CDD4]</code>
+              </div>
+            </div>
+            <div className="relative w-full rounded-3xl border border-gray-100 shadow-sm overflow-hidden bg-gradient-to-b from-[#F4CDD4] via-[#F48FA1] to-[#F4CDD4]">
               <FaqSection />
             </div>
           </section>

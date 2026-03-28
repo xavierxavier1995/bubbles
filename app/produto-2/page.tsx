@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ShoppingCart, Star, Check, ChevronDown, ChevronUp, Plus, Minus, Menu, Search, User, RefreshCcw, Leaf, Heart, Map } from 'lucide-react';
+import { ShoppingCart, Star, Check, ChevronDown, ChevronUp, Plus, Minus, Menu, Search, User, RefreshCcw, Feather, Heart, Map, Shield, Droplet, Sun, Layers, Award, Scissors, Truck, Frown, X, Smile, Gift, Wind, FileText, List, Activity, HelpCircle } from 'react-feather';
 
 const CashbackIcon = ({ className }: { className?: string }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
@@ -124,15 +124,15 @@ export default function Produto2() {
       {/* BLOCO 1: TOP BANNER (ROTATING) */}
       <div className="bg-[#EAD1D6] text-[#333] text-[11px] font-[700] py-2 overflow-hidden flex items-center">
         <div className="animate-marquee whitespace-nowrap flex items-center">
-           <span className="mx-6 flex items-center gap-2">🐰 100% VEGANOS E CRUELTY FREE</span>
-           <span className="mx-6 flex items-center gap-2">🏆 A MARCA FAVORITA DOS MELHORES GROOMERS</span>
-           <span className="mx-6 flex items-center gap-2">✂️ GANHE 10% OFF <span className="bg-white/60 px-2 py-0.5 rounded-full text-[10px]">PRIMEIRA10 Copiar</span></span>
-           <span className="mx-6 flex items-center gap-2">🚚 FRETE GRÁTIS POR REGIÃO</span>
+           <span className="mx-6 flex items-center gap-2"><Heart className="w-4 h-4" /> 100% VEGANOS E CRUELTY FREE</span>
+           <span className="mx-6 flex items-center gap-2"><Award className="w-4 h-4" /> A MARCA FAVORITA DOS MELHORES GROOMERS</span>
+           <span className="mx-6 flex items-center gap-2"><Scissors className="w-4 h-4" /> GANHE 10% OFF <span className="bg-white/60 px-2 py-0.5 rounded-full text-[10px]">PRIMEIRA10 Copiar</span></span>
+           <span className="mx-6 flex items-center gap-2"><Truck className="w-4 h-4" /> FRETE GRÁTIS POR REGIÃO</span>
            {/* Repeat for infinite effect */}
-           <span className="mx-6 flex items-center gap-2">🐰 100% VEGANOS E CRUELTY FREE</span>
-           <span className="mx-6 flex items-center gap-2">🏆 A MARCA FAVORITA DOS MELHORES GROOMERS</span>
-           <span className="mx-6 flex items-center gap-2">✂️ GANHE 10% OFF <span className="bg-white/60 px-2 py-0.5 rounded-full text-[10px]">PRIMEIRA10 Copiar</span></span>
-           <span className="mx-6 flex items-center gap-2">🚚 FRETE GRÁTIS POR REGIÃO</span>
+           <span className="mx-6 flex items-center gap-2"><Heart className="w-4 h-4" /> 100% VEGANOS E CRUELTY FREE</span>
+           <span className="mx-6 flex items-center gap-2"><Award className="w-4 h-4" /> A MARCA FAVORITA DOS MELHORES GROOMERS</span>
+           <span className="mx-6 flex items-center gap-2"><Scissors className="w-4 h-4" /> GANHE 10% OFF <span className="bg-white/60 px-2 py-0.5 rounded-full text-[10px]">PRIMEIRA10 Copiar</span></span>
+           <span className="mx-6 flex items-center gap-2"><Truck className="w-4 h-4" /> FRETE GRÁTIS POR REGIÃO</span>
         </div>
       </div>
 
@@ -207,8 +207,8 @@ export default function Produto2() {
               <div className="absolute top-4 left-4 bg-[var(--pink)] text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider z-10">
                 LINHA ESSENTIAL
               </div>
-              <div className="absolute top-4 right-4 bg-[var(--green)] text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider z-10">
-                ✅ VEGANO
+              <div className="absolute top-4 right-4 bg-[var(--green)] text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider z-10 flex items-center gap-1">
+                <Check className="w-3 h-3" strokeWidth={3} /> VEGANO
               </div>
             </div>
 
@@ -233,6 +233,10 @@ export default function Produto2() {
 
           {/* BUY BOX */}
           <div className="flex flex-col">
+            <span className="text-[var(--pink)] text-[11px] font-bold uppercase tracking-[2px] mb-2 block">
+              LINHA ESSENTIAL · NEUTRALIZADOR DE ODORES
+            </span>
+
             <div className="mb-4">
               <h3 className="text-[14px] font-[800] text-black mb-3">Veja mais sobre o produto</h3>
               <div className="flex gap-3">
@@ -247,10 +251,6 @@ export default function Produto2() {
                 </div>
               </div>
             </div>
-
-            <span className="text-[var(--pink)] text-[11px] font-bold uppercase tracking-[2px] mb-2 block">
-              LINHA ESSENTIAL · NEUTRALIZADOR DE ODORES
-            </span>
 
             <h1 className="text-[20px] md:text-[26px] font-[800] text-[var(--text-dark)] leading-[1.2] mb-2">
               SHAMPOO PET NEUTRALIZADOR PINEAPPLE ESSENTIAL 5L (1:5)
@@ -337,7 +337,7 @@ export default function Produto2() {
             {/* SHIPPING CALCULATOR */}
             <div className="bg-gray-50 border border-[var(--border)] rounded-[var(--radius-md)] p-4 mb-4">
               <h4 className="text-[13px] font-[700] text-[var(--text-dark)] mb-2 flex items-center gap-2">
-                🚚 Calcular frete e prazo
+                <Truck className="w-4 h-4" /> Calcular frete e prazo
               </h4>
               <form onSubmit={handleCalculateShipping} className="flex gap-2">
                 <input 
@@ -371,7 +371,7 @@ export default function Produto2() {
             <div className="flex justify-between items-center pt-6 border-t border-[var(--border)] gap-2">
               {[
                 { id: 'premium', text: 'linha premium', icon: Star },
-                { id: 'veganos', text: '100% veganos', icon: Leaf },
+                { id: 'veganos', text: '100% veganos', icon: Feather },
                 { id: 'cruelty', text: 'cruelty free', icon: Heart },
                 { id: 'nacional', text: '100% nacional', icon: Map },
               ].map((emblem) => (
@@ -402,28 +402,28 @@ export default function Produto2() {
             </h2>
             
             <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-              <div className="bg-white rounded-[var(--radius-md)] p-4 text-center hover:scale-[1.03] hover:shadow-md transition-all">
-                <div className="text-3xl mb-2">🚫</div>
+              <div className="bg-white rounded-[var(--radius-md)] p-4 text-center hover:scale-[1.03] hover:shadow-md transition-all flex flex-col items-center">
+                <Shield className="w-8 h-8 mb-3 text-[var(--pink)]" strokeWidth={1.5} />
                 <h3 className="font-bold text-[13px] text-[var(--text-dark)] mb-1">Elimina odores</h3>
                 <p className="text-[11px] text-[var(--text-mid)]">Sem mascarar, neutraliza na raiz</p>
               </div>
-              <div className="bg-white rounded-[var(--radius-md)] p-4 text-center hover:scale-[1.03] hover:shadow-md transition-all">
-                <div className="text-3xl mb-2">💧</div>
+              <div className="bg-white rounded-[var(--radius-md)] p-4 text-center hover:scale-[1.03] hover:shadow-md transition-all flex flex-col items-center">
+                <Droplet className="w-8 h-8 mb-3 text-[var(--pink)]" strokeWidth={1.5} />
                 <h3 className="font-bold text-[13px] text-[var(--text-dark)] mb-1">Hidratação intensa</h3>
                 <p className="text-[11px] text-[var(--text-mid)]">Deoplex Clear + antioxidantes</p>
               </div>
-              <div className="bg-white rounded-[var(--radius-md)] p-4 text-center hover:scale-[1.03] hover:shadow-md transition-all">
-                <div className="text-3xl mb-2">✨</div>
+              <div className="bg-white rounded-[var(--radius-md)] p-4 text-center hover:scale-[1.03] hover:shadow-md transition-all flex flex-col items-center">
+                <Star className="w-8 h-8 mb-3 text-[var(--pink)]" strokeWidth={1.5} />
                 <h3 className="font-bold text-[13px] text-[var(--text-dark)] mb-1">Brilho e maciez</h3>
                 <p className="text-[11px] text-[var(--text-mid)]">Pelo sedoso desde a 1ª lavagem</p>
               </div>
-              <div className="bg-white rounded-[var(--radius-md)] p-4 text-center hover:scale-[1.03] hover:shadow-md transition-all">
-                <div className="text-3xl mb-2">🍍</div>
+              <div className="bg-white rounded-[var(--radius-md)] p-4 text-center hover:scale-[1.03] hover:shadow-md transition-all flex flex-col items-center">
+                <Sun className="w-8 h-8 mb-3 text-[var(--pink)]" strokeWidth={1.5} />
                 <h3 className="font-bold text-[13px] text-[var(--text-dark)] mb-1">Extrato tropical</h3>
                 <p className="text-[11px] text-[var(--text-mid)]">Ação antioxidante natural</p>
               </div>
-              <div className="bg-white rounded-[var(--radius-md)] p-4 text-center hover:scale-[1.03] hover:shadow-md transition-all col-span-2 md:col-span-1">
-                <div className="text-3xl mb-2">📏</div>
+              <div className="bg-white rounded-[var(--radius-md)] p-4 text-center hover:scale-[1.03] hover:shadow-md transition-all col-span-2 md:col-span-1 flex flex-col items-center">
+                <Layers className="w-8 h-8 mb-3 text-[var(--pink)]" strokeWidth={1.5} />
                 <h3 className="font-bold text-[13px] text-[var(--text-dark)] mb-1">Diluição 1:5</h3>
                 <p className="text-[11px] text-[var(--text-mid)]">5L viram 30L prontos</p>
               </div>
@@ -446,7 +446,7 @@ export default function Produto2() {
                 className="w-full px-6 py-4 flex items-center justify-between bg-white hover:bg-gray-50 transition-colors"
               >
                 <span className="font-bold text-[15px] text-[var(--text-dark)] flex items-center gap-2">
-                  📝 Descrição
+                  <FileText className="w-4 h-4 text-[var(--pink)]" /> Descrição
                 </span>
                 {openAccordion === 1 ? <ChevronUp className="w-5 h-5 text-[var(--text-mid)]" /> : <ChevronDown className="w-5 h-5 text-[var(--text-mid)]" />}
               </button>
@@ -467,7 +467,7 @@ export default function Produto2() {
                 className="w-full px-6 py-4 flex items-center justify-between bg-white hover:bg-gray-50 transition-colors"
               >
                 <span className="font-bold text-[15px] text-[var(--text-dark)] flex items-center gap-2">
-                  ✨ Benefícios
+                  <Star className="w-4 h-4 text-[var(--pink)]" /> Benefícios
                 </span>
                 {openAccordion === 2 ? <ChevronUp className="w-5 h-5 text-[var(--text-mid)]" /> : <ChevronDown className="w-5 h-5 text-[var(--text-mid)]" />}
               </button>
@@ -493,7 +493,7 @@ export default function Produto2() {
                 className="w-full px-6 py-4 flex items-center justify-between bg-white hover:bg-gray-50 transition-colors"
               >
                 <span className="font-bold text-[15px] text-[var(--text-dark)] flex items-center gap-2">
-                  📋 Modo de uso
+                  <List className="w-4 h-4 text-[var(--pink)]" /> Modo de uso
                 </span>
                 {openAccordion === 3 ? <ChevronUp className="w-5 h-5 text-[var(--text-mid)]" /> : <ChevronDown className="w-5 h-5 text-[var(--text-mid)]" />}
               </button>
@@ -511,7 +511,7 @@ export default function Produto2() {
                 className="w-full px-6 py-4 flex items-center justify-between bg-white hover:bg-gray-50 transition-colors"
               >
                 <span className="font-bold text-[15px] text-[var(--text-dark)] flex items-center gap-2">
-                  🧪 Composição
+                  <Activity className="w-4 h-4 text-[var(--pink)]" /> Composição
                 </span>
                 {openAccordion === 4 ? <ChevronUp className="w-5 h-5 text-[var(--text-mid)]" /> : <ChevronDown className="w-5 h-5 text-[var(--text-mid)]" />}
               </button>
@@ -529,7 +529,7 @@ export default function Produto2() {
                 className="w-full px-6 py-4 flex items-center justify-between bg-white hover:bg-gray-50 transition-colors"
               >
                 <span className="font-bold text-[15px] text-[var(--text-dark)] flex items-center gap-2">
-                  ❓ Dúvidas Frequentes
+                  <HelpCircle className="w-4 h-4 text-[var(--pink)]" /> Dúvidas Frequentes
                 </span>
                 {openAccordion === 5 ? <ChevronUp className="w-5 h-5 text-[var(--text-mid)]" /> : <ChevronDown className="w-5 h-5 text-[var(--text-mid)]" />}
               </button>
@@ -582,24 +582,24 @@ export default function Produto2() {
               {/* Sem o produto */}
               <div className="bg-[#FFEBEE] border border-[#FFCDD2] rounded-[var(--radius-lg)] p-8">
                 <div className="flex items-center gap-3 mb-6">
-                  <span className="text-3xl">😟</span>
+                  <Frown className="w-8 h-8 text-[#C62828]" strokeWidth={1.5} />
                   <h3 className="text-[#C62828] font-[800] text-[16px] tracking-wide">SEM O PRODUTO</h3>
                 </div>
                 <ul className="space-y-4">
                   <li className="flex items-start gap-3">
-                    <span className="text-red-500 font-bold mt-0.5">❌</span>
+                    <X className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" strokeWidth={2.5} />
                     <span className="text-[#B71C1C] text-[15px]">Odor volta em poucas horas</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="text-red-500 font-bold mt-0.5">❌</span>
+                    <X className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" strokeWidth={2.5} />
                     <span className="text-[#B71C1C] text-[15px]">Pelo ressecado e sem brilho</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="text-red-500 font-bold mt-0.5">❌</span>
+                    <X className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" strokeWidth={2.5} />
                     <span className="text-[#B71C1C] text-[15px]">Shampoo comum mascara, não elimina</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="text-red-500 font-bold mt-0.5">❌</span>
+                    <X className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" strokeWidth={2.5} />
                     <span className="text-[#B71C1C] text-[15px]">Baixo rendimento = custo alto</span>
                   </li>
                 </ul>
@@ -608,24 +608,24 @@ export default function Produto2() {
               {/* Com o produto */}
               <div className="bg-[#E8F5E9] border border-[#C8E6C9] rounded-[var(--radius-lg)] p-8">
                 <div className="flex items-center gap-3 mb-6">
-                  <span className="text-3xl">🐶✨</span>
+                  <Smile className="w-8 h-8 text-[#2E7D32]" strokeWidth={1.5} />
                   <h3 className="text-[#2E7D32] font-[800] text-[16px] tracking-wide">COM PINEAPPLE ESSENTIAL</h3>
                 </div>
                 <ul className="space-y-4">
                   <li className="flex items-start gap-3">
-                    <span className="text-green-600 font-bold mt-0.5">✅</span>
+                    <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" strokeWidth={2.5} />
                     <span className="text-[#1B5E20] text-[15px] font-medium">Odor neutralizado na raiz</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="text-green-600 font-bold mt-0.5">✅</span>
+                    <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" strokeWidth={2.5} />
                     <span className="text-[#1B5E20] text-[15px] font-medium">Pelo macio, brilhante e hidratado</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="text-green-600 font-bold mt-0.5">✅</span>
+                    <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" strokeWidth={2.5} />
                     <span className="text-[#1B5E20] text-[15px] font-medium">Tecnologia Deoplex Clear comprovada</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="text-green-600 font-bold mt-0.5">✅</span>
+                    <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" strokeWidth={2.5} />
                     <span className="text-[#1B5E20] text-[15px] font-medium">30L prontos com apenas 5L concentrado</span>
                   </li>
                 </ul>
@@ -639,8 +639,8 @@ export default function Produto2() {
         <section className="max-w-[1000px] mx-auto px-4 py-16">
           <div className="bg-[var(--yellow-light)] border-2 border-dashed border-[var(--amber)] rounded-[var(--radius-lg)] p-6 md:p-10">
             <div className="text-center mb-8">
-              <h2 className="text-[24px] md:text-[28px] font-[800] text-[var(--text-dark)] mb-2">
-                🎁 Kit Neutralizador Completo
+              <h2 className="text-[24px] md:text-[28px] font-[800] text-[var(--text-dark)] mb-2 flex items-center justify-center gap-3">
+                <Gift className="w-8 h-8 text-[var(--orange)]" /> Kit Neutralizador Completo
               </h2>
               <p className="text-[15px] text-[var(--text-mid)]">
                 O combo favorito dos groomers profissionais
@@ -649,19 +649,25 @@ export default function Produto2() {
 
             <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 mb-8">
               <div className="flex flex-col items-center text-center w-full md:w-1/3">
-                <div className="w-24 h-24 bg-white rounded-xl shadow-sm flex items-center justify-center text-4xl mb-3">🍍</div>
+                <div className="w-24 h-24 bg-white rounded-xl shadow-sm flex items-center justify-center mb-3 text-[var(--pink)]">
+                  <Sun className="w-10 h-10" strokeWidth={1.5} />
+                </div>
                 <p className="text-[13px] font-bold text-[var(--text-dark)]">Shampoo Pineapple 5L</p>
               </div>
               <div className="text-2xl font-bold text-[var(--orange)] hidden md:block">+</div>
               <div className="text-2xl font-bold text-[var(--orange)] md:hidden">+</div>
               <div className="flex flex-col items-center text-center w-full md:w-1/3">
-                <div className="w-24 h-24 bg-white rounded-xl shadow-sm flex items-center justify-center text-4xl mb-3">💆</div>
+                <div className="w-24 h-24 bg-white rounded-xl shadow-sm flex items-center justify-center mb-3 text-[var(--pink)]">
+                  <Droplet className="w-10 h-10" strokeWidth={1.5} />
+                </div>
                 <p className="text-[13px] font-bold text-[var(--text-dark)]">Condicionador Essential 5L</p>
               </div>
               <div className="text-2xl font-bold text-[var(--orange)] hidden md:block">+</div>
               <div className="text-2xl font-bold text-[var(--orange)] md:hidden">+</div>
               <div className="flex flex-col items-center text-center w-full md:w-1/3">
-                <div className="w-24 h-24 bg-white rounded-xl shadow-sm flex items-center justify-center text-4xl mb-3">🌸</div>
+                <div className="w-24 h-24 bg-white rounded-xl shadow-sm flex items-center justify-center mb-3 text-[var(--pink)]">
+                  <Wind className="w-10 h-10" strokeWidth={1.5} />
+                </div>
                 <p className="text-[13px] font-bold text-[var(--text-dark)]">Deo Colônia Pineapple 500ml</p>
               </div>
             </div>
@@ -738,7 +744,7 @@ export default function Produto2() {
                   &quot;Uso há 8 meses no meu pet shop e não troco por nada. O odor some de verdade, não é aquela coisa de mascarar com perfume. A diluição 1:5 rende absurdamente bem — um frasco de 5L dura quase 2 meses no meu volume de atendimento. Recomendo demais para qualquer groomer.&quot;
                 </p>
                 <div className="text-[12px] text-[var(--text-light)] flex items-center gap-1">
-                  🐾 Usa em Spitz, Golden Retriever e Shih-tzu
+                  <Heart className="w-3 h-3" /> Usa em Spitz, Golden Retriever e Shih-tzu
                 </div>
               </div>
 
@@ -764,7 +770,7 @@ export default function Produto2() {
                   &quot;O pelo fica sedoso desde a primeira lavagem. Meus clientes percebem a diferença e sempre perguntam o que eu usei. O cheiro de abacaxi é suave e agradável, dura horas depois do banho. Melhor neutralizador que já usei em 12 anos de profissão.&quot;
                 </p>
                 <div className="text-[12px] text-[var(--text-light)] flex items-center gap-1">
-                  🐾 Golden Retriever e Labrador
+                  <Heart className="w-3 h-3" /> Golden Retriever e Labrador
                 </div>
               </div>
 
@@ -790,7 +796,7 @@ export default function Produto2() {
                   &quot;Uso em casa no meu Golden. Deixou os pelos dos meus cachorrinhos muito cheirosos e limpinhos, ficou bastante sedoso. Super aprovado e recomendo bastante! Já comprei 3 vezes.&quot;
                 </p>
                 <div className="text-[12px] text-[var(--text-light)] flex items-center gap-1">
-                  🐾 Golden Retriever
+                  <Heart className="w-3 h-3" /> Golden Retriever
                 </div>
               </div>
             </div>
