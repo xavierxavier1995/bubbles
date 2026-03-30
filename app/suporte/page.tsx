@@ -33,7 +33,7 @@ export default function FAQPage() {
       />
       
       {/* Header Section */}
-      <section className="pt-24 pb-12 px-6 bg-gradient-to-b from-white to-[#FAFAFA]">
+      <section className="pt-24 pb-12 px-6 bg-[linear-gradient(135deg,#F48FA1_0%,#F4CDD4_50%,#FFFFFF_100%)]">
         <div className="max-w-4xl mx-auto text-center space-y-6">
           <h1 className="text-4xl md:text-5xl font-bold text-[#1A1A1A] tracking-tight">
             Suporte Técnico e Perguntas Frequentes

@@ -332,7 +332,7 @@ export default function ReturnPolicy() {
         </section>
 
         {/* FAQ */}
-        <section className="relative py-20 px-6 md:px-12 bg-gradient-to-br from-[#fff0f3] via-[#f0f7ff] to-[#f5f0ff] overflow-hidden rounded-3xl">
+        <section className="relative py-20 px-6 md:px-12 bg-[linear-gradient(135deg,#F48FA1_0%,#F4CDD4_50%,#FFFFFF_100%)] overflow-hidden rounded-3xl">
           {/* Decorative Blobs */}
           <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
             <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-[#ffcce6] mix-blend-multiply filter blur-[100px] opacity-40 animate-blob"></div>

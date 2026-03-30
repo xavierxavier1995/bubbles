@@ -428,7 +428,7 @@ export default function FAQClient() {
   };
 
   return (
-    <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-[#fff0f3] via-[#f0f7ff] to-[#f5f0ff] font-sans text-[#1A1A1A]">
+    <div className="min-h-screen relative overflow-hidden bg-[linear-gradient(135deg,#F48FA1_0%,#F4CDD4_50%,#FFFFFF_100%)] font-sans text-[#1A1A1A]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
