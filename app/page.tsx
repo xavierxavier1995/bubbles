@@ -100,6 +100,14 @@ export default function ProjectHub() {
       statusColor: 'bg-blue-100 text-blue-700'
     },
     {
+      title: 'Design System',
+      path: '/design-system',
+      description: 'Padrões visuais, componentes e tipografia da Bubbles Pet.',
+      icon: LayoutTemplate,
+      status: 'Novo',
+      statusColor: 'bg-blue-100 text-blue-700'
+    },
+    {
       title: 'Design System: Degradês',
       path: '/degrades',
       description: 'Sugestões de fundos com gradientes suaves baseados na identidade visual da Bubbles.',

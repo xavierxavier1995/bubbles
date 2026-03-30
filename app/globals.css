@@ -1,5 +1,112 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
 
 @theme {
-  --font-sans: var(--font-figtree), ui-sans-serif, system-ui, sans-serif;
+  --font-figtree: "Figtree", sans-serif;
+  
+  /* Brand Colors */
+  --color-brand-dark: #0D0C0D;
+  --color-brand-pink: #F4CDD4;
+  --color-brand-super-pink: #E8649A;
+  
+  /* Action & Promo */
+  --color-action-green: #3DB85C;
+  --color-promo-red: #E03E3E;
+  
+  /* Line Colors */
+  --color-line-pro: #0D0C0D;
+  --color-line-essential: #F4CDD4;
+  --color-line-xperience: #C8A96E;
+  --color-line-collora: #B066C6;
+
+  /* Surface & Text */
+  --color-surface-page: #FFFFFF;
+  --color-surface-card: #FFFFFF;
+  --color-surface-muted: #F7F7F7;
+  --color-text-primary: #0D0C0D;
+  --color-text-muted: #999999;
+  
+  /* Borders */
+  --color-border-default: #E5E5E5;
+  --color-border-focus: #F4CDD4;
+  
+  /* Shadows */
+  --shadow-bubbles: 0 2px 8px rgba(0, 0, 0, 0.07);
+  --shadow-bubbles-hover: 0 8px 24px rgba(0, 0, 0, 0.14);
+  --shadow-cta: 0 4px 12px rgba(61, 184, 92, 0.25);
+  --shadow-cta-hover: 0 8px 20px rgba(61, 184, 92, 0.4);
+
+  /* Spacing Scale */
+  --spacing-space-1: 4px;
+  --spacing-space-2: 8px;
+  --spacing-space-3: 12px;
+  --spacing-space-4: 16px;
+  --spacing-space-6: 24px;
+  --spacing-space-8: 32px;
+  --spacing-space-12: 48px;
+}
+
+@layer base {
+  body {
+    @apply font-figtree text-text-primary bg-surface-page antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-black tracking-tight;
+  }
+}
+
+@layer components {
+  /* Buttons */
+  .btn-primary-green {
+    @apply bg-action-green text-white font-black uppercase text-[13px] px-8 py-4 rounded-full transition-all duration-200 hover:scale-105 hover:shadow-cta active:scale-95;
+  }
+  
+  .btn-dark {
+    @apply bg-brand-dark text-white font-black uppercase text-[13px] px-8 py-4 rounded-full transition-all duration-200 hover:bg-black active:scale-95;
+  }
+
+  .btn-outline-dark {
+    @apply border-2 border-brand-dark text-brand-dark font-black uppercase text-[13px] px-8 py-4 rounded-full transition-all duration-200 hover:bg-brand-dark hover:text-white active:scale-95;
+  }
+
+  .btn-outline-pink {
+    @apply border-2 border-brand-pink text-brand-dark font-black uppercase text-[13px] px-8 py-4 rounded-full transition-all duration-200 hover:bg-brand-pink active:scale-95;
+  }
+
+  .btn-outline-super-pink {
+    @apply border-2 border-brand-super-pink text-brand-super-pink font-black uppercase text-[13px] px-8 py-4 rounded-full transition-all duration-200 hover:bg-brand-super-pink hover:text-white active:scale-95;
+  }
+
+  .btn-ghost {
+    @apply text-brand-dark font-black uppercase text-[13px] px-4 py-2 transition-all duration-200 hover:bg-surface-muted rounded-md;
+  }
+
+  /* Inputs */
+  .input-bubbles {
+    @apply w-full h-12 px-4 bg-white border border-border-default rounded-lg text-[14px] transition-all duration-200 focus:outline-none focus:border-border-focus focus:ring-4 focus:ring-brand-pink/20 placeholder:text-text-muted;
+  }
+
+  /* Cards */
+  .card-bubbles {
+    @apply bg-white border border-border-default rounded-xl shadow-bubbles transition-all duration-250 hover:shadow-bubbles-hover hover:-translate-y-1;
+  }
+}
+
+/* Animations */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 3s ease-in-out infinite;
 }

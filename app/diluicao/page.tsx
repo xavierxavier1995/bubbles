@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import { DilutionCalculator } from '@/components/DilutionCalculator';
-import { Beaker, Droplets, AlertTriangle, ShieldCheck, CheckCircle2, Package, ArrowRight, MessageCircle, FlaskConical, Sparkles, TrendingUp, Shield, Info, PlayCircle } from 'lucide-react';
+import { Beaker, Zap, PiggyBank, Timer, BadgeAlert, MessageSquareWarning, MonitorPlay, Pipette, BadgeCheck, MoveRight, Stethoscope, ShoppingBag } from 'lucide-react';
 import Image from 'next/image';
 import SupportBanner from '@/components/SupportBanner';
 
@@ -79,7 +79,7 @@ export default function DilutionGuide() {
         <section className="grid md:grid-cols-2 gap-8 items-center max-w-5xl mx-auto animate-fade-in-up">
           <div className="space-y-4 text-left">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#F4CDD4]/30 text-[#0D0C0D] text-sm font-bold">
-              <FlaskConical className="w-4 h-4" />
+              <Beaker className="w-4 h-4" />
               <span>Guia Profissional</span>
             </div>
             <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-[#0D0C0D] leading-tight">
@@ -140,7 +140,7 @@ export default function DilutionGuide() {
           <div className="flex flex-col md:grid md:grid-cols-3 gap-6">
             <div className="bg-white border border-gray-100 rounded-2xl p-6 pt-12 shadow-sm relative flex flex-col items-center text-center animate-fade-in-up delay-100">
               <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-white flex items-center justify-center border-4 border-white shadow-sm">
-                <Sparkles className="w-6 h-6 text-[#F4CDD4]" />
+                <Zap className="w-6 h-6 text-[#F4CDD4]" />
               </div>
               <h3 className="text-lg font-bold mb-2">Ativação Química</h3>
               <div className="text-sm text-gray-600 leading-relaxed">
@@ -149,7 +149,7 @@ export default function DilutionGuide() {
             </div>
             <div className="bg-white border border-gray-100 rounded-2xl p-6 pt-12 shadow-sm relative flex flex-col items-center text-center animate-fade-in-up delay-200">
               <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-white flex items-center justify-center border-4 border-white shadow-sm">
-                <TrendingUp className="w-6 h-6 text-green-500" />
+                <PiggyBank className="w-6 h-6 text-green-500" />
               </div>
               <h3 className="text-lg font-bold mb-2">Rentabilidade Extrema</h3>
               <div className="text-sm text-gray-600 leading-relaxed">
@@ -158,7 +158,7 @@ export default function DilutionGuide() {
             </div>
             <div className="bg-white border border-gray-100 rounded-2xl p-6 pt-12 shadow-sm relative flex flex-col items-center text-center animate-fade-in-up delay-300">
               <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-white flex items-center justify-center border-4 border-white shadow-sm">
-                <Shield className="w-6 h-6 text-blue-500" />
+                <Timer className="w-6 h-6 text-blue-500" />
               </div>
               <h3 className="text-lg font-bold mb-2">Enxágue Rápido</h3>
               <div className="text-sm text-gray-600 leading-relaxed">
@@ -177,7 +177,7 @@ export default function DilutionGuide() {
               <div className="bg-red-50 rounded-3xl p-6 md:p-8 border border-red-100">
                 <div className="flex items-center gap-4 mb-4">
                   <div className="bg-white border border-red-200 rounded-xl p-3 flex-shrink-0 flex items-center justify-center">
-                    <AlertTriangle className="w-6 h-6 text-red-500" />
+                    <BadgeAlert className="w-6 h-6 text-red-500" />
                   </div>
                   <h2 className="text-lg font-bold text-red-900">Diluir MENOS que o indicado:</h2>
                 </div>
@@ -191,7 +191,7 @@ export default function DilutionGuide() {
               <div className="bg-orange-50 rounded-3xl p-6 md:p-8 border border-orange-100">
                 <div className="flex items-center gap-4 mb-4">
                   <div className="bg-white border border-orange-200 rounded-xl p-3 flex-shrink-0 flex items-center justify-center">
-                    <Info className="w-6 h-6 text-orange-500" />
+                    <MessageSquareWarning className="w-6 h-6 text-orange-500" />
                   </div>
                   <h2 className="text-lg font-bold text-orange-900">Diluir MAIS que o indicado:</h2>
                 </div>
@@ -226,7 +226,7 @@ export default function DilutionGuide() {
                 />
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex items-center justify-center">
                   <div className="w-14 h-14 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform">
-                    <PlayCircle className="w-8 h-8 text-[#0D0C0D] ml-1" />
+                    <MonitorPlay className="w-8 h-8 text-[#0D0C0D] ml-1" />
                   </div>
                 </div>
               </div>
@@ -247,7 +247,7 @@ export default function DilutionGuide() {
           >
             <div className="w-full md:w-1/2 space-y-6 text-center md:text-left animate-slide-in-left">
               <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-green-50 text-green-600 text-xs font-bold uppercase tracking-wider border border-green-200 shadow-sm">
-                <FlaskConical className="w-4 h-4 text-green-500" />
+                <Pipette className="w-4 h-4 text-green-500" />
                 Acessório Essencial
               </div>
               <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-[#0D0C0D] leading-tight">
@@ -258,18 +258,18 @@ export default function DilutionGuide() {
               </p>
               <ul className="space-y-3 text-base text-left inline-block md:block">
                 <li className="flex items-center gap-3 text-gray-800 font-medium">
-                  <CheckCircle2 className="w-5 h-5 text-[#F48FB1]" />
+                  <BadgeCheck className="w-5 h-5 text-[#F48FB1]" />
                   Marcações claras (1:4 até 1:10)
                 </li>
                 <li className="flex items-center gap-3 text-gray-800 font-medium">
-                  <CheckCircle2 className="w-5 h-5 text-[#F48FB1]" />
+                  <BadgeCheck className="w-5 h-5 text-[#F48FB1]" />
                   Capacidade de 500ml
                 </li>
               </ul>
               <div className="pt-4">
                 <div className="inline-flex items-center justify-center gap-2 bg-[#0D0C0D] text-white font-bold px-8 py-4 rounded-xl group-hover:bg-gray-800 transition-colors shadow-md text-base w-full md:w-auto">
                   Comprar Frasco
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  <MoveRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </div>
               </div>
             </div>
@@ -289,7 +289,7 @@ export default function DilutionGuide() {
         <section className="max-w-3xl mx-auto pt-12 animate-fade-in-up delay-200">
           <div className="bg-amber-50 border border-amber-200 rounded-2xl p-6 md:p-8 flex flex-col md:flex-row gap-6 items-center shadow-sm text-center md:text-left">
             <div className="w-16 h-16 bg-amber-100 rounded-2xl flex items-center justify-center shrink-0 border border-amber-200 shadow-inner">
-              <ShieldCheck className="w-8 h-8 text-amber-600" />
+              <Stethoscope className="w-8 h-8 text-amber-600" />
             </div>
             <div className="space-y-3 flex-1">
               <div className="flex flex-col md:flex-row items-center md:items-start gap-2 md:gap-3">
@@ -348,7 +348,7 @@ export default function DilutionGuide() {
 
           {/* Placeholder for Shopify Liquid */}
           <div className="bg-white border-2 border-dashed border-gray-300 rounded-3xl p-12 md:p-20 text-center mb-12 shadow-sm">
-            <Package className="w-16 h-16 text-gray-300 mx-auto mb-6" />
+            <ShoppingBag className="w-16 h-16 text-gray-300 mx-auto mb-6" />
             <p className="text-gray-500 font-mono text-base md:text-lg">
               {`{% section 'featured-collection' %}`}
               <br/>

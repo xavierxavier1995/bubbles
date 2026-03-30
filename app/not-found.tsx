@@ -1,7 +1,9 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Home, Droplet, Search, ShoppingCart, User, Menu, Heart, Award, Scissors, Truck, ChevronDown } from 'react-feather';
+import { Home, Droplet, Search, ShoppingCart, User, Menu, Heart, Award, Scissors, Truck, ChevronDown } from 'lucide-react';
 
 export default function NotFound() {
   return (

@@ -65,7 +65,7 @@ export default function Produto2() {
   };
 
   const images = [
-    { url: 'https://www.bubbles.com.br/cdn/shop/files/525635e9651d7d5398dbb558abaffaa9.jpg?v=1773185297&width=1206', alt: 'Shampoo Pineapple Essential 5L' },
+    { url: 'https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=800&auto=format&fit=crop', alt: 'Shampoo Pineapple Essential 5L' },
     { url: 'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=800&auto=format&fit=crop', alt: 'Pet no Banho' },
     { url: 'https://images.unsplash.com/photo-1550246140-5119ae4790b8?q=80&w=800&auto=format&fit=crop', alt: 'Ingredientes Naturais' },
     { url: 'https://images.unsplash.com/photo-1586445580980-08080211283e?q=80&w=800&auto=format&fit=crop', alt: 'Textura da Espuma' }
@@ -105,6 +105,14 @@ export default function Produto2() {
         }
         .animate-marquee {
           animation: marquee 20s linear infinite;
+        }
+        
+        @keyframes strong-pulse {
+          0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37,211,102, 0.7); }
+          50% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(37,211,102, 0); }
+        }
+        .animate-strong-pulse {
+          animation: strong-pulse 1.5s infinite;
         }
         
         .scrollbar-hide::-webkit-scrollbar {
@@ -211,10 +219,10 @@ export default function Produto2() {
               ))}
               {/* Arrows for desktop */}
               <div className="hidden md:flex items-center justify-center gap-4 mt-2">
-                <button onClick={prevImage} className="bg-[var(--pink)] text-white hover:bg-[var(--pink-dark)] transition-colors p-2 rounded-full shadow-sm">
+                <button onClick={prevImage} className="bg-[var(--pink-light)] text-[var(--pink)] hover:bg-[var(--pink)] hover:text-white transition-colors p-2 rounded-full shadow-sm">
                   <ChevronLeft className="w-5 h-5" />
                 </button>
-                <button onClick={nextImage} className="bg-[var(--pink)] text-white hover:bg-[var(--pink-dark)] transition-colors p-2 rounded-full shadow-sm">
+                <button onClick={nextImage} className="bg-[var(--pink-light)] text-[var(--pink)] hover:bg-[var(--pink)] hover:text-white transition-colors p-2 rounded-full shadow-sm">
                   <ChevronRight className="w-5 h-5" />
                 </button>
               </div>
@@ -356,7 +364,7 @@ export default function Produto2() {
                     <Gift className="w-4 h-4 md:w-6 md:h-6 flex-shrink-0" />
                     <div className="flex-1 min-w-0">
                       <span className="block font-bold text-[10px] sm:text-[11px] md:text-[14px] uppercase tracking-wide truncate">Brinde Grátis Desbloqueado!</span>
-                      <span className="block text-[9px] sm:text-[10px] md:text-[12px] opacity-90 leading-[1.1] whitespace-normal">Você ganhou um brinde especial (Acima de <strong className="font-black">R$399,00</strong>)</span>
+                      <span className="block text-[9px] sm:text-[10px] md:text-[12px] opacity-90 leading-[1.1] whitespace-normal">Brinde especial em compras acima de <strong className="font-black">R$399,00</strong></span>
                     </div>
                   </div>
                 )}
@@ -534,7 +542,7 @@ export default function Produto2() {
             </div>
 
             {/* Accordion 4: Composição */}
-            <div className="border-b border-[var(--border)]">
+            <div className="border-b border-[var(--border)] last:border-0">
               <button 
                 onClick={() => toggleAccordion(4)}
                 className="w-full px-6 py-4 flex items-center justify-between bg-white hover:bg-gray-50 transition-colors"
@@ -547,51 +555,6 @@ export default function Produto2() {
               {openAccordion === 4 && (
                 <div className="px-6 pb-6 pt-2 text-[14px] text-[var(--text-mid)] leading-relaxed">
                   <p className="uppercase text-xs leading-relaxed">ÁGUA, LAURILSULFATO DE SÓDIO, COCOAMIDOPROPILBETAÍNA, DIETANOLAMINA COCAMIDA, FRAGRÂNCIA, PEG-90M, DIESTEARATO DE PEG-150, POLIQUATÉRNIO-7, EDETATO DISSÓDICO, METILCLOROISOTIAZOLINONA E METILISOTIAZOLINONA, HEXIL CINAMAL, LIMONENO, ÁCIDO CÍTRICO, LINALOL, CORANTE AMARELO DE TARTRAZINA 19140.</p>
-                </div>
-              )}
-            </div>
-
-            {/* Accordion 5: Dúvidas */}
-            <div className="border-b border-[var(--border)] last:border-0">
-              <button 
-                onClick={() => toggleAccordion(5)}
-                className="w-full px-6 py-4 flex items-center justify-between bg-white hover:bg-gray-50 transition-colors"
-              >
-                <span className="font-bold text-[15px] text-[var(--text-dark)] flex items-center gap-2">
-                  <HelpCircle className="w-4 h-4 text-[var(--pink)]" /> Dúvidas Frequentes
-                </span>
-                {openAccordion === 5 ? <ChevronUp className="w-5 h-5 text-[var(--text-mid)]" /> : <ChevronDown className="w-5 h-5 text-[var(--text-mid)]" />}
-              </button>
-              {openAccordion === 5 && (
-                <div className="px-6 pb-6 pt-2 text-[14px] text-[var(--text-mid)] leading-relaxed space-y-4">
-                  <div>
-                    <p className="font-bold text-[var(--text-dark)]">1. Qual a diferença entre o Neutralizador Pineapple e o Neutralizador Essential tradicional?</p>
-                    <p>A principal diferença está na fragrância e na formulação da edição especial. O Neutralizador Pineapple possui fragrância marcante de abacaxi, além de nova fórmula com maior formação de espuma, proporcionando uma experiência de banho ainda mais sensorial. A função de neutralizar odores da pelagem continua a mesma.</p>
-                  </div>
-                  <div>
-                    <p className="font-bold text-[var(--text-dark)]">2. O Neutralizador Pineapple substitui o Neutralizador Essential tradicional?</p>
-                    <p>Não. Ele é uma edição especial da linha Essential, criada como uma opção diferenciada de fragrância e experiência no banho.</p>
-                  </div>
-                  <div>
-                    <p className="font-bold text-[var(--text-dark)]">3. A diluição é a mesma do Neutralizador Essential?</p>
-                    <p>Sim. A diluição recomendada é 1 parte de shampoo para 5 partes de água.</p>
-                  </div>
-                  <div>
-                    <p className="font-bold text-[var(--text-dark)]">4. Ele realmente neutraliza odores ou apenas perfuma?</p>
-                    <p>O produto foi desenvolvido para auxiliar na redução dos odores da pelagem, atuando nas principais fontes de mau cheiro, como umidade, sebo e sujeira, além de deixar uma fragrância agradável.</p>
-                  </div>
-                  <div>
-                    <p className="font-bold text-[var(--text-dark)]">5. A fragrância de abacaxi é muito forte?</p>
-                    <p>A fragrância foi desenvolvida para ser marcante e agradável, trazendo uma sensação tropical e refrescante após o banho.</p>
-                  </div>
-                  <div>
-                    <p className="font-bold text-[var(--text-dark)]">6. Pode ser usado em cães e gatos?</p>
-                    <p>Sim, o produto pode ser utilizado em cães e gatos, respeitando sempre as recomendações de uso.</p>
-                  </div>
-                  <div>
-                    <p className="font-bold text-[var(--text-dark)]">7. Pode ser usado em qualquer tipo de pelagem?</p>
-                    <p>Sim. O shampoo foi desenvolvido para uso em diferentes tipos de pelagem, promovendo limpeza e sensação de frescor.</p>
-                  </div>
                 </div>
               )}
             </div>
@@ -1017,12 +980,36 @@ export default function Produto2() {
           <div className="space-y-3">
             {[
               {
-                q: "Posso usar em filhotes?",
-                a: "Não recomendamos para filhotes com menos de 4 semanas de vida. Para filhotes entre 4 semanas e 3 meses, recomendamos consultar seu médico veterinário antes do uso."
+                q: "Qual a diferença entre o Neutralizador Pineapple e o Neutralizador Essential tradicional?",
+                a: "A principal diferença está na fragrância e na formulação da edição especial. O Neutralizador Pineapple possui fragrância marcante de abacaxi, além de nova fórmula com maior formação de espuma, proporcionando uma experiência de banho ainda mais sensorial. A função de neutralizar odores da pelagem continua a mesma."
               },
               {
-                q: "Funciona para gatos?",
-                a: "Sim! O Pineapple Essential é indicado para cães e gatos de todas as raças. A fórmula suave e hipoalergênica é segura para felinos, desde que não haja problemas dermatológicos ativos."
+                q: "O Neutralizador Pineapple substitui o Neutralizador Essential tradicional?",
+                a: "Não. Ele é uma edição especial da linha Essential, criada como uma opção diferenciada de fragrância e experiência no banho."
+              },
+              {
+                q: "A diluição é a mesma do Neutralizador Essential?",
+                a: "Sim. A diluição recomendada é 1 parte de shampoo para 5 partes de água."
+              },
+              {
+                q: "Ele realmente neutraliza odores ou apenas perfuma?",
+                a: "O produto foi desenvolvido para auxiliar na redução dos odores da pelagem, atuando nas principais fontes de mau cheiro, como umidade, sebo e sujeira, além de deixar uma fragrância agradável."
+              },
+              {
+                q: "A fragrância de abacaxi é muito forte?",
+                a: "A fragrância foi desenvolvida para ser marcante e agradável, trazendo uma sensação tropical e refrescante após o banho."
+              },
+              {
+                q: "Pode ser usado em cães e gatos?",
+                a: "Sim, o produto pode ser utilizado em cães e gatos, respeitando sempre as recomendações de uso."
+              },
+              {
+                q: "Pode ser usado em qualquer tipo de pelagem?",
+                a: "Sim. O shampoo foi desenvolvido para uso em diferentes tipos de pelagem, promovendo limpeza e sensação de frescor."
+              },
+              {
+                q: "Posso usar em filhotes?",
+                a: "Não recomendamos para filhotes com menos de 4 semanas de vida. Para filhotes entre 4 semanas e 3 meses, recomendamos consultar seu médico veterinário antes do uso."
               },
               {
                 q: "Posso guardar o produto já diluído?",
@@ -1115,7 +1102,7 @@ export default function Produto2() {
             </div>
           </div>
         </div>
-        <button className="bg-[#25D366] hover:bg-[#1DA851] text-white font-[900] uppercase tracking-wide text-[14px] md:text-[16px] py-2 md:py-3 px-6 md:px-8 rounded-[var(--radius-md)] flex items-center gap-2 transition-all hover:scale-[1.05] active:scale-[0.98] animate-[pulse_1.5s_ease-in-out_infinite] shadow-[0_0_20px_rgba(37,211,102,0.8)]">
+        <button className="bg-[#25D366] hover:bg-[#1DA851] text-white font-[900] uppercase tracking-wide text-[14px] md:text-[16px] py-2 md:py-3 px-6 md:px-8 rounded-[var(--radius-md)] flex items-center gap-2 transition-all hover:scale-[1.05] active:scale-[0.98] animate-strong-pulse shadow-[0_0_20px_rgba(37,211,102,0.8)]">
           <ShoppingCart className="w-4 h-4 md:w-5 md:h-5" />
           <span className="hidden md:inline">Comprar agora</span>
           <span className="md:hidden">Comprar</span>
