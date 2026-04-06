@@ -4,6 +4,22 @@ import { LayoutTemplate, FileText, ArrowRight, Sparkles, RefreshCcw, ShieldCheck
 export default function ProjectHub() {
   const pages = [
     {
+      title: 'Distribuidor Gabriel',
+      path: '/distribuidor-gabriel',
+      description: 'Página de alta conversão para distribuidores regionais.',
+      icon: Users,
+      status: 'Novo',
+      statusColor: 'bg-blue-100 text-blue-700'
+    },
+    {
+      title: 'Página de Produto (Versão B)',
+      path: '/produto-2-b',
+      description: 'Versão B otimizada da página de produto (Shampoo Neutralizador PRO).',
+      icon: Package,
+      status: 'Novo',
+      statusColor: 'bg-blue-100 text-blue-700'
+    },
+    {
       title: 'Página 404',
       path: '/pagina-nao-encontrada-teste',
       description: 'Página de erro 404 personalizada com a temática da Bubbles Pet.',
