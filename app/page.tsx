@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { LayoutTemplate, FileText, ArrowRight, Sparkles, RefreshCcw, ShieldCheck, Gavel, MapPinIcon, Mail, HelpCircle, Package, Truck, AlertCircle } from 'lucide-react';
+import { LayoutTemplate, FileText, ArrowRight, Sparkles, RefreshCcw, ShieldCheck, Gavel, MapPinIcon, Mail, HelpCircle, Package, Truck, AlertCircle, Users } from 'lucide-react';
 
 export default function ProjectHub() {
   const pages = [
@@ -84,6 +84,14 @@ export default function ProjectHub() {
       statusColor: 'bg-green-100 text-green-700'
     },
     {
+      title: 'Central de Ajuda e Suporte',
+      path: '/suporte',
+      description: 'Página de suporte técnico, diluição e dúvidas frequentes.',
+      icon: HelpCircle,
+      status: 'Novo',
+      statusColor: 'bg-blue-100 text-blue-700'
+    },
+    {
       title: 'Variações de Newsletter',
       path: '/newsletter',
       description: '10 opções de design e copy para captura de leads.',
@@ -96,6 +104,22 @@ export default function ProjectHub() {
       path: '/newsletter-nova',
       description: 'Nova opção de newsletter com cashback.',
       icon: Mail,
+      status: 'Novo',
+      statusColor: 'bg-blue-100 text-blue-700'
+    },
+    {
+      title: 'Design System v3',
+      path: '/design-system-v3',
+      description: 'Versão atualizada e expandida do sistema de design Bubbles.',
+      icon: Sparkles,
+      status: 'Novo',
+      statusColor: 'bg-blue-100 text-blue-700'
+    },
+    {
+      title: 'Seja um Distribuidor',
+      path: '/seja-um-distribuidor',
+      description: 'Página de recrutamento de novos parceiros e distribuidores oficiais.',
+      icon: Users,
       status: 'Novo',
       statusColor: 'bg-blue-100 text-blue-700'
     },
