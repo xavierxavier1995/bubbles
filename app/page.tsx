@@ -155,6 +155,14 @@ export default function ProjectHub() {
       status: 'Novo',
       statusColor: 'bg-blue-100 text-blue-700'
     },
+    {
+      title: 'Fale Conosco (Contato)',
+      path: '/contato',
+      description: 'Página de contato com formulário e informações de atendimento.',
+      icon: Mail,
+      status: 'Novo',
+      statusColor: 'bg-blue-100 text-blue-700'
+    },
   ];
 
   return (

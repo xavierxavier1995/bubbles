@@ -35,7 +35,7 @@ const HeroCarousel = () => {
       setIndex((prev) => (prev + 1) % lines.length);
     }, 4000);
     return () => clearInterval(timer);
-  }, []);
+  }, [lines.length]);
 
   return (
     <div className="relative w-full h-full group rounded-[40px] overflow-hidden">

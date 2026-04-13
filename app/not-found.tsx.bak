@@ -164,12 +164,11 @@ export default function NotFound() {
 
         <div className="flex flex-col items-center md:items-start z-10 max-w-lg">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-[var(--text-dark)] mb-4 tracking-tight">
-            Ops! Cadê o pet?
+            Ixi, derramou o shampoo...
           </h1>
           
           <p className="text-[var(--text-mid)] text-base md:text-lg mb-6 md:mb-8 leading-relaxed">
-            Parece que a página que você está procurando tomou um banho e sumiu no meio de tanta espuma. 
-            Não se preocupe, nossos groomers já estão procurando!
+            A página que você tentou acessar não foi encontrada. Ela pode ter sido movida, excluída ou o link está incorreto. Mas fique tranquilo, nossa loja está cheia de produtos incríveis esperando por você.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 w-full justify-center md:justify-start">
