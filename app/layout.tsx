@@ -15,8 +15,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
-    <html lang="pt-BR" className={figtree.variable} suppressHydrationWarning>
-      <body className="font-sans antialiased flex flex-col min-h-screen" suppressHydrationWarning>
+    <html lang="pt-BR" className={figtree.variable}>
+      <body className="font-sans antialiased flex flex-col min-h-screen">
         <main className="flex-grow">
           {children}
         </main>
